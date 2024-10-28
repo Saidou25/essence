@@ -9,7 +9,7 @@ export default function Finish({ end, userAnswers }) {
     }
     return (
       <>
-        <span>Your total for the assessment is: {3 / totalRating * 100}%</span>
+        <span>Your total for the assessment is: { totalRating / 20 * 100}%</span>
       </>
     );
   };
