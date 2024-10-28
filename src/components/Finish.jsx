@@ -1,6 +1,18 @@
 import React from "react";
 
 export default function Finish({ end, userAnswers }) {
+  const renderTotal = () => {
+    let totalRating = 0;
+
+    for (let userAnswer of userAnswers) {
+      totalRating += Number(userAnswer.userSelfRating); // Convert to number to avoid string concatenation
+    }
+    return (
+      <>
+        <span>Your total for the assessment is: {3 / totalRating * 100}%</span>
+      </>
+    );
+  };
   return (
     <>
       <h2>{end}</h2>
@@ -17,7 +29,7 @@ export default function Finish({ end, userAnswers }) {
             </div>
           ))}
       </div>
-      )
+      {renderTotal()}
     </>
   );
 }
