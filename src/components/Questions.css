@@ -1,0 +1,63 @@
+.button {
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+  margin: 5px;
+  /* color: rgb(213, 202, 202); */
+}
+.button:hover,
+.no-response:hover {
+  background-color: orange;
+}
+.button-selected {
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+  background-color: orange;
+  margin: 5px;
+}
+.no-response {
+  margin-left: 57%;
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+}
+.no-response:hover {
+  margin-left: 57%;
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+}
+.no-response-selected {
+  margin-left: 57%;
+  cursor: pointer;
+  /* border: solid; */
+  /* border-width: 2px; */
+  padding: 10px;
+  background-color: orange;
+}
+.btn-submit {
+  cursor: pointer;
+  border: none;
+  background-color: orange;
+  padding: 10px;
+  /* border-radius: 18% !important; */
+}
+.navigation-icons {
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+}
+
+.card-title {
+  text-align: center;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.button-selected.orange {
+  background-color: orange;
+  color: white;
+}
