@@ -43,15 +43,15 @@ export default function Questions() {
   };
 
   const handleRatingClick = (value) => {
-    console.log(value)
+    console.log(value);
     setPass(false);
     setIsSelected(value - 1);
-if (value === 0) {
-  setIsSelected("");
-  setPass(true);
-  resetFormState();
-  setButtonDisabled(false); // Enable the submit button for "No Response"
-}
+    if (value === 0) {
+      setIsSelected("");
+      setPass(true);
+      resetFormState();
+      setButtonDisabled(false); // Enable the submit button for "No Response"
+    }
     // Update formState only, not userAnswers
     setFormState((prevState) => ({
       ...prevState,
@@ -153,7 +153,7 @@ if (value === 0) {
       setForwardDisabled(true);
     }
   }, [userAnswers, currentQuestionIndex]);
-  // console.log("is selected", isSelected);
+  console.log("is selected", isSelected);
 
   if (end) {
     return <Finish end={end} userAnswers={userAnswers} />;
@@ -173,7 +173,7 @@ if (value === 0) {
       >
         <div className="card-title">
           <h2 style={{ textAlign: "center" }}>
-            Question {currentQuestion.questionNumber}
+            Question {currentQuestion.questionNumber} of 44
           </h2>
         </div>
         <div className="navigation-icons">
@@ -191,6 +191,10 @@ if (value === 0) {
         <br />
         <div className="card-body" style={{ textAlign: "center" }}>
           <h2>{currentQuestion.questionStatment}</h2>
+          <div className="container" style={{ maxWidth: "30%", margin: "auto" }}>
+            <img alt="illustration" src={currentQuestion.illustration} 
+            style={{maxWidth: "100%", height: "auto"}}/>
+          </div>
           <br />
           <div>
             <div>Your rating: </div> <br />
@@ -206,7 +210,6 @@ if (value === 0) {
                   }
                   onClick={() => handleRatingClick(index + 1)}
                 >
-                  {/* {index + 1} */}
                   {scale}
                 </button>
               </div>
