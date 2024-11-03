@@ -1,39 +1,92 @@
+.button-line-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 120px;
+}
+.button-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
 .button {
+  position: relative;
   cursor: pointer;
   border: none;
-  padding: 10px;
-  margin: 5px;
-  /* color: rgb(213, 202, 202); */
+  padding: 20px;
+  border-radius: 50%;
+  z-index: 1;
+}
+.button-line {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  background-color: #dbd3d3;
+  height: 2px;
+}
+/* Line for the first button: starts at the button center and extends to the right */
+.button-line-start {
+  left: 50%; /* Start from the center of the button */
+  right: 0; /* Extend to the right edge of the container */
+}
+
+/* Line for buttons in the middle (index 1, 2, and 3): extends across the entire container */
+.button-line-full {
+  left: 0; /* Start from the left edge */
+  right: 0; /* Extend to the right edge */
+}
+
+/* Line for the last button: starts from the left and stops at the button center */
+.button-line-end {
+  left: 0; /* Start from the left edge */
+  right: 50%; /* Stop at the button center */
+}
+.scale-text {
+  width: 90px;
+  text-align: center;
+}
+.neutral-placeholder::after {
+  content: " Placeholder";
+  opacity: 0;
 }
 .button:hover,
 .no-response:hover {
-  background-color: orange;
+  background-color: rgb(214, 211, 205);
 }
 .button-selected {
+  background-color: orange;
+  position: relative;
   cursor: pointer;
   border: none;
-  padding: 10px;
-  background-color: rgba(98, 96, 94, 0.913);
-  margin: 5px;
+  padding: 20px;
+  border-radius: 50%;
+  z-index: 1;
 }
 .no-response {
-  margin-left: 57%;
+  position: relative;
   cursor: pointer;
   border: none;
-  padding: 10px;
-}
-.no-response:hover {
-  margin-left: 57%;
-  cursor: pointer;
-  border: none;
-  padding: 10px;
+  padding: 20px;
+  border-radius: 50%;
+  z-index: 1;
 }
 .no-response-selected {
-  margin-left: 57%;
+  position: relative;
   cursor: pointer;
-  /* border: solid; */
-  /* border-width: 2px; */
-  padding: 10px;
+  border: none;
+  padding: 20px;
+  border-radius: 50%;
+  z-index: 1;
   background-color: orange;
 }
 .btn-submit {

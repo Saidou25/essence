@@ -21,6 +21,9 @@ export default function Questions() {
     noResponse: "",
   });
   // console.log(forwardDisabled);
+
+  const buttons = [1, 2, 3, 4, 5];
+  const currentQuestion = questionsData[currentQuestionIndex];
   const scales = [
     "Strongly Disagree",
     "Somewhat Disagree",
@@ -28,8 +31,8 @@ export default function Questions() {
     "Somewhat Agree",
     "Strongly agree",
   ];
-
-  const currentQuestion = questionsData[currentQuestionIndex];
+  // const currentScale = scales[currentScaleIndex];
+  // console.log(currentScale)
 
   // console.log("user answers", userAnswers);
   // console.log("form state", formState);
@@ -153,7 +156,7 @@ export default function Questions() {
       setForwardDisabled(true);
     }
   }, [userAnswers, currentQuestionIndex]);
-  console.log("is selected", isSelected);
+  console.log("forward disabled", forwardDisabled);
 
   if (end) {
     return <Finish end={end} userAnswers={userAnswers} />;
@@ -161,7 +164,6 @@ export default function Questions() {
 
   return (
     <>
-      <div>Please rate how much you agree with the statement:</div>
       <br />
       <div
         className="card"
@@ -191,41 +193,76 @@ export default function Questions() {
         <br />
         <div className="card-body" style={{ textAlign: "center" }}>
           <h2>{currentQuestion.questionStatment}</h2>
-          <div className="container" style={{ maxWidth: "30%", margin: "auto" }}>
-            <img alt="illustration" src={currentQuestion.illustration} 
-            style={{maxWidth: "100%", height: "auto"}}/>
+          <div
+            className="container"
+            style={{ maxWidth: "30%", margin: "auto" }}
+          >
+            <img
+              alt="illustration"
+              src={currentQuestion.illustration}
+              style={{ maxWidth: "100%", height: "auto" }}
+            />
           </div>
           <br />
           <div>
-            <div>Your rating: </div> <br />
-            {scales.map((scale, index) => (
-              <div
-                key={index}
-                style={{ display: "inline-block", marginRight: "10px" }}
-              >
+            <br />
+            <span>
+              Please rate how much you agree with the above statement:
+            </span>
+            <br />
+            <br />
+            <br />
+            <div className="button-line-container">
+              {buttons.map((button, index) => (
+                <div className="button-rating" key={index}>
+                  <div className="button-wrapper">
+                    <button
+                      type="button"
+                      className={
+                        isSelected === index ? "button-selected" : "button"
+                      }
+                      onClick={() => handleRatingClick(index + 1)}
+                    ></button>
+                    {index === 0 && (
+                      <div className="button-line button-line-start"></div>
+                    )}
+                    {index > 0 && index < 4 && (
+                      <div className="button-line button-line-full"></div>
+                    )}
+                    {index === 4 && (
+                      <div className="button-line button-line-end"></div>
+                    )}
+                  </div>
+                  <p className="scale-text">
+                    {index < scales.length ? scales[index] : null}
+                  </p>
+                  <p style={{ visibility: "hidden" }}>
+                    {/* create empty space needed to keep homogene display with other buttons */}
+                    {scales[index] === "Neutral" ? "Neutral" : ""}
+                  </p>
+                </div>
+              ))}
+
+              <div className="button-rating">
                 <button
-                  type="button"
                   className={
-                    isSelected === index ? "button-selected" : "button"
+                    isSelected === -1 || pass
+                      ? "no-response-selected"
+                      : "no-response"
                   }
-                  onClick={() => handleRatingClick(index + 1)}
-                >
-                  {scale}
-                </button>
+                  type="button"
+                  onClick={() => handleRatingClick(0)}
+                  style={{ marginLeft: "15%" }}
+                ></button>
+                <p className="scale-text">
+                  No<div></div>{" "}
+                  {/* create empty space needed to keep homogene display with other buttons */}
+                  <div></div> Response
+                </p>
+                <p style={{ visibility: "hidden" }}></p>
               </div>
-            ))}
-            <button
-              className={
-                isSelected === -1 || pass
-                  ? "no-response-selected"
-                  : "no-response"
-              }
-              type="button"
-              onClick={() => handleRatingClick(0)}
-              style={{ marginLeft: "15%" }}
-            >
-              No Response
-            </button>
+            </div>
+
             <br />
             <br />
             <br />
