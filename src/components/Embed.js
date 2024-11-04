@@ -700,7 +700,8 @@ console.log(buttonDisabled)
                 {
                   className: "button-submit",
                   type: "button",
-                  disabled:  style: { cursor: buttonDisabled ? 'not-allowed' : 'pointer' },
+                  style: { cursor: buttonDisabled ? 'not-allowed' : 'pointer' },
+                  disabled: buttonDisabled,
                   onClick: handleSubmit,
                 },
                 "SUBMIT"
