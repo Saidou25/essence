@@ -5,109 +5,140 @@
 
 <style>
 .main-container {
-    background-color: white;
-    width: 100%;
-    padding: 10px;
+  background-color: white;
+  width: 100%;
+  padding: 10px;
+}
+.card-title {
+  text-align: center;
 }
 .grey-text {
-  color: rgba(98, 96, 94, 0.913);
-  margin-bottom: 3%;
+  color: rgb(97, 95, 92);
   text-align: center;
-  margin-top: 3%;
-}
-.container-illustration {
-max-width: 40%;
-margin: auto;
-text-align: center;
-}
-.illustration {
-    max-width: 100%;
-    height: auto;
-}
-.buttons-div {
-    max-width: 80%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-}
-.button {
-  cursor: pointer;
-  border: none;
-  padding: 10px;
-  margin: 5px;
-}
-.button-selected {
-    cursor: pointer;
-    border: none;
-    padding: 10px;
-    background-color: orange;
-    margin: 5px;
-}
-.no-response {
-    cursor: pointer;
-    border: none;
-    padding: 10px;
-    margin: 5px;
-}
-    .button:hover,
-    .no-response:hover {
-      background-color: orange;
-      color: white
-    }
-.no-response-selected {
-      cursor: pointer;
-      padding: 10px;
-      border: none;
-      background-color: orange;
-}
-.button-submit-div {
-      display: flex;
-      justify-content: center;
-      margin-top: 4%;
-      margin-bottom: 4%;
-}
-.button-submit {
-  cursor: pointer;
-  border: none;
-  background-color: orange;
-  padding: 10px;
-width: 10%;
-border-radius: 25px;
-}
-.button-submit:hover {
-  cursor: pointer;
-  border: none;
-  background-color: orange;
-  padding: 10px;
-  color: white;
+  font-family: Poppins, sans-serif;
 }
 .navigation-icons {
   display: inline-block;
   display: flex;
   justify-content: center;
 }
-
-.card-title {
-  text-align: center;
-}
-.aspect {
-    text-align: center;
-    color: rgba(98, 96, 94, 0.913);
-    margin-bottom: 3%;
-
-}
+.icon { width: 24px; height: 24px; cursor: pointer; } 
 .card-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.button-selected.orange {
+.container-illustration {
+  max-width: 60%;
+  margin: auto;
+  text-align: center;
+}
+.illustration {
+  max-width: 100%;
+  height: auto;
+}
+.button-line-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 120px;
+}
+.button-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.button-selected {
   background-color: orange;
-  color: white;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  padding: 20px;
+  border-radius: 50%;
+  z-index: 1;
+}
+.button {
+  position: relative;
+  cursor: pointer;
+  border: none;
+  padding: 20px;
+  border-radius: 50%;
+  z-index: 1;
+}
+.button-line {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  background-color: #dbd3d3;
+  height: 2px;
+}
+/* Line for the first button: starts at the button center and extends to the right */
+.button-line-start {
+  left: 50%; /* Start from the center of the button */
+  right: 0; /* Extend to the right edge of the container */
 }
 
-  .navigation-icons { display: flex; justify-content: space-between; }
-  .icon { width: 24px; height: 24px; cursor: pointer; }
+/* Line for buttons in the middle (index 1, 2, and 3): extends across the entire container */
+.button-line-full {
+  left: 0; /* Start from the left edge */
+  right: 0; /* Extend to the right edge */
+}
+/* Line for the last button: starts from the left and stops at the button center */
+.button-line-end {
+  left: 0; /* Start from the left edge */
+  right: 50%; /* Stop at the button center */
+}
+.scale-text {
+  width: 90px;
+  text-align: center;
+  color: rgb(97, 95, 92);
+}
+.button:hover,
+.no-response:hover {
+  background-color: rgb(144, 142, 137);
+}
+.no-response-selected {
+  position: relative;
+  cursor: pointer;
+  border: none;
+  padding: 20px;
+  border-radius: 50%;
+  z-index: 1;
+  background-color: orange;
+}
+.no-response {
+  position: relative;
+  cursor: pointer;
+  border: none;
+  padding: 20px;
+  border-radius: 50%;
+  z-index: 1;
+}
+.button-submit-wrapper:hover .button-submit {
+  background-color: #267b7d;
+  cursor: not-allowed;
+}
+.button-submit {
+  cursor: pointer;
+  border: none;
+  background-color: #e37d37;
+  width: 15%;
+  border-radius: 25px;
+padding: 10px;
+color: white;
+}
+
+
 </style>
 
 <script>
@@ -116,7 +147,7 @@ const questionsData = [
     questionNumber: 1,
     questionStatment: "I Know Thyself… Spirit, Heart, Body, Mind, and Soul.",
     userSelfRating: "",
-    illustration: "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/image1-Yyv300gMqjCN0XZb.jpg",
+    illustration: "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/aspect-1-mP4nMR2wVqUBM9jJ.jpg",
   },
   {
     questionNumber: 2,
@@ -426,7 +457,8 @@ const questionsData = [
         noResponse: "",
       });
 
-      const scales = ["Strongly Disagree", "Somewhat Disagree", "Neutral", "Somewhat Agree", "Strongly agree"]
+      const scales = ["Strongly Disagree", "Somewhat Disagree", "Neutral", "Somewhat Agree", "Strongly agree"];  
+      const buttons = [1, 2, 3, 4, 5];
 
       const currentQuestion = questionsData[currentQuestionIndex];
 
@@ -439,7 +471,6 @@ const questionsData = [
       };
 
   const handleRatingClick = (value) => {
-console.log("clicked an answer");
     setPass(false);
     setIsSelected(value - 1);
 
@@ -449,12 +480,10 @@ console.log("clicked an answer");
       userSelfRating: value,
       noResponse: "",
     }));
-
     setButtonDisabled(false); // Enable the submit button when a rating is selected
   };
 
   const handleGoBack = () => {
-console.log("clicked go back");
     if (currentQuestionIndex > 0) {
       const previousQuestionIndex = currentQuestionIndex - 1;
       const previousAnswer = userAnswers.find(
@@ -479,7 +508,6 @@ console.log("clicked go back");
   };
 
   const handleNextQuestion = () => {
-console.log("clicked next question");
     if (forwardDisabled) return; // Prevent navigation if forwardDisabled is true
     if (currentQuestionIndex < questionsData.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -495,9 +523,8 @@ console.log("clicked next question");
       setIsSelected("");
     }
   };
-console.log(forwardDisabled)
+
       const handleSubmit = () => {
-console.log("answer submitted");
     // Store formState in userAnswers only on submission
     setUserAnswers((prev) => {
       const existingAnswerIndex = prev.findIndex(
@@ -531,18 +558,14 @@ console.log("answer submitted");
   };
 
   React.useEffect(() => {
-    console.log(userAnswers);
     setButtonDisabled(true);
     if (userAnswers.length === 0) {
       return;
     }
-    // console.log("user answers", userAnswers);
     const answeredQuestion = userAnswers.find(
       (userAnswer) => userAnswer.questionNumber - 1 === currentQuestionIndex
     );
-    // console.log(answeredQuestion);
     if (answeredQuestion) {
-      console.log(answeredQuestion.userSelfRating);
       setStoredUserSelfRating(answeredQuestion.userSelfRating);
       setIsSelected(answeredQuestion.userSelfRating - 1);
     } else {
@@ -550,16 +573,35 @@ console.log("answer submitted");
     }
   }, [userAnswers, currentQuestionIndex]);
 
-
+console.log(buttonDisabled)
     if (end) {
       return React.createElement(Finish, { userAnswers });
     }
 
-    return React.createElement('div', {className: "main-container"},
-      React.createElement('div', { className: 'card' },
-        React.createElement('div', { className: 'card-title' },
-        React.createElement('h2', {className: "grey-text"}, `Question ${currentQuestion.questionNumber} of 44`)
+    return React.createElement(
+      'div',
+      { className: "main-container" },
+      React.createElement("br"),
+      React.createElement(
+        "div",
+        {
+          className: "card",
+          style: {
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          },
+        },
+        React.createElement(
+          "div",
+          { className: "card-title grey-text" },
+          React.createElement(
+            "h2",
+            { style: { textAlign: "center" } },
+            `${currentQuestion.questionNumber} of 44`
+          )
         ),
+        React.createElement("br"),
         React.createElement('div', { className: 'navigation-icons' },
           // Inline SVG for back arrow icon
           React.createElement('img', {
@@ -575,38 +617,100 @@ console.log("answer submitted");
             style: { cursor: forwardDisabled ? 'not-allowed' : 'pointer' },
           })
         ),
-        React.createElement('h2', {className: "aspect"}, currentQuestion.questionStatment),
-        React.createElement('div', {className: 'container-illustration'},
-            React.createElement('img', {className: "illustration", src: currentQuestion.illustration, alt: ""})
-        ),
-        React.createElement('div', {className: "grey-text"}, 'Please rate how much you agree with the above statement.'),
-        React.createElement('div', {className: "buttons-div"},
-        React.createElement('div', {className: "rating-buttons"},
-         scales.map((scale, index) =>
-            React.createElement('button', {
-              key: index,
-              className: isSelected === index ? 'button-selected' : 'button',
-              type: "button",
-              onClick: () => handleRatingClick(index + 1)
-            }, scale)
-          )),
+        React.createElement("br"),
+        React.createElement(
+          "div",
+          { className: "card-body", style: { textAlign: "center" } },
+         
+          React.createElement(
+            "div",
+            {
+              className: "container-illustration",
+            },
+            React.createElement("img", {
+              alt: "illustration",
+              src: currentQuestion.illustration,
+              className: "illustration"
+            })
+          ),
+          React.createElement("br"),
+          React.createElement(
+            "div",
+            null,
+            React.createElement("br"),
+            React.createElement("span", {className: "grey-text"}, "Please rate how much you agree with the following statement:"),
+            React.createElement("br"),
+            React.createElement("br"),
+            React.createElement("br"),
+            React.createElement("h2", {className: "grey-text"}, currentQuestion.questionStatment),
+            React.createElement("br"),
+            React.createElement("br"),
+            React.createElement("br"),
+            React.createElement(
+              "div",
+              { className: "button-line-container" },
+              buttons.map((button, index) =>
+                React.createElement(
+                  "div",
+                  { className: "button-rating", key: index },
+                  React.createElement(
+                    "div",
+                    { className: "button-wrapper" },
+                    React.createElement(
+                      "button",
+                      {
+                        type: "button",
+                        className: isSelected === index ? "button-selected" : "button",
+                        onClick: () => handleRatingClick(index + 1),
+                      }
+                    ),
+                    index === 0 && React.createElement("div", { className: "button-line button-line-start" }),
+                    index > 0 && index < 4 && React.createElement("div", { className: "button-line button-line-full" }),
+                    index === 4 && React.createElement("div", { className: "button-line button-line-end" })
+                  ),
+                  React.createElement("br"),
+                  React.createElement("p", { className: "scale-text" }, index < scales.length ? scales[index] : null),
+                  React.createElement("p", { style: { visibility: "hidden" } }, scales[index] === "Neutral" ? "Neutral" : "")
+                )
+              ),
+              React.createElement(
+                "div",
+                { className: "button-rating" },
+                React.createElement(
+                  "button",
+                  {
+                    className: isSelected === -1 || pass ? "no-response-selected" : "no-response",
+                    type: "button",
+                    onClick: () => handleRatingClick(0),
+                  }
+                ),
+                React.createElement("br"),
+                React.createElement("p", { className: "scale-text" }, "No", React.createElement("div"), "Response"),
+                React.createElement("p", { style: { visibility: "hidden" } })
+              )
+            ),
+            React.createElement("br"),
+            React.createElement("br"),
+            React.createElement("br"),
+            React.createElement("br"),
+            React.createElement("div", { className: "button-submit-wrapper" },
 
-          React.createElement('button', {
-            className: isSelected === -1 || pass ? "no-response-selected" : "no-response",
-            type: "button",
-            onClick: () => handleRatingClick(0)
-          }, 'No Response')
-        ),
-        
-      ),
-      React.createElement("div", {className: "button-submit-div"}, 
-      React.createElement('button', {
-        type: "button",
-        className: 'button-submit',
-        disabled: buttonDisabled,
-        onClick: handleSubmit
-      }, "submit")
-    ));
+              React.createElement(
+                "button",
+                {
+                  className: "button-submit",
+                  type: "button",
+                  disabled:  style: { cursor: buttonDisabled ? 'not-allowed' : 'pointer' },
+                  onClick: handleSubmit,
+                },
+                "SUBMIT"
+              )
+            )
+          ),
+          React.createElement("br")
+        )
+      )
+    );
   }
 
   ReactDOM.render(React.createElement(Questions), document.getElementById('root'));
