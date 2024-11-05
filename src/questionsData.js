@@ -1,4 +1,55 @@
-const questionsData = [
+export const resultsData = [
+  {
+    tile: "",
+    minPercentage: 96,
+    maxPercentage: 100,
+    percentage: "96-100%",
+    awakeness: "Awake",
+    perspective: "Awakened",
+  },
+  {
+    tile: "",
+    minPercentage: 81,
+    maxPercentage: 95,
+    percentage: "81-95%",
+    awakeness: "Almost Awake",
+    perspective: "Seeker",
+  },
+  {
+    tile: "",
+    minPercentage: 61,
+    maxPercentage: 80,
+    percentage: "61-80%",
+    awakeness: "Awaking",
+    perspective: "Seeker",
+  },
+  {
+    tile: "",
+    minPercentage: 41,
+    maxPercentage: 60,
+    percentage: "41-60%",
+    awakeness: "Seeking",
+    perspective: "Seeker",
+  },
+  {
+    tile: "",
+    minPercentage: 21,
+    maxPercentage: 40,
+    percentage: "21-40%",
+    awakeness: "Waking Up",
+    perspective: "Sleeping Soul",
+  },
+  {
+    tile: "",
+    minPercentage: 0,
+    maxPercentage: 20,
+    percentage: "0-20%",
+    awakeness: "Asleep",
+    perspective: "Sleeping Soul",
+  },
+];
+
+export const questionsData = [
   {
     questionNumber: 1,
     questionStatment: "I Know Thyself… Spirit, Heart, Body, Mind, and Soul.",
@@ -289,4 +340,3 @@ const questionsData = [
   },
 ];
 
-export default questionsData;

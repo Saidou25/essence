@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import questionsData from "../questionsData";
+import { questionsData } from "../questionsData";
 import Finish from "./Finish";
 import { MdArrowForwardIos } from "react-icons/md";
 import { GrPrevious } from "react-icons/gr";
@@ -11,7 +11,7 @@ export default function Questions() {
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [forwardDisabled, setForwardDisabled] = useState(true);
   const [userAnswers, setUserAnswers] = useState([]);
-  const [end, setEnd] = useState(false);
+  const [end, setEnd] = useState(true);
   const [isSelected, setIsSelected] = useState("");
   const [storedUserSelfRating, setStoredUserSelfRating] = useState("");
   const [formState, setFormState] = useState({
@@ -159,7 +159,7 @@ export default function Questions() {
   console.log("forward disabled", forwardDisabled);
 
   if (end) {
-    return <Finish end={end} userAnswers={userAnswers} />;
+    return <Finish userAnswers={userAnswers} />;
   }
 
   return (
@@ -254,10 +254,10 @@ export default function Questions() {
                   onClick={() => handleRatingClick(0)}
                   style={{ marginLeft: "15%" }}
                 ></button>
-                <p className="scale-text">
-                  No<div></div>{" "}
+                <p className="scale-text" style={{ display: "flex", flexDirection: "column" }}>
+                  No<span></span>
                   {/* create empty space needed to keep homogene display with other buttons */}
-                  <div></div> Response
+                  <span></span> Response
                 </p>
                 <p style={{ visibility: "hidden" }}></p>
               </div>
