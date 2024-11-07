@@ -1,9 +1,24 @@
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_left,arrow_right" />
+
+
 
 <div id="root"></div>
 
+
+
+
 <style>
+    span.material-symbols-outlined.icon-style {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 60;
+        font-size: 60px;  /* Physical size */
+        padding: 20px;
+    }
     // css for Finish
     .finish-main-container {
   width: 100%;
@@ -11,17 +26,19 @@
 }
 .finish-titles {
     // color: #615f5c;
+    letter-spacing: 1px;
     color: black;
   text-align: center;
+  font-size: 38px;
+//   margin: 5% 0 10% 0; /* top, right, bottom, left */
   font-family: Anton, sans-serif;
-  letter-spacing: 1px;
-  font-size: 48px;
 }
 .score-today {
     text-align: center;
-    margin: 4%;
+    margin: 4% 0;
     color: black;
-    font-family: Poppins, sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
     // color: #615f5c;
 }
 .results-table {
@@ -35,7 +52,7 @@
     background-color: #c7cec9;
 }
 .class-bottom {
-    background-color: #fdfdfd;
+    background-color: #fefefe
 }
 .class-th {
   border-bottom: 1px solid grey;
@@ -47,16 +64,16 @@
   text-align: center;
   padding: 1% 7% 1% 7%;
   width: 22%;
-  letter-spacing: 1px;
+  
 }
 .class-td {
   border-right: 2px solid #c3c2c2;
   border-bottom: 1px solid #c3c2c2;
   text-align: center;
   width: 22%;
-  font-family: sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 28px;
-height: 50px;
+  height: 50px;
 //   color: #615f5c;
   color: black;
 }
@@ -65,7 +82,7 @@ height: 50px;
   height: 100px;
   text-align: center;
   width: 22%;
-  font-family: sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 28px;
   height: 50px;
 //   color: #615f5c;
@@ -74,7 +91,7 @@ color: black;
 .thank-you {
     text-align: center;
     margin: 3% 3%;
-    font-family: Poppins, sans serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
     // css for Questions
 .main-container {
@@ -84,45 +101,52 @@ color: black;
 }
 .card-title {
   text-align: center;
+  color: black;
 }
 .grey-text {
-  color: #615f5c;
+//   color: #615f5c;
+color: black;
   text-align: center;
-  font-family: Poppins, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .navigation-icons {
   display: inline-block;
   display: flex;
   justify-content: center;
 }
-.icon { width: 24px; height: 24px; cursor: pointer; margin-bottom: 3%;} 
+{/* .icon { width: 24px; height: 24px; cursor: pointer; margin-bottom: 3%;}  */}
 .card-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 .container-illustration {
-  width: 200px;
-//   max-width: 90%;
+  max-width: 60%;
   margin: auto;
 //   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .illustration {
   max-width: 100%;
-//   height: auto;
-  background-position: cover;
-  aspect-ratio: 1 / 1;
+  height: auto;
 }
 .please-rate {
-  color: #615f5c;
+//   color: #615f5c;
+color: black;
   text-align: center;
   letter-spacing: 1px;
   font-size: 18px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .assest {
-  color: #615f5c;
+//   color: #615f5c;
+color: black;
   text-align: center;
   font-size: 30px;
+  font-family: Anton, sans-serif;
+  letter-spacing: 1px;
 
 }
 .button-line-container {
@@ -189,7 +213,9 @@ color: black;
 .scale-text {
   width: 90px;
   text-align: center;
-  color: rgb(97, 95, 92);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+//   color: rgb(97, 95, 92);
+color: black;
 }
 .button:hover,
 .no-response:hover {
@@ -286,20 +312,20 @@ const questionsData = [
     questionNumber: 1,
     questionStatment: "I Know Thyself… Spirit, Heart, Body, Mind, and Soul.",
     userSelfRating: "",
-    illustration: "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/aspect-1-mP4nMR2wVqUBM9jJ.jpg",
+    illustration: "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-self-awareness-mjEvb154DbcreEeD.jpg",
   },
   {
     questionNumber: 2,
     questionStatment:
       "I accept myself. I accept the infinite. I accept that I am infinite.",
     userSelfRating: "",
-    illustration: "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/image2-dJo6bbQn3jIekBe1.jpg"
+    illustration: "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-infinite-being-AR0yWjV1qkf4bL51.jpg"
   },
   {
     questionNumber: 3,
     questionStatment: "I am connected as One with all aspects of the Universe.",
     userSelfRating: "",
-    illustration: "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/image3-A85wVVXgRJfLBlXR.jpg",
+    illustration: "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-balance-A3Qw9LrlWlHE6a4a.jpg",
   },
   
 ];
@@ -463,12 +489,16 @@ const link = document.createElement('link');
 link.href = 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Anton&display=swap';
 link.rel = 'stylesheet';
 document.head.appendChild(link);
-
+// Including the Material Symbols link
+const linkElement = React.createElement('link', {
+    rel: 'stylesheet',
+    href: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_right',
+  });
 console.log(buttonDisabled)
     if (end) {
         return React.createElement("div", { className: "finish-main-container" },
-            React.createElement("h1", { className: "finish-titles" }, "ESSSENCE Self-Awarness ESA44"),
-            React.createElement("h1", { className: "finish-titles" }, "Test Results"),
+            React.createElement("h1", { className: "finish-titles" }, "ESSSENCE Self-Awarness Assessment"),
+            React.createElement("h1", { className: "finish-titles" }, "Results"),
             
             React.createElement("h2", { className: "score-today" },
               "Your Score for Today is: " + 
@@ -478,6 +508,7 @@ console.log(buttonDisabled)
             React.createElement("table", { className: "results-table" },
               React.createElement("thead", null,
                 React.createElement("tr", { className: "class-top" },
+                //   React.createElement("th", { className: "class-th" }, "Date of Round"),
                   React.createElement("th", { className: "class-th" }, "ESA44 Awakening %"),
                   React.createElement("th", { className: "class-th" }, "State of Awareness"),
                   React.createElement("th", { className: "class-th" }, "Current Perspective")
@@ -489,17 +520,19 @@ console.log(buttonDisabled)
                   totalAssessment >= result.minPercentage &&
                   totalAssessment <= result.maxPercentage &&
                     React.createElement("tr", { key: index, className: "class-bottom" },
-                      React.createElement("td", { className: "class-td" }, result.percentage),
+                    //   React.createElement("td", { className: "class-td" }, formattedDate),
+                      React.createElement("td", { className: "class-td", style: { height: "70px"} }, result.percentage),
                       React.createElement("td", { className: "class-td" }, result.awakeness),
                       React.createElement("td", { className: "class-td-perspective" }, result.perspective)
                     )
                 )
               )
             ),
-            React.createElement("h2", { className: "thank-you" }, "Thank you for completing ESA44 assessment."),
+            React.createElement("h2", { className: "thank-you" }, "Thank you for completing our assessment."),
             React.createElement("table", { className: "results-table" },
                 React.createElement("thead", null,
                   React.createElement("tr", { className: "class-top" },
+                  //   React.createElement("th", { className: "class-th" }, "Date of Round"),
                     React.createElement("th", { className: "class-th" }, "ESA44 Awakening %"),
                     React.createElement("th", { className: "class-th" }, "State of Awareness"),
                     React.createElement("th", { className: "class-th" }, "Current Perspective")
@@ -517,12 +550,13 @@ console.log(buttonDisabled)
                 )
               ),          
           );
+          
     }
 
     return React.createElement(
       'div',
       { className: "main-container" },
-      React.createElement("br"),
+      React.createElement("h1", { className: "finish-titles" }, "ESSENCE Self-Awareness Assessment"),
       React.createElement(
         "div",
         {
@@ -536,28 +570,31 @@ console.log(buttonDisabled)
         React.createElement(
           "div",
           { className: "card-title grey-text" },
+          React.createElement("br"),
           React.createElement(
             "h2",
             { style: { textAlign: "center" } },
             `${currentQuestion.questionNumber} of 44`
           )
         ),
-        React.createElement("br"),
-        React.createElement('div', { className: 'navigation-icons' },
-          // Inline SVG for back arrow icon
-          React.createElement('img', {
-            src: "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/arrow_back_ios_35dp_434343_fill0_wght400_grad0_opsz40-AzGeNX0P7rH8nWL6.svg",
-            onClick: handleGoBack,
-            className: 'icon',
-          }),
-          // Inline SVG for forward arrow icon
-          React.createElement('img', {
-            onClick: handleNextQuestion,
-            className: 'icon',
-            src: "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/arrow_forward_ios_35dp_434343_fill0_wght400_grad0_opsz40-YBgrb78BqGSxOyLJ.svg",
-            style: { cursor: forwardDisabled ? 'not-allowed' : 'pointer' },
-          })
-        ),
+
+
+        // React.createElement('div', { className: 'navigation-icons' },
+        //   // Inline SVG for back arrow icon
+        //   React.createElement('span', 
+        //     { onClick: handleGoBack,
+        //     className: 'material-symbols-outlined icon-style',
+        //   }, 'arrow_left'),
+        //   // Inline SVG for forward arrow icon
+        //   React.createElement('span', {
+        //     onClick: handleNextQuestion,
+        //     className: 'material-symbols-outlined icon-style', style: { cursor: forwardDisabled ? 'not-allowed' : 'pointer' },
+        //   }, 'arrow_right'),
+        // ),
+
+
+
+
         React.createElement("br"),
         React.createElement(
           "div",
@@ -568,23 +605,39 @@ console.log(buttonDisabled)
             {
               className: "container-illustration",
             },
+
+             // Inline SVG for back arrow icon
+          React.createElement('span', 
+            { onClick: handleGoBack,
+            className: 'material-symbols-outlined icon-style',
+          }, 'arrow_left'),
+
             React.createElement("img", {
               alt: "illustration",
               src: currentQuestion.illustration,
               className: "illustration"
-            })
+            }),
+
+             // Inline SVG for forward arrow icon
+          React.createElement('span', {
+            onClick: handleNextQuestion,
+            className: 'material-symbols-outlined icon-style', style: { cursor: forwardDisabled ? 'not-allowed' : 'pointer' },
+          }, 'arrow_right'),
           ),
+
+
+
+
           React.createElement("br"),
           React.createElement(
             "div",
             null,
             React.createElement("br"),
-            React.createElement("br"),
-            React.createElement("span", {className: "please-rate", style: { fontFamily: "Poppins, sans-serif" }}, "Please rate how much you agree with the following statement:"),
-            React.createElement("br"),
+            React.createElement("span", {className: "please-rate"}, "Please rate how much you agree with the following statement:"),
             React.createElement("br"),
             React.createElement("br"),
-            React.createElement("h2", {className: "assest", style: { fontFamily: "Poppins, sans-serif" } }, currentQuestion.questionStatment),
+            React.createElement("br"),
+            React.createElement("h2", {className: "assest" }, currentQuestion.questionStatment),
             React.createElement("br"),
             React.createElement("br"),
             React.createElement("br"),
@@ -611,8 +664,8 @@ console.log(buttonDisabled)
                     index === 4 && React.createElement("div", { className: "button-line button-line-end" })
                   ),
                   React.createElement("br"),
-                  React.createElement("p", { className: "scale-text", style: { fontFamily: "Poppins, sans-serif"} }, index < scales.length ? scales[index] : null),
-                  React.createElement("p", { style: { visibility: "hidden", fontFamily: "Poppins, sans-serif" } }, scales[index] === "Neutral" ? "Neutral" : "")
+                  React.createElement("p", { className: "scale-text" }, index < scales.length ? scales[index] : null),
+                  React.createElement("p", { style: { visibility: "hidden" } }, scales[index] === "Neutral" ? "Neutral" : "")
                 )
               ),
               React.createElement(
@@ -627,11 +680,11 @@ console.log(buttonDisabled)
                   }
                 ),
                 React.createElement("br"),
-                React.createElement("p", { className: "scale-text", style: { fontFamily: "Poppins, sans-serif"} }, "No", React.createElement("div"), "Response"),
-                React.createElement("p", { style: { visibility: "hidden", style: { fontFamily: "Poppins, sans-serif" } } })
+                React.createElement("p", { className: "scale-text" }, "No", React.createElement("div"), "Response"),
+                React.createElement("p", { style: { visibility: "hidden" } })
               )
             ),
-            React.createElement("br"),
+            // React.createElement("br"),
             React.createElement("br"),
             React.createElement("br"),
             React.createElement("br"),
@@ -663,4 +716,5 @@ console.log(buttonDisabled)
 
 
   
+
 
