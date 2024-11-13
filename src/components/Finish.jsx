@@ -4,7 +4,7 @@ import { resultsData } from "../questionsData";
 import "./Finish.css";
 
 export default function Finish({ userAnswers }) {
-  console.log(userAnswers);
+  
   let totalRating = 0;
   // let totalRating = 34;
   const totalAssessment = (totalRating / 220) * 100;
