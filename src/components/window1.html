@@ -1,0 +1,1357 @@
+import React from 'react';
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_left,arrow_right,task_alt"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+/>
+
+<div id="root"></div>
+
+<style>
+  /* css for print and email */
+  .email-print-container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 3%;
+  }
+  .fa-print {
+    font-size: 20px;
+    color: white;
+  }
+  .fa-envelope {
+    font-size: 20px;
+    color: white;
+  }
+  .button-email {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e37d37;
+    width: 15%;
+    padding: 4px;
+    border-radius: 50px;
+    border: none;
+    margin-right: 1%;
+  }
+  .button-email:hover {
+    background-color: #267b7d;
+    cursor: pointer;
+  }
+  .button-print {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e37d37;
+    width: 15%;
+    padding: 4px;
+    border-radius: 50px;
+    border: none;
+    margin-left: 1%;
+  }
+  .button-print:hover {
+    background-color: #267b7d;
+  }
+  @media print {
+    /* Hide all elements by default */
+    body * {
+      display: none;
+    }
+
+    /* Only display elements within the .print-area */
+    .print-content,
+    .print-content * {
+      display: block;
+    }
+    /* Hide elements which shouldn't be printed */
+    .no-print {
+      display: none;
+    }
+  }
+
+  /* css for showFinish */
+  .finish-container {
+    background-color: #fefefe;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    text-align: center;
+  }
+
+  .material-symbols-outlined.task_alt {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 10, "opsz" 200;
+    font-size: 100px;
+    /* Physical size */
+    color: green;
+    margin-bottom: 5%;
+  }
+
+  /* css for end  */
+  .end-container {
+    background-color: #fefefe;
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+
+  .finish-titles {
+    letter-spacing: 1px;
+    color: black;
+    text-align: center;
+    font-size: 38px;
+    font-family: Anton, sans-serif;
+    padding-top: 3%;
+  }
+
+  .retake {
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 15%;
+    height: auto;
+    margin-right: 2%;
+    margin-top: 2%;
+  }
+
+  .title-results {
+    letter-spacing: 1px;
+    color: black;
+    text-align: center;
+    font-size: 38px;
+    font-family: Anton, sans-serif;
+  }
+
+  .score-today {
+    text-align: center;
+    padding: 2% 3%;
+    color: black;
+    font-size: 28px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  .results-div {
+    padding-bottom: 5%;
+  }
+
+  .results-table {
+    margin: auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 9px solid black;
+    width: 66%;
+  }
+
+  .class-top {
+    background-color: #c7cec9;
+  }
+
+  .class-bottom {
+    background-color: #fefefe;
+  }
+
+  .class-th {
+    border-bottom: 1px solid grey;
+    border-color: grey;
+    font-family: Anton, sans-serif;
+    text-rendering: optimizeLegibility;
+    font-size: 22px;
+    color: black;
+    text-align: center;
+    padding: 1% 7% 1% 7%;
+    width: 22%;
+  }
+
+  .class-td {
+    border-right: 2px solid #c3c2c2;
+    border-bottom: 1px solid #c3c2c2;
+    text-align: center;
+    width: 22%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 22px;
+    height: 42px;
+    color: black;
+  }
+
+  .class-td-perspective {
+    border-bottom: 1px solid #c3c2c2;
+    height: 100px;
+    text-align: center;
+    width: 22%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 22px;
+    height: 42px;
+    color: black;
+  }
+
+  .thank-you {
+    text-align: center;
+    margin: 3% 3%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  .email-button {
+    width: 40%;
+    background-color: #e37d37;
+    border-radius: 50px;
+    font-size: 14px;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 4%;
+    border: none;
+  }
+  .email-form-container {
+    display: flex;
+    background-color: #1d1e20;
+    justify-content: space-around;
+    border: none;
+    border-color: black;
+    /* padding-top: 3%; */
+    padding-bottom: 3%;
+    color: white;
+  }
+  .close-container {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+    padding-top: 10px;
+    background-color: #1d1e20;
+    border: none;
+  }
+  .close-icon {
+    color: white !important;
+    width: 30px;
+    height: 30px;
+  }
+
+  .form-message-title {
+    letter-spacing: 1px;
+    color: white;
+    text-align: center;
+    font-size: 36px;
+    font-family: Anton, sans-serif;
+    letter-spacing: 1px;
+  }
+
+  .form-message {
+    text-align: center;
+    padding-top: 3%;
+    padding-left: 3%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 23px;
+  }
+  .email-form {
+    width: 40%;
+    margin-right: 3%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-label {
+    color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 24px;
+  }
+  .form-input {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    border-radius: 12px;
+    height: 60px;
+    padding-left: 2%;
+    letter-spacing: 1px;
+    color: #b8c0cc;
+  }
+  .form-button {
+    width: 40%;
+    background-color: #e37d37;
+    border-radius: 50px;
+    font-size: 14px;
+    padding: 7px;
+    color: white;
+    text-align: center;
+    letter-spacing: 2px;
+    margin: auto;
+    border: none;
+  }
+  /* css for Questions */
+  .main-container {
+    background-color: #fefefe;
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+  }
+
+  .card-title {
+    letter-spacing: 1px;
+    color: black;
+    text-align: center;
+    font-size: 38px;
+    font-family: Anton, sans-serif;
+    padding-top: 3%;
+  }
+
+  .question-number {
+    color: black;
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 1%;
+  }
+
+  .navigation-icons {
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+  }
+
+  .container-illustration {
+    max-width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .illustration-animated {
+    max-width: 100%;
+    height: auto;
+    animation: fadeInImage 0.5s ease-in-out forwards;
+  }
+
+  .illustration {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .please-rate {
+    color: black;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 20px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  @keyframes fadeInColor {
+    0% {
+      color: transparent;
+      /* Start with a transparent color */
+      opacity: 0;
+      /* Start invisible */
+    }
+
+    100% {
+      color: black;
+      /* Target color (e.g., blue) */
+      opacity: 1;
+      /* End fully visible */
+    }
+  }
+
+  @keyframes fadeInImage {
+    0% {
+      color: transparent;
+      /* Start with a transparent color */
+      opacity: 0;
+      /* Start invisible */
+    }
+
+    100% {
+      opacity: 1;
+      /* End fully visible */
+    }
+  }
+
+  .assest-animated {
+    /*  color: #615f5c; */
+    color: black;
+    text-align: center;
+    font-size: 30px;
+    font-family: Anton, sans-serif;
+    letter-spacing: 1px;
+    animation: fadeIn 1s linear;
+    animation: fadeInColor 0.5s ease-in-out forwards;
+  }
+
+  .assest {
+    color: black;
+    text-align: center;
+    font-size: 30px;
+    font-family: Anton, sans-serif;
+    letter-spacing: 1px;
+    padding: 0 5px;
+  }
+
+  .be-sure {
+    color: #e37d37;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+  }
+
+  .place-holder {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    visibility: hidden;
+  }
+
+  .scale-line {
+    display: flex;
+    justify-content: center;
+  }
+
+  span.material-symbols-outlined.icon-style {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 60;
+    font-size: 60px;
+    /* Physical size */
+    padding: 20px;
+  }
+
+  .button-line-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .button-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 120px;
+  }
+
+  .button-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .button-selected {
+    background-color: #e37d37;
+    position: relative;
+    cursor: pointer;
+    border: none;
+    padding: 20px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  .button {
+    position: relative;
+    cursor: pointer;
+    border: none;
+    padding: 20px;
+    border-radius: 50%;
+    z-index: 1;
+    background-color: #c7cec9;
+  }
+
+  .button-line {
+    position: absolute;
+    top: 45%;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    background-color: #c7cec9;
+    height: 3px;
+  }
+
+  /* Line for the first button: starts at the button center and extends to the right */
+  .button-line-start {
+    left: 50%;
+    /* Start from the center of the button */
+    right: 0;
+    /* Extend to the right edge of the container */
+  }
+
+  /* Line for buttons in the middle (index 1, 2, and 3): extends across the entire container */
+  .button-line-full {
+    left: 0;
+    /* Start from the left edge */
+    right: 0;
+    /* Extend to the right edge */
+  }
+
+  /* Line for the last button: starts from the left and stops at the button center */
+  .button-line-end {
+    left: 0;
+    /* Start from the left edge */
+    right: 50%;
+    /* Stop at the button center */
+  }
+
+  .scale-text {
+    width: 90px;
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /* color: rgb(97, 95, 92); */
+    color: black;
+  }
+
+  .button:hover,
+  .no-response:hover {
+    background-color: #908e89;
+  }
+
+  .no-response-selected {
+    position: relative;
+    cursor: pointer;
+    border: none;
+    padding: 20px;
+    border-radius: 50%;
+    z-index: 1;
+    background-color: #e37d37;
+  }
+
+  .no-response {
+    position: relative;
+    cursor: pointer;
+    border: none;
+    padding: 20px;
+    border-radius: 50%;
+    z-index: 1;
+    background-color: #c7cec9;
+  }
+
+  .button-submit-unactivated {
+    cursor: not-allowed;
+    border: none;
+    background-color: #e37d37;
+    opacity: 0.7;
+    width: 13%;
+    border-radius: 25px;
+    padding: 10px;
+    color: white;
+    letter-spacing: 2px;
+    margin-bottom: 7%;
+  }
+
+  .button-submit {
+    cursor: pointer;
+    border: none;
+    background-color: #e37d37;
+    width: 13%;
+    border-radius: 25px;
+    padding: 10px;
+    color: white;
+    letter-spacing: 2px;
+    margin-bottom: 7%;
+  }
+</style>
+
+<script>
+  const resultsData = [
+    {
+      tile: "",
+      minPercentage: 96,
+      maxPercentage: 100,
+      percentage: "96-100%",
+      awakeness: "Awake",
+      perspective: "Awakened",
+    },
+    {
+      tile: "",
+      minPercentage: 81,
+      maxPercentage: 95,
+      percentage: "81-95%",
+      awakeness: "Almost Awake",
+      perspective: "Seeker",
+    },
+    {
+      tile: "",
+      minPercentage: 61,
+      maxPercentage: 80,
+      percentage: "61-80%",
+      awakeness: "Awakening",
+      perspective: "Seeker",
+    },
+    {
+      tile: "",
+      minPercentage: 41,
+      maxPercentage: 60,
+      percentage: "41-60%",
+      awakeness: "Seeking",
+      perspective: "Seeker",
+    },
+    {
+      tile: "",
+      minPercentage: 21,
+      maxPercentage: 40,
+      percentage: "21-40%",
+      awakeness: "Waking Up",
+      perspective: "Sleeping Soul",
+    },
+    {
+      tile: "",
+      minPercentage: 0,
+      maxPercentage: 20,
+      percentage: "0-20%",
+      awakeness: "Asleep",
+      perspective: "Sleeping Soul",
+    },
+  ];
+  const questionsData = [
+    {
+      questionNumber: 1,
+      questionStatment: "I Know Thyself… Spirit, Heart, Body, Mind, and Soul.",
+      userSelfRating: "",
+      illustration:
+        "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-awareness-YlevljgyZ8ig1rbN.jpg",
+    },
+    {
+      questionNumber: 2,
+      questionStatment:
+        "I accept myself. I accept the infinite. I accept that I am infinite.",
+      userSelfRating: "",
+      noResponse: "",
+      illustration:
+        "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-infinite-being-AzGeL9grl5cVnGJO.jpg",
+    },
+    {
+      questionNumber: 3,
+      questionStatment:
+        "I am connected as One with all aspects of the Universe.",
+      userSelfRating: "",
+      illustration:
+        "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-connectedness-A0xwOqzwW9hp0zky.jpg",
+    },
+  ];
+
+  function Questions() {
+    const [currentQuestionIndex, setCurrentQuestionIndex] = React.useState(0);
+    const [pass, setPass] = React.useState(false);
+    const [buttonDisabled, setButtonDisabled] = React.useState(true);
+    const [forwardDisabled, setForwardDisabled] = React.useState(true);
+    const [backwordDisabled, setBackwordDisabled] = React.useState(false);
+    const [userAnswers, setUserAnswers] = React.useState([]);
+    const [storedUserSelfRating, setStoredUserSelfRating] = React.useState("");
+    const [isSelected, setIsSelected] = React.useState("");
+    const [submissionReminder, setSubmissionReminder] = React.useState("");
+    const [animationFade, setAnimationFade] = React.useState(false);
+    const [showFinishedPage, setShowFinishedPage] = React.useState(false);
+    const [end, setEnd] = React.useState(false);
+    const [isPrinting, setIsPrinting] = React.useState(false);
+    const [showEmailForm, setShowEmailForm] = React.useState(false);
+    const [emailFormDisabled, setShowEmailFormDisabled] = React.useState(true);
+    const [formState, setFormState] = React.useState({
+      questionNumber: questionsData[0].questionNumber,
+      questionStatment: questionsData[0].questionStatment,
+      userSelfRating: "",
+      noResponse: "",
+    });
+
+    const scales = [
+      "Strongly Disagree",
+      "Somewhat Disagree",
+      "Neutral",
+      "Somewhat Agree",
+      "Strongly agree",
+    ];
+    const buttons = [1, 2, 3, 4, 5];
+
+    const currentQuestion = questionsData[currentQuestionIndex];
+
+    let totalRating = 0;
+    const totalAssessment = (totalRating / 220) * 100;
+    const date = new Date();
+    const day = date.getDate();
+    const month = date.getMonth();
+    const year = date.getFullYear();
+    const formattedDate = `${month + 1}/${day}/${year}`;
+
+    for (let userAnswer of userAnswers) {
+      totalRating += Number(userAnswer.userSelfRating); // Convert to number to avoid string concatenation
+    }
+
+    const resetFormState = () => {
+      setFormState((prevState) => ({
+        ...prevState,
+        noResponse: "No response",
+        userSelfRating: 0,
+      }));
+    };
+
+    const handleRetake = () => {
+      window.location.reload();
+    };
+
+    const handleRatingClick = (value) => {
+      setPass(false);
+      setIsSelected(value - 1);
+      if (storedUserSelfRating) {
+        setSubmissionReminder("Please submit your change...");
+      }
+      // Update formState only, not userAnswers
+      setFormState((prevState) => ({
+        ...prevState,
+        userSelfRating: value,
+        noResponse: "",
+      }));
+      setButtonDisabled(false); // Enable the submit button when a rating is selected
+    };
+
+    const handleGoBack = () => {
+      try {
+        if (currentQuestionIndex > 0) {
+          const previousQuestionIndex = currentQuestionIndex - 1;
+          const previousAnswer = userAnswers.find(
+            (userAnswer) =>
+              userAnswer.questionNumber === previousQuestionIndex + 1
+          );
+
+          if (previousAnswer) {
+            setForwardDisabled(false);
+            setFormState({
+              questionNumber: previousAnswer.questionNumber,
+              questionStatment: previousAnswer.questionStatment,
+              userSelfRating: previousAnswer.userSelfRating,
+              noResponse: previousAnswer.noResponse,
+            });
+            setIsSelected(previousAnswer.userSelfRating - 1);
+          }
+          setAnimationFade(true);
+          setTimeout(() => {
+            setAnimationFade(false);
+          }, 1000);
+          setCurrentQuestionIndex(previousQuestionIndex);
+          setButtonDisabled(true);
+          setPass(false);
+          setSubmissionReminder("");
+          setStoredUserSelfRating("");
+        }
+      } catch (error) {
+        console.error("Error in handleGoBack: ", error);
+      }
+    };
+
+    const handleNextQuestion = () => {
+      try {
+        if (forwardDisabled) return; // Prevent navigation if forwardDisabled is true
+        if (currentQuestionIndex < questionsData.length - 1) {
+          setCurrentQuestionIndex(currentQuestionIndex + 1);
+          setFormState({
+            questionNumber:
+              questionsData[currentQuestionIndex + 1].questionNumber,
+            questionStatment:
+              questionsData[currentQuestionIndex + 1].questionStatment,
+            userSelfRating: storedUserSelfRating ?? "",
+            noResponse: "",
+          });
+          setAnimationFade(true);
+          setTimeout(() => {
+            setAnimationFade(false);
+          }, 1000);
+          setButtonDisabled(true);
+          setPass(false);
+          setIsSelected("");
+          setSubmissionReminder("");
+          setStoredUserSelfRating("");
+        }
+      } catch (error) {
+        console.error("Error in handleNextQuestion: ", error);
+      }
+    };
+
+    const handlePrint = () => {
+      try {
+        setIsPrinting(true);
+        window.print();
+      } catch (error) {
+        console.log("error during printing", error);
+      } finally {
+        setIsPrinting(false);
+      }
+    };
+
+    const handleFormSubmit = () => {
+      console.log("Email selected");
+    };
+
+    const handleSubmit = () => {
+      try {
+        // Store formState in userAnswers only on submission
+        setUserAnswers((prev) => {
+          const existingAnswerIndex = prev.findIndex(
+            (answer) => answer.questionNumber === formState.questionNumber
+          );
+
+          if (existingAnswerIndex !== -1) {
+            const updatedAnswers = [...prev];
+            updatedAnswers[existingAnswerIndex] = { ...formState };
+            return updatedAnswers;
+          } else {
+            return [...prev, { ...formState }];
+          }
+        });
+
+        if (currentQuestionIndex < questionsData.length - 1) {
+          setCurrentQuestionIndex(currentQuestionIndex + 1);
+          setFormState({
+            questionNumber:
+              questionsData[currentQuestionIndex + 1].questionNumber,
+            questionStatment:
+              questionsData[currentQuestionIndex + 1].questionStatment,
+            userSelfRating: "",
+            noResponse: "",
+          });
+
+          setPass(false);
+          setIsSelected("");
+          setSubmissionReminder("");
+          setAnimationFade(true);
+          setStoredUserSelfRating("");
+          setTimeout(() => {
+            setAnimationFade(false);
+          }, 1000);
+        } else {
+          setShowFinishedPage(true);
+          setTimeout(() => {
+            setShowFinishedPage(false);
+          }, 3000);
+          setEnd(true);
+        }
+      } catch (error) {
+        console.error("Error in handleSubmit: ", error);
+      }
+    };
+
+    // This function handles toggling visibility of the form
+    const handleShowForm = () => {
+      // Now update the state
+      setShowEmailForm(true); // This will toggle the state
+    };
+
+    React.useEffect(() => {
+      try {
+        if (currentQuestionIndex === 0) {
+          setBackwordDisabled(true);
+        } else {
+          setBackwordDisabled(false);
+        }
+        setButtonDisabled(true);
+        if (userAnswers.length === 0) {
+          return;
+        }
+        const answeredQuestion = userAnswers.find(
+          (userAnswer) => userAnswer.questionNumber - 1 === currentQuestionIndex
+        );
+        if (answeredQuestion) {
+          setStoredUserSelfRating(answeredQuestion.userSelfRating);
+          setIsSelected(answeredQuestion.userSelfRating - 1);
+        } else {
+          setForwardDisabled(true);
+        }
+      } catch (error) {
+        console.error("Error in useEffect: ", error);
+      }
+    }, [userAnswers, currentQuestionIndex]);
+
+    // Load the Poppins font
+    const link = document.createElement("link");
+    link.href =
+      "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Anton&display=swap";
+    link.rel = "stylesheet";
+    document.head.appendChild(link);
+    // Including the Material Symbols link
+    const linkElement = React.createElement("link", {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_right",
+    });
+
+    /* Completed assessment message component */
+    if (showFinishedPage) {
+      return React.createElement(
+        "div",
+        { className: "finish-container" },
+        React.createElement(
+          "div",
+          { className: "task_alt-container" },
+          React.createElement(
+            "span",
+            {
+              className: "material-symbols-outlined task_alt",
+              alt: "Completed logo",
+            },
+            "task_alt"
+          )
+        ),
+        React.createElement(
+          "h1",
+          { className: "finish-message" },
+          "You have completed the ESA44 Assessment. Lets head to your results."
+        )
+      );
+    }
+    /* Results component */
+    if (end) {
+      return React.createElement(
+        "div",
+        { className: "end-container rotate-animation print-content" },
+        React.createElement(
+          "h1",
+          { className: "finish-titles" },
+          "ESSENCE Self-Awareness Assessment"
+        ),
+
+        React.createElement("img", {
+          className: "retake no-print",
+          src: "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44.retake-dJo6QG0n5PipGgDE.png",
+          alt: "Retake Image",
+          onClick: handleRetake,
+        }),
+        React.createElement(
+          "div",
+          { className: "results-div" },
+          React.createElement(
+            "h2",
+            { className: "score-today" },
+            "Your ESA44 Results as of Today are: " +
+              Math.round((totalRating / 220) * 100 * 100) / 100 +
+              "%"
+          ),
+          /* Results table */
+          React.createElement("br"),
+          React.createElement(
+            "table",
+            { className: "results-table" },
+            React.createElement(
+              "thead",
+              null,
+              React.createElement(
+                "tr",
+                { className: "class-top" },
+                React.createElement(
+                  "th",
+                  { className: "class-th" },
+                  "ESA44 Awakening %"
+                ),
+                React.createElement(
+                  "th",
+                  { className: "class-th" },
+                  "State of Awareness"
+                ),
+                React.createElement(
+                  "th",
+                  { className: "class-th" },
+                  "Current Perspective"
+                )
+              )
+            ),
+
+            React.createElement(
+              "tbody",
+              null,
+              resultsData &&
+                resultsData.map(
+                  (result, index) =>
+                    totalAssessment >= result.minPercentage &&
+                    totalAssessment <= result.maxPercentage &&
+                    React.createElement(
+                      "tr",
+                      { key: index, className: "class-bottom" },
+                      React.createElement(
+                        "td",
+                        { className: "class-td" },
+                        Math.round((totalRating / 220) * 100 * 100) / 100 + "%"
+                      ),
+                      React.createElement(
+                        "td",
+                        { className: "class-td" },
+                        result.awakeness
+                      ),
+                      React.createElement(
+                        "td",
+                        { className: "class-td-perspective" },
+                        result.perspective
+                      )
+                    )
+                )
+            )
+          ),
+
+          React.createElement(
+            "h2",
+            { className: "thank-you" },
+            "Please evaluate your Results with the following table."
+          ),
+          /* Results comparison table */
+          React.createElement(
+            "table",
+            { className: "results-table" },
+            React.createElement(
+              "thead",
+              null,
+              React.createElement(
+                "tr",
+                { className: "class-top" },
+                React.createElement(
+                  "th",
+                  { className: "class-th" },
+                  "ESA44 Awakening %"
+                ),
+                React.createElement(
+                  "th",
+                  { className: "class-th" },
+                  "State of Awareness"
+                ),
+                React.createElement(
+                  "th",
+                  { className: "class-th" },
+                  "Current Perspective"
+                )
+              )
+            ),
+
+            React.createElement(
+              "tbody",
+              null,
+              resultsData &&
+                resultsData.map((result, index) =>
+                  React.createElement(
+                    "tr",
+                    { key: index, className: "class-bottom" },
+                    React.createElement(
+                      "td",
+                      { className: "class-td" },
+                      result.percentage
+                    ),
+                    React.createElement(
+                      "td",
+                      { className: "class-td" },
+                      result.awakeness
+                    ),
+                    React.createElement(
+                      "td",
+                      { className: "class-td-perspective" },
+                      result.perspective
+                    )
+                  )
+                )
+            )
+          )
+        ),
+
+        /* Form container */
+        showEmailForm
+          ? React.createElement(
+              "div",
+              { className: "allmailform-container no-print" },
+              React.createElement(
+                "div",
+                { className: "close-container" },
+                React.createElement(
+                  "svg",
+                  {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    viewBox: "0 0 384 512",
+                    className: "close-icon",
+                    onClick: () => setShowEmailForm(!showEmailForm),
+                  },
+                  React.createElement("path", {
+                    d: "M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z",
+                    style: { fill: "white" },
+                  })
+                )
+              ),
+              React.createElement(
+                "div",
+                { className: "email-form-container" },
+                React.createElement(
+                  "div",
+                  null,
+                  React.createElement(
+                    "h1",
+                    { className: "form-message-title" },
+                    "Mailing Results Request"
+                  ),
+                  React.createElement(
+                    "p",
+                    { className: "form-message" },
+                    "To receive you ESA44 results directly in your inbox."
+                  )
+                ),
+                React.createElement(
+                  "form",
+                  { className: "email-form" },
+                  React.createElement(
+                    "label",
+                    { className: "form-label", htmlFor: "form-input" },
+                    "Email Address"
+                  ),
+                  React.createElement("br"),
+                  React.createElement("input", {
+                    className: "form-input",
+                    id: "form-input",
+                    type: "email",
+                    placeholder: "Your email address",
+                    autoComplete: "on",
+                  }),
+                  React.createElement("br"),
+                  React.createElement("br"),
+                  React.createElement(
+                    "button",
+                    {
+                      className: "form-button",
+                      type: "button",
+                      onClick: handleFormSubmit,
+                      disabled: emailFormDisabled ? true : false,
+                      style: {
+                        cursor: emailFormDisabled ? "not-allowed" : "pointer",
+                      },
+                    },
+                    "SUBMIT"
+                  )
+                )
+              )
+            )
+          : /* email and print buttons */
+            React.createElement(
+              "div",
+              { className: "email-print-container no-print" },
+              React.createElement(
+                "button",
+                { className: "button-email", onClick: handleShowForm },
+                React.createElement("i", {
+                  className: "fa-regular fa-envelope",
+                  alt: "Mail logo",
+                })
+              ),
+              React.createElement(
+                "button",
+                {
+                  className: "button-print",
+                  onClick: handlePrint,
+                  disabled: isPrinting ? true : false,
+                  style: {
+                    cursor: isPrinting ? "not-allowed" : "pointer",
+                  },
+                },
+
+                React.createElement("i", {
+                  className: "fa-solid fa-print",
+                  alt: "Print logo",
+                })
+              )
+            )
+      );
+    }
+    /*  Assessment component */
+    return React.createElement(
+      "div",
+      { className: "main-container" },
+      React.createElement(
+        "h1",
+        { className: "card-title" },
+        "ESSENCE Self-Awareness Assessment"
+      ),
+      React.createElement(
+        "div",
+        {
+          className: "card",
+          style: {
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          },
+        },
+        React.createElement(
+          "div",
+          null,
+          //   React.createElement("br"),
+          React.createElement(
+            "h2",
+            { className: "question-number" },
+            `${currentQuestion.questionNumber} of 44`
+          )
+        ),
+
+        // React.createElement("br"),
+        React.createElement(
+          "div",
+          { className: "card-body", style: { textAlign: "center" } },
+
+          React.createElement(
+            "div",
+            {
+              className: "container-illustration",
+            },
+
+            React.createElement("img", {
+              alt: "illustration",
+              src: currentQuestion.illustration,
+              className: animationFade
+                ? "illustration-animated"
+                : "illustration",
+            })
+          ),
+
+          React.createElement("br"),
+          React.createElement(
+            "div",
+            null,
+            React.createElement("br"),
+            React.createElement(
+              "span",
+              { className: "please-rate" },
+              "Please rate how much you agree with the following statement:"
+            ),
+            React.createElement("br"),
+            React.createElement("br"),
+            React.createElement("br"),
+            React.createElement(
+              "h2",
+              { className: animationFade ? "assest-animated" : "assest" },
+              currentQuestion.questionStatment
+            ),
+            React.createElement("br"),
+            // React.createElement("br"),
+
+            submissionReminder
+              ? React.createElement(
+                  "p",
+                  { className: "be-sure" },
+                  "Please submit your change..."
+                )
+              : React.createElement(
+                  "p",
+                  { className: "place-holder" },
+                  "place-holder"
+                ),
+
+            React.createElement("br"),
+
+            React.createElement(
+              "div",
+              { className: "scale-line" },
+              // Inline SVG for back arrow icon
+              React.createElement(
+                "span",
+                {
+                  onClick: handleGoBack,
+                  className: "material-symbols-outlined icon-style",
+                  style: {
+                    cursor: backwordDisabled ? "not-allowed" : "pointer",
+                  },
+                },
+                "arrow_left"
+              ),
+
+              React.createElement(
+                "div",
+                { className: "button-line-container" },
+                buttons.map((button, index) =>
+                  React.createElement(
+                    "div",
+                    { className: "button-rating", key: index },
+                    React.createElement(
+                      "div",
+                      { className: "button-wrapper" },
+                      React.createElement("button", {
+                        type: "button",
+                        className:
+                          isSelected === index ? "button-selected" : "button",
+                        onClick: () => handleRatingClick(index + 1),
+                      }),
+                      index === 0 &&
+                        React.createElement("div", {
+                          className: "button-line button-line-start",
+                        }),
+                      index > 0 &&
+                        index < 4 &&
+                        React.createElement("div", {
+                          className: "button-line button-line-full",
+                        }),
+                      index === 4 &&
+                        React.createElement("div", {
+                          className: "button-line button-line-end",
+                        })
+                    ),
+                    React.createElement("br"),
+                    React.createElement(
+                      "p",
+                      { className: "scale-text" },
+                      index < scales.length ? scales[index] : null
+                    ),
+                    React.createElement(
+                      "p",
+                      { style: { visibility: "hidden" } },
+                      scales[index] === "Neutral" ? "Neutral" : ""
+                    )
+                  )
+                ),
+                React.createElement(
+                  "div",
+                  { className: "button-rating" },
+                  React.createElement("button", {
+                    className:
+                      isSelected === -1 || pass
+                        ? "no-response-selected"
+                        : "no-response",
+                    type: "button",
+                    onClick: () => handleRatingClick(0),
+                  }),
+                  React.createElement("br"),
+                  React.createElement(
+                    "p",
+                    { className: "scale-text" },
+                    "No",
+                    React.createElement("div"),
+                    "Response"
+                  ),
+                  React.createElement("p", { style: { visibility: "hidden" } })
+                )
+              ),
+
+              // Inline SVG for forward arrow icon
+              React.createElement(
+                "span",
+                {
+                  onClick: handleNextQuestion,
+                  className: "material-symbols-outlined icon-style",
+                  style: {
+                    cursor: forwardDisabled ? "not-allowed" : "pointer",
+                  },
+                },
+                "arrow_right"
+              )
+            ),
+
+            React.createElement("br"),
+            React.createElement("br"),
+            React.createElement("br"),
+
+            React.createElement(
+              "button",
+              {
+                className: buttonDisabled
+                  ? "button-submit-unactivated"
+                  : "button-submit",
+                type: "button",
+                disabled: buttonDisabled,
+                onClick: handleSubmit,
+              },
+              "SUBMIT"
+            )
+          )
+        )
+      )
+    );
+  }
+
+  ReactDOM.render(
+    React.createElement(Questions),
+    document.getElementById("root")
+  );
+</script>

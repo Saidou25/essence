@@ -1,6 +1,7 @@
 .finish-main-container {
-  width: 100%;
+  width: 90%;
   margin: auto;
+  background-color: yellow;
 }
 .finish-titles {
   text-align: center;
@@ -27,6 +28,7 @@
 }
 .class-td {
   border-right: 1px solid grey;
+  border-right: 1px solid #fdfdfd;
   height: 50px;
   text-align: center;
   padding: 0 5%;

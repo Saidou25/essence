@@ -1,0 +1,43 @@
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+<div id="root1"></div>
+
+<script>
+  function Finish() {
+    const [showEmailForm, setShowEmailForm] = React.useState(false);
+
+    window.addEventListener('message', function(event) {
+  // For security, you could check the event.origin to ensure it comes from a trusted source.
+  // For now, we will log the origin.
+  console.log('Received message from origin:', event.origin);
+  
+  // Check if the message is of the type we're expecting ('finished')
+  if (event.data && event.data.type === 'finished') {
+    const showEmailForm = event.data.showEmailForm;
+    console.log('Received updated showEmailForm:', showEmailForm);
+    // Perform actions based on received data here
+  } else {
+    console.log('Unexpected message data:', event.data);
+  }
+});
+
+    if (showEmailForm) {
+      return React.createElement(
+        "div",
+        { className: "end-message-container" },
+        React.createElement("h1", null, "Finished")
+      );
+    }
+    return React.createElement(
+      "div",
+      { className: "end-message-container" },
+      "Not finished"
+    );
+  }
+
+  ReactDOM.render(
+    React.createElement(Finish),
+    document.getElementById("root1")
+  );
+</script>
