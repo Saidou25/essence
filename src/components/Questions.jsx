@@ -11,7 +11,7 @@ export default function Questions() {
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [forwardDisabled, setForwardDisabled] = useState(true);
   const [userAnswers, setUserAnswers] = useState([]);
-  const [end, setEnd] = useState(true);
+  const [end, setEnd] = useState(false);
   const [isSelected, setIsSelected] = useState("");
   const [storedUserSelfRating, setStoredUserSelfRating] = useState("");
   const [formState, setFormState] = useState({
@@ -158,7 +158,7 @@ export default function Questions() {
   }, [userAnswers, currentQuestionIndex]);
   console.log("forward disabled", forwardDisabled);
 
-  if (end) {
+  if (end === true) {
     return <Finish userAnswers={userAnswers} />;
   }
 
