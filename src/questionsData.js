@@ -85,7 +85,7 @@ export const questionsData = [
     illustration:
       "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-connectedness-A0xwOqzwW9hp0zky.jpg",
   },
-  {
+  /* {
     questionNumber: 4,
     questionStatment:
       "I live harmoniously in balance with myself and all of Nature.",
@@ -415,5 +415,5 @@ export const questionsData = [
     noResponse: "",
     illustration:
       "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-conscious-regenerative-living-YZ9VZ4klkEFoKggj.jpg",
-  },
+  }, */
 ];

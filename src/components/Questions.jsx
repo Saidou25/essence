@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { questionsData } from "../questionsData";
-import Finish from "./Finish";
+import Results from "./Results";
 import { MdArrowForwardIos } from "react-icons/md";
 import { GrPrevious } from "react-icons/gr";
 import "./Questions.css";
@@ -159,7 +159,7 @@ export default function Questions() {
   console.log("forward disabled", forwardDisabled);
 
   if (end === true) {
-    return <Finish userAnswers={userAnswers} />;
+    return <Results userAnswers={userAnswers} />;
   }
 
   return (
