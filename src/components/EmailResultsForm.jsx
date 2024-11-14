@@ -14,7 +14,7 @@ export default function EmailResultsForm({ hideEmail }) {
       <div className="close-container">
         <RxCross2
           onClick={() => hideEmail(false)}
-          style={{ color: "white", width: "25px", height: "25px" }}
+          style={{ color: "white", width: "25px", height: "25px", cursor: "pointer" }}
         />
       </div>
       <div className="email-form-container">
@@ -25,7 +25,8 @@ export default function EmailResultsForm({ hideEmail }) {
           </p>
         </div>
         <div className="email-form">
-          <label htmlFor="form-input">Email Address</label>
+          <label htmlFor="form-input" className="fomr-label">Email Address</label>
+          <br />
           <input
             className="form-input"
             id="form-input"

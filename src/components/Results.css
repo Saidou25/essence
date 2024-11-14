@@ -63,6 +63,7 @@
   height: auto;
   margin-right: 2%;
   margin-top: 2%;
+  cursor: pointer;
 }
 
 .title-results {
@@ -171,6 +172,7 @@
   border-radius: 50px;
   border: none;
   margin-left: 1%;
+  cursor: pointer;
 }
 .button-print:hover {
   background-color: #267b7d;

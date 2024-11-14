@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { resultsData } from "../questionsData";
-
-import "./Results.css";
-import EmailResultsForm from "./EmailResultsForm";
 import { GoMail } from "react-icons/go";
 import { ImPrinter } from "react-icons/im";
+import EmailResultsForm from "./EmailResultsForm";
+import retake from "../assets/images/retake.png";
+
+import "./Results.css";
 
 export default function Finish({ userAnswers }) {
   const [showEmailForm, setShowEmailForm] = useState(false);
@@ -22,11 +23,23 @@ export default function Finish({ userAnswers }) {
     totalRating += Number(userAnswer.userSelfRating); // Convert to number to avoid string concatenation
   }
 
-const showEmail = (data) => { setShowEmailForm(data)}
+  const handleRetake = () => {
+    window.location.reload();
+  };
+
+  const showEmail = (data) => {
+    setShowEmailForm(data);
+  };
 
   return (
     <div className="finish-main-container">
-      <h1 className="finish-titles">ESSA44 Test Results</h1>
+      <h1 className="finish-titles">ESA44 Assessment Results</h1>
+      <img
+        alt="Retake image"
+        className="retake"
+        src={retake}
+        onClick={handleRetake}
+      />
       <h2 className="score-today">
         Your Score for Today is:{" "}
         {Math.round((totalRating / 220) * 100 * 100) / 100}%
@@ -94,11 +107,16 @@ const showEmail = (data) => { setShowEmailForm(data)}
         </button>
         <button className="button-print" type="button">
           <ImPrinter
-            style={{ color: "white", height: "25px", width: "25px" }}
+            style={{
+              color: "white",
+              height: "25px",
+              width: "25px",
+              cursor: "pointer",
+            }}
           />
         </button>
       </div>
-      {showEmailForm && <EmailResultsForm hideEmail={showEmail}/>}
+      {showEmailForm && <EmailResultsForm hideEmail={showEmail} />}
     </div>
   );
 }
