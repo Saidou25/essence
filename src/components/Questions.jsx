@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { questionsData } from "../questionsData";
-import Results from "./Results";
-import { MdArrowForwardIos } from "react-icons/md";
-import "./Questions.css";
 import { IoCaretBackSharp, IoCaretForwardSharp } from "react-icons/io5";
+import Results from "./Results";
+
+import "./Questions.css";
 
 export default function Questions() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [pass, setPass] = useState(false);
   const [buttonDisabled, setButtonDisabled] = useState(true);
-  const [backwordDisabled, setBackwordDisabled] = React.useState(false);
-  const [showFinishedPage, setShowFinishedPage] = React.useState(false);
+  const [backwordDisabled, setBackwordDisabled] = useState(false);
+  const [showFinishedPage, setShowFinishedPage] = useState(false);
   const [forwardDisabled, setForwardDisabled] = useState(true);
   const [userAnswers, setUserAnswers] = useState([]);
   const [end, setEnd] = useState(false);
   const [isSelected, setIsSelected] = useState("");
   const [storedUserSelfRating, setStoredUserSelfRating] = useState("");
-  const [submissionReminder, setSubmissionReminder] = React.useState("");
-  const [animationFade, setAnimationFade] = React.useState(false);
+  const [submissionReminder, setSubmissionReminder] = useState("");
+  const [animationFade, setAnimationFade] = useState(false);
   const [formState, setFormState] = useState({
     questionNumber: questionsData[0].questionNumber,
     questionStatment: questionsData[0].questionStatment,
@@ -35,19 +35,6 @@ export default function Questions() {
     "Somewhat Agree",
     "Strongly agree",
   ];
-  // const currentScale = scales[currentScaleIndex];
-  // console.log(currentScale)
-
-  // console.log("user answers", userAnswers);
-  // console.log("form state", formState);
-
-  const resetFormState = () => {
-    setFormState((prevState) => ({
-      ...prevState,
-      noResponse: "No response",
-      userSelfRating: 0,
-    }));
-  };
 
   const handleRatingClick = (value) => {
     setPass(false);
@@ -330,9 +317,9 @@ export default function Questions() {
               style={{ cursor: buttonDisabled ? "not-allowed" : "pointer" }}
               onClick={handleSubmit}
             >
-              Submit
+              SUBMIT
             </button>
-          </div>{" "}
+          </div>
           <br />
         </div>
       </div>

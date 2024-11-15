@@ -39,19 +39,19 @@ export default function Finish({ userAnswers }) {
   };
 
   return (
-    <div className="finish-main-container">
-      <h1 className="finish-titles print-content">ESA44 Assessment Results</h1>
+    <div className="finish-main-container print-content">
+      <h1 className="finish-titles">ESA44 Assessment Results</h1>
       <img
         alt="Retake image"
         className="retake no-print"
         src={retake}
         onClick={handleRetake}
       />
-      <h2 className="score-today print-content">
+      <h2 className="score-today">
         Your Score for Today is:{" "}
         {Math.round((totalRating / 220) * 100 * 100) / 100}%
       </h2>
-      <table className="results-table print-content">
+      <table className="results-table">
         <thead>
           <tr className="class-top">
             <th className="class-th">ESA44 Awakening %</th>
@@ -80,10 +80,10 @@ export default function Finish({ userAnswers }) {
             ))}
         </tbody>
       </table>
-      <h2 className="thank-you print-content">
+      <h2 className="thank-you">
         Please evaluate your ESA44 results with the following table.
       </h2>
-      <table className="results-table print-content">
+      <table className="results-table">
         <thead>
           <tr className="class-top">
             <th className="class-th">ESA44 Awakening %</th>
