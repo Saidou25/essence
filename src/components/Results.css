@@ -1,42 +1,7 @@
-/* .finish-main-container {
-  width: 90%;
-  margin: auto;
+@font-face {
+  font-family: "ImpactUnicode";
+  src: url("../assets/fonts/unicode.impact.ttf") format("truetype");
 }
-.finish-titles {
-  text-align: center;
-  margin: 5% 0 10% 0;
-}
-.score-today {
-    text-align: center;
-    margin-bottom: 4%;
-}
-.results-table {
-  margin: auto;
-  border-collapse: separate;
-  border-spacing: 0;
-  border: 1px solid grey;
-}
-.class-tr {
-  border-bottom: 1px solid grey;
-  border-right: 1px solid grey;
-  border-color: grey;
-  height: 50px;
-  text-align: center;
-  padding: 0 5%;
-  width: 25%;
-}
-.class-td {
-  border-right: 1px solid grey;
-  border-right: 1px solid #fdfdfd;
-  height: 50px;
-  text-align: center;
-  padding: 0 5%;
-  width: 27%;
-}
-.thank-you {
-    text-align: center;
-    margin: 10%;
-} */
 .end-container {
   background-color: #fefefe;
   width: 100%;
@@ -51,7 +16,7 @@
   color: black;
   text-align: center;
   font-size: 38px;
-  font-family: Anton, sans-serif;
+  font-family: "ImpactUnicode", sans-serif;
   padding-top: 3%;
 }
 
@@ -71,7 +36,7 @@
   color: black;
   text-align: center;
   font-size: 38px;
-  font-family: Anton, sans-serif;
+  font-family: "ImpactUnicode", sans-serif;
 }
 
 .score-today {
@@ -105,7 +70,7 @@
 .class-th {
   border-bottom: 1px solid grey;
   border-color: grey;
-  font-family: Anton, sans-serif;
+  font-family: "ImpactUnicode", sans-serif;
   text-rendering: optimizeLegibility;
   font-size: 22px;
   color: black;
@@ -147,13 +112,20 @@
   padding-bottom: 3%;
   padding-top: 4%;
 }
+.email-print-texts {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 1%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 .button-email {
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #e37d37;
-  width: 15%;
-  padding: 4px;
+  padding: 10px;
   border-radius: 50px;
   border: none;
   margin-right: 1%;
@@ -167,8 +139,7 @@
   align-items: center;
   justify-content: center;
   background-color: #e37d37;
-  width: 15%;
-  padding: 4px;
+  padding: 10px;
   border-radius: 50px;
   border: none;
   margin-left: 1%;
@@ -176,4 +147,18 @@
 }
 .button-print:hover {
   background-color: #267b7d;
+}
+@media print {
+  body {
+      visibility: visible;
+  }
+
+  .print-content {
+      display: block;
+      visibility: visible;
+  }
+
+  .no-print {
+      display: none;
+  }
 }

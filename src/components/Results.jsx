@@ -12,7 +12,6 @@ export default function Finish({ userAnswers }) {
   let totalRating = 0;
   // let totalRating = 34;
   const totalAssessment = (totalRating / 220) * 100;
-  console.log(totalAssessment);
   const date = new Date();
   const day = date.getDate();
   const month = date.getMonth();
@@ -31,20 +30,28 @@ export default function Finish({ userAnswers }) {
     setShowEmailForm(data);
   };
 
+  const handlePrint = () => {
+    try {
+      window.print();
+    } catch (error) {
+      console.log("error during printing", error);
+    }
+  };
+
   return (
     <div className="finish-main-container">
-      <h1 className="finish-titles">ESA44 Assessment Results</h1>
+      <h1 className="finish-titles print-content">ESA44 Assessment Results</h1>
       <img
         alt="Retake image"
-        className="retake"
+        className="retake no-print"
         src={retake}
         onClick={handleRetake}
       />
-      <h2 className="score-today">
+      <h2 className="score-today print-content">
         Your Score for Today is:{" "}
         {Math.round((totalRating / 220) * 100 * 100) / 100}%
       </h2>
-      <table className="results-table">
+      <table className="results-table print-content">
         <thead>
           <tr className="class-top">
             <th className="class-th">ESA44 Awakening %</th>
@@ -73,10 +80,10 @@ export default function Finish({ userAnswers }) {
             ))}
         </tbody>
       </table>
-      <h2 className="thank-you">
+      <h2 className="thank-you print-content">
         Please evaluate your ESA44 results with the following table.
       </h2>
-      <table className="results-table">
+      <table className="results-table print-content">
         <thead>
           <tr className="class-top">
             <th className="class-th">ESA44 Awakening %</th>
@@ -97,26 +104,41 @@ export default function Finish({ userAnswers }) {
             ))}
         </tbody>
       </table>
-      <div className="email-print-container no-print">
-        <button
-          className="button-email"
-          type="button"
-          onClick={() => setShowEmailForm(true)}
-        >
-          <GoMail style={{ color: "white", height: "25px", width: "25px" }} />
-        </button>
-        <button className="button-print" type="button">
-          <ImPrinter
-            style={{
-              color: "white",
-              height: "25px",
-              width: "25px",
-              cursor: "pointer",
-            }}
-          />
-        </button>
-      </div>
-      {showEmailForm && <EmailResultsForm hideEmail={showEmail} />}
+      {showEmailForm ? (
+        <EmailResultsForm hideEmail={showEmail} className="no-print" />
+      ) : (
+        <div className="email-print-container no-print">
+          <div className="email-print-texts no-print">
+            <p>E-mail results</p>
+            <button
+              className="button-email"
+              type="button"
+              onClick={() => setShowEmailForm(true)}
+            >
+              <GoMail
+                style={{ color: "white", height: "25px", width: "25px" }}
+              />
+            </button>
+          </div>
+          <div className="email-print-texts no-print">
+            <p>Print results</p>
+            <button
+              className="button-print"
+              type="button"
+              onClick={handlePrint}
+            >
+              <ImPrinter
+                style={{
+                  color: "white",
+                  height: "25px",
+                  width: "25px",
+                  cursor: "pointer",
+                }}
+              />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

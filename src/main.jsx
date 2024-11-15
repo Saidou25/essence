@@ -1,9 +1,9 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import App from './App.jsx'; // Ensure correct path to your App component
+import React from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App.jsx";
 
 // Get the root element
-const container = document.getElementById('root');
+const container = document.getElementById("root");
 
 // Create the root only once
 const root = createRoot(container);

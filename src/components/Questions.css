@@ -1,13 +1,16 @@
+@font-face {
+    font-family: 'ImpactUnicode';
+    src: url('../assets/fonts/unicode.impact.ttf') format('truetype');
+}
 .main-container {
   background-color: #fefefe;
 }
-
 .card-title {
   letter-spacing: 1px;
   color: black;
   text-align: center;
   font-size: 38px;
-  font-family: Anton, sans-serif;
+  font-family: 'ImpactUnicode', sans-serif;
   padding-top: 3%;
 }
 
