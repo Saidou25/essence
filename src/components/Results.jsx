@@ -32,11 +32,17 @@ export default function Finish({ userAnswers }) {
 
   const handlePrint = () => {
     try {
-      window.print();
+      window.parent.postMessage('print', '*');
+      // window.print();
     } catch (error) {
       console.log("error during printing", error);
     }
   };
+  if (process.env.NODE_ENV === 'development') {
+    console.log('Message sent: print');
+  }
+  
+
 
   return (
     <div className="finish-main-container print-content">
