@@ -2,7 +2,7 @@
   font-family: "ImpactUnicode";
   src: url("../assets/fonts/unicode.impact.ttf") format("truetype");
 }
-.end-container {
+.finish-main-container {
   background-color: #fefefe;
   width: 100%;
   max-width: none;
