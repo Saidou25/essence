@@ -309,7 +309,6 @@ export default function Questions() {
               </div>
             </div>
             <br />
-            <br />
             <button
               className="button-submit"
               type="button"
