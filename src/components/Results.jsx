@@ -39,7 +39,7 @@ export default function Finish({ userAnswers }) {
           action: "print",
           message: "Please trigger print in the parent iframe",
         },
-        "*" // You can specify the parent iframe's origin here for extra security, e.g., 'https://your-parent-domain.com'
+        "https://builder.hostinger.com/mP47Mwo0WQhVBkl5/preview" // You can specify the parent iframe's origin here for extra security, e.g., 'https://your-parent-domain.com'
       );
       console.log("message sent")
     } catch (error) {
