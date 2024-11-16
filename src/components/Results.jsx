@@ -33,6 +33,14 @@ export default function Finish({ userAnswers }) {
   const handlePrint = () => {
     try {
       window.print();
+      // Send a message to the parent iframe to request print action
+      window.parent.postMessage(
+        {
+          action: "print",
+          message: "Please trigger print in the parent iframe",
+        },
+        "*" // You can specify the parent iframe's origin here for extra security, e.g., 'https://your-parent-domain.com'
+      );
     } catch (error) {
       console.log("error during printing", error);
     }
