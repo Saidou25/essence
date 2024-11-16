@@ -41,6 +41,7 @@ export default function Finish({ userAnswers }) {
         },
         "*" // You can specify the parent iframe's origin here for extra security, e.g., 'https://your-parent-domain.com'
       );
+      console.log("message sent")
     } catch (error) {
       console.log("error during printing", error);
     }
