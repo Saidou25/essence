@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { resultsData } from "../questionsData";
 import { GoMail } from "react-icons/go";
 import { ImPrinter } from "react-icons/im";
+import { VscDebugRestart } from "react-icons/vsc";
 import EmailResultsForm from "./EmailResultsForm";
 import retake from "../assets/images/retake.png";
 
@@ -30,7 +31,7 @@ export default function Finish({ userAnswers }) {
     setShowEmailForm(data);
   };
 
-  const handlePrint = () => {
+ /*  const handlePrint = () => {
     try {
       window.print();
       // Send a message to the parent iframe to request print action
@@ -46,9 +47,49 @@ export default function Finish({ userAnswers }) {
       console.log("error during printing", error);
     }
   };
+ */
+
+  const handlePrint = () => {
+    const printContent = document.getElementById('print-results-content').innerHTML;
+    const printStyles = Array.from(document.styleSheets)
+      .map((sheet) => {
+        try {
+          return Array.from(sheet.cssRules || [])
+            .map((rule) => rule.cssText)
+            .join('\n');
+        } catch (error) {
+          console.warn('Could not load stylesheet:', error);
+          return '';
+        }
+      })
+      .join('\n');
+  
+    const printWindow = window.open('', '_blank', 'width=800,height=600');
+    if (printWindow) {
+      printWindow.document.write(`
+        <html>
+          <head>
+            <title>Print</title>
+            <style>${printStyles}</style>
+          </head>
+          <body>
+            <div>${printContent}</div>
+          </body>
+        </html>
+      `);
+      printWindow.document.close();
+      printWindow.focus();
+      printWindow.print();
+      printWindow.close();
+    } else {
+      alert('Unable to open print window. Please allow pop-ups for this site.');
+    }
+  };
+  
+  
 
   return (
-    <div className="finish-main-container print-content">
+    <div className="finish-main-container" id="print-results-content">
       <h1 className="finish-titles">ESA44 Assessment Results</h1>
       <img
         alt="Retake image"
@@ -114,11 +155,11 @@ export default function Finish({ userAnswers }) {
         </tbody>
       </table>
       {showEmailForm ? (
-        <EmailResultsForm hideEmail={showEmail} className="no-print" />
+        <EmailResultsForm hideEmail={showEmail} />
       ) : (
         <div className="email-print-container no-print">
           <div className="email-print-texts no-print">
-            <p>E-mail results</p>
+            <p className="button-text-title">E-mail results</p>
             <button
               className="button-email"
               type="button"
@@ -130,13 +171,30 @@ export default function Finish({ userAnswers }) {
             </button>
           </div>
           <div className="email-print-texts no-print">
-            <p>Print results</p>
+            <p className="button-text-title">Print results</p>
             <button
               className="button-print"
               type="button"
               onClick={handlePrint}
             >
               <ImPrinter
+                style={{
+                  color: "white",
+                  height: "25px",
+                  width: "25px",
+                  cursor: "pointer",
+                }}
+              />
+            </button>
+          </div>
+          <div className="email-print-texts no-print">
+            <p className="button-text-title">Retake Assessment</p>
+            <button
+              className="button-retake"
+              type="button"
+              onClick={handleRetake}
+            >
+              <VscDebugRestart
                 style={{
                   color: "white",
                   height: "25px",
