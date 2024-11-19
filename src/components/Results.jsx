@@ -50,8 +50,18 @@ export default function Finish({ userAnswers }) {
  */
 
   const handlePrint = () => {
-      window.parent.postMessage({ action: "print" }, "*");
-  };
+    console.log("Preparing to send message to parent...");
+    try {
+        window.parent.postMessage(
+            { action: "print" },
+            "https://builder.hostinger.com/mP47Mwo0WQhVBkl5/preview"
+        );
+        console.log("Message sent successfully.");
+    } catch (error) {
+        console.error("Failed to send message to parent:", error);
+    }
+};
+
 
   return (
     <div className="finish-main-container" id="print-results-content">
