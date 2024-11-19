@@ -50,42 +50,7 @@ export default function Finish({ userAnswers }) {
  */
 
   const handlePrint = () => {
-    const printContent = document.getElementById(
-      "print-results-content"
-    ).innerHTML;
-    const printStyles = Array.from(document.styleSheets)
-      .map((sheet) => {
-        try {
-          return Array.from(sheet.cssRules || [])
-            .map((rule) => rule.cssText)
-            .join("\n");
-        } catch (error) {
-          console.warn("Could not load stylesheet:", error);
-          return "";
-        }
-      })
-      .join("\n");
-
-    const printWindow = window.open("", "_blank", "width=800,height=600");
-    if (printWindow) {
-      printWindow.document.write(`
-        <html>
-          <head>
-            <title>Print</title>
-            <style>${printStyles}</style>
-          </head>
-          <body>
-            <div>${printContent}</div>
-          </body>
-        </html>
-      `);
-      printWindow.document.close();
-      printWindow.focus();
-      printWindow.print();
-      printWindow.close();
-    } else {
-      console.log("Unable to open print window. Please allow pop-ups for this site.");
-    }
+      window.parent.postMessage('trigger-print', '*');
   };
 
   return (
