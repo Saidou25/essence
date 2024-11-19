@@ -89,7 +89,7 @@ export default function Finish({ userAnswers }) {
             ))}
         </tbody>
       </table>
-      <h2 className="thank-you">
+      <h2 className="please-evaluate">
         Please evaluate your ESA44 results with the following table.
       </h2>
       <table className="results-table">

@@ -43,7 +43,6 @@
   text-align: center;
   padding: 2% 3%;
   color: black;
-  font-size: 28px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -101,7 +100,7 @@
   color: black;
 }
 
-.thank-you {
+.please-evaluate {
   text-align: center;
   margin: 3% 3%;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -203,5 +202,57 @@
   }
   .class-tr {
     page-break-inside: avoid;
+  }
+}
+@media screen and (max-width: 414px) {
+  .finish-titles {
+    font-size: 28px;
+    padding-top: 7%;
+  }
+
+  .score-today {
+    text-align: center;
+    padding: 2% 3%;
+    color: black;
+    font-size: 22px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  .results-div {
+    padding-bottom: 5%;
+  }
+
+  .results-table {
+    border: 6px solid black;
+    width: 100%;
+  }
+
+  .class-th {
+    font-size: 18px;
+    padding: 1% 1% 1% 1%;
+    width: 33%;
+  }
+
+  .class-td {
+    width: 33%;
+    font-size: 18px;
+    height: 32px;
+  }
+
+  .class-td-perspective {
+    width: 22%;
+    font-size: 18px;
+    height: 42px;
+  }
+
+  .please-evaluate {
+    text-align: center;
+    margin: 3% 3%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 22px;
+  }
+
+  .email-print-texts {
+    margin: 3%;
   }
 }

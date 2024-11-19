@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'ImpactUnicode';
-    src: url('../assets/fonts/unicode.impact.ttf') format('truetype');
+  font-family: "ImpactUnicode";
+  src: url("../assets/fonts/unicode.impact.ttf") format("truetype");
 }
 .main-container {
   background-color: #fefefe;
@@ -11,7 +11,7 @@
   color: black;
   text-align: center;
   font-size: 38px;
-  font-family: 'ImpactUnicode', sans-serif;
+  font-family: "ImpactUnicode", sans-serif;
   padding-top: 3%;
 }
 
@@ -264,132 +264,114 @@ span.material-symbols-outlined.icon-style {
 }
 @media screen and (max-width: 418px) {
   @font-face {
-    font-family: 'ImpactUnicode';
-    src: url('../assets/fonts/unicode.impact.ttf') format('truetype');
-}
-.main-container {
-  background-color: #fefefe;
-  padding-top: 2%;
-}
-.card-title {
-  font-size: 28px;
-}
+    font-family: "ImpactUnicode";
+    src: url("../assets/fonts/unicode.impact.ttf") format("truetype");
+  }
+  .main-container {
+    background-color: #fefefe;
+    padding-top: 2%;
+  }
+  .card-title {
+    font-size: 28px;
+  }
 
-.question-number {
-  color: black;
-  text-align: center;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  padding: 0;
-}
+  .question-number {
+    color: black;
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 0;
+  }
 
-.container-illustration {
-  max-width: 60%;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  .container-illustration {
+    max-width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.illustration-animated {
-  max-width: 100%;
-  height: auto;
-  animation: fadeInImage 0.5s ease-in-out forwards;
-}
+  .illustration-animated {
+    max-width: 100%;
+    height: auto;
+    animation: fadeInImage 0.5s ease-in-out forwards;
+  }
 
-.illustration {
-  max-width: 100%;
-  height: auto;
-}
+  .illustration {
+    max-width: 100%;
+    height: auto;
+  }
 
-.please-rate {
-  font-size: 15px;
-}
+  .please-rate {
+    font-size: 15px;
+  }
 
-.assest-animated {
-  font-size: 22px;
-}
+  .assest-animated {
+    font-size: 22px;
+  }
 
-.assest {
-  font-size: 22px;
-}
+  .assest {
+    font-size: 22px;
+  }
 
-/* .be-sure {
-  color: #e37d37;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-align: center;
-} */
-/* .scale-line {
-  display: flex;
-  justify-content: center;
-} */
+  .button-rating {
+    width: 65px;
+  }
 
+  .button-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
 
-/* 
-.button-line-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
+  .button-selected {
+    padding: 15px;
+  }
+  .no-response {
+    padding: 15px;
+  }
 
-.button-rating {
-  width: 65px;
-}
+  .icon-div {
+    padding-top: 2%;
+  }
+  .button {
+    padding: 15px;
+  }
 
-.button-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
+  .button-line {
+    height: 2px;
+  }
+  .scale-text {
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    font-size: 12px;
+  }
+  .neutral {
+    width: 40px;
+    font-size: 12px;
+  }
+  .button:hover,
+  .no-response:hover {
+    background-color: #908e89;
+  }
 
-.button-selected {
-  padding: 15px;
-}
-.no-response {
-  padding: 15px;
-}
+  .no-response-selected {
+    padding: 15px;
+    border-radius: 50%;
+  }
 
-.icon-div {
-  padding-top: 2%;
-}
-.button {
-  padding: 15px;
-}
+  .button-submit-unactivated {
+    width: 13%;
+    padding: 10px;
+    margin-bottom: 5%;
+  }
 
-.button-line {
-  height: 2px;
-}
-.scale-text {
-  display: flex;
-  justify-content: center;
-  width: 50px;
-  font-size: 12px;
-}
-.neutral {
-  width: 40px;
-  font-size: 12px;
-}
-.button:hover,
-.no-response:hover {
-  background-color: #908e89;
-}
-
-.no-response-selected {
-  padding: 15px;
-  border-radius: 50%;
-}
-
-.button-submit-unactivated {
-  width: 13%;
-  padding: 10px;
-  margin-bottom: 5%;
-}
-
-.button-submit {
-  width: 20%;
-  padding: 10px;
-  letter-spacing: 2px;
-  margin-bottom: 5%;
-}
+  .button-submit {
+    width: 20%;
+    padding: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 5%;
+  }
 }
