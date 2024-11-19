@@ -4,9 +4,42 @@ import { RxCross2 } from "react-icons/rx";
 import "./EmailResultsForm.css";
 
 export default function EmailResultsForm({ hideEmail }) {
-  const [emailFormDisabled, setEmailFormDisabled] = useState(true);
-  const handleFormSubmit = () => {
-    console.log("Email selected");
+  const [submitButtonDisabled, setSubmitButtonDisabled] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [formState, setFormState] = useState({
+    email: "",
+  });
+
+  const handleChange = (e) => {
+    setErrorMessage("");
+    const userEmail = e.target.value;
+    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userEmail);
+    setFormState({
+      email: userEmail,
+    });
+    if (!isValidEmail) {
+      setSubmitButtonDisabled(true);
+    } else {
+      setSubmitButtonDisabled(false);
+    }
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formState.email);
+    if (!isValidEmail) {
+      setErrorMessage("Invalid email format");
+      return;
+    }
+    try {
+      console.log("Email submitted", formState.email);
+    } catch (error) {
+      console.log("there was an error", error);
+    } finally {
+      setErrorMessage("");
+      setFormState({ email: "" });
+      setSubmitButtonDisabled(true);
+    }
   };
 
   return (
@@ -26,11 +59,11 @@ export default function EmailResultsForm({ hideEmail }) {
         <div>
           <h2 className="form-message-title">Mailing Results Request</h2>
           <p className="form-message">
-            To receive you ESA44 results directly in your inbox.
+            To receive your ESA44 results directly in your inbox.
           </p>
         </div>
-        <div className="email-form">
-          <label htmlFor="form-input" className="fomr-label">
+        <form className="email-form" onSubmit={handleFormSubmit}>
+          <label htmlFor="form-input" className="form-label">
             Email Address
           </label>
           <br />
@@ -38,21 +71,31 @@ export default function EmailResultsForm({ hideEmail }) {
             className="form-input"
             id="form-input"
             type="email"
-            placeholder="Your email address"
+            placeholder="enter your email address"
             autoComplete="on"
+            name="email"
+            value={formState.email}
+            onChange={handleChange}
+            aria-invalid={!!errorMessage}
           />
+          <br />
+          {errorMessage && (
+            <span aria-live="polite" className="error-message">
+              {errorMessage}
+            </span>
+          )}
+
           <button
             className="form-button"
-            type="button"
-            onClick={handleFormSubmit}
-            disabled={emailFormDisabled ? true : false}
+            type="submit"
+            disabled={submitButtonDisabled}
             style={{
-              cursor: emailFormDisabled ? "not-allowed" : "pointer",
+              cursor: submitButtonDisabled ? "not-allowed" : "pointer",
             }}
           >
             SUBMIT
           </button>
-        </div>
+        </form>
       </div>
     </div>
   );
