@@ -139,25 +139,7 @@
   background-color: #267b7d;
   cursor: pointer;
 }
-/* .button-print {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #e37d37;
-  padding: 10px;
-  border-radius: 50px;
-  border: none;
-  margin-left: 1%;
-  cursor: pointer;
-}
-.button-print:hover {
-  background-color: #267b7d;
-} */
 @media print {
- 
-  body {
-    visibility: visible;
-  }
   .print-content {
     display: block;
     visibility: visible;

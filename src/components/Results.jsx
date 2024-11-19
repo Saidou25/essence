@@ -10,8 +10,8 @@ import "./Results.css";
 
 export default function Finish({ userAnswers }) {
   const [showEmailForm, setShowEmailForm] = useState(false);
+
   let totalRating = 0;
-  // let totalRating = 34;
   const totalAssessment = (totalRating / 220) * 100;
   const date = new Date();
   const day = date.getDate();
@@ -31,7 +31,7 @@ export default function Finish({ userAnswers }) {
     setShowEmailForm(data);
   };
 
- /*  const handlePrint = () => {
+  /*  const handlePrint = () => {
     try {
       window.print();
       // Send a message to the parent iframe to request print action
@@ -50,21 +50,23 @@ export default function Finish({ userAnswers }) {
  */
 
   const handlePrint = () => {
-    const printContent = document.getElementById('print-results-content').innerHTML;
+    const printContent = document.getElementById(
+      "print-results-content"
+    ).innerHTML;
     const printStyles = Array.from(document.styleSheets)
       .map((sheet) => {
         try {
           return Array.from(sheet.cssRules || [])
             .map((rule) => rule.cssText)
-            .join('\n');
+            .join("\n");
         } catch (error) {
-          console.warn('Could not load stylesheet:', error);
-          return '';
+          console.warn("Could not load stylesheet:", error);
+          return "";
         }
       })
-      .join('\n');
-  
-    const printWindow = window.open('', '_blank', 'width=800,height=600');
+      .join("\n");
+
+    const printWindow = window.open("", "_blank", "width=800,height=600");
     if (printWindow) {
       printWindow.document.write(`
         <html>
@@ -82,11 +84,9 @@ export default function Finish({ userAnswers }) {
       printWindow.print();
       printWindow.close();
     } else {
-      alert('Unable to open print window. Please allow pop-ups for this site.');
+      console.log("Unable to open print window. Please allow pop-ups for this site.");
     }
   };
-  
-  
 
   return (
     <div className="finish-main-container" id="print-results-content">
@@ -188,7 +188,7 @@ export default function Finish({ userAnswers }) {
             </button>
           </div>
           <div className="email-print-texts no-print">
-            <p className="button-text-title">Retake Assessment</p>
+            <p className="button-text-title">Restart Assessment</p>
             <button
               className="button-retake"
               type="button"
