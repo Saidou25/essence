@@ -50,7 +50,7 @@ export default function Finish({ userAnswers }) {
  */
 
   const handlePrint = () => {
-      window.parent.postMessage('trigger-print', '*');
+      window.parent.postMessage({ action: "print" }, "*");
   };
 
   return (
