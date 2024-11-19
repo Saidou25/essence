@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { questionsData } from "../questionsData";
 import { IoCaretBackSharp, IoCaretForwardSharp } from "react-icons/io5";
+import useMonitorWidth from "../UsemonitorWidth";
 import Results from "./Results";
 
 import "./Questions.css";
@@ -24,9 +25,10 @@ export default function Questions() {
     userSelfRating: "",
     noResponse: "",
   });
-  // console.log(forwardDisabled);
 
-  const buttons = [1, 2, 3, 4, 5];
+  const { vw } = useMonitorWidth();
+
+  const buttons = [1, 2, 3, 4, 5, 6];
   const currentQuestion = questionsData[currentQuestionIndex];
   const scales = [
     "Strongly Disagree",
@@ -34,6 +36,7 @@ export default function Questions() {
     "Neutral",
     "Somewhat Agree",
     "Strongly agree",
+    "No Response",
   ];
 
   const handleRatingClick = (value) => {
@@ -206,6 +209,18 @@ export default function Questions() {
         </h2>
         <div className="card-body" style={{ textAlign: "center" }}>
           <div className="container-illustration">
+            {vw <= 414 && (
+              <div className="icon-div">
+                <IoCaretBackSharp
+                  style={{
+                    cursor: backwordDisabled ? "not-allowed" : "pointer",
+                    height: "30px",
+                    width: "30px",
+                  }}
+                  onClick={handleGoBack}
+                />
+              </div>
+            )}
             <img
               alt="illustration"
               src={currentQuestion.illustration}
@@ -214,6 +229,23 @@ export default function Questions() {
                 animationFade ? "illustration-animated" : "illustration"
               }
             />
+            {vw <= 414 && (
+              <div className="icon-div">
+                <IoCaretForwardSharp
+                  disabled={forwardDisabled}
+                  onClick={() => {
+                    if (!forwardDisabled) {
+                      handleNextQuestion();
+                    }
+                  }}
+                  style={{
+                    cursor: forwardDisabled ? "not-allowed" : "pointer",
+                    height: "30px",
+                    width: "30px",
+                  }}
+                />
+              </div>
+            )}
           </div>
           <br />
           <div>
@@ -229,16 +261,18 @@ export default function Questions() {
             )}
             <br />
             <div className="scale-line">
-              <div className="icon-div">
-                <IoCaretBackSharp
-                  style={{
-                    cursor: backwordDisabled ? "not-allowed" : "pointer",
-                    height: "30px",
-                    width: "30px",
-                  }}
-                  onClick={handleGoBack}
-                />
-              </div>
+              {vw > 414 && (
+                <div className="icon-div">
+                  <IoCaretBackSharp
+                    style={{
+                      cursor: backwordDisabled ? "not-allowed" : "pointer",
+                      height: "30px",
+                      width: "30px",
+                    }}
+                    onClick={handleGoBack}
+                  />
+                </div>
+              )}
               <div className="button-line-container">
                 {buttons.map((button, index) => (
                   <div className="button-rating" key={index}>
@@ -259,54 +293,40 @@ export default function Questions() {
                       {index === 4 && (
                         <div className="button-line button-line-end"></div>
                       )}
+                      {index === 6 && (
+                        <div
+                          className="button-line"
+                          onClick={() => handleRatingClick(0)}
+                        ></div>
+                      )}
                     </div>
                     <p className="scale-text">
                       {index < scales.length ? scales[index] : null}
                     </p>
-                    <p style={{ visibility: "hidden" }}>
+                    <p className="neutral" style={{ visibility: "hidden" }}>
                       {/* create empty space needed to keep homogene display with other buttons */}
                       {scales[index] === "Neutral" ? "Neutral" : ""}
                     </p>
                   </div>
                 ))}
-
-                <div className="button-rating">
-                  <button
-                    className={
-                      isSelected === -1 || pass
-                        ? "no-response-selected"
-                        : "no-response"
-                    }
-                    type="button"
-                    onClick={() => handleRatingClick(0)}
-                    style={{ marginLeft: "15%" }}
-                  ></button>
-                  <p
-                    className="scale-text"
-                    style={{ display: "flex", flexDirection: "column" }}
-                  >
-                    No<span></span>
-                    {/* create empty space needed to keep homogene display with other buttons */}
-                    <span></span> Response
-                  </p>
-                  <p style={{ visibility: "hidden" }}></p>
+              </div>
+              {vw > 414 && (
+                <div className="icon-div">
+                  <IoCaretForwardSharp
+                    disabled={forwardDisabled}
+                    onClick={() => {
+                      if (!forwardDisabled) {
+                        handleNextQuestion();
+                      }
+                    }}
+                    style={{
+                      cursor: forwardDisabled ? "not-allowed" : "pointer",
+                      height: "30px",
+                      width: "30px",
+                    }}
+                  />
                 </div>
-              </div>
-              <div className="icon-div">
-                <IoCaretForwardSharp
-                  disabled={forwardDisabled}
-                  onClick={() => {
-                    if (!forwardDisabled) {
-                      handleNextQuestion();
-                    }
-                  }}
-                  style={{
-                    cursor: forwardDisabled ? "not-allowed" : "pointer",
-                    height: "30px",
-                    width: "30px",
-                  }}
-                />
-              </div>
+              )}
             </div>
             <br />
             <button
