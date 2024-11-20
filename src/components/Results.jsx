@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { resultsData } from "../questionsData";
 import { GoMail } from "react-icons/go";
 import { ImPrinter } from "react-icons/im";
 import { VscDebugRestart } from "react-icons/vsc";
-import { jsPDF } from 'jspdf';
+import html2pdf from "html2pdf.js";
 import EmailResultsForm from "./EmailResultsForm";
 import retake from "../assets/images/retake.png";
 
@@ -11,6 +11,9 @@ import "./Results.css";
 
 export default function Finish({ userAnswers }) {
   const [showEmailForm, setShowEmailForm] = useState(false);
+  
+  // Create a ref for the content you want to convert to PDF
+  const printContentRef = useRef(null);
 
   let totalRating = 0;
   const totalAssessment = (totalRating / 220) * 100;
@@ -34,46 +37,26 @@ export default function Finish({ userAnswers }) {
 
   // Function to generate the PDF
   const downloadAssessmentResults = () => {
-    // Gather assessment results (this would be dynamic in a real app)
-    const results = {
-      name: 'John Doe',
-      score: 85,
-      date: '2024-11-20',
-      answers: [
-        { question: 'Question 1', answer: 'Answer A' },
-        { question: 'Question 2', answer: 'Answer C' },
-        // more results...
-      ],
+    console.log("in downloadAssessmentResults");
+    
+    // Define options for the html2pdf library
+    const options = {
+      margin: 1,
+      filename: "assessment_results.pdf",
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: 4, useCORS: true }, // Optional, higher scale for better image quality
+      jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
     };
 
-    // Create a new jsPDF instance
-    const doc = new jsPDF();
-
-    // Add a title to the PDF
-    doc.setFontSize(16);
-    doc.text('Assessment Results', 20, 20);
-
-    // Add user-specific information (e.g., name, score)
-    doc.setFontSize(12);
-    doc.text(`Name: ${results.name}`, 20, 30);
-    doc.text(`Score: ${results.score}`, 20, 40);
-    doc.text(`Date: ${results.date}`, 20, 50);
-
-    // Add answers to the PDF
-    doc.text('Answers:', 20, 60);
-    let yOffset = 70;
-    results.answers.forEach((item) => {
-      doc.text(`${item.question}: ${item.answer}`, 20, yOffset);
-      yOffset += 10; // Increment y offset to avoid overlapping
-    });
-
-    // Trigger the PDF download
-    doc.save('assessment_results.pdf');
+    // Generate the PDF from the HTML content
+    html2pdf()
+      .from(printContentRef.current) // Pass the ref to the html2pdf method
+      .set(options)
+      .save(); // Trigger the PDF download
   };
 
-
   return (
-    <div className="finish-main-container" id="print-results-content">
+    <div className="finish-main-container" id="print-results-content" ref={printContentRef}>
       <h1 className="finish-titles">ESA44 Assessment Results</h1>
       <img
         alt="Retake image"
@@ -101,8 +84,7 @@ export default function Finish({ userAnswers }) {
                   totalAssessment <= result.maxPercentage && (
                     <tr className="class-bottom">
                       <td className="class-td">
-                        {Math.round((totalRating / 220) * 100 * 100) / 100 +
-                          "%"}
+                        {Math.round((totalRating / 220) * 100 * 100) / 100 + "%"}
                       </td>
                       <td className="class-td">{result.awakeness}</td>
                       <td className="class-td-perspective">
