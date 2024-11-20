@@ -1,17 +1,13 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { resultsData } from "../questionsData";
-import { GoMail } from "react-icons/go";
+import { FaFilePdf } from "react-icons/fa6";
 import { VscDebugRestart } from "react-icons/vsc";
 import html2pdf from "html2pdf.js";
-import EmailResultsForm from "./EmailResultsForm";
 import retake from "../assets/images/retake.png";
 
 import "./Results.css";
-import { FaFilePdf } from "react-icons/fa";
 
 export default function Finish({ userAnswers }) {
-  const [showEmailForm, setShowEmailForm] = useState(false);
-  
   // Create a ref for the content you want to convert to PDF
   const printContentRef = useRef(null);
 
@@ -31,14 +27,12 @@ export default function Finish({ userAnswers }) {
     window.location.reload();
   };
 
-  const showEmail = (data) => {
-    setShowEmailForm(data);
-  };
+  // const showEmail = (data) => {
+  //   setShowEmailForm(data);
+  // };
 
   // Function to generate the PDF
   const downloadAssessmentResults = () => {
-    console.log("in downloadAssessmentResults");
-    
     // Define options for the html2pdf library
     const options = {
       margin: 1,
@@ -56,11 +50,16 @@ export default function Finish({ userAnswers }) {
   };
 
   return (
-    <div className="finish-main-container" id="print-results-content" ref={printContentRef}>
+    <div
+      className="finish-main-container"
+      id="print-results-content"
+      ref={printContentRef}
+    >
+      <span style={{ fontSize: "22px" }}>{formattedDate}</span>
       <h1 className="finish-titles">ESA44 Assessment Results</h1>
       <img
         alt="Retake image"
-        className="retake no-print"
+        className="retake"
         src={retake}
         onClick={handleRetake}
       />
@@ -84,7 +83,8 @@ export default function Finish({ userAnswers }) {
                   totalAssessment <= result.maxPercentage && (
                     <tr className="class-bottom">
                       <td className="class-td">
-                        {Math.round((totalRating / 220) * 100 * 100) / 100 + "%"}
+                        {Math.round((totalRating / 220) * 100 * 100) / 100 +
+                          "%"}
                       </td>
                       <td className="class-td">{result.awakeness}</td>
                       <td className="class-td-perspective">
@@ -120,58 +120,42 @@ export default function Finish({ userAnswers }) {
             ))}
         </tbody>
       </table>
-      {/* {showEmailForm ? (
-        <EmailResultsForm hideEmail={showEmail} />
-      ) : ( */}
-       <div className="email-print-container no-print">
-          {/* <div className="email-print-texts no-print">
-            <p className="button-text-title">E-mail results</p>
-            <button
-              className="button-email"
-              type="button"
-              onClick={() => setShowEmailForm(true)}
-            >
-              <GoMail
-                style={{ color: "white", height: "25px", width: "25px" }}
-              />
-            </button>
-          </div>  */}
-          <div className="email-print-texts no-print">
-            <p className="button-text-title">Download PDF</p>
-            <button
-              className="button-print"
-              type="button"
-              onClick={downloadAssessmentResults}
-            >
-              <FaFilePdf
-                style={{
-                  color: "white",
-                  height: "25px",
-                  width: "25px",
-                  cursor: "pointer",
-                }}
-              />
-            </button>
-          </div>
-          <div className="email-print-texts no-print">
-            <p className="button-text-title">Restart Assessment</p>
-            <button
-              className="button-retake"
-              type="button"
-              onClick={handleRetake}
-            >
-              <VscDebugRestart
-                style={{
-                  color: "white",
-                  height: "25px",
-                  width: "25px",
-                  cursor: "pointer",
-                }}
-              />
-            </button>
-          </div>
+      <div className="email-print-container">
+        <div className="email-print-texts">
+          <p className="button-text-title">Download PDF</p>
+          <button
+            className="button-print"
+            type="button"
+            onClick={downloadAssessmentResults}
+          >
+            <FaFilePdf
+              style={{
+                color: "white",
+                height: "25px",
+                width: "25px",
+                cursor: "pointer",
+              }}
+            />
+          </button>
         </div>
-      {/* )} */}
+        <div className="email-print-texts">
+          <p className="button-text-title">Restart Assessment</p>
+          <button
+            className="button-retake"
+            type="button"
+            onClick={handleRetake}
+          >
+            <VscDebugRestart
+              style={{
+                color: "white",
+                height: "25px",
+                width: "25px",
+                cursor: "pointer",
+              }}
+            />
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
