@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { resultsData } from "../questionsData";
-import { FaFilePdf } from "react-icons/fa6";
+import { LuDownload } from "react-icons/lu";
 import { VscDebugRestart } from "react-icons/vsc";
 import html2pdf from "html2pdf.js";
 import retake from "../assets/images/retake.png";
@@ -128,7 +128,7 @@ export default function Finish({ userAnswers }) {
             type="button"
             onClick={downloadAssessmentResults}
           >
-            <FaFilePdf
+            <LuDownload
               style={{
                 color: "white",
                 height: "25px",
