@@ -3,6 +3,7 @@ import { resultsData } from "../questionsData";
 import { GoMail } from "react-icons/go";
 import { ImPrinter } from "react-icons/im";
 import { VscDebugRestart } from "react-icons/vsc";
+import { jsPDF } from 'jspdf';
 import EmailResultsForm from "./EmailResultsForm";
 import retake from "../assets/images/retake.png";
 
@@ -31,28 +32,44 @@ export default function Finish({ userAnswers }) {
     setShowEmailForm(data);
   };
 
-  /*  const handlePrint = () => {
-    try {
-      window.print();
-      // Send a message to the parent iframe to request print action
-      window.parent.postMessage(
-        {
-          action: "print",
-          message: "Please trigger print in the parent iframe",
-        },
-        "https://builder.hostinger.com/mP47Mwo0WQhVBkl5/preview" // You can specify the parent iframe's origin here for extra security, e.g., 'https://your-parent-domain.com'
-      );
-      console.log("message sent")
-    } catch (error) {
-      console.log("error during printing", error);
-    }
-  };
- */
+  // Function to generate the PDF
+  const downloadAssessmentResults = () => {
+    // Gather assessment results (this would be dynamic in a real app)
+    const results = {
+      name: 'John Doe',
+      score: 85,
+      date: '2024-11-20',
+      answers: [
+        { question: 'Question 1', answer: 'Answer A' },
+        { question: 'Question 2', answer: 'Answer C' },
+        // more results...
+      ],
+    };
 
-  const handlePrint = () => {
-    console.log("Sending simple message...");
-    window.parent.postMessage({ action: "testMessage" }, "https://princetongreen.org/");
-};
+    // Create a new jsPDF instance
+    const doc = new jsPDF();
+
+    // Add a title to the PDF
+    doc.setFontSize(16);
+    doc.text('Assessment Results', 20, 20);
+
+    // Add user-specific information (e.g., name, score)
+    doc.setFontSize(12);
+    doc.text(`Name: ${results.name}`, 20, 30);
+    doc.text(`Score: ${results.score}`, 20, 40);
+    doc.text(`Date: ${results.date}`, 20, 50);
+
+    // Add answers to the PDF
+    doc.text('Answers:', 20, 60);
+    let yOffset = 70;
+    results.answers.forEach((item) => {
+      doc.text(`${item.question}: ${item.answer}`, 20, yOffset);
+      yOffset += 10; // Increment y offset to avoid overlapping
+    });
+
+    // Trigger the PDF download
+    doc.save('assessment_results.pdf');
+  };
 
 
   return (
@@ -142,7 +159,7 @@ export default function Finish({ userAnswers }) {
             <button
               className="button-print"
               type="button"
-              onClick={handlePrint}
+              onClick={downloadAssessmentResults}
             >
               <ImPrinter
                 style={{
