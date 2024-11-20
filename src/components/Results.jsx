@@ -51,7 +51,7 @@ export default function Finish({ userAnswers }) {
 
   const handlePrint = () => {
     console.log("Sending simple message...");
-    window.parent.postMessage({ action: "testMessage" }, "*");
+    window.parent.postMessage({ action: "testMessage" }, "https://princetongreen.org/");
 };
 
 
