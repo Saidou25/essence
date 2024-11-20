@@ -1,13 +1,13 @@
 import React, { useRef, useState } from "react";
 import { resultsData } from "../questionsData";
 import { GoMail } from "react-icons/go";
-import { ImPrinter } from "react-icons/im";
 import { VscDebugRestart } from "react-icons/vsc";
 import html2pdf from "html2pdf.js";
 import EmailResultsForm from "./EmailResultsForm";
 import retake from "../assets/images/retake.png";
 
 import "./Results.css";
+import { FaFilePdf } from "react-icons/fa";
 
 export default function Finish({ userAnswers }) {
   const [showEmailForm, setShowEmailForm] = useState(false);
@@ -120,11 +120,11 @@ export default function Finish({ userAnswers }) {
             ))}
         </tbody>
       </table>
-      {showEmailForm ? (
+      {/* {showEmailForm ? (
         <EmailResultsForm hideEmail={showEmail} />
-      ) : (
-        <div className="email-print-container no-print">
-          <div className="email-print-texts no-print">
+      ) : ( */}
+       <div className="email-print-container no-print">
+          {/* <div className="email-print-texts no-print">
             <p className="button-text-title">E-mail results</p>
             <button
               className="button-email"
@@ -135,15 +135,15 @@ export default function Finish({ userAnswers }) {
                 style={{ color: "white", height: "25px", width: "25px" }}
               />
             </button>
-          </div>
+          </div>  */}
           <div className="email-print-texts no-print">
-            <p className="button-text-title">Print results</p>
+            <p className="button-text-title">Download PDF</p>
             <button
               className="button-print"
               type="button"
               onClick={downloadAssessmentResults}
             >
-              <ImPrinter
+              <FaFilePdf
                 style={{
                   color: "white",
                   height: "25px",
@@ -171,7 +171,7 @@ export default function Finish({ userAnswers }) {
             </button>
           </div>
         </div>
-      )}
+      {/* )} */}
     </div>
   );
 }
