@@ -54,7 +54,7 @@ export default function Finish({ userAnswers }) {
     try {
         window.parent.postMessage(
             { action: "print" },
-            "https://builder.hostinger.com/mP47Mwo0WQhVBkl5/preview"
+            "https://princetongreen.org"
         );
         console.log("Message sent successfully.");
     } catch (error) {
