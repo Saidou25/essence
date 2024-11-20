@@ -54,14 +54,13 @@ export default function Finish({ userAnswers }) {
     try {
         window.parent.postMessage(
             { action: "print" },
-            "https://princetongreen.org"
+            "*"
         );
         console.log("Message sent successfully.");
     } catch (error) {
         console.error("Failed to send message to parent:", error);
     }
 };
-
 
   return (
     <div className="finish-main-container" id="print-results-content">
