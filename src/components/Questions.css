@@ -270,6 +270,7 @@ span.material-symbols-outlined.icon-style {
   .main-container {
     background-color: #fefefe;
     padding-top: 2%;
+    max-height: 600px;
   }
   .card-title {
     font-size: 28px;
