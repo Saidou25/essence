@@ -336,7 +336,9 @@ export default function Questions() {
               className="button-submit"
               type="button"
               disabled={buttonDisabled}
-              style={{ cursor: buttonDisabled ? "not-allowed" : "pointer" }}
+              style={{ cursor: buttonDisabled ? "not-allowed" : "pointer",
+                backgroundColor: buttonDisabled ? "#c7cec9" : "#e37d37"
+               }}
               onClick={handleSubmit}
             >
               SUBMIT
