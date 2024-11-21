@@ -13,6 +13,7 @@
 .format-date {
   font-size: 22px;
   margin-left: 3%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .finish-titles {
   letter-spacing: 1px;
@@ -127,8 +128,7 @@
 .button-text-title {
   text-align: center;
 }
-.button-email,
-.button-print,
+.button-download,
 .button-retake {
   display: flex;
   align-items: center;
@@ -137,9 +137,9 @@
   padding: 10px;
   border-radius: 50px;
   border: none;
-  margin-right: 1%;
 }
-.button-email:hover {
+.button-retake:hover,
+.button-download:hover {
   background-color: #267b7d;
   cursor: pointer;
 }
@@ -204,35 +204,29 @@
     font-size: 22px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
-
   .results-div {
     padding-bottom: 5%;
   }
-
   .results-table {
     border: 6px solid black;
     width: 100%;
   }
-
   .class-th {
     font-family: "Arial Black", "Bebas Neue", "Helvetica", sans-serif;
     font-size: 18px;
     padding: 1% 1% 1% 1%;
     width: 33%;
   }
-
   .class-td {
     width: 33%;
     font-size: 18px;
     height: 32px;
   }
-
   .class-td-perspective {
     width: 22%;
     font-size: 18px;
     height: 42px;
   }
-
   .please-evaluate {
     text-align: center;
     margin: 3% 3%;
@@ -246,7 +240,15 @@
     padding-top: 0;
   }
   .email-print-texts {
-    margin: 3%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0 5% 0 5%;
+    width: 70px;
+    font-size: 14px;
+  }
+  .button-retake,
+  .button-download {
+    padding: 5px;
+    margin: 0;
   }
 }
 @media screen and (max-width: 359px) {
@@ -307,11 +309,5 @@
   }
   .button-text-title {
     text-align: center;
-  }
-  .button-email,
-  .button-print,
-  .button-retake {
-    padding: 5px;
-    margin: 0;
   }
 }

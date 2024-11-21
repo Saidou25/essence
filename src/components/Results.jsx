@@ -119,7 +119,7 @@ export default function Finish({ userAnswers }) {
         <div className="email-print-texts">
           <p className="button-text-title">Download PDF</p>
           <button
-            className="button-print"
+            className="button-download"
             type="button"
             onClick={downloadAssessmentResults}
           >
