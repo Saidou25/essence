@@ -3,7 +3,7 @@
   src: url("../assets/fonts/unicode.impact.ttf") format("woff2");
 }
 .finish-main-container {
-  background-color: #fefefe;
+  background-color: #f1f1f1;
   width: 100%;
   max-width: none;
   box-sizing: border-box;

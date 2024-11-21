@@ -3,7 +3,7 @@
   src: url("../assets/fonts/unicode.impact.ttf") format("truetype");
 }
 .main-container {
-  background-color: #fefefe;
+  background-color: #f1f1f1;
   padding-top: 2%;
 }
 .card-title {
@@ -93,6 +93,7 @@
   letter-spacing: 1px;
   animation: fadeIn 1s linear;
   animation: fadeInColor 0.5s ease-in-out forwards;
+  padding: 0 3% 0 3%;
 }
 
 .assest {
