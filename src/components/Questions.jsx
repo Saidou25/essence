@@ -307,7 +307,7 @@ export default function Questions() {
                     <p className="scale-text">
                       {index < scales.length ? scales[index] : null}
                     </p>
-                    <p className="neutral" style={{ visibility: "hidden" }}>
+                    <p className="scale-text" style={{ visibility: "hidden" }}>
                       {/* create empty space needed to keep homogene display with other buttons */}
                       {scales[index] === "Neutral" ? "Neutral" : ""}
                     </p>
@@ -332,7 +332,6 @@ export default function Questions() {
                 </div>
               )}
             </div>
-            <br />
             <button
               className="button-submit"
               type="button"

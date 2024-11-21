@@ -86,7 +86,6 @@
 }
 
 .assest-animated {
-  /*  color: #615f5c; */
   color: black;
   text-align: center;
   font-size: 30px;
@@ -102,7 +101,7 @@
   font-size: 30px;
   font-family: Anton, sans-serif;
   letter-spacing: 1px;
-  padding: 0 5px;
+  padding: 0 3% 0 3%;
 }
 
 .be-sure {
