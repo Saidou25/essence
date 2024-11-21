@@ -280,7 +280,9 @@ span.material-symbols-outlined.icon-style {
     text-align: center;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding: 0;
+    font-size: 16px;
   }
+ 
 
   .container-illustration {
     max-width: 60%;
@@ -314,7 +316,7 @@ span.material-symbols-outlined.icon-style {
   }
 
   .button-rating {
-    width: 65px;
+    width: 55px;
   }
 
   .button-wrapper {
@@ -369,10 +371,10 @@ span.material-symbols-outlined.icon-style {
   }
 
   .button-submit {
-    width: 20%;
-    padding: 10px;
+    width: 30%;
+    padding: 8px;
     letter-spacing: 2px;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
   }
 }
 @media screen and (max-width: 359px) {

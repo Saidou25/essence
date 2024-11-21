@@ -204,7 +204,7 @@ export default function Questions() {
           justifyContent: "center",
         }}
       >
-        <h2 className="question-number" style={{ textAlign: "center" }}>
+        <h2 className="question-number">
           {currentQuestion.questionNumber} of 44
         </h2>
         <div className="card-body" style={{ textAlign: "center" }}>
@@ -253,6 +253,8 @@ export default function Questions() {
             <span className="please-rate">
               Please rate how much you agree with the following statement:
             </span>
+            <br />
+            <br />
             <h2 className={animationFade ? "assest-animated" : "assest"}>
               {currentQuestion.questionStatment}
             </h2>
