@@ -282,8 +282,6 @@ span.material-symbols-outlined.icon-style {
     padding: 0;
     font-size: 16px;
   }
- 
-
   .container-illustration {
     max-width: 60%;
     margin: auto;
@@ -293,13 +291,13 @@ span.material-symbols-outlined.icon-style {
   }
 
   .illustration-animated {
-    max-width: 100%;
+    max-width: 90%;
     height: auto;
     animation: fadeInImage 0.5s ease-in-out forwards;
   }
 
   .illustration {
-    max-width: 100%;
+    max-width: 90%;
     height: auto;
   }
 
@@ -309,12 +307,19 @@ span.material-symbols-outlined.icon-style {
 
   .assest-animated {
     font-size: 22px;
-  }
+    height: 80px;
 
+  }
   .assest {
+    height: 80px;
     font-size: 22px;
   }
-
+  .be-sure {
+    color: #e37d37;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+    height: 20px;
+  }
   .button-rating {
     width: 55px;
   }

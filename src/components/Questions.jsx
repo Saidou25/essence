@@ -224,7 +224,6 @@ export default function Questions() {
             <img
               alt="illustration"
               src={currentQuestion.illustration}
-              style={{ maxWidth: "100%", height: "auto" }}
               className={
                 animationFade ? "illustration-animated" : "illustration"
               }
@@ -258,10 +257,13 @@ export default function Questions() {
             <h2 className={animationFade ? "assest-animated" : "assest"}>
               {currentQuestion.questionStatment}
             </h2>
-            {submissionReminder && (
+            {submissionReminder ? (
               <p className="be-sure">Please submit your change...</p>
+            ) : (
+              <p className="be-sure" style={{ visibility: "hidden" }}>
+                Please submit your change...
+              </p>
             )}
-            <br />
             <div className="scale-line">
               {vw > 414 && (
                 <div className="icon-div">
