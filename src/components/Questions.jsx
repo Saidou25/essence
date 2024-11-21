@@ -194,7 +194,7 @@ export default function Questions() {
   }
 
   return (
-    <div className="main-container">
+    <div className="questions-main-container">
       <h1 className="card-title">ESSENCE Self-Awareness Assessment</h1>
       <div
         className="card"

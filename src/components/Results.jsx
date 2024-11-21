@@ -3,7 +3,6 @@ import { resultsData } from "../questionsData";
 import { LuDownload } from "react-icons/lu";
 import { VscDebugRestart } from "react-icons/vsc";
 import html2pdf from "html2pdf.js";
-import retake from "../assets/images/retake.png";
 
 import "./Results.css";
 
@@ -26,10 +25,6 @@ export default function Finish({ userAnswers }) {
   const handleRetake = () => {
     window.location.reload();
   };
-
-  // const showEmail = (data) => {
-  //   setShowEmailForm(data);
-  // };
 
   // Function to generate the PDF
   const downloadAssessmentResults = () => {
@@ -57,7 +52,6 @@ export default function Finish({ userAnswers }) {
     >
       <span className="format-date">{formattedDate}</span>
       <h1 className="finish-titles">ESA44 Assessment Results</h1>
-  
       <h2 className="score-today">
         Your Score for Today is:{" "}
         {Math.round((totalRating / 220) * 100 * 100) / 100}%
@@ -115,6 +109,11 @@ export default function Finish({ userAnswers }) {
             ))}
         </tbody>
       </table>
+      <br />
+      {/* <p style={{ textAlign: "center" }}>
+        Be sure to record your ESA44 Results on page 11 or page 303 of ESSENCE
+        Book 1.
+      </p> */}
       <div className="email-print-container">
         <div className="email-print-texts">
           <p className="button-text-title">Download PDF</p>
@@ -151,6 +150,12 @@ export default function Finish({ userAnswers }) {
           </button>
         </div>
       </div>
+      <br />
+      <p style={{ textAlign: "center" }}>
+        Be sure to record your ESA44 Results on page 11 or page 303 of ESSENCE
+        Book 1.
+      </p>
+      <p style={{ textAlign: "center" }}>www.princetongreen.org</p>
     </div>
   );
 }

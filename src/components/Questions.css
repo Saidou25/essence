@@ -2,7 +2,7 @@
   font-family: "ImpactUnicode";
   src: url("../assets/fonts/unicode.impact.ttf") format("truetype");
 }
-.main-container {
+.questions-main-container {
   background-color: #f1f1f1;
   padding-top: 2%;
 }

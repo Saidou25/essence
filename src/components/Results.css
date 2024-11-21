@@ -113,8 +113,8 @@
 .email-print-container {
   display: flex;
   justify-content: center;
-  padding-bottom: 3%;
-  padding-top: 4%;
+  /* padding-bottom: 3%; */
+  /* padding-top: 4%; */
 }
 .email-print-texts {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
