@@ -191,7 +191,7 @@
 @media screen and (max-width: 414px) {
   .finish-titles {
     font-size: 28px;
-    padding-top: 7%;
+    padding-top: 0;
   }
   .format-date {
     font-size: 15px;
@@ -239,7 +239,12 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 22px;
   }
-
+  .email-print-container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 0;
+    padding-top: 0;
+  }
   .email-print-texts {
     margin: 3%;
   }
@@ -250,11 +255,6 @@
     padding-bottom: 0;
     margin: 0;
   }
-  .finish-titles {
-    font-size: 28px;
-    padding-top: 7%;
-  }
-
   .score-today {
     text-align: center;
     padding: 1% 2%;
@@ -290,38 +290,28 @@
     font-size: 14px;
     height: 42px;
   }
-
   .please-evaluate {
     text-align: center;
     margin: 2% 2%;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 18px;
   }
-
   .email-print-texts {
     margin: 3%;
   }
-
-.email-print-container {
-  display: flex;
-  justify-content: center;
-  padding-bottom: 0;
-  padding-top: 1%;
-}
-.email-print-texts {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin: 0 5% 0 5%;
-  width: 70px;
-  font-size: 14px;
-}
-.button-text-title {
-  text-align: center;
-}
-.button-email,
-.button-print,
-.button-retake {
-  padding: 5px;
-  margin: 0;
-}
-
+  .email-print-texts {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0 5% 0 5%;
+    width: 70px;
+    font-size: 14px;
+  }
+  .button-text-title {
+    text-align: center;
+  }
+  .button-email,
+  .button-print,
+  .button-retake {
+    padding: 5px;
+    margin: 0;
+  }
 }
