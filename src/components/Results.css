@@ -10,7 +10,10 @@
   padding-top: 2%;
   padding-bottom: 2%;
 }
-
+.format-date {
+  font-size: 22px;
+  margin-left: 3%;
+}
 .finish-titles {
   letter-spacing: 1px;
   color: black;
@@ -105,6 +108,7 @@
   margin: 3% 3%;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
 .email-print-container {
   display: flex;
   justify-content: center;
@@ -184,13 +188,15 @@
     page-break-inside: avoid;
   }
 }
-@media screen and (max-width: 359px) {
-  
+@media screen and (max-width: 414px) {
   .finish-titles {
     font-size: 28px;
     padding-top: 7%;
   }
-
+  .format-date {
+    font-size: 15px;
+    margin-left: 3%;
+  }
   .score-today {
     text-align: center;
     padding: 2% 3%;
@@ -237,4 +243,85 @@
   .email-print-texts {
     margin: 3%;
   }
+}
+@media screen and (max-width: 359px) {
+  .finish-main-container {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+  }
+  .finish-titles {
+    font-size: 28px;
+    padding-top: 7%;
+  }
+
+  .score-today {
+    text-align: center;
+    padding: 1% 2%;
+    color: black;
+    font-size: 18px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  .results-div {
+    padding-bottom: 0;
+  }
+
+  .results-table {
+    border: 6px solid black;
+    width: 100%;
+  }
+
+  .class-th {
+    font-family: "Arial Black", "Bebas Neue", "Helvetica", sans-serif;
+    font-size: 14px;
+    padding: 1% 1% 1% 1%;
+    width: 33%;
+  }
+
+  .class-td {
+    width: 33%;
+    font-size: 14px;
+    height: 24px;
+  }
+
+  .class-td-perspective {
+    width: 22%;
+    font-size: 14px;
+    height: 42px;
+  }
+
+  .please-evaluate {
+    text-align: center;
+    margin: 2% 2%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+  }
+
+  .email-print-texts {
+    margin: 3%;
+  }
+
+.email-print-container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 0;
+  padding-top: 1%;
+}
+.email-print-texts {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0 5% 0 5%;
+  width: 70px;
+  font-size: 14px;
+}
+.button-text-title {
+  text-align: center;
+}
+.button-email,
+.button-print,
+.button-retake {
+  padding: 5px;
+  margin: 0;
+}
+
 }

@@ -55,14 +55,9 @@ export default function Finish({ userAnswers }) {
       id="print-results-content"
       ref={printContentRef}
     >
-      <span style={{ fontSize: "22px", marginLeft: "3%" }}>{formattedDate}</span>
+      <span className="format-date">{formattedDate}</span>
       <h1 className="finish-titles">ESA44 Assessment Results</h1>
-      <img
-        alt="Retake image"
-        className="retake"
-        src={retake}
-        onClick={handleRetake}
-      />
+  
       <h2 className="score-today">
         Your Score for Today is:{" "}
         {Math.round((totalRating / 220) * 100 * 100) / 100}%
