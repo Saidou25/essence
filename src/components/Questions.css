@@ -2,6 +2,19 @@
   font-family: "ImpactUnicode";
   src: url("../assets/fonts/unicode.impact.ttf") format("truetype");
 }
+/* In your app's CSS */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#iframe {
+  width: 100%;
+  min-height: 100%;
+  height: auto;
+}
+
 .main-container {
   background-color: #fefefe;
   padding-top: 2%;
@@ -376,7 +389,7 @@ span.material-symbols-outlined.icon-style {
     margin-bottom: 5%;
   }
 }
-/* Default height for larger screens */
+Default height for larger screens
 #appIframe {
   height: 1300px;
 }
