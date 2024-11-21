@@ -14,7 +14,7 @@ export default function Questions() {
   const [showFinishedPage, setShowFinishedPage] = useState(false);
   const [forwardDisabled, setForwardDisabled] = useState(true);
   const [userAnswers, setUserAnswers] = useState([]);
-  const [end, setEnd] = useState(false);
+  const [end, setEnd] = useState(true);
   const [isSelected, setIsSelected] = useState("");
   const [storedUserSelfRating, setStoredUserSelfRating] = useState("");
   const [submissionReminder, setSubmissionReminder] = useState("");
