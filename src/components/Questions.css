@@ -2,7 +2,7 @@
   font-family: "ImpactUnicode";
   src: url("../assets/fonts/unicode.impact.ttf") format("truetype");
 }
-/* In your app's CSS */
+
 html, body {
   height: 100%;
   margin: 0;
@@ -283,7 +283,6 @@ span.material-symbols-outlined.icon-style {
   .main-container {
     background-color: #fefefe;
     padding-top: 2%;
-    max-height: 600px;
   }
   .card-title {
     font-size: 28px;
@@ -389,14 +388,14 @@ span.material-symbols-outlined.icon-style {
     margin-bottom: 5%;
   }
 }
-Default height for larger screens
-#appIframe {
+/* Default height for larger screens */
+/* #appIframe {
   height: 1300px;
-}
+} */
 
 /* Media query for screens with max-width of 414px (mobile screens) */
-@media screen and (max-width: 414px) {
+/* @media screen and (max-width: 414px) {
   #appIframe {
-    height: 800px; /* Adjust this as necessary for smaller screens */
-  }
+    height: 800px;
 }
+} */
