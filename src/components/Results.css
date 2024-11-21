@@ -184,7 +184,7 @@
     page-break-inside: avoid;
   }
 }
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 359px) {
   
   .finish-titles {
     font-size: 28px;
