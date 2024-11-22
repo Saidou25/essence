@@ -8,7 +8,6 @@ import "./Questions.css";
 
 export default function Questions() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [pass, setPass] = useState(false);
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [backwordDisabled, setBackwordDisabled] = useState(false);
   const [showFinishedPage, setShowFinishedPage] = useState(false);
@@ -40,7 +39,6 @@ export default function Questions() {
   ];
 
   const handleRatingClick = (value) => {
-    setPass(false);
     setIsSelected(value - 1);
     if (storedUserSelfRating) {
       setSubmissionReminder("Please submit your change...");
@@ -79,7 +77,6 @@ export default function Questions() {
         }, 1000);
         setCurrentQuestionIndex(previousQuestionIndex);
         setButtonDisabled(true);
-        setPass(false);
         setSubmissionReminder("");
         setStoredUserSelfRating("");
       }
@@ -106,7 +103,6 @@ export default function Questions() {
           setAnimationFade(false);
         }, 1000);
         setButtonDisabled(true);
-        setPass(false);
         setIsSelected("");
         setSubmissionReminder("");
         setStoredUserSelfRating("");
@@ -143,8 +139,6 @@ export default function Questions() {
           userSelfRating: "",
           noResponse: "",
         });
-
-        setPass(false);
         setIsSelected("");
         setSubmissionReminder("");
         setAnimationFade(true);

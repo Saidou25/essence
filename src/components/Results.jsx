@@ -151,11 +151,18 @@ export default function Finish({ userAnswers }) {
         </div>
       </div>
       <br />
-      <p style={{ textAlign: "center" }}>
-        Be sure to record your ESA44 Results on page 11 or page 303 of ESSENCE
-        Book 1.
-      </p>
-      <p style={{ textAlign: "center" }}>www.princetongreen.org</p>
+      <div
+        style={{
+          textAlign: "center",
+          fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
+        }}
+      >
+        <p>
+          Be sure to record your ESA44 Results on page 11 or page 303 of ESSENCE
+          Book 1.
+        </p>
+        <p>www.princetongreen.org</p>
+      </div>
     </div>
   );
 }

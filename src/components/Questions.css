@@ -1,3 +1,6 @@
+body {
+  background-color: #f1f1f1;
+}
 @font-face {
   font-family: "ImpactUnicode";
   src: url("../assets/fonts/unicode.impact.ttf") format("truetype");
@@ -291,7 +294,6 @@ span.material-symbols-outlined.icon-style {
   .assest-animated {
     font-size: 22px;
     height: 80px;
-
   }
   .assest {
     height: 80px;
