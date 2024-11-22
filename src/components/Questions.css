@@ -1,5 +1,6 @@
 body {
   background-color: #f1f1f1;
+  width: 100% !important;
 }
 @font-face {
   font-family: "ImpactUnicode";
@@ -300,9 +301,6 @@ span.material-symbols-outlined.icon-style {
   }
 }
 @media screen and (max-width: 570px) {
-  /* .button-rating {
-    width: 90px;
-  } */
   .please-rate {
     font-size: 18px;
     margin-bottom: 7%;

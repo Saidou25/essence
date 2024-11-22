@@ -246,8 +246,6 @@ export default function Questions() {
             <p className="please-rate">
               Please rate how much you agree with the following statement:
             </p>
-            {/* <br />
-            <br /> */}
             <h2 className={animationFade ? "assest-animated" : "assest"}>
               <p>{currentQuestion.questionStatment}</p>
             </h2>
