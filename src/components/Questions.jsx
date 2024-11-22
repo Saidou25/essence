@@ -63,6 +63,10 @@ export default function Questions() {
 
         if (previousAnswer) {
           setForwardDisabled(false);
+          setAnimationFade(true);
+          setTimeout(() => {
+            setAnimationFade(false);
+          }, 1000);
           setFormState({
             questionNumber: previousAnswer.questionNumber,
             questionStatment: previousAnswer.questionStatment,
@@ -71,10 +75,6 @@ export default function Questions() {
           });
           setIsSelected(previousAnswer.userSelfRating - 1);
         }
-        setAnimationFade(true);
-        setTimeout(() => {
-          setAnimationFade(false);
-        }, 1000);
         setCurrentQuestionIndex(previousQuestionIndex);
         setButtonDisabled(true);
         setSubmissionReminder("");
