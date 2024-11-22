@@ -8,20 +8,22 @@ export default function EmailResultsForm({ hideEmail }) {
   const [errorMessage, setErrorMessage] = useState("");
   const [formState, setFormState] = useState({
     email: "",
+    username: "",
   });
 
   const handleChange = (e) => {
     setErrorMessage("");
-    const userEmail = e.target.value;
-    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userEmail);
-    setFormState({
-      email: userEmail,
-    });
-    if (!isValidEmail) {
-      setSubmitButtonDisabled(true);
-    } else {
-      setSubmitButtonDisabled(false);
-    }
+    const { name, value } = e.target;
+    // Update the form state
+    setFormState((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+    // Enable/disable submit button based on email and username values
+    const isFormValid =
+      (name === "email" ? value : formState.email) &&
+      (name === "username" ? value : formState.username);
+    setSubmitButtonDisabled(!isFormValid);
   };
 
   const handleFormSubmit = (e) => {
@@ -63,28 +65,45 @@ export default function EmailResultsForm({ hideEmail }) {
           </p>
         </div>
         <form className="email-form" onSubmit={handleFormSubmit}>
-          <label htmlFor="form-input" className="form-label">
+          <label htmlFor="username-input" className="form-label">
+            Choose a Username
+          </label>
+          <br />
+          <input
+            className="form-input"
+            id="username-input"
+            type="text"
+            placeholder="enter your username"
+            autoComplete="on"
+            name="username"
+            value={formState.username || ""}
+            onChange={handleChange}
+            aria-invalid={!!errorMessage}
+          />
+          <br />
+          <label htmlFor="email-input" className="form-label">
             Email Address
           </label>
           <br />
           <input
             className="form-input"
-            id="form-input"
+            id="email-input"
             type="email"
             placeholder="enter your email address"
             autoComplete="on"
             name="email"
-            value={formState.email}
+            value={formState.email || ""}
             onChange={handleChange}
             aria-invalid={!!errorMessage}
           />
           <br />
+          <br />
           {errorMessage && (
-            <span aria-live="polite" className="error-message">
+            <p aria-live="polite" className="error-message">
               {errorMessage}
-            </span>
+            </p>
           )}
-
+          <br />
           <button
             className="form-button"
             type="submit"

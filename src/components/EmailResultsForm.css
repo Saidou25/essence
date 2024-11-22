@@ -65,6 +65,10 @@
   margin: auto;
   border: none;
 }
+.error-message {
+  color: #e37d37;
+  letter-spacing: 1px;
+}
 @media screen and (max-width: 414px) {
   
   .allmailform-container {

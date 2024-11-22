@@ -1,6 +1,8 @@
 body {
-  background-color: #f1f1f1;
+  background-color: #267b7d;
   width: 100% !important;
+  margin: 0;
+  padding: 0;
 }
 @font-face {
   font-family: "ImpactUnicode";
@@ -8,6 +10,8 @@ body {
 }
 .questions-main-container {
   background-color: #f1f1f1;
+  width: 80%;
+  margin: auto;
 }
 .card-title {
   letter-spacing: 1px;
@@ -15,7 +19,7 @@ body {
   text-align: center;
   font-size: 38px;
   font-family: "ImpactUnicode", sans-serif;
-  padding-top: 3%;
+  padding-top: 5%;
 }
 
 .question-number {

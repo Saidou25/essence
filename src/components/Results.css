@@ -4,11 +4,10 @@
 }
 .finish-main-container {
   background-color: #f1f1f1;
-  width: 100%;
-  max-width: none;
-  box-sizing: border-box;
   padding-top: 2%;
   padding-bottom: 2%;
+  width: 80%;
+  margin: auto;
 }
 .format-date {
   font-size: 22px;
@@ -113,8 +112,6 @@
 .email-print-container {
   display: flex;
   justify-content: center;
-  /* padding-bottom: 3%; */
-  /* padding-top: 4%; */
 }
 .email-print-texts {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -129,7 +126,9 @@
   text-align: center;
 }
 .button-download,
-.button-retake {
+.button-retake,
+.button-print,
+.button-email {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -139,12 +138,13 @@
   border: none;
 }
 .button-retake:hover,
-.button-download:hover {
+.button-download:hover,
+.button-print:hover {
   background-color: #267b7d;
   cursor: pointer;
 }
 @media print {
-  .print-content {
+  .print-content-results {
     display: block;
     visibility: visible;
     width: 100%;
@@ -186,6 +186,9 @@
   }
   .class-tr {
     page-break-inside: avoid;
+  }
+  .no-page-break {
+    page-break-inside: avoid !important;
   }
 }
 @media screen and (max-width: 414px) {
