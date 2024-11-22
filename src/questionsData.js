@@ -85,7 +85,7 @@ export const questionsData = [
     illustration:
       "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-connectedness-A0xwOqzwW9hp0zky.jpg",
   },
-  /* {
+  {
     questionNumber: 4,
     questionStatment:
       "I live harmoniously in balance with myself and all of Nature.",
@@ -241,14 +241,16 @@ export const questionsData = [
     questionStatment: "I live my truth, as it protects me.",
     userSelfRating: "",
     noResponse: "",
-    illustration: "",
+    illustration:
+      "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-truth-m6LwGyKgPWTQnGR0.jpg",
   },
   {
     questionNumber: 23,
     questionStatment: "I trust myself and others.",
     userSelfRating: "",
     noResponse: "",
-    illustration: "",
+    illustration:
+      "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-collaboration-Yg2WwexBJrcqloNE.jpg",
   },
   {
     questionNumber: 24,
@@ -387,14 +389,13 @@ export const questionsData = [
       "I am fulfilled by giving to others. I am fulfilled by receiving from others.",
     userSelfRating: "",
     noResponse: "",
-    illustration: "",
+    illustration:
+      "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-giving-receiving-mp8vD0EXD9FRrR5O.jpg",
   },
   {
     questionNumber: 42,
     questionStatment: "I live a prosperous life.",
     userSelfRating: "",
-    illustration:
-      "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-giving-receiving-mp8vD0EXD9FRrR5O.jpg",
     noResponse: "",
     illustration:
       "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-prosperity-m5KwE79rL5FGpzyZ.jpg",
@@ -415,5 +416,5 @@ export const questionsData = [
     noResponse: "",
     illustration:
       "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-conscious-regenerative-living-YZ9VZ4klkEFoKggj.jpg",
-  }, */
+  },
 ];

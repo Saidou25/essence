@@ -243,14 +243,15 @@ export default function Questions() {
           <br />
           <div>
             <br />
-            <span className="please-rate">
+            <p className="please-rate">
               Please rate how much you agree with the following statement:
-            </span>
-            <br />
-            <br />
+            </p>
+            {/* <br />
+            <br /> */}
             <h2 className={animationFade ? "assest-animated" : "assest"}>
-              {currentQuestion.questionStatment}
+              <p>{currentQuestion.questionStatment}</p>
             </h2>
+            <br />
             {submissionReminder ? (
               <p className="be-sure">Please submit your change...</p>
             ) : (
