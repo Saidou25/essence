@@ -18,7 +18,6 @@ export default function Finish({ userAnswers }) {
   let totalRating = 100;
   // const totalAssessment = (totalRating / 220) * 100;
   const totalAssessment = Math.round((totalRating / 220) * 100 * 100) / 100;
-  console.log("total assessment", totalAssessment);
   const date = new Date();
   const day = date.getDate();
   const month = date.getMonth();
@@ -70,7 +69,7 @@ export default function Finish({ userAnswers }) {
         <span className="format-date">{formattedDate}</span>
         <h1 className="finish-titles">ESA44 Assessment Result</h1>
         <h2 className="score-today">
-          Your Score for Today is:{" "}
+        Your ESA44 result for today is:{" "}
           {totalAssessment}%
         </h2>
         <table className="results-table">
@@ -103,7 +102,7 @@ export default function Finish({ userAnswers }) {
           </tbody>
         </table>
         <h2 className="please-evaluate">
-          Please evaluate your ESA44 results with the following table.
+        Please compare your ESA44 result with the following table.
         </h2>
         <table className="results-table">
           <thead>

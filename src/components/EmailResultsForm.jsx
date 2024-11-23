@@ -34,7 +34,7 @@ export default function EmailResultsForm({ hideEmail }) {
       return;
     }
     try {
-      console.log("Email submitted", formState.email);
+      console.log("Email submitted", formState.username, formState.email);
     } catch (error) {
       console.log("there was an error", error);
     } finally {
@@ -61,12 +61,13 @@ export default function EmailResultsForm({ hideEmail }) {
         <div>
           <h2 className="form-message-title">Mailing Results Request</h2>
           <p className="form-message">
-            To receive your ESA44 results directly in your inbox.
+            To receive your ESA44 result via email, then please fill out your
+            first name and email address.
           </p>
         </div>
         <form className="email-form" onSubmit={handleFormSubmit}>
           <label htmlFor="username-input" className="form-label">
-            Choose a Username
+          First Name
           </label>
           <br />
           <input
@@ -110,10 +111,13 @@ export default function EmailResultsForm({ hideEmail }) {
             disabled={submitButtonDisabled}
             style={{
               cursor: submitButtonDisabled ? "not-allowed" : "pointer",
+              backgroundColor: submitButtonDisabled ? "#c7cec9" : "#e37d37",
+              color: submitButtonDisabled ? "black" : "white",
             }}
           >
             SUBMIT
           </button>
+          <br />
         </form>
       </div>
     </div>
