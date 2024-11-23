@@ -24,7 +24,7 @@ export const resultsData = [
     minPercentage: 61,
     maxPercentage: 80.99999999999999999999,
     percentage: "61-80%",
-    awakeness: "Awakening",
+    awakeness: "Awaking",
     perspective: "Seeker",
     illustration:
       "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-connectedness-A0xwOqzwW9hp0zky.jpg",
@@ -85,7 +85,7 @@ export const questionsData = [
     illustration:
       "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-connectedness-A0xwOqzwW9hp0zky.jpg",
   },
-  /* 
+  {
     questionNumber: 4,
     questionStatment:
       "I live harmoniously in balance with myself and all of Nature.",
@@ -416,5 +416,5 @@ export const questionsData = [
     noResponse: "",
     illustration:
       "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-conscious-regenerative-living-YZ9VZ4klkEFoKggj.jpg",
-  }, */
+  },
 ];

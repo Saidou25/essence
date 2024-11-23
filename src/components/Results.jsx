@@ -206,11 +206,15 @@ export default function Finish({ userAnswers }) {
             fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
           }}
         >
-          <p style={{ padding: "0 3px 0 3px" }}>
+          <br />
+          <i style={{ padding: "0 3px 0 3px" }}>
             Be sure to record your ESA44 Results on page 11 or page 303 of
             ESSENCE Book 1.
-          </p>
-          <b>www.princetongreen.org</b>
+          </i>
+          <br />
+          <br />
+          <b>www.princetongreen.org</b><br />
+          <b>www.21stcenturyparadigm.org</b>
           <br />
           <br />
         </div>
