@@ -12,7 +12,7 @@ export const resultsData = [
   {
     tile: "",
     minPercentage: 81,
-    maxPercentage: 95,
+    maxPercentage: 95.9999,
     percentage: "81-95%",
     awakeness: "Almost Awake",
     perspective: "Seeker",
@@ -22,7 +22,7 @@ export const resultsData = [
   {
     tile: "",
     minPercentage: 61,
-    maxPercentage: 80,
+    maxPercentage: 80.9999,
     percentage: "61-80%",
     awakeness: "Awaking",
     perspective: "Seeker",
@@ -32,7 +32,7 @@ export const resultsData = [
   {
     tile: "",
     minPercentage: 41,
-    maxPercentage: 60,
+    maxPercentage: 60.9999,
     percentage: "41-60%",
     awakeness: "Seeking",
     perspective: "Seeker",
@@ -42,7 +42,7 @@ export const resultsData = [
   {
     tile: "",
     minPercentage: 21,
-    maxPercentage: 40,
+    maxPercentage: 40.9999,
     percentage: "21-40%",
     awakeness: "Waking Up",
     perspective: "Sleeping Soul",
@@ -52,7 +52,7 @@ export const resultsData = [
   {
     tile: "",
     minPercentage: 0,
-    maxPercentage: 20,
+    maxPercentage: 20.9999,
     percentage: "0-20%",
     awakeness: "Asleep",
     perspective: "Sleeping Soul",
@@ -85,7 +85,7 @@ export const questionsData = [
     illustration:
       "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-connectedness-A0xwOqzwW9hp0zky.jpg",
   },
-  {
+  /* 
     questionNumber: 4,
     questionStatment:
       "I live harmoniously in balance with myself and all of Nature.",
@@ -416,5 +416,5 @@ export const questionsData = [
     noResponse: "",
     illustration:
       "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-conscious-regenerative-living-YZ9VZ4klkEFoKggj.jpg",
-  },
+  }, */
 ];

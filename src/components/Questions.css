@@ -316,6 +316,9 @@ span.material-symbols-outlined.icon-style {
     font-family: "ImpactUnicode";
     src: url("../assets/fonts/unicode.impact.ttf") format("truetype");
   }
+  body {
+    background-color: #f1f1f1;
+  }
   .main-container {
     background-color: #fefefe;
     padding-top: 2%;

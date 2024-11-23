@@ -2,6 +2,12 @@
   font-family: "ImpactUnicode";
   src: url("../assets/fonts/unicode.impact.ttf") format("woff2");
 }
+/* body {
+  background-color: #fefefe !important;
+  width: 100% !important;
+  margin: 0;
+  padding: 0;
+} */
 .finish-main-container {
   background-color: #f1f1f1;
   padding-top: 2%;
@@ -20,7 +26,6 @@
   text-align: center;
   font-size: 38px;
   font-family: "ImpactUnicode", sans-serif;
-  /* padding-top: 3%; */
 }
 
 .retake {
@@ -144,18 +149,26 @@
   cursor: pointer;
 }
 @media print {
-  .print-content-results {
+  .finish-main-container {
     display: block;
     visibility: visible;
-    width: 100%;
-    margin: auto;
-  }
-  .finish-titles {
-    font-family: "Arial Black", "Bebas Neue", "Helvetica", sans-serif;
+    width: 90%;
   }
   .no-print {
     display: none;
   }
+  .finish-titles {
+    font-family: "Arial Black", "Bebas Neue", "Helvetica", sans-serif;
+    font-size: 38px;
+  }
+  .score-today,
+  .please-evaluate {
+  text-align: center;
+  padding: 2% 3%;
+  color: black;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 26px;
+}
   .results-table {
     width: 99%;
     margin: auto;
@@ -163,7 +176,7 @@
     border-collapse: separate;
     page-break-inside: avoid;
     border-spacing: 0;
-    border: 9px solid black;
+    border: 6px solid black;
   }
   .class-th {
     width: 33%;
@@ -172,26 +185,32 @@
     font-family: "Arial Black", "Bebas Neue", "Helvetica", sans-serif;
     text-rendering: optimizeLegibility;
     font-size: 22px;
-    padding: 1% 7% 1% 7%;
+    padding: 1% 3% 1% 3%;
   }
   .class-td {
     width: 33%;
-    font-size: 22px;
-    height: 42px;
+    font-size: 20px;
+    height: 38px;
   }
   .class-td-perspective {
     width: 33%;
-    font-size: 22px;
-    height: 42px;
+    font-size: 20px;
+    height: 38px;
   }
-  .class-tr {
-    page-break-inside: avoid;
-  }
-  .no-page-break {
-    page-break-inside: avoid !important;
-  }
+.bottom-text {
+  font-size: 20px;
+}
 }
 @media screen and (max-width: 414px) {
+  body {
+    background-color: #f1f1f1;
+    width: 100% !important;
+    margin: 0;
+    padding: 0;
+  }
+  .finish-main-container {
+    width: 95%;
+  }
   .finish-titles {
     font-size: 28px;
     padding-top: 0;
@@ -216,25 +235,25 @@
   }
   .class-th {
     font-family: "Arial Black", "Bebas Neue", "Helvetica", sans-serif;
-    font-size: 18px;
-    padding: 1% 1% 1% 1%;
+    font-size: 15px;
+    padding: 0 1% 0 1%;
     width: 33%;
   }
   .class-td {
     width: 33%;
-    font-size: 18px;
+    font-size: 14px;
     height: 32px;
   }
   .class-td-perspective {
     width: 22%;
-    font-size: 18px;
-    height: 42px;
+    font-size: 14px;
+    height: 34px;
   }
   .please-evaluate {
     text-align: center;
     margin: 3% 3%;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 22px;
+    font-size: 18px;
   }
   .email-print-container {
     display: flex;
@@ -249,7 +268,9 @@
     font-size: 14px;
   }
   .button-retake,
-  .button-download {
+  .button-download,
+  .button-print,
+  .button-email {
     padding: 5px;
     margin: 0;
   }

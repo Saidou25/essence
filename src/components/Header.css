@@ -25,3 +25,15 @@
     font-family: "ImpactUnicode", sans-serif;
     letter-spacing: 1px;
 }
+@media screen and (max-width: 414px) {
+  .header-main {
+    margin: 0;
+  }
+  .background-image {
+    height: 215px; 
+}
+  .header-text {
+    font-size: 3rem;
+    padding: 3%;
+}
+}

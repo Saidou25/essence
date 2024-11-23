@@ -15,8 +15,10 @@ export default function Finish({ userAnswers }) {
   // Create a ref for the content you want to convert to PDF
   const printContentRef = useRef(null);
 
-  let totalRating = 0;
-  const totalAssessment = (totalRating / 220) * 100;
+  let totalRating = 100;
+  // const totalAssessment = (totalRating / 220) * 100;
+  const totalAssessment = Math.round((totalRating / 220) * 100 * 100) / 100;
+  console.log("total assessment", totalAssessment);
   const date = new Date();
   const day = date.getDate();
   const month = date.getMonth();
@@ -63,14 +65,13 @@ export default function Finish({ userAnswers }) {
       <Header />
       <div
         className="finish-main-container"
-        id="print-results-content"
         ref={printContentRef}
       >
         <span className="format-date">{formattedDate}</span>
-        <h1 className="finish-titles">ESA44 Assessment Results</h1>
+        <h1 className="finish-titles">ESA44 Assessment Result</h1>
         <h2 className="score-today">
           Your Score for Today is:{" "}
-          {Math.round((totalRating / 220) * 100 * 100) / 100}%
+          {totalAssessment}%
         </h2>
         <table className="results-table">
           <thead>
@@ -88,7 +89,7 @@ export default function Finish({ userAnswers }) {
                     totalAssessment <= result.maxPercentage && (
                       <tr className="class-bottom">
                         <td className="class-td">
-                          {Math.round((totalRating / 220) * 100 * 100) / 100 +
+                          {totalAssessment +
                             "%"}
                         </td>
                         <td className="class-td">{result.awakeness}</td>
@@ -200,7 +201,7 @@ export default function Finish({ userAnswers }) {
         )}
 
         <br />
-        <div
+        <div className="bottom-text"
           style={{
             textAlign: "center",
             fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
