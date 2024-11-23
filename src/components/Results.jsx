@@ -15,7 +15,7 @@ export default function Finish({ userAnswers }) {
   // Create a ref for the content you want to convert to PDF
   const printContentRef = useRef(null);
 
-  let totalRating = 100;
+  let totalRating = 0;
   // const totalAssessment = (totalRating / 220) * 100;
   const totalAssessment = Math.round((totalRating / 220) * 100 * 100) / 100;
   const date = new Date();
@@ -66,11 +66,11 @@ export default function Finish({ userAnswers }) {
         className="finish-main-container"
         ref={printContentRef}
       >
-        <span className="format-date">{formattedDate}</span>
-        <h1 className="finish-titles">ESA44 Assessment Result</h1>
+        {/* <span className="format-date">{formattedDate}</span> */}
+        <h1 className="finish-titles">ESA44 Assessment Results</h1>
         <h2 className="score-today">
-        Your ESA44 result for today is:{" "}
-          {totalAssessment}%
+        Your ESA44 results for today:{" "}
+          {formattedDate}
         </h2>
         <table className="results-table">
           <thead>
@@ -102,7 +102,7 @@ export default function Finish({ userAnswers }) {
           </tbody>
         </table>
         <h2 className="please-evaluate">
-        Please compare your ESA44 result with the following table.
+        Please compare your ESA44 results with the following table.
         </h2>
         <table className="results-table">
           <thead>
@@ -210,7 +210,9 @@ export default function Finish({ userAnswers }) {
             Be sure to record your ESA44 Results on page 11 or page 303 of
             ESSENCE Book 1.
           </p>
-          <p>www.princetongreen.org</p>
+          <b>www.princetongreen.org</b>
+          <br />
+          <br />
         </div>
       </div>
     </>

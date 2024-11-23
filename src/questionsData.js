@@ -12,7 +12,7 @@ export const resultsData = [
   {
     tile: "",
     minPercentage: 81,
-    maxPercentage: 95.9999,
+    maxPercentage: 95.999999999999999999999,
     percentage: "81-95%",
     awakeness: "Almost Awake",
     perspective: "Seeker",
@@ -22,9 +22,9 @@ export const resultsData = [
   {
     tile: "",
     minPercentage: 61,
-    maxPercentage: 80.9999,
+    maxPercentage: 80.99999999999999999999,
     percentage: "61-80%",
-    awakeness: "Awaking",
+    awakeness: "Awakening",
     perspective: "Seeker",
     illustration:
       "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-connectedness-A0xwOqzwW9hp0zky.jpg",
@@ -32,7 +32,7 @@ export const resultsData = [
   {
     tile: "",
     minPercentage: 41,
-    maxPercentage: 60.9999,
+    maxPercentage: 60.99999999999999999999,
     percentage: "41-60%",
     awakeness: "Seeking",
     perspective: "Seeker",
@@ -42,7 +42,7 @@ export const resultsData = [
   {
     tile: "",
     minPercentage: 21,
-    maxPercentage: 40.9999,
+    maxPercentage: 40.9999999999999999999,
     percentage: "21-40%",
     awakeness: "Waking Up",
     perspective: "Sleeping Soul",
@@ -52,7 +52,7 @@ export const resultsData = [
   {
     tile: "",
     minPercentage: 0,
-    maxPercentage: 20.9999,
+    maxPercentage: 20.999999999999999999999999,
     percentage: "0-20%",
     awakeness: "Asleep",
     perspective: "Sleeping Soul",
