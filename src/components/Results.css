@@ -2,12 +2,6 @@
   font-family: "ImpactUnicode";
   src: url("../assets/fonts/unicode.impact.ttf") format("woff2");
 }
-/* body {
-  background-color: #fefefe !important;
-  width: 100% !important;
-  margin: 0;
-  padding: 0;
-} */
 .finish-main-container {
   background-color: #f1f1f1;
   padding-top: 2%;
@@ -52,6 +46,11 @@
   padding: 2% 3%;
   color: black;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.esa44 {
+  color: black;
+  font-family: "ImpactUnicode", sans-serif;
+  letter-spacing: 1px;
 }
 
 .results-div {
@@ -148,6 +147,15 @@
   background-color: #267b7d;
   cursor: pointer;
 }
+.bottom-text {
+  padding-top: 6%;
+  font-size: 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+  width: 87%;
+  margin: auto;
+  font-style: italic;
+}
 @media print {
   .finish-main-container {
     display: block;
@@ -199,6 +207,10 @@
   }
 .bottom-text {
   font-size: 20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+  width: 63%;
+  margin: auto;
 }
 }
 @media screen and (max-width: 414px) {
@@ -219,13 +231,6 @@
     font-size: 15px;
     margin-left: 3%;
   }
-  /* .score-today {
-    text-align: center;
-    padding: 2% 3%;
-    color: black;
-    font-size: 22px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  } */
   .results-div {
     padding-bottom: 5%;
   }
@@ -249,10 +254,16 @@
     font-size: 14px;
     height: 34px;
   }
-  .please-evaluate,
+
   .score-today {
     text-align: center;
     margin: 3% 3%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+  }
+  .please-evaluate{
+    text-align: center;
+    margin: 7% 5%;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 18px;
   }
@@ -274,6 +285,15 @@
   .button-email {
     padding: 5px;
     margin: 0;
+  }
+  .bottom-text {
+    padding-top: 6%;
+    font-size: 14px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+    width: 87%;
+    margin: auto;
+    font-style: italic;
   }
 }
 @media screen and (max-width: 359px) {

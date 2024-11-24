@@ -3,7 +3,6 @@ import { questionsData } from "../questionsData";
 import { IoCaretBackSharp, IoCaretForwardSharp } from "react-icons/io5";
 import useMonitorWidth from "../UsemonitorWidth";
 import Results from "./Results";
-import Header from "./Header";
 
 import "./Questions.css";
 
@@ -189,8 +188,6 @@ export default function Questions() {
   }
 
   return (
-    <div>
-      <Header />
       <div className="questions-main-container">
         <h1 className="card-title">ESSENCE Self-Awareness Assessment</h1>
         <div
@@ -349,6 +346,5 @@ export default function Questions() {
           </div>
         </div>
       </div>
-    </div>
   );
 }

@@ -346,13 +346,14 @@ span.material-symbols-outlined.icon-style {
     max-width: 90%;
     height: auto;
     animation: fadeInImage 0.5s ease-in-out forwards;
+    margin: 0 15% 0 15%;
   }
 
   .illustration {
     max-width: 90%;
     height: auto;
+    margin: 0 15% 0 15%;
   }
-
   .please-rate {
     font-size: 15px;
     margin-bottom: 10%;
@@ -361,10 +362,14 @@ span.material-symbols-outlined.icon-style {
   .assest-animated {
     font-size: 22px;
     height: 80px;
+    padding: 0;
+    width: 100%;
   }
   .assest {
     height: 80px;
     font-size: 22px;
+    padding: 0;
+    width: 100%;
   }
   .be-sure {
     color: #e37d37;

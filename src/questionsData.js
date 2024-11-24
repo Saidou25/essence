@@ -24,7 +24,7 @@ export const resultsData = [
     minPercentage: 61,
     maxPercentage: 80.99999999999999999999,
     percentage: "61-80%",
-    awakeness: "Awaking",
+    awakeness: "Awakening",
     perspective: "Seeker",
     illustration:
       "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-connectedness-A0xwOqzwW9hp0zky.jpg",

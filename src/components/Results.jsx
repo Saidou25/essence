@@ -4,7 +4,6 @@ import { LuDownload } from "react-icons/lu";
 import { VscDebugRestart } from "react-icons/vsc";
 import { ImPrinter } from "react-icons/im";
 import html2pdf from "html2pdf.js";
-import Header from "./Header";
 import EmailResultsForm from "./EmailResultsForm";
 
 import "./Results.css";
@@ -16,17 +15,15 @@ export default function Finish({ userAnswers }) {
   const printContentRef = useRef(null);
 
   let totalRating = 0;
-  // const totalAssessment = (totalRating / 220) * 100;
-  const totalAssessment = Math.round((totalRating / 220) * 100 * 100) / 100;
   const date = new Date();
   const day = date.getDate();
   const month = date.getMonth();
   const year = date.getFullYear();
   const formattedDate = `${month + 1}/${day}/${year}`;
-
   for (let userAnswer of userAnswers) {
     totalRating += Number(userAnswer.userSelfRating); // Convert to number to avoid string concatenation
   }
+  const totalAssessment = Math.round((totalRating / 220) * 100 * 100) / 100;
 
   const handleRetake = () => {
     window.location.reload();
@@ -60,114 +57,107 @@ export default function Finish({ userAnswers }) {
   };
 
   return (
-    <>
-      <Header />
-      <div
-        className="finish-main-container"
-        ref={printContentRef}
-      >
-        {/* <span className="format-date">{formattedDate}</span> */}
-        <h1 className="finish-titles">ESA44 Assessment Results</h1>
-        <h2 className="score-today">
-        Your ESA44 results for today:{" "}
-          {formattedDate}
-        </h2>
-        <table className="results-table">
-          <thead>
-            <tr className="class-top">
-              <th className="class-th">ESA44 Awakening %</th>
-              <th className="class-th">State of Awareness</th>
-              <th className="class-th">Current Perspective</th>
-            </tr>
-          </thead>
-          <tbody>
-            {resultsData &&
-              resultsData.map((result, index) => (
-                <React.Fragment key={index}>
-                  {totalAssessment >= result.minPercentage &&
-                    totalAssessment <= result.maxPercentage && (
-                      <tr className="class-bottom">
-                        <td className="class-td">
-                          {totalAssessment +
-                            "%"}
-                        </td>
-                        <td className="class-td">{result.awakeness}</td>
-                        <td className="class-td-perspective">
-                          {result.perspective}
-                        </td>
-                      </tr>
-                    )}
-                </React.Fragment>
-              ))}
-          </tbody>
-        </table>
-        <h2 className="please-evaluate">
-        Please compare your ESA44 results with the following table.
-        </h2>
-        <table className="results-table">
-          <thead>
-            <tr className="class-top">
-              <th className="class-th">ESA44 Awakening %</th>
-              <th className="class-th">State of Awareness</th>
-              <th className="class-th">Current Perspective</th>
-            </tr>
-          </thead>
-          <tbody>
-            {resultsData &&
-              resultsData.map((result, index) => (
-                <React.Fragment key={index}>
-                  <tr className="class-bottom">
-                    <td className="class-td">{result.percentage}</td>
-                    <td className="class-td">{result.awakeness}</td>
-                    <td className="class-td-perspective">
-                      {result.perspective}
-                    </td>
-                  </tr>
-                </React.Fragment>
-              ))}
-          </tbody>
-        </table>
-        <br />
+    <div className="finish-main-container" ref={printContentRef}>
+      {/* <span className="format-date">{formattedDate}</span> */}
+      <h1 className="finish-titles">ESA44 Assessment Results</h1>
+      <h2 className="score-today">
+        <span>Your</span>
+        <span className="esa44"> ESA44 </span>
+        <span>results for today: {formattedDate}</span>
+      </h2>
+      <table className="results-table">
+        <thead>
+          <tr className="class-top">
+            <th className="class-th">ESA44 Awakening %</th>
+            <th className="class-th">State of Awareness</th>
+            <th className="class-th">Current Perspective</th>
+          </tr>
+        </thead>
+        <tbody>
+          {resultsData &&
+            resultsData.map((result, index) => (
+              <React.Fragment key={index}>
+                {totalAssessment >= result.minPercentage &&
+                  totalAssessment <= result.maxPercentage && (
+                    <tr className="class-bottom">
+                      <td className="class-td">{totalAssessment + "%"}</td>
+                      <td className="class-td">{result.awakeness}</td>
+                      <td className="class-td-perspective">
+                        {result.perspective}
+                      </td>
+                    </tr>
+                  )}
+              </React.Fragment>
+            ))}
+        </tbody>
+      </table>
+      <h2 className="please-evaluate">
+        <span>Please compare your</span>
+        <span className="esa44"> ESA44 </span>
+        <span>results with the following table.</span>
+      </h2>
+      <table className="results-table">
+        <thead>
+          <tr className="class-top">
+            <th className="class-th">ESA44 Awakening %</th>
+            <th className="class-th">State of Awareness</th>
+            <th className="class-th">Current Perspective</th>
+          </tr>
+        </thead>
+        <tbody>
+          {resultsData &&
+            resultsData.map((result, index) => (
+              <React.Fragment key={index}>
+                <tr className="class-bottom">
+                  <td className="class-td">{result.percentage}</td>
+                  <td className="class-td">{result.awakeness}</td>
+                  <td className="class-td-perspective">{result.perspective}</td>
+                </tr>
+              </React.Fragment>
+            ))}
+        </tbody>
+      </table>
+      <br />
 
-        {showEmailForm ? (
-          <EmailResultsForm hideEmail={showEmail} />
-        ) : (
-          <div className="email-print-container no-print">
-            <div className="email-print-texts">
-              <p className="button-text-title">Print Results</p>
-              <button
-                className="button-print"
-                type="button"
-                onClick={handlePrint}
-              >
-                <ImPrinter
-                  style={{
-                    color: "white",
-                    height: "25px",
-                    width: "25px",
-                    cursor: "pointer",
-                  }}
-                />
-              </button>
-            </div>
-            <div className="email-print-texts">
-              <p className="button-text-title">Download PDF</p>
-              <button
-                className="button-download"
-                type="button"
-                onClick={downloadAssessmentResults}
-              >
-                <LuDownload
-                  style={{
-                    color: "white",
-                    height: "25px",
-                    width: "25px",
-                    cursor: "pointer",
-                  }}
-                />
-              </button>
-            </div>
-            <div className="email-print-texts">
+      {showEmailForm ? (
+        <EmailResultsForm hideEmail={showEmail} />
+      ) : (
+        <div className="email-print-container no-print">
+          <div className="email-print-texts">
+            <p className="button-text-title">Print Results</p>
+            <button
+              className="button-print"
+              type="button"
+              onClick={handlePrint}
+            >
+              <ImPrinter
+                style={{
+                  color: "white",
+                  height: "25px",
+                  width: "25px",
+                  cursor: "pointer",
+                }}
+              />
+            </button>
+          </div>
+          <div className="email-print-texts">
+            <p className="button-text-title">Download PDF</p>
+            <button
+              className="button-download"
+              type="button"
+              onClick={downloadAssessmentResults}
+            >
+              <LuDownload
+                style={{
+                  color: "white",
+                  height: "25px",
+                  width: "25px",
+                  cursor: "pointer",
+                }}
+              />
+            </button>
+          </div>
+          <div className="email-print-texts">
             <p className="button-text-title">E-mail Results</p>
             <button
               className="button-email"
@@ -179,46 +169,31 @@ export default function Finish({ userAnswers }) {
               />
             </button>
           </div>
-            <div className="email-print-texts">
-              <p className="button-text-title">Restart Assessment</p>
-              <button
-                className="button-retake"
-                type="button"
-                onClick={handleRetake}
-              >
-                <VscDebugRestart
-                  style={{
-                    color: "white",
-                    height: "25px",
-                    width: "25px",
-                    cursor: "pointer",
-                  }}
-                />
-              </button>
-            </div>
+          <div className="email-print-texts">
+            <p className="button-text-title">Restart Assessment</p>
+            <button
+              className="button-retake"
+              type="button"
+              onClick={handleRetake}
+            >
+              <VscDebugRestart
+                style={{
+                  color: "white",
+                  height: "25px",
+                  width: "25px",
+                  cursor: "pointer",
+                }}
+              />
+            </button>
           </div>
-        )}
-
-        <br />
-        <div className="bottom-text"
-          style={{
-            textAlign: "center",
-            fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-          }}
-        >
-          <br />
-          <i style={{ padding: "0 3px 0 3px" }}>
-            Be sure to record your ESA44 Results on page 11 or page 303 of
-            ESSENCE Book 1.
-          </i>
-          <br />
-          <br />
-          <b>www.princetongreen.org</b><br />
-          <b>www.21stcenturyparadigm.org</b>
-          <br />
-          <br />
         </div>
-      </div>
-    </>
+      )}
+      <p className="bottom-text">
+        <span>Be sure to record your</span>
+        <span className="esa44"> ESA44 </span>
+        <span>results on page 11 or page 303 of ESSENCE
+        Book 1.</span>
+      </p>
+    </div>
   );
 }

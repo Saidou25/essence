@@ -34,7 +34,7 @@ export default function EmailResultsForm({ hideEmail }) {
       return;
     }
     try {
-      console.log("Email submitted", formState.username, formState.email);
+      console.log("Email submitted", "username: ",formState.username, "email: ", formState.email);
     } catch (error) {
       console.log("there was an error", error);
     } finally {
@@ -61,7 +61,7 @@ export default function EmailResultsForm({ hideEmail }) {
         <div>
           <h2 className="form-message-title">Mailing Results Request</h2>
           <p className="form-message">
-            To receive your ESA44 result via email, then please fill out your
+            To receive your ESA44 results via email, then please fill out your
             first name and email address.
           </p>
         </div>
