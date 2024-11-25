@@ -3,11 +3,22 @@ import { resultsData } from "../questionsData";
 import { LuDownload } from "react-icons/lu";
 import { VscDebugRestart } from "react-icons/vsc";
 import { ImPrinter } from "react-icons/im";
+import { GoMail } from "react-icons/go";
+import { app, db } from "../../firebase.config";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  setDoc,
+  doc,
+  getDoc,
+  updateDoc,
+  arrayUnion,
+} from "firebase/firestore";
 import html2pdf from "html2pdf.js";
 import EmailResultsForm from "./EmailResultsForm";
 
 import "./Results.css";
-import { GoMail } from "react-icons/go";
 
 export default function Finish({ userAnswers }) {
   const [showEmailForm, setShowEmailForm] = useState(false);
@@ -24,6 +35,57 @@ export default function Finish({ userAnswers }) {
     totalRating += Number(userAnswer.userSelfRating); // Convert to number to avoid string concatenation
   }
   const totalAssessment = Math.round((totalRating / 220) * 100 * 100) / 100;
+
+  const db = getFirestore(app);
+  // console.log("db", db);
+
+  const docRef = doc(db, "esa44", "Lillamb@fun");
+  const userResult = {
+    name: "Sy",
+    email: "Lillamb@fun",
+    result: totalAssessment,
+    date: formattedDate,
+  };
+
+const saveUserResult = async () => {
+  try {
+    // Check if the document exists
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      // Document exists, add to the 'results' array
+      await updateDoc(docRef, {
+        results: arrayUnion(userResult), // Add new result to the array
+      });
+      console.log("User result added to existing document!");
+    } else {
+      // Document does not exist, create it with 'results' array
+      await setDoc(docRef, {
+        email: "Lillamb@fun",
+        results: [userResult], // Initialize with the first result
+        date: formattedDate,
+      });
+      console.log("Document created with initial user result!");
+    }
+  } catch (error) {
+    console.error("Error saving user result:", error.message);
+  }
+};
+
+// Call the function
+saveUserResult();
+  const readData = async () => {
+    const docRef = doc(db, "collectionName", "documentId");
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      console.log("Document data:", docSnap.data());
+    } else {
+      console.log("No such document!");
+    }
+  };
+
+  // readData();
 
   const handleRetake = () => {
     window.location.reload();
@@ -191,8 +253,7 @@ export default function Finish({ userAnswers }) {
       <p className="bottom-text">
         <span>Be sure to record your</span>
         <span className="esa44"> ESA44 </span>
-        <span>results on page 11 or page 303 of ESSENCE
-        Book 1.</span>
+        <span>results on page 11 or page 303 of ESSENCE Book 1.</span>
       </p>
     </div>
   );
