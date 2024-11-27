@@ -1,7 +1,9 @@
 const functions = require("firebase-functions");
 const sgMail = require("@sendgrid/mail");
 require("dotenv").config(); // Load environment variables
-const cors = require("cors")({origin: true});
+const cors = require("cors")({
+  origin: "https://saidou25.github.io/essence", // Explicitly allow your GitHub Pages domain
+});
 
 
 // Accessing the API key from environment variables
