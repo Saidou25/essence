@@ -6,3 +6,8 @@ functions/sendgrid.env
 function/.env
 functions/.env
 sendgrid.env
+# Ignore firebase-debug.log
+firebase-debug.log
+
+# Ignore other sensitive files (you can list more files here if needed)
+.env
