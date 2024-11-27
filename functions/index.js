@@ -5,7 +5,11 @@ const cors = require("cors")({
   origin: "https://saidou25.github.io", // Explicitly allow your GitHub Pages domain
 });
 
-
+const corsOptions = {
+  origin: "https://saidou25.github.io", // Explicitly allow your GitHub Pages domain
+  methods: "GET, POST, OPTIONS",
+  allowedHeaders: "Content-Type",
+};
 // Accessing the API key from environment variables
 const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
 // Set the SendGrid API key to the SendGrid Mail object
@@ -14,7 +18,7 @@ sgMail.setApiKey(SENDGRID_API_KEY);
 // Define the Cloud Function
 exports.sendEmail = functions.https.onRequest((req, res) => {
   // Apply CORS middleware to allow cross-origin requests
-  cors(req, res, async () => {
+  cors(corsOptions)(req, res, async () => {
     if (req.method === "OPTIONS") {
       res.set("Access-Control-Allow-Origin", "https://saidou25.github.io");
       res.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
