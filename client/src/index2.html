@@ -1,0 +1,113 @@
+<html>
+  <head>
+    <title>esa44 Results</title>
+  </head>
+  <body>
+    <p style="font-size: 18px">Hi {{username}},</p>
+    <p style="font-size: 18px">Thank you for taking the ESA44 Self-Awareness Assessment...</p>
+    <div
+      className="finish-main-container"
+      style="background-color: #267b7d"
+    >
+      <div style="background-color: #f1f1f1; margin: auto; padding: 5% 0 5% 0">
+        <h1
+          className="finish-titles"
+          style="
+            letter-spacing: 1px;
+            color: black;
+            text-align: center;
+            font-size: 38px;
+          "
+        >
+          ESA44 Assessment Results
+        </h1>
+        <h2
+          className="score-today"
+          style="text-align: center; padding: 2% 3%; color: black"
+        >
+          <span>Your</span>
+          <span className="esa44"> ESA44 </span>
+          <span>results for today: {{date}}</span>
+        </h2>
+        <div style="display: flex; justify-content: center">
+          <table className="results-table" style="border-collapse: separate; margin: auto">
+            <thead>
+              <tr className="class-top" style="background-color: #c7cec9">
+                <th
+                  className="class-th"
+                  style="
+                    border-color: grey;
+                    color: black;
+                    text-align: center;
+                    padding: 2%;
+                    width: 30%
+                  "
+                >
+                  ESA44 Awakening %
+                </th>
+                <th className="class-th" style="
+                    border-color: grey;
+                    color: black;
+                    text-align: center;
+                    padding: 2%;
+                    width: 30%
+                  ">State of Awareness</th>
+                <th className="class-th" style="
+                    border-color: grey;
+                    color: black;
+                    text-align: center;
+                    padding: 2%;
+                    width: 30%
+                  ">Current Perspective</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="class-bottom">
+                <td
+                  className="class-td"
+                  style="
+                    border-right: 2px solid #c3c2c2;
+                    border-bottom: 1px solid #c3c2c2;
+                    border-left: 1px solid #c3c2c2;
+                    text-align: center;
+                    width: 22%;
+                    height: 42px;
+                    color: black;
+                  "
+                >
+                  {{templateAssessment}}
+                </td>
+                <td
+                  className="class-td"
+                  style="
+                    border-right: 2px solid #c3c2c2;
+                    border-bottom: 1px solid #c3c2c2;
+                    text-align: center;
+                    width: 22%;
+                    height: 42px;
+                    color: black;
+                  "
+                >
+                  {{awakeness}}
+                </td>
+                <td
+                  className="class-td-perspective"
+                  style="
+                    border-right: 2px solid #c3c2c2;
+                    border-bottom: 1px solid #c3c2c2;
+                    text-align: center;
+                    width: 22%;
+                    height: 42px;
+                    color: black;
+                  "
+                >
+                  {{perspective}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
