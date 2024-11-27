@@ -6,7 +6,7 @@ const cors = require("cors")({
 });
 
 const corsOptions = {
-  origin: "https://saidou25.github.io", // Explicitly allow your GitHub Pages domain
+  origin: "*", // Explicitly allow your GitHub Pages domain
   methods: "GET, POST, OPTIONS",
   allowedHeaders: "Content-Type",
 };
@@ -20,7 +20,7 @@ exports.sendEmail = functions.https.onRequest((req, res) => {
   // Apply CORS middleware to allow cross-origin requests
   cors(corsOptions)(req, res, async () => {
     if (req.method === "OPTIONS") {
-      res.set("Access-Control-Allow-Origin", "https://saidou25.github.io");
+      res.set("Access-Control-Allow-Origin", "*");
       res.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
       res.set("Access-Control-Allow-Headers", "Content-Type");
       res.set("Access-Control-Max-Age", "3600");
