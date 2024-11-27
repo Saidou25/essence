@@ -16,7 +16,10 @@ exports.sendEmail = functions.https.onRequest((req, res) => {
   // Apply CORS middleware to allow cross-origin requests
   cors(req, res, async () => {
     if (req.method === "OPTIONS") {
-      // Preflight request, just send a successful response
+      res.set("Access-Control-Allow-Origin", "https://saidou25.github.io");
+      res.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+      res.set("Access-Control-Allow-Headers", "Content-Type");
+      res.set("Access-Control-Max-Age", "3600");
       res.status(204).send("");
       return;
     }
