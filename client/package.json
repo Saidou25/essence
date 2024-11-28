@@ -10,7 +10,7 @@
     "build": "vite build",
     "serve": "vite preview",
     "predeploy": "vite build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@sendgrid/mail": "^8.1.4",
