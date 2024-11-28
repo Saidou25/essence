@@ -1,4 +1,4 @@
-node_modules/
+dnode_modules/
 client/node_modules/
 functions/node_modules/
 client/.env
@@ -11,3 +11,4 @@ firebase-debug.log
 
 # Ignore other sensitive files (you can list more files here if needed)
 .env
+node_modules
