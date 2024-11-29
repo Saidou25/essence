@@ -1,9 +1,7 @@
 const functions = require("firebase-functions");
 const sgMail = require("@sendgrid/mail");
 require("dotenv").config(); // Load environment variables
-const cors = require("cors")({
-  origin: "*", // Explicitly allow your GitHub Pages domain
-});
+const cors = require("cors");
 
 const corsOptions = {
   origin: "*", // Explicitly allow your GitHub Pages domain
@@ -55,3 +53,4 @@ exports.sendEmail = functions.https.onRequest((req, res) => {
     }
   });
 });
+
