@@ -19,9 +19,6 @@ export default function EmailResultsForm({
   const [templateAwakeness, setTemplateAwakeness] = useState("");
   const [templatePerspective, setTemplatePerspective] = useState("");
 
-  const SENDGRID_API_KEY =
-    "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";
-
   const handleChange = (e) => {
     setErrorMessage("");
     const { name, value } = e.target;
