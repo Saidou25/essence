@@ -19,6 +19,9 @@ export default function EmailResultsForm({
   const [templateAwakeness, setTemplateAwakeness] = useState("");
   const [templatePerspective, setTemplatePerspective] = useState("");
 
+  const SENDGRID_API_KEY =
+    "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";
+
   const handleChange = (e) => {
     setErrorMessage("");
     const { name, value } = e.target;
@@ -36,6 +39,7 @@ export default function EmailResultsForm({
 
   const sendEmail = async (e) => {
     e.preventDefault();
+
     setIsSending(true);
     const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formState.email);
     if (!isValidEmail) {
@@ -47,48 +51,53 @@ export default function EmailResultsForm({
       process.env.NODE_ENV === "development"
         ? "http://127.0.0.1:5001/essence-9f702/us-central1/sendEmail"
         : "https://sendemail-yo7s25d5wq-uc.a.run.app"; // Deployed URL
-    console.log(process.env.NODE_ENV);
-    fetch(apiUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        to: formState.email,
-        subject: "ESA44 Results",
-        // html: `<p>Hello ${formState.username},</p><p>Your ESA44 results are:</p><ul><li>Awakeness: ${templateAwakeness}</li><li>Perspective: ${templatePerspective}</li><li>Assessment: ${totalAssessment}</li></ul>`,
-        // text: `Hello ${formState.username} and thank you for taking the ESA44 self-awareness assessment.`,
-        templateId: "d-36cc6833348d4da49c115d42b8033a6d",
-        dynamicTemplateData: {
-          username: formState.username,
-          date: formattedDate,
-          templateAssessment: totalAssessment,
-          awakeness: templateAwakeness,
-          perspective: templatePerspective,
+    console.log(
+      process.env.NODE_ENV,
+      process.env.NODE_ENV === "development"
+        ? "http://127.0.0.1:5001/essence-9f702/us-central1/sendEmail"
+        : "https://sendemail-yo7s25d5wq-uc.a.run.app"
+    );
+    try {
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      }),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to send email");
-        }
-        return response.json(); // Parse as JSON since the server returns JSON now
-      })
-      .then((data) => {
-        console.log("Success:", data);
+        body: JSON.stringify({
+          to: formState.email,
+          subject: "esa44",
+          // html: `<p>Hello ${formState.username},</p><p>Your ESA44 results are:</p><ul><li>Awakeness: ${templateAwakeness}</li><li>Perspective: ${templatePerspective}</li><li>Assessment: ${totalAssessment}</li></ul>`,
+          // text: `Hello ${formState.username} and thank you for taking the ESA44 self-awareness assessment.`,
+          templateId: "d-36cc6833348d4da49c115d42b8033a6d",
+          dynamicTemplateData: {
+            username: formState.username,
+            date: formattedDate,
+            templateAssessment: totalAssessment,
+            awakeness: templateAwakeness,
+            perspective: templatePerspective,
+          },
+        }),
+      });
+      // Check if response is ok (status code between 200-299)
+      if (!response.ok) {
+        throw new Error(`Error sending email: ${response.statusText}`);
+      }
+      const data = await response.json();
+      if (response.ok) {
+        console.log("Email sent successfully", data);
         setSubmitButtonDisabled(true);
         setErrorMessage("");
         setFormState({
           email: "",
           username: "",
         });
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      })
-      .finally(() => {
-        setIsSending(false);
-      });
+      }
+    } catch (error) {
+      console.error("Error in sending email request", error);
+      setErrorMessage("Failed to send email. Please try again.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   useEffect(() => {
