@@ -215,7 +215,12 @@ export default function Finish({ userAnswers }) {
                 onClick={() => setShowEmailForm(true)}
               >
                 <GoMail
-                  style={{ color: "white", height: "25px", width: "25px" }}
+                 style={{
+                  color: "white",
+                  height: "25px",
+                  width: "25px",
+                  cursor: "pointer",
+                }}
                 />
               </button>
             </div>
@@ -257,7 +262,6 @@ export default function Finish({ userAnswers }) {
           </span>
         </p>
       </div>
-      {/* <ResultsHistory /> */}
     </>
   );
 }
