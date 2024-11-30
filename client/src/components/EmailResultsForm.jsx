@@ -11,6 +11,7 @@ export default function EmailResultsForm({
 }) {
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
+  const [success, setSuccess] = useState("");
   const [formState, setFormState] = useState({
     email: "",
     username: "",
@@ -81,7 +82,7 @@ export default function EmailResultsForm({
       }
       const data = await response.json();
       if (response.ok) {
-        console.log("Email sent successfully", data);
+        setSuccess("Email sent successfully");
         setSubmitButtonDisabled(true);
         setErrorMessage("");
         setFormState({
@@ -169,6 +170,11 @@ export default function EmailResultsForm({
           {errorMessage && (
             <p aria-live="polite" className="error-message">
               {errorMessage}
+            </p>
+          )}
+          {success && (
+            <p aria-live="polite" className="error-message">
+              {success}
             </p>
           )}
           <br />

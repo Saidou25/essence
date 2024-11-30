@@ -68,7 +68,11 @@
   border: none;
 }
 .error-message {
-  color: #e37d37;
+  color: #eba475;
+  letter-spacing: 1px;
+}
+.success {
+  color: #1ced19;
   letter-spacing: 1px;
 }
 @media screen and (max-width: 414px) {
