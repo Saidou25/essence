@@ -26,18 +26,17 @@ export default function Finish({ userAnswers }) {
   }
   const totalAssessment = Math.round((totalRating / 220) * 100 * 100) / 100;
 
+  //   const db = getFirestore(app);
+  //   // console.log("db", db);
 
-//   const db = getFirestore(app);
-//   // console.log("db", db);
-
-//   const docRef = doc(db, "esa44", "Lillamb@fun");
-//   const userResult = {
-//     name: "Sy",
-//     email: "Lillamb@fun",
-//     result: totalAssessment,
-//     date: formattedDate,
-//   };
-// console.log("user result", userResult);
+  //   const docRef = doc(db, "esa44", "Lillamb@fun");
+  //   const userResult = {
+  //     name: "Sy",
+  //     email: "Lillamb@fun",
+  //     result: totalAssessment,
+  //     date: formattedDate,
+  //   };
+  // console.log("user result", userResult);
 
   // const saveUserResult = async () => {
   //   if (!userResult) {
@@ -167,7 +166,11 @@ export default function Finish({ userAnswers }) {
         <br />
 
         {showEmailForm ? (
-          <EmailResultsForm formattedDate={formattedDate} totalAssessment={totalAssessment} hideEmail={showEmail} />
+          <EmailResultsForm
+            formattedDate={formattedDate}
+            totalAssessment={totalAssessment}
+            hideEmail={showEmail}
+          />
         ) : (
           <div className="email-print-container no-print">
             <div className="email-print-texts">
@@ -238,7 +241,20 @@ export default function Finish({ userAnswers }) {
         <p className="bottom-text">
           <span>Be sure to record your</span>
           <span className="esa44"> ESA44 </span>
-          <span>results on page 11 or page 303 of ESSENCE Book 1.</span>
+          <span>results on page 11 or page 303 of </span>
+          <span
+            className="link-text"
+            onClick={() =>
+              window.open("https://princetongreen.org/essence-trilogy-book-1")
+            }
+            style={{
+              cursor: "pointer",
+              color: "blue",
+              textDecoration: "underline",
+            }}
+          >
+            ESSENCE Book 1.
+          </span>
         </p>
       </div>
       {/* <ResultsHistory /> */}

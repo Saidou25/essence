@@ -14,6 +14,7 @@
   padding-bottom: 3%;
   color: white;
   margin-bottom: 5%;
+  position: relative;
 }
 .close-container {
   display: flex;
@@ -34,7 +35,13 @@
 
 .form-message {
   text-align: center;
-  padding: 3% 7% 0 7%;
+  padding: 10% 7% 0 7%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 23px;
+}
+.form-message1 {
+  text-align: center;
+  padding: 0 7% 0 7%;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 23px;
 }
@@ -72,7 +79,7 @@
   letter-spacing: 1px;
 }
 .success {
-  color: #1ced19;
+  color: #1ac6a3;
   letter-spacing: 1px;
 }
 @media screen and (max-width: 414px) {

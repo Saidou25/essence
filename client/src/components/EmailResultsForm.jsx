@@ -3,6 +3,7 @@ import { RxCross2 } from "react-icons/rx";
 import { resultsData } from "../questionsData";
 
 import "./EmailResultsForm.css";
+// import Success from "./Success";
 
 export default function EmailResultsForm({
   hideEmail,
@@ -112,8 +113,15 @@ export default function EmailResultsForm({
     }
   }, [totalAssessment, resultsData]);
 
+  // if (success) {
+  //   return <Success />;
+  // }
   return (
     <div className="allmailform-container">
+      {/* {success ? (
+        <Success />
+      ) : (
+        <> */}
       <div className="close-container">
         <RxCross2
           onClick={() => hideEmail(false)}
@@ -127,10 +135,13 @@ export default function EmailResultsForm({
       </div>
       <div className="email-form-container">
         <div>
-          <h2 className="form-message-title">Mailing Results Request</h2>
+          {/* <h2 className="form-message-title">Mailing Results Request</h2> */}
+          {/* <h2 className="form-message-title">Inbox Results</h2> */}
           <p className="form-message">
-            To receive your ESA44 results via email, then please fill out your
-            first name and email address.
+            To receive your ESA44 results via email,
+          </p>
+          <p className="form-message1">
+            please fill out your first name and email address.
           </p>
         </div>
         <form className="email-form" onSubmit={sendEmail}>
@@ -173,7 +184,7 @@ export default function EmailResultsForm({
             </p>
           )}
           {success && (
-            <p aria-live="polite" className="error-message">
+            <p aria-live="polite" className="success">
               {success}
             </p>
           )}
@@ -193,6 +204,8 @@ export default function EmailResultsForm({
           <br />
         </form>
       </div>
+      {/* </>
+      )} */}
     </div>
   );
 }
