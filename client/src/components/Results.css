@@ -141,6 +141,7 @@
   border-radius: 50px;
   border: none;
 }
+.button-email:hover,
 .button-retake:hover,
 .button-download:hover,
 .button-print:hover {
