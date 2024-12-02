@@ -78,66 +78,66 @@ export const questionsData = [
     illustration:
       "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-infinite-being-AzGeL9grl5cVnGJO.jpg",
   },
-  // {
-  //   questionNumber: 3,
-  //   questionStatment: "I am connected as One with all aspects of the Universe.",
-  //   userSelfRating: "",
-  //   illustration:
-  //     "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-connectedness-A0xwOqzwW9hp0zky.jpg",
-  // },
-  // {
-  //   questionNumber: 4,
-  //   questionStatment:
-  //     "I live harmoniously in balance with myself and all of Nature.",
-  //   userSelfRating: "",
-  //   noResponse: "",
-  //   illustration:
-  //     "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-balance-A0xwOqzwvGF2ELPX.jpg",
-  // },
-  // {
-  //   questionNumber: 5,
-  //   questionStatment:
-  //     "I am living fully in the present moment, open to all possibilities.",
-  //   userSelfRating: "",
-  //   noResponse: "",
-  //   illustration:
-  //     "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-present-time-dJo6LVQ6bnSG445a.jpg",
-  // },
-  // {
-  //   questionNumber: 6,
-  //   questionStatment:
-  //     "I am deeply connected with my Spirit energy, which protects and guides me.",
-  //   userSelfRating: "",
-  //   noResponse: "",
-  //   illustration:
-  //     "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-spirit-energy-mv0DBerDPDHVy628.jpg",
-  // },
-  // {
-  //   questionNumber: 7,
-  //   questionStatment:
-  //     "I generate heart energy to experience greater love, joy, compassion, forgiveness, freedom and peace.",
-  //   userSelfRating: "",
-  //   noResponse: "",
-  //   illustration:
-  //     "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-heart-energy-m5KwEjzaqwcKrbeD.jpg",
-  // },
-  // {
-  //   questionNumber: 8,
-  //   questionStatment:
-  //     "The stronger I make my body the more energy I can hold and emit.",
-  //   userSelfRating: "",
-  //   noResponse: "",
-  //   illustration:
-  //     "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-body-energy-Yyv3xBw1EphMDXDa.jpg",
-  // },
-  // {
-  //   questionNumber: 9,
-  //   questionStatment: "My mind is filled with positive thoughts.",
-  //   userSelfRating: "",
-  //   noResponse: "",
-  //   illustration:
-  //     "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-mind-energy-AR0yNZGX4jS4DMGX.jpg",
-  // },
+  {
+    questionNumber: 3,
+    questionStatment: "I am connected as One with all aspects of the Universe.",
+    userSelfRating: "",
+    illustration:
+      "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-connectedness-A0xwOqzwW9hp0zky.jpg",
+  },
+  {
+    questionNumber: 4,
+    questionStatment:
+      "I live harmoniously in balance with myself and all of Nature.",
+    userSelfRating: "",
+    noResponse: "",
+    illustration:
+      "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-balance-A0xwOqzwvGF2ELPX.jpg",
+  },
+  {
+    questionNumber: 5,
+    questionStatment:
+      "I am living fully in the present moment, open to all possibilities.",
+    userSelfRating: "",
+    noResponse: "",
+    illustration:
+      "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-present-time-dJo6LVQ6bnSG445a.jpg",
+  },
+  {
+    questionNumber: 6,
+    questionStatment:
+      "I am deeply connected with my Spirit energy, which protects and guides me.",
+    userSelfRating: "",
+    noResponse: "",
+    illustration:
+      "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-spirit-energy-mv0DBerDPDHVy628.jpg",
+  },
+  {
+    questionNumber: 7,
+    questionStatment:
+      "I generate heart energy to experience greater love, joy, compassion, forgiveness, freedom and peace.",
+    userSelfRating: "",
+    noResponse: "",
+    illustration:
+      "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-heart-energy-m5KwEjzaqwcKrbeD.jpg",
+  },
+  {
+    questionNumber: 8,
+    questionStatment:
+      "The stronger I make my body the more energy I can hold and emit.",
+    userSelfRating: "",
+    noResponse: "",
+    illustration:
+      "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-body-energy-Yyv3xBw1EphMDXDa.jpg",
+  },
+  {
+    questionNumber: 9,
+    questionStatment: "My mind is filled with positive thoughts.",
+    userSelfRating: "",
+    noResponse: "",
+    illustration:
+      "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-mind-energy-AR0yNZGX4jS4DMGX.jpg",
+  },
   // {
   //   questionNumber: 10,
   //   questionStatment: "I respect myself, everyone, and everything.",

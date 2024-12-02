@@ -5,12 +5,13 @@ import useMonitorWidth from "../UsemonitorWidth";
 import Results from "./Results";
 
 import "./Questions.css";
+import Success from "./Success";
 
 export default function Questions() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [backwordDisabled, setBackwordDisabled] = useState(false);
-  const [showFinishedPage, setShowFinishedPage] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [forwardDisabled, setForwardDisabled] = useState(true);
   const [userAnswers, setUserAnswers] = useState([]);
   const [end, setEnd] = useState(false);
@@ -40,15 +41,25 @@ export default function Questions() {
 
   const handleRatingClick = (value) => {
     setIsSelected(value - 1);
+    console.log(value);
     if (storedUserSelfRating) {
       setSubmissionReminder("Please submit your change...");
     }
-    // Update formState only, not userAnswers
-    setFormState((prevState) => ({
-      ...prevState,
-      userSelfRating: value,
-      noResponse: "",
-    }));
+    if (value === 6) {
+      // Update formState only with 0 is no response selected
+      setFormState((prevState) => ({
+        ...prevState,
+        userSelfRating: 0,
+        noResponse: "",
+      }));
+    } else {
+      // otherwise update formstate with value
+      setFormState((prevState) => ({
+        ...prevState,
+        userSelfRating: value,
+        noResponse: "",
+      }));
+    }
     setButtonDisabled(false); // Enable the submit button when a rating is selected
   };
 
@@ -147,11 +158,12 @@ export default function Questions() {
           setAnimationFade(false);
         }, 1000);
       } else {
-        setShowFinishedPage(true);
+        setShowSuccess(true);
         setTimeout(() => {
-          setShowFinishedPage(false);
-        }, 3000);
-        setEnd(true);
+          setShowSuccess(false);
+          setEnd(true);
+        }, 6000);
+        setEnd(false);
       }
     } catch (error) {
       console.error("Error in handleSubmit: ", error);
@@ -186,24 +198,81 @@ export default function Questions() {
   if (end === true) {
     return <Results userAnswers={userAnswers} />;
   }
-
+  if (showSuccess) {
+    return <Success />;
+  }
   return (
-      <div className="questions-main-container">
-        <h1 className="card-title">ESSENCE Self-Awareness Assessment</h1>
-        <div
-          className="card"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-          }}
-        >
-          <h2 className="question-number">
-            {currentQuestion.questionNumber} of 44
-          </h2>
-          <div className="card-body" style={{ textAlign: "center" }}>
-            <div className="container-illustration">
-              {vw <= 414 && (
+    <div className="questions-main-container">
+      <h1 className="card-title">ESSENCE Self-Awareness Assessment</h1>
+      <div
+        className="card"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
+        <h2 className="question-number">
+          {currentQuestion.questionNumber} of 44
+        </h2>
+        <div className="card-body" style={{ textAlign: "center" }}>
+          <div className="container-illustration">
+            {vw <= 414 && (
+              <div className="icon-div">
+                <IoCaretBackSharp
+                  style={{
+                    cursor: backwordDisabled ? "not-allowed" : "pointer",
+                    height: "30px",
+                    width: "30px",
+                  }}
+                  onClick={handleGoBack}
+                />
+              </div>
+            )}
+            <img
+              alt="illustration"
+              src={currentQuestion.illustration}
+              className={
+                animationFade ? "illustration-animated" : "illustration"
+              }
+            />
+            {vw <= 414 && (
+              <div className="icon-div">
+                <IoCaretForwardSharp
+                  disabled={forwardDisabled}
+                  onClick={() => {
+                    if (!forwardDisabled) {
+                      handleNextQuestion();
+                    }
+                  }}
+                  style={{
+                    cursor: forwardDisabled ? "not-allowed" : "pointer",
+                    height: "30px",
+                    width: "30px",
+                  }}
+                />
+              </div>
+            )}
+          </div>
+          <br />
+          <div>
+            <br />
+            <p className="please-rate">
+              Please rate how much you agree with the following statement:
+            </p>
+            <h2 className={animationFade ? "assest-animated" : "assest"}>
+              <p>{currentQuestion.questionStatment}</p>
+            </h2>
+            <br />
+            {submissionReminder ? (
+              <p className="be-sure">Please submit your change...</p>
+            ) : (
+              <p className="be-sure" style={{ visibility: "hidden" }}>
+                Please submit your change...
+              </p>
+            )}
+            <div className="scale-line">
+              {vw > 414 && (
                 <div className="icon-div">
                   <IoCaretBackSharp
                     style={{
@@ -215,14 +284,44 @@ export default function Questions() {
                   />
                 </div>
               )}
-              <img
-                alt="illustration"
-                src={currentQuestion.illustration}
-                className={
-                  animationFade ? "illustration-animated" : "illustration"
-                }
-              />
-              {vw <= 414 && (
+              <div className="button-line-container">
+                {buttons.map((button, index) => (
+                  <div className="button-rating" key={index}>
+                    <div className="button-wrapper">
+                      <button
+                        type="button"
+                        className={
+                          isSelected === index ? "button-selected" : "button"
+                        }
+                        onClick={() => handleRatingClick(index + 1)}
+                      ></button>
+                      {index === 0 && (
+                        <div className="button-line button-line-start"></div>
+                      )}
+                      {index > 0 && index < 4 && (
+                        <div className="button-line button-line-full"></div>
+                      )}
+                      {index === 4 && (
+                        <div className="button-line button-line-end"></div>
+                      )}
+                      {index === 6 && (
+                        <div
+                          className="button-line"
+                          onClick={() => handleRatingClick(0)}
+                        ></div>
+                      )}
+                    </div>
+                    <p className="scale-text">
+                      {index < scales.length ? scales[index] : null}
+                    </p>
+                    <p className="scale-text" style={{ visibility: "hidden" }}>
+                      {/* create empty space needed to keep homogene display with other buttons */}
+                      {scales[index] === "Neutral" ? "Neutral" : ""}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              {vw > 414 && (
                 <div className="icon-div">
                   <IoCaretForwardSharp
                     disabled={forwardDisabled}
@@ -240,111 +339,23 @@ export default function Questions() {
                 </div>
               )}
             </div>
-            <br />
-            <div>
-              <br />
-              <p className="please-rate">
-                Please rate how much you agree with the following statement:
-              </p>
-              <h2 className={animationFade ? "assest-animated" : "assest"}>
-                <p>{currentQuestion.questionStatment}</p>
-              </h2>
-              <br />
-              {submissionReminder ? (
-                <p className="be-sure">Please submit your change...</p>
-              ) : (
-                <p className="be-sure" style={{ visibility: "hidden" }}>
-                  Please submit your change...
-                </p>
-              )}
-              <div className="scale-line">
-                {vw > 414 && (
-                  <div className="icon-div">
-                    <IoCaretBackSharp
-                      style={{
-                        cursor: backwordDisabled ? "not-allowed" : "pointer",
-                        height: "30px",
-                        width: "30px",
-                      }}
-                      onClick={handleGoBack}
-                    />
-                  </div>
-                )}
-                <div className="button-line-container">
-                  {buttons.map((button, index) => (
-                    <div className="button-rating" key={index}>
-                      <div className="button-wrapper">
-                        <button
-                          type="button"
-                          className={
-                            isSelected === index ? "button-selected" : "button"
-                          }
-                          onClick={() => handleRatingClick(index + 1)}
-                        ></button>
-                        {index === 0 && (
-                          <div className="button-line button-line-start"></div>
-                        )}
-                        {index > 0 && index < 4 && (
-                          <div className="button-line button-line-full"></div>
-                        )}
-                        {index === 4 && (
-                          <div className="button-line button-line-end"></div>
-                        )}
-                        {index === 6 && (
-                          <div
-                            className="button-line"
-                            onClick={() => handleRatingClick(0)}
-                          ></div>
-                        )}
-                      </div>
-                      <p className="scale-text">
-                        {index < scales.length ? scales[index] : null}
-                      </p>
-                      <p
-                        className="scale-text"
-                        style={{ visibility: "hidden" }}
-                      >
-                        {/* create empty space needed to keep homogene display with other buttons */}
-                        {scales[index] === "Neutral" ? "Neutral" : ""}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-                {vw > 414 && (
-                  <div className="icon-div">
-                    <IoCaretForwardSharp
-                      disabled={forwardDisabled}
-                      onClick={() => {
-                        if (!forwardDisabled) {
-                          handleNextQuestion();
-                        }
-                      }}
-                      style={{
-                        cursor: forwardDisabled ? "not-allowed" : "pointer",
-                        height: "30px",
-                        width: "30px",
-                      }}
-                    />
-                  </div>
-                )}
-              </div>
-              <button
-                className="button-submit"
-                type="button"
-                disabled={buttonDisabled}
-                style={{
-                  cursor: buttonDisabled ? "not-allowed" : "pointer",
-                  backgroundColor: buttonDisabled ? "#c7cec9" : "#e37d37",
-                  color: buttonDisabled ? "black" : "white",
-                }}
-                onClick={handleSubmit}
-              >
-                SUBMIT
-              </button>
-            </div>
-            <br />
+            <button
+              className="button-submit"
+              type="button"
+              disabled={buttonDisabled}
+              style={{
+                cursor: buttonDisabled ? "not-allowed" : "pointer",
+                backgroundColor: buttonDisabled ? "#c7cec9" : "#e37d37",
+                color: buttonDisabled ? "black" : "white",
+              }}
+              onClick={handleSubmit}
+            >
+              SUBMIT
+            </button>
           </div>
+          <br />
         </div>
       </div>
+    </div>
   );
 }

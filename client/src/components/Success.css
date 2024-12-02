@@ -1,0 +1,81 @@
+.success-container {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-success-container {
+  overflow: hidden;
+  height: 300px;
+  width: 250px;
+  animation: magnify 2s linear forwards;
+  margin: 0;
+  border-radius: 25px;
+}
+.success-card {
+  margin: 0;
+  border: none;
+  border-radius: 25px;
+  padding-top: 100px;
+  background-color: #f1f1f1;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  animation: paddingCard 2s linear 2s forwards;
+}
+@keyframes paddingCard {
+  0% {
+    padding-top: 100px;
+    border-radius: 25px; /* Keep the border-radius consistent */
+  }
+  100% {
+    padding-top: 0;
+    border-radius: 25px; /* Keep the border-radius consistent */
+  }
+}
+.check {
+  display: flex;
+  justify-content: center;
+}
+.check-logo {
+  height: 150px;
+  width: 150px;
+  color: green;
+  animation: checkShrink 2s linear 2s forwards;
+}
+@keyframes checkShrink {
+  0% {
+    height: 150px;
+    width: 150px;
+  }
+  100% {
+    height: 60px;
+    width: 60px;
+    padding-top: 7%;
+  }
+}
+.completion-text {
+  text-align: center;
+  font-size: 20px;
+  padding: 11% 15% 0 15%;
+  color: black;
+}
+@keyframes magnify {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1); /* Increase size to 1.5x, adjust as necessary */
+  }
+}
+.text-container {
+  padding-top: 10%;
+}
+@keyframes movingText {
+  0% {
+    margin-top: 60%;
+  }
+  100% {
+    margin-top: 40%;
+  }
+}

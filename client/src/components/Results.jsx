@@ -14,6 +14,7 @@ export default function Finish({ userAnswers }) {
   const [showEmailForm, setShowEmailForm] = useState(false);
   // Create a ref for the content you want to convert to PDF
   const printContentRef = useRef(null);
+  console.log(userAnswers);
 
   let totalRating = 0;
   const date = new Date();
@@ -25,7 +26,7 @@ export default function Finish({ userAnswers }) {
     totalRating += Number(userAnswer.userSelfRating); // Convert to number to avoid string concatenation
   }
   const totalAssessment = Math.round((totalRating / 220) * 100 * 100) / 100;
-
+console.log(userAnswers);
   //   const db = getFirestore(app);
   //   // console.log("db", db);
 
@@ -74,7 +75,6 @@ export default function Finish({ userAnswers }) {
 
   const showEmail = (data) => {
     setShowEmailForm(data);
-    console.log("email submitted", data);
   };
 
   const handlePrint = () => {
@@ -112,7 +112,7 @@ export default function Finish({ userAnswers }) {
         <table className="results-table">
           <thead>
             <tr className="class-top">
-              <th className="class-th">ESA44 Awakening %</th>
+              <th className="class-th">ESA44 Awakening</th>
               <th className="class-th">State of Awareness</th>
               <th className="class-th">Current Perspective</th>
             </tr>
@@ -143,7 +143,7 @@ export default function Finish({ userAnswers }) {
         <table className="results-table">
           <thead>
             <tr className="class-top">
-              <th className="class-th">ESA44 Awakening %</th>
+              <th className="class-th">ESA44 Awakening</th>
               <th className="class-th">State of Awareness</th>
               <th className="class-th">Current Perspective</th>
             </tr>
