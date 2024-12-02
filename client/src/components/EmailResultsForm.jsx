@@ -136,11 +136,11 @@ export default function EmailResultsForm({
       <div className="email-form-container">
         <div>
           {/* <h2 className="form-message-title">Mailing Results Request</h2> */}
-          {/* <h2 className="form-message-title">Inbox Results</h2> */}
+          <h2 className="form-message-title">Inbox Results</h2>
           <p className="form-message">
             To receive your ESA44 results via email,
-          </p>
-          <p className="form-message1">
+          {/* </p>
+          <p className="form-message1"> */}
             please fill out your first name and email address.
           </p>
         </div>

@@ -28,14 +28,14 @@
   letter-spacing: 1px;
   color: white;
   text-align: center;
-  font-size: 36px;
+  font-size: 38px;
   font-family: "ImpactUnicode", sans-serif;
   letter-spacing: 1px;
 }
 
 .form-message {
   text-align: center;
-  padding: 10% 7% 0 7%;
+  padding: 5% 7% 0 7%;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 23px;
 }
