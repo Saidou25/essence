@@ -41,7 +41,6 @@ export default function Questions() {
 
   const handleRatingClick = (value) => {
     setIsSelected(value - 1);
-    console.log(value);
     if (storedUserSelfRating) {
       setSubmissionReminder("Please submit your change...");
     }

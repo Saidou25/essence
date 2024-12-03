@@ -4,6 +4,15 @@ import { LuDownload } from "react-icons/lu";
 import { VscDebugRestart } from "react-icons/vsc";
 import { ImPrinter } from "react-icons/im";
 import { GoMail } from "react-icons/go";
+import { app } from "../firebase.config";
+import {
+  arrayUnion,
+  doc,
+  getDoc,
+  getFirestore,
+  setDoc,
+  updateDoc,
+} from "firebase/firestore";
 import html2pdf from "html2pdf.js";
 import EmailResultsForm from "./EmailResultsForm";
 
@@ -14,7 +23,6 @@ export default function Finish({ userAnswers }) {
   const [showEmailForm, setShowEmailForm] = useState(false);
   // Create a ref for the content you want to convert to PDF
   const printContentRef = useRef(null);
-  console.log(userAnswers);
 
   let totalRating = 0;
   const date = new Date();
@@ -26,48 +34,45 @@ export default function Finish({ userAnswers }) {
     totalRating += Number(userAnswer.userSelfRating); // Convert to number to avoid string concatenation
   }
   const totalAssessment = Math.round((totalRating / 220) * 100 * 100) / 100;
-console.log(userAnswers);
-  //   const db = getFirestore(app);
-  //   // console.log("db", db);
 
-  //   const docRef = doc(db, "esa44", "Lillamb@fun");
-  //   const userResult = {
-  //     name: "Sy",
-  //     email: "Lillamb@fun",
-  //     result: totalAssessment,
-  //     date: formattedDate,
-  //   };
-  // console.log("user result", userResult);
+  const db = getFirestore(app);
 
-  // const saveUserResult = async () => {
-  //   if (!userResult) {
-  //     console.log("no user result yet");
-  //     return;
-  //   }
-  //   try {
-  //     // Check if the document exists
-  //     const docSnap = await getDoc(docRef);
+  const docRef = doc(db, "esa44", "choo@fun");
+  const userResult = {
+    name: "Sy",
+    email: "Sy@fun",
+    result: totalAssessment,
+    date: formattedDate,
+  };
 
-  //     if (docSnap.exists()) {
-  //       // Document exists, add to the 'results' array
-  //       await updateDoc(docRef, {
-  //         results: arrayUnion(userResult), // Add new result to the array
-  //       });
-  //       console.log("User result added to existing document!");
-  //     } else {
-  //       // Document does not exist, create it with 'results' array
-  //       await setDoc(docRef, {
-  //         email: "Lillamb@fun",
-  //         results: [userResult], // Initialize with the first result
-  //         date: formattedDate,
-  //       });
-  //       console.log("Document created with initial user result!");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error saving user result:", error.message);
-  //   }
-  // };
-  // saveUserResult();
+  const saveUserResult = async () => {
+    if (!userResult) {
+      console.log("no user result yet");
+      return;
+    }
+    try {
+      // Check if the document exists
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        // Document exists, add to the 'results' array
+        await updateDoc(docRef, {
+          results: arrayUnion(userResult), // Add new result to the array
+        });
+        console.log("User result added to existing document!");
+      } else {
+        // Document does not exist, create it with 'results' array
+        await setDoc(docRef, {
+          email: "Lillamb@fun",
+          results: [userResult], // Initialize with the first result
+          date: formattedDate,
+        });
+        console.log("Document created with initial user result!");
+      }
+    } catch (error) {
+      console.error("Error saving user result:", error.message);
+    }
+  };
 
   const handleRetake = () => {
     window.location.reload();
@@ -102,6 +107,7 @@ console.log(userAnswers);
   return (
     <>
       <div className="finish-main-container" ref={printContentRef}>
+        <button onClick={saveUserResult}>save</button>
         {/* <span className="format-date">{formattedDate}</span> */}
         <h1 className="finish-titles">ESA44 Assessment Results</h1>
         <h2 className="score-today">
@@ -215,12 +221,12 @@ console.log(userAnswers);
                 onClick={() => setShowEmailForm(true)}
               >
                 <GoMail
-                 style={{
-                  color: "white",
-                  height: "25px",
-                  width: "25px",
-                  cursor: "pointer",
-                }}
+                  style={{
+                    color: "white",
+                    height: "25px",
+                    width: "25px",
+                    cursor: "pointer",
+                  }}
                 />
               </button>
             </div>

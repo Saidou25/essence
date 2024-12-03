@@ -3,7 +3,6 @@ body {
   width: 100% !important;
   margin: 0;
   padding: 0;
-  /* filter: blur(9px); */
 }
 @font-face {
   font-family: "ImpactUnicode";
@@ -100,14 +99,12 @@ body {
 
 .assest-animated {
   color: black;
-  /* text-align: center; */
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 30px;
   font-family: Anton, sans-serif;
   letter-spacing: 1px;
-  animation: fadeIn 1s linear;
   animation: fadeInColor 0.5s ease-in-out forwards;
   padding: 0 3% 0 3%;
   height: 70px;
@@ -119,7 +116,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* text-align: center; */
   font-size: 30px;
   font-family: Anton, sans-serif;
   letter-spacing: 1px;
