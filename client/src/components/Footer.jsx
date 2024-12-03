@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <div className="footer">
+    <div className="footer no-print">
       <div className="footer-text-div">
         <p
          className="link-text"

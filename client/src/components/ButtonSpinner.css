@@ -1,0 +1,33 @@
+/* Button Styling */
+.spinner-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  background-color: #e37d37;
+  border-radius: 50px;
+  color: white;
+  margin: auto;
+  border: none;
+  padding: 7px;
+}
+
+/* Spinner Styling */
+.spinner {
+  width: 12px;
+  height: 12px;
+  border: 2px solid white;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+/* Loading Animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

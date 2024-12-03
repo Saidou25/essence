@@ -37,7 +37,7 @@ exports.sendEmail = functions.https.onRequest((req, res) => {
     // Build the SendGrid message object using extracted values
     const msg = {
       to,
-      from: "mosaidou@gmail.com", // Use your verified sender email
+      from: "assessment-results@21stcenturyparadigm.org", // Use your verified sender email
       subject,
       templateId, // Include the template ID
       dynamicTemplateData, // Attach dynamic data for the template

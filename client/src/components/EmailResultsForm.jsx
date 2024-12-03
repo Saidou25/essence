@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { resultsData } from "../questionsData";
+import ButtonSpinner from "./ButtonSpinner";
 
 import "./EmailResultsForm.css";
-// import Success from "./Success";
 
 export default function EmailResultsForm({
   hideEmail,
@@ -38,7 +38,6 @@ export default function EmailResultsForm({
 
   const sendEmail = async (e) => {
     e.preventDefault();
-
     setIsSending(true);
     const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formState.email);
     if (!isValidEmail) {
@@ -113,15 +112,8 @@ export default function EmailResultsForm({
     }
   }, [totalAssessment, resultsData]);
 
-  // if (success) {
-  //   return <Success />;
-  // }
   return (
     <div className="allmailform-container">
-      {/* {success ? (
-        <Success />
-      ) : (
-        <> */}
       <div className="close-container">
         <RxCross2
           onClick={() => hideEmail(false)}
@@ -135,13 +127,10 @@ export default function EmailResultsForm({
       </div>
       <div className="email-form-container">
         <div>
-          {/* <h2 className="form-message-title">Mailing Results Request</h2> */}
           <h2 className="form-message-title">Inbox Results</h2>
           <p className="form-message">
-            To receive your ESA44 results via email,
-          {/* </p>
-          <p className="form-message1"> */}
-            please fill out your first name and email address.
+            To receive your ESA44 results via email, please fill out your first
+            name and email address.
           </p>
         </div>
         <form className="email-form" onSubmit={sendEmail}>
@@ -189,23 +178,25 @@ export default function EmailResultsForm({
             </p>
           )}
           <br />
-          <button
-            className="form-button"
-            type="submit"
-            disabled={submitButtonDisabled}
-            style={{
-              cursor: submitButtonDisabled ? "not-allowed" : "pointer",
-              backgroundColor: submitButtonDisabled ? "#c7cec9" : "#e37d37",
-              color: submitButtonDisabled ? "black" : "white",
-            }}
-          >
-            SUBMIT
-          </button>
+          {isSending ? (
+            <ButtonSpinner />
+          ) : (
+            <button
+              className="form-button"
+              type="submit"
+              disabled={submitButtonDisabled}
+              style={{
+                cursor: submitButtonDisabled ? "not-allowed" : "pointer",
+                backgroundColor: submitButtonDisabled ? "#c7cec9" : "#e37d37",
+                color: submitButtonDisabled ? "black" : "white",
+              }}
+            >
+              SUBMIT
+            </button>
+          )}
           <br />
         </form>
       </div>
-      {/* </>
-      )} */}
     </div>
   );
 }
