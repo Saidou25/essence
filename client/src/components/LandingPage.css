@@ -1,48 +1,162 @@
 .landing-image {
-    background-image: url("https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/secret-path_1920-A3QP7GqbelUgva7b.jpg");
-    /* background-image: url("https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/mandala-4282571_1920-mnl9qvzJEZf1DePR.jpg"); */
-    height: 100vh;
-    width: 100%;
-    background-position: center;
-    background-size: cover;
-    /* filter: blur(5px); */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-image: url("https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/secret-path_1920-A3QP7GqbelUgva7b.jpg");
+  /* background-image: url("https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/mandala-4282571_1920-mnl9qvzJEZf1DePR.jpg"); */
+  height: 100vh;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .image-content {
-    color: white;
-    text-align: center;
-    /* border: solid; */
-    padding: 5%;
-    width: 60%;
-    background-color: rgb(187, 187, 191, 0.4);
-    border-radius: 25px;
+  color: white;
+  text-align: center;
+  padding: 5%;
+  width: 60%;
+  background-color: rgb(187, 187, 191, 0.4);
+  border-radius: 25px;
 }
 .image-text {
-    font-size: 2rem;
-    font-weight: 400;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .landing-buttons {
-    display: flex;
-    justify-content: center;
-    margin-top: 8%;
+  display: flex;
+  justify-content: center;
+  margin: 8% 8%;
 }
 .landing-button {
-    margin: 0 3% 0 3%;
-    width: 20%;
-    padding: 2% 2%;
-    border-radius: 50px;
-    background-color: #e37d37;
-    color: white;
-    border: solid;
-
+  width: 30%;
+  padding: 1% 1%;
+  border-radius: 50px;
+  background-color: #e37d37;
+  color: white;
+  border: solid;
+  border-width: 1px;
 }
 .landing-button:hover {
+  background-color: #267b7d;
+  width: 30%;
+  padding: 1% 1%;
+  border-radius: 50px;
+}
+.image-text-bottom {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+}
+@media screen and (max-width: 1280px) {
+  .landing-button {
+    width: 40%;
+    padding: 1% 1%;
+  }
+  .landing-button:hover {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 980px) {
+  .landing-button {
+    width: 50%;
+    padding: 1% 1%;
+  }
+  .landing-button:hover {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 955px) {
+  .landing-button {
+    width: 60%;
+  }
+  .landing-button:hover {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 830px) {
+  .landing-button {
+    width: 45%;
+    padding: 1% 1%;
+  }
+  .landing-button:hover {
+    width: 45%;
+  }
+}
+@media screen and (max-width: 650px) {
+  .landing-button {
+    width: 65%;
+  }
+  .landing-button:hover {
+    width: 65%;
+  }
+}
+@media screen and (max-width: 585px) {
+  .image-text {
+    font-size: 22px;
+    font-weight: 400;
+  }
+  .image-text-bottom {
+    margin-top: 7%;
+    font-weight: 400;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .image-text {
+    font-size: 22px;
+    font-weight: 400;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  .image-text-bottom {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+  }
+  .landing-button {
+    width: 75%;
+  }
+  .landing-button:hover {
     background-color: #267b7d;
-    margin: 0 3% 0 3%;
-    width: 20%;
-    padding: 2% 2%;
-    border-radius: 50px;
+    width: 75%;
+  }
+}
+@media screen and (max-width: 414px) {
+  .image-text {
+    font-size: 18px;
+    font-weight: 400;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  .landing-button {
+    margin: 3%;
+    width: 90%;
+  }
+  .landing-button:hover {
+    background-color: #267b7d;
+    margin: 3%;
+    width: 90%;
+  }
+  .image-text-bottom {
+    margin-top: 7%;
+    font-weight: 400;
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 390px) {
+  .image-text {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .landing-button {
+    margin: 3%;
+    width: 80%;
+  }
+  .landing-button:hover {
+    margin: 3%;
+    width: 80%;
+  }
+  .image-text-bottom {
+    margin-top: 7%;
+    font-weight: 400;
+    font-size: 16px;
+  }
 }

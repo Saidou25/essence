@@ -18,6 +18,7 @@ export default function LandingPage({ landingStart }) {
             >
              START ASSESSMENT
             </button>
+           
           {/* <div className="landing-buttons">
             <button
               className="landing-button"
@@ -32,6 +33,9 @@ export default function LandingPage({ landingStart }) {
               DON'T SAVE
             </button> */}
           </div>
+          <i className="image-text-bottom">
+            To return to princetongreem.org please close tab once done with your results.
+          </i>
         </div>
       </div>
     </div>
