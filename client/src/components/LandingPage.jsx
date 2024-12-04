@@ -2,7 +2,7 @@ import React from "react";
 
 import "./LandingPage.css";
 
-export default function LandingPage({ landingStart }) {
+export default function LandingPage({ showQuestionsFunc }) {
   return (
     <div className="landing-page-container">
       <div className="landing-image">
@@ -14,7 +14,7 @@ export default function LandingPage({ landingStart }) {
           <div className="landing-buttons">
             <button
               className="landing-button"
-              onClick={() => landingStart(true)}
+              onClick={() => showQuestionsFunc(true)}
             >
              START ASSESSMENT
             </button>

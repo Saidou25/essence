@@ -3,30 +3,56 @@ import Questions from "./components/Questions";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import LandingPage from "./components/LandingPage";
+import Success from "./components/Success";
+import Results from "./components/Results";
 
 import "./components/Questions.css";
 import "./components/Results.css";
 import "./components/Footer.css";
+import "./App.css";
 
 const App = () => {
-  const [start, setStart] = useState(false);
+  const [showQuestions, setShowQuestions] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showResults, setShowResults] = useState(false);
+  const [allanswers, setAllAnswers] = useState("");
 
-  const startAssessment = (data) => {
+  const showQuestionsComponent = (data) => {
     if (data) {
-      setStart(true);
+      setShowQuestions(true);
+    }
+  };
+
+  const showSuccessComponent = (data, userAnswers) => {
+    if (data && userAnswers) {
+      setAllAnswers(userAnswers);
+      setShowQuestions(false);
+      setShowSuccess(true);
+      setTimeout(() => {
+        setShowSuccess(false);
+        setShowResults(true);
+      }, 6000);
     }
   };
 
   return (
     <>
-      {start ? (
-        <div>
+      {!showQuestions && !showSuccess && !showResults ? (
+        <LandingPage showQuestionsFunc={showQuestionsComponent} />
+      ) : (
+        <div className="fade-in-div">
           <Header />
-          <Questions />
+          {showQuestions && (
+            <Questions showSuccessFunc={showSuccessComponent} />
+          )}
+          {showSuccess && <Success />}
+          {showResults && (
+            <div className="fade-in-div">
+              <Results userAnswers={allanswers} />
+            </div>
+          )}
           <Footer />
         </div>
-      ) : (
-        <LandingPage landingStart={startAssessment} />
       )}
     </>
   );

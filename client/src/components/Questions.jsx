@@ -2,19 +2,15 @@ import React, { useEffect, useState } from "react";
 import { questionsData } from "../questionsData";
 import { IoCaretBackSharp, IoCaretForwardSharp } from "react-icons/io5";
 import useMonitorWidth from "../UsemonitorWidth";
-import Results from "./Results";
 
 import "./Questions.css";
-import Success from "./Success";
 
-export default function Questions() {
+export default function Questions({ showSuccessFunc }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [backwordDisabled, setBackwordDisabled] = useState(false);
-  const [showSuccess, setShowSuccess] = useState(false);
   const [forwardDisabled, setForwardDisabled] = useState(true);
   const [userAnswers, setUserAnswers] = useState([]);
-  const [end, setEnd] = useState(false);
   const [isSelected, setIsSelected] = useState("");
   const [storedUserSelfRating, setStoredUserSelfRating] = useState("");
   const [submissionReminder, setSubmissionReminder] = useState("");
@@ -157,12 +153,8 @@ export default function Questions() {
           setAnimationFade(false);
         }, 1000);
       } else {
-        setShowSuccess(true);
-        setTimeout(() => {
-          setShowSuccess(false);
-          setEnd(true);
-        }, 6000);
-        setEnd(false);
+        console.log(userAnswers);
+        showSuccessFunc(true, userAnswers);
       }
     } catch (error) {
       console.error("Error in handleSubmit: ", error);
@@ -194,12 +186,6 @@ export default function Questions() {
     }
   }, [userAnswers, currentQuestionIndex]);
 
-  if (end === true) {
-    return <Results userAnswers={userAnswers} />;
-  }
-  if (showSuccess) {
-    return <Success />;
-  }
   return (
     <div className="questions-main-container">
       <h1 className="card-title">ESSENCE Self-Awareness Assessment</h1>

@@ -19,7 +19,7 @@ import EmailResultsForm from "./EmailResultsForm";
 import "./Results.css";
 // import ResultsHistory from "./ResultsHistory";
 
-export default function Finish({ userAnswers }) {
+export default function Results({ userAnswers }) {
   const [showEmailForm, setShowEmailForm] = useState(false);
   // Create a ref for the content you want to convert to PDF
   const printContentRef = useRef(null);

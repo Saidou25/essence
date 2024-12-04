@@ -1,16 +1,110 @@
-
-  .footer {
-    background-color: #403611;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 5%;
-    height: 200px;
-    width: 100%;
+.footer-container {
+  background-color: #403611;
+  margin-top: 5%;
+  padding-top: 5%;
+  padding-bottom: 2%;
+  width: 100%;
+}
+.footer-top {
+  display: flex;
+  justify-content: center;
 }
 .footer-text-div {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #f5f3f3;
+  letter-spacing: 1px;
+  width: 30%;
+  /* background-color: blue; */
+}
+.link-text {
+  cursor: pointer;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #f5f3f3;
+  letter-spacing: 1px;
+  padding: 3px;
+}
+.contact-us {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  /* background-color: blue; */
+}
+.contact-text {
+  text-align: center;
+  /* background-color: green; */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #f5f3f3;
+  letter-spacing: 1px;
+}
+.middle-text {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #f5f3f3;
+  letter-spacing: 1px;
+  width: 30%;
+  /* background-color: green; */
+}
+.logos-container {
+  display: flex;
+  justify-content: center;
+  display: flex;
+  margin-top: 2%;
+}
+.logo1 {
+  color: #f5f3f3;
+  height: 25px;
+  width: 25px;
+  padding: 0 2% 0 2%; 
+  cursor: pointer;
+}
+.footer-bottom {
+  text-align: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #f5f3f3;
+  letter-spacing: 1px;
+}
+.company {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #f5f3f3;
+  letter-spacing: 1px;
+  margin-top: 3%;
+}
+@media screen and (max-width: 414px) {
+  .footer-text-div {
     text-align: center;
+    display: flex;
+    flex-direction: column;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #f5f3f3;
     letter-spacing: 1px;
+    width: 100%;
+    /* background-color: blue; */
+  }
+  .contact-us {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* background-color: blue; */
+  }
+  .middle-text {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #f5f3f3;
+    letter-spacing: 1px;
+    width: 100%;
+    /* background-color: green; */
+  }
+  .company {
+    padding-bottom: 2%;
+  }
 }
