@@ -20,17 +20,17 @@ export default function Footer() {
         <div className="middle-text">
           <span
             className="link-text"
-            onClick={() => window.open("https://builder.hostinger.com/mP47Mwo0WQhVBkl5/preview")}
+            onClick={() => window.open("https://princetongreen.org/insightful-books")}
           >
             Our Insightful Books
           </span>
-          <span className="link-text" onClick={() => window.open("https://builder.hostinger.com/mP47Mwo0WQhVBkl5/preview")}>Our Visionary Authors</span>
-          <span className="link-text" onClick={() => window.open("https://builder.hostinger.com/mP47Mwo0WQhVBkl5/preview")}>Our Free Resources</span>
+          <span className="link-text" onClick={() => window.open("https://princetongreen.org/our-visionary-authors")}>Our Visionary Authors</span>
+          <span className="link-text" onClick={() => window.open("https://princetongreen.org/free-resources")}>Our Free Resources</span>
           <span className="link-text" onClick={() => window.open("https://builder.hostinger.com/mP47Mwo0WQhVBkl5/preview")}>Our Store</span>
         </div>
 
         <div className="contact-us">
-          <span className="contact-text">Contact Us</span>
+          <span className="contact-text" onClick={() => window.open("https://princetongreen.org/contact-us")}>Contact Us</span>
           <div className="logos-container">
             <FaLinkedinIn className="logo1" onClick={() => window.open("https://princetongreen.org")} />
             <FaTwitter className="logo1" onClick={() => window.open("https://princetongreen.org")} />
@@ -38,8 +38,8 @@ export default function Footer() {
         </div>
       </div>
       <div className="company">
-        <span className="link-text" onClick={() => window.open("https://princetongreen.org")}>Terms & Conditions</span>
-        <span className="link-text" onClick={() => window.open("https://princetongreen.org")}>Privacy Policy</span>
+        <span className="link-text" onClick={() => window.open("https://princetongreen.org/terms-and-conditions")}>Terms & Conditions</span>
+        <span className="link-text" onClick={() => window.open("https://princetongreen.org/privacy-policy")}>Privacy Policy</span>
       </div>
       <span className="company">© 2008-2025 Princeton Green LLC</span>
     </div>
