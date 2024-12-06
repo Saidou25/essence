@@ -48,7 +48,7 @@ export default function EmailResultsForm({
     const apiUrl =
       process.env.NODE_ENV === "development"
         ? "http://127.0.0.1:5001/essence-9f702/us-central1/sendEmail"
-        : "https://saidou25.github.io/essence/"; // Deployed URL
+        : "https://21stcenturyparadigm.org/"; // Deployed URL
     // const apiUrl =
     //   process.env.NODE_ENV === "development"
     //     ? "http://127.0.0.1:5001/essence-9f702/us-central1/sendEmail"
