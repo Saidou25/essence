@@ -45,14 +45,14 @@ export default function EmailResultsForm({
       return;
     }
     // Determine the correct API URL based on the environment (local or production)
-    const apiUrl =
-      process.env.NODE_ENV === "development"
-        ? "http://127.0.0.1:5001/essence-9f702/us-central1/sendEmail"
-        : "https://21stcenturyparadigm.org/"; // Deployed URL
     // const apiUrl =
     //   process.env.NODE_ENV === "development"
     //     ? "http://127.0.0.1:5001/essence-9f702/us-central1/sendEmail"
-    //     : "https://sendemail-yo7s25d5wq-uc.a.run.app"; // Deployed URL
+    //     : "https://21stcenturyparadigm.org/"; // Deployed URL
+    const apiUrl =
+      process.env.NODE_ENV === "development"
+        ? "http://127.0.0.1:5001/essence-9f702/us-central1/sendEmail"
+        : "https://sendemail-yo7s25d5wq-uc.a.run.app"; // Deployed URL
 
     try {
       const response = await fetch(apiUrl, {
