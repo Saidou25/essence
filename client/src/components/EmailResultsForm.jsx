@@ -48,13 +48,12 @@ export default function EmailResultsForm({
     const apiUrl =
       process.env.NODE_ENV === "development"
         ? "http://127.0.0.1:5001/essence-9f702/us-central1/sendEmail"
-        : "https://sendemail-yo7s25d5wq-uc.a.run.app"; // Deployed URL
-    console.log(
-      process.env.NODE_ENV,
-      process.env.NODE_ENV === "development"
-        ? "http://127.0.0.1:5001/essence-9f702/us-central1/sendEmail"
-        : "https://sendemail-yo7s25d5wq-uc.a.run.app"
-    );
+        : "https://saidou25.github.io/essence/"; // Deployed URL
+    // const apiUrl =
+    //   process.env.NODE_ENV === "development"
+    //     ? "http://127.0.0.1:5001/essence-9f702/us-central1/sendEmail"
+    //     : "https://sendemail-yo7s25d5wq-uc.a.run.app"; // Deployed URL
+
     try {
       const response = await fetch(apiUrl, {
         method: "POST",
