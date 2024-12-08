@@ -33,7 +33,7 @@ export default function Footer() {
           <span className="contact-text" onClick={() => window.open("https://princetongreen.org/contact-us")}>Contact Us</span>
           <div className="logos-container">
             <FaLinkedinIn className="logo1" onClick={() => window.open("https://www.linkedin.com/company/princetongreen-org/")} />
-            <FaTwitter className="logo1" onClick={() => window.open("https://princetongreen.org")} />
+            <FaTwitter className="logo1" onClick={() => window.open("https://x.com/Always_Be_BOLD")} />
           </div>
         </div>
       </div>
