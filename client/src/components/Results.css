@@ -62,7 +62,7 @@
   border-collapse: separate;
   border-spacing: 0;
   border: 9px solid black;
-  width: 66%;
+  width: 80%;
 }
 
 .class-top {
@@ -237,12 +237,12 @@
   }
   .results-table {
     border: 6px solid black;
-    width: 100%;
+    width: 90%;
   }
   .class-th {
     font-family: "Arial Black", "Bebas Neue", "Helvetica", sans-serif;
     font-size: 15px;
-    padding: 0 1% 0 1%;
+    padding: 1%;
     width: 33%;
   }
   .class-td {
