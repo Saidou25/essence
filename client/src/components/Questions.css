@@ -51,9 +51,21 @@ body {
 .illustration-animated {
   max-width: 100%;
   height: auto;
-  animation: fadeInImage 0.5s ease-in-out forwards;
+  animation: fadeInImage 0.5s ease-in-out ;
 }
+@keyframes fadeInImage {
+  0% {
+    color: transparent;
+    /* Start with a transparent color */
+    opacity: 0;
+    /* Start invisible */
+  }
 
+  100% {
+    opacity: 1;
+    /* End fully visible */
+  }
+}
 .illustration {
   max-width: 100%;
   height: auto;
@@ -83,19 +95,6 @@ body {
   }
 }
 
-@keyframes fadeInImage {
-  0% {
-    color: transparent;
-    /* Start with a transparent color */
-    opacity: 0;
-    /* Start invisible */
-  }
-
-  100% {
-    opacity: 1;
-    /* End fully visible */
-  }
-}
 
 .assest-animated {
   color: black;

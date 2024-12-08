@@ -4,20 +4,19 @@ import { LuDownload } from "react-icons/lu";
 import { VscDebugRestart } from "react-icons/vsc";
 import { ImPrinter } from "react-icons/im";
 import { GoMail } from "react-icons/go";
-import { app } from "../firebase.config";
-import {
-  arrayUnion,
-  doc,
-  getDoc,
-  getFirestore,
-  setDoc,
-  updateDoc,
-} from "firebase/firestore";
+// import { app } from "../firebase.config";
+// import {
+//   arrayUnion,
+//   doc,
+//   getDoc,
+//   getFirestore,
+//   setDoc,
+//   updateDoc,
+// } from "firebase/firestore";
 import html2pdf from "html2pdf.js";
 import EmailResultsForm from "./EmailResultsForm";
 
 import "./Results.css";
-// import ResultsHistory from "./ResultsHistory";
 
 export default function Results({ userAnswers }) {
   const [showEmailForm, setShowEmailForm] = useState(false);
@@ -35,44 +34,44 @@ export default function Results({ userAnswers }) {
   }
   const totalAssessment = Math.round((totalRating / 220) * 100 * 100) / 100;
 
-  const db = getFirestore(app);
+  // const db = getFirestore(app);
 
-  const docRef = doc(db, "esa44", "choo@fun");
-  const userResult = {
-    name: "Sy",
-    email: "Sy@fun",
-    result: totalAssessment,
-    date: formattedDate,
-  };
+  // const docRef = doc(db, "esa44", "choo@fun");
+  // const userResult = {
+  //   name: "Sy",
+  //   email: "Sy@fun",
+  //   result: totalAssessment,
+  //   date: formattedDate,
+  // };
 
-  const saveUserResult = async () => {
-    if (!userResult) {
-      console.log("no user result yet");
-      return;
-    }
-    try {
-      // Check if the document exists
-      const docSnap = await getDoc(docRef);
+  // const saveUserResult = async () => {
+  //   if (!userResult) {
+  //     console.log("no user result yet");
+  //     return;
+  //   }
+  //   try {
+  //     // Check if the document exists
+  //     const docSnap = await getDoc(docRef);
 
-      if (docSnap.exists()) {
-        // Document exists, add to the 'results' array
-        await updateDoc(docRef, {
-          results: arrayUnion(userResult), // Add new result to the array
-        });
-        console.log("User result added to existing document!");
-      } else {
-        // Document does not exist, create it with 'results' array
-        await setDoc(docRef, {
-          email: "Lillamb@fun",
-          results: [userResult], // Initialize with the first result
-          date: formattedDate,
-        });
-        console.log("Document created with initial user result!");
-      }
-    } catch (error) {
-      console.error("Error saving user result:", error.message);
-    }
-  };
+  //     if (docSnap.exists()) {
+  //       // Document exists, add to the 'results' array
+  //       await updateDoc(docRef, {
+  //         results: arrayUnion(userResult), // Add new result to the array
+  //       });
+  //       console.log("User result added to existing document!");
+  //     } else {
+  //       // Document does not exist, create it with 'results' array
+  //       await setDoc(docRef, {
+  //         email: "Lillamb@fun",
+  //         results: [userResult], // Initialize with the first result
+  //         date: formattedDate,
+  //       });
+  //       console.log("Document created with initial user result!");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error saving user result:", error.message);
+  //   }
+  // };
 
   const handleRetake = () => {
     window.location.reload();
@@ -107,8 +106,7 @@ export default function Results({ userAnswers }) {
   return (
     <>
       <div className="finish-main-container" ref={printContentRef}>
-        <button onClick={saveUserResult}>save</button>
-        {/* <span className="format-date">{formattedDate}</span> */}
+        {/* <button onClick={saveUserResult}>save</button> */}
         <h1 className="finish-titles">ESA44 Assessment Results</h1>
         <h2 className="score-today">
           <span>Your</span>

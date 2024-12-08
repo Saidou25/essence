@@ -78,31 +78,31 @@ export const questionsData = [
     illustration:
       "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-infinite-being-AzGeL9grl5cVnGJO.jpg",
   },
-  // {
-  //   questionNumber: 3,
-  //   questionStatment: "I am connected as One with all aspects of the Universe.",
-  //   userSelfRating: "",
-  //   illustration:
-  //     "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-connectedness-A0xwOqzwW9hp0zky.jpg",
-  // },
-  // {
-  //   questionNumber: 4,
-  //   questionStatment:
-  //     "I live harmoniously in balance with myself and all of Nature.",
-  //   userSelfRating: "",
-  //   noResponse: "",
-  //   illustration:
-  //     "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-balance-A0xwOqzwvGF2ELPX.jpg",
-  // },
-  // {
-  //   questionNumber: 5,
-  //   questionStatment:
-  //     "I am living fully in the present moment, open to all possibilities.",
-  //   userSelfRating: "",
-  //   noResponse: "",
-  //   illustration:
-  //     "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-present-time-dJo6LVQ6bnSG445a.jpg",
-  // },
+  {
+    questionNumber: 3,
+    questionStatment: "I am connected as One with all aspects of the Universe.",
+    userSelfRating: "",
+    illustration:
+      "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-connectedness-A0xwOqzwW9hp0zky.jpg",
+  },
+  {
+    questionNumber: 4,
+    questionStatment:
+      "I live harmoniously in balance with myself and all of Nature.",
+    userSelfRating: "",
+    noResponse: "",
+    illustration:
+      "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-balance-A0xwOqzwvGF2ELPX.jpg",
+  },
+  {
+    questionNumber: 5,
+    questionStatment:
+      "I am living fully in the present moment, open to all possibilities.",
+    userSelfRating: "",
+    noResponse: "",
+    illustration:
+      "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-present-time-dJo6LVQ6bnSG445a.jpg",
+  },
   // {
   //   questionNumber: 6,
   //   questionStatment:

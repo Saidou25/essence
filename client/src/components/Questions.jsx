@@ -35,6 +35,16 @@ export default function Questions({ showSuccessFunc }) {
     "No Response",
   ];
 
+  let animationTimeout;
+  // Aim to clear timeOut each time it is used
+  const handleAnimationFade = () => {
+    setAnimationFade(true);
+    clearTimeout(animationTimeout); // Clear any existing timeout
+    animationTimeout = setTimeout(() => {
+      setAnimationFade(false);
+    }, 1000);
+  };
+
   const handleRatingClick = (value) => {
     setIsSelected(value - 1);
     if (storedUserSelfRating) {
@@ -70,9 +80,7 @@ export default function Questions({ showSuccessFunc }) {
         if (previousAnswer) {
           setForwardDisabled(false);
           setAnimationFade(true);
-          setTimeout(() => {
-            setAnimationFade(false);
-          }, 1000);
+          handleAnimationFade();
           setFormState({
             questionNumber: previousAnswer.questionNumber,
             questionStatment: previousAnswer.questionStatment,
@@ -105,9 +113,7 @@ export default function Questions({ showSuccessFunc }) {
           noResponse: "",
         });
         setAnimationFade(true);
-        setTimeout(() => {
-          setAnimationFade(false);
-        }, 1000);
+        handleAnimationFade();
         setButtonDisabled(true);
         setIsSelected("");
         setSubmissionReminder("");
@@ -119,72 +125,80 @@ export default function Questions({ showSuccessFunc }) {
   };
 
   const handleSubmit = () => {
-    try {
-      // Store formState in userAnswers only on submission
-      setUserAnswers((prev) => {
-        const existingAnswerIndex = prev.findIndex(
-          (answer) => answer.questionNumber === formState.questionNumber
-        );
+    // Store formState in userAnswers only on submission
+    setUserAnswers((prev) => {
+      const existingAnswerIndex = prev.findIndex(
+        (answer) => answer.questionNumber === formState.questionNumber
+      );
 
-        if (existingAnswerIndex !== -1) {
-          const updatedAnswers = [...prev];
-          updatedAnswers[existingAnswerIndex] = { ...formState };
-          return updatedAnswers;
-        } else {
-          return [...prev, { ...formState }];
-        }
-      });
-
-      if (currentQuestionIndex < questionsData.length - 1) {
-        setCurrentQuestionIndex(currentQuestionIndex + 1);
-        setFormState({
-          questionNumber:
-            questionsData[currentQuestionIndex + 1].questionNumber,
-          questionStatment:
-            questionsData[currentQuestionIndex + 1].questionStatment,
-          userSelfRating: "",
-          noResponse: "",
-        });
-        setIsSelected("");
-        setSubmissionReminder("");
-        setAnimationFade(true);
-        setStoredUserSelfRating("");
-        setTimeout(() => {
-          setAnimationFade(false);
-        }, 1000);
+      if (existingAnswerIndex !== -1) {
+        const updatedAnswers = [...prev];
+        updatedAnswers[existingAnswerIndex] = { ...formState };
+        return updatedAnswers;
       } else {
-        console.log(userAnswers);
-        showSuccessFunc(true, userAnswers);
+        return [...prev, { ...formState }];
       }
-    } catch (error) {
-      console.error("Error in handleSubmit: ", error);
+    });
+
+    if (currentQuestionIndex < questionsData.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+      setFormState({
+        questionNumber: questionsData[currentQuestionIndex + 1].questionNumber,
+        questionStatment:
+          questionsData[currentQuestionIndex + 1].questionStatment,
+        userSelfRating: "",
+        noResponse: "",
+      });
+      setIsSelected("");
+      setSubmissionReminder("");
+      setAnimationFade(true);
+      setStoredUserSelfRating("");
+      setTimeout(() => {
+        setAnimationFade(false);
+      }, 1000);
+    } else {
+      // console.log(userAnswers);
+      // showSuccessFunc(true, userAnswers);
     }
   };
 
   useEffect(() => {
-    try {
-      if (currentQuestionIndex === 0) {
-        setBackwordDisabled(true);
-      } else {
-        setBackwordDisabled(false);
-      }
-      setButtonDisabled(true);
-      if (userAnswers.length === 0) {
-        return;
-      }
-      const answeredQuestion = userAnswers.find(
-        (userAnswer) => userAnswer.questionNumber - 1 === currentQuestionIndex
-      );
-      if (answeredQuestion) {
-        setStoredUserSelfRating(answeredQuestion.userSelfRating);
-        setIsSelected(answeredQuestion.userSelfRating - 1);
-      } else {
-        setForwardDisabled(true);
-      }
-    } catch (error) {
-      console.error("Error in useEffect: ", error);
+    // Managing navigation buttons
+    if (currentQuestionIndex === 0) {
+      setBackwordDisabled(true);
+    } else {
+      setBackwordDisabled(false);
+    }
+
+    if (currentQuestionIndex === questionsData.length - 1) {
+      setForwardDisabled(true);
+    } else {
+      setForwardDisabled(false);
+    }
+  }, [currentQuestionIndex, questionsData.length]);
+
+  useEffect(() => {
+    // Restore previous answers when revisiting a question
+    const answeredQuestion = userAnswers.find(
+      (userAnswer) => userAnswer.questionNumber - 1 === currentQuestionIndex
+    );
+
+    if (answeredQuestion) {
+      setStoredUserSelfRating(answeredQuestion.userSelfRating);
+      setIsSelected(answeredQuestion.userSelfRating - 1);
+      setButtonDisabled(true); // Disable the submit button as the question is already answered
+    } else {
+      setStoredUserSelfRating("");
+      setIsSelected("");
     }
   }, [userAnswers, currentQuestionIndex]);
+
+  useEffect(() => {
+    // Trigger success when all questions are answered
+    if (userAnswers.length === questionsData.length) {
+      showSuccessFunc(true, userAnswers);
+    }
+  }, [userAnswers, questionsData.length]);
 
   return (
     <div className="questions-main-container">
