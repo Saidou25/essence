@@ -108,11 +108,11 @@ export default function Results({ userAnswers }) {
       <div className="finish-main-container" ref={printContentRef}>
         {/* <button onClick={saveUserResult}>save</button> */}
         <h1 className="finish-titles">ESA44 Assessment Results</h1>
-        <h2 className="score-today">
+        <div className="score-today">
           <span>Your</span>
           <span className="esa44"> ESA44 </span>
           <span>results for today: {formattedDate}</span>
-        </h2>
+        </div>
         <table className="results-table">
           <thead>
             <tr className="class-top">
@@ -139,11 +139,11 @@ export default function Results({ userAnswers }) {
               ))}
           </tbody>
         </table>
-        <h2 className="please-evaluate">
+        <div className="please-evaluate">
           <span>Please compare your</span>
           <span className="esa44"> ESA44 </span>
           <span>results with the following table.</span>
-        </h2>
+        </div>
         <table className="results-table">
           <thead>
             <tr className="class-top">
@@ -168,7 +168,6 @@ export default function Results({ userAnswers }) {
           </tbody>
         </table>
         <br />
-
         {showEmailForm ? (
           <EmailResultsForm
             formattedDate={formattedDate}
@@ -264,7 +263,23 @@ export default function Results({ userAnswers }) {
           >
             ESSENCE Book 1.
           </span>
-        </p>
+        </p>{" "}
+        <div className="split">
+          <p className="princetone-link1">princeton</p>
+          <p className="princetone-link2">green</p>
+          <p className="princetone-link3">.org</p>
+        </div>
+      </div>
+      <div className="tab-text-impact no-print">
+        <span>
+          Since you were redirected to 21stcenturyparadigm.org for your{" "}
+        </span>
+        <span className="esa44">ESSENCE Self-Awareness (ESA44) </span>
+        <span>assessment, please close this tab to return to</span>
+        <span className="princetone-link1"> princeton</span>
+        <span className="princetone-link2">green</span>
+        <span>.org</span>
+        {/* To return to princetongreem.org please close tab once done with your results. */}
       </div>
     </>
   );

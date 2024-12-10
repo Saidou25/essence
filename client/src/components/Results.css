@@ -8,11 +8,12 @@
   padding-bottom: 2%;
   width: 80%;
   margin: auto;
+  border-radius: 20px;
 }
 .format-date {
   font-size: 22px;
   margin-left: 3%;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 .finish-titles {
   letter-spacing: 1px;
@@ -20,17 +21,6 @@
   text-align: center;
   font-size: 38px;
   font-family: "ImpactUnicode", sans-serif;
-}
-
-.retake {
-  position: absolute;
-  top: 0;
-  right: 0;
-  max-width: 15%;
-  height: auto;
-  margin-right: 2%;
-  margin-top: 2%;
-  cursor: pointer;
 }
 
 .title-results {
@@ -43,9 +33,10 @@
 
 .score-today {
   text-align: center;
+  font-size: 18px;
   padding: 2% 3%;
   color: black;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 .esa44 {
   color: black;
@@ -61,7 +52,8 @@
   margin: auto;
   border-collapse: separate;
   border-spacing: 0;
-  border: 9px solid black;
+  /* border: 9px solid black; */
+  border: 4px solid black;
   width: 80%;
 }
 
@@ -78,7 +70,7 @@
   border-color: grey;
   font-family: "ImpactUnicode", sans-serif;
   text-rendering: optimizeLegibility;
-  font-size: 22px;
+  font-size: 28px;
   color: black;
   text-align: center;
   padding: 2% 0% 2% 0;
@@ -90,8 +82,9 @@
   border-bottom: 1px solid #c3c2c2;
   text-align: center;
   width: 22%;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 22px;
+  font-family: "Poppins", sans-serif;
+  /* font-size: 22px; */
+  font-size: 18px;
   height: 42px;
   color: black;
 }
@@ -101,8 +94,9 @@
   height: 100px;
   text-align: center;
   width: 22%;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 22px;
+  font-family: "Poppins", sans-serif;
+  /* font-size: 22px; */
+  font-size: 18px;
   height: 42px;
   color: black;
 }
@@ -110,7 +104,8 @@
 .please-evaluate {
   text-align: center;
   margin: 3% 3%;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
 }
 
 .email-print-container {
@@ -118,7 +113,7 @@
   justify-content: center;
 }
 .email-print-texts {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   margin: 0 3% 0 3%;
   display: flex;
   align-items: center;
@@ -141,6 +136,7 @@
   border-radius: 50px;
   border: none;
 }
+
 .button-email:hover,
 .button-retake:hover,
 .button-download:hover,
@@ -150,12 +146,42 @@
 }
 .bottom-text {
   padding-top: 6%;
-  font-size: 14px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
   text-align: center;
   width: 87%;
   margin: auto;
   font-style: italic;
+}
+.tab-text-impact {
+  width: 76%;
+  margin: auto;
+  margin-top: 5%;
+  text-align: center;
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  padding: 3% 2% 3% 2%;
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+}
+.princetone-link1 {
+  color: #e37d37;
+  font-family: "Poppins", sans-serif;
+}
+.princetone-link2 {
+  color: green;
+  font-family: "Poppins", sans-serif;
+}
+.princetone-link3 {
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+}
+
+.split {
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+  padding-top: 2%;
 }
 @media print {
   .finish-main-container {
@@ -172,12 +198,12 @@
   }
   .score-today,
   .please-evaluate {
-  text-align: center;
-  padding: 2% 3%;
-  color: black;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 26px;
-}
+    text-align: center;
+    padding: 2% 3%;
+    color: black;
+    font-family: "Poppins", sans-serif;
+    font-size: 26px;
+  }
   .results-table {
     width: 99%;
     margin: auto;
@@ -185,7 +211,7 @@
     border-collapse: separate;
     page-break-inside: avoid;
     border-spacing: 0;
-    border: 6px solid black;
+    border: 4px solid black;
   }
   .class-th {
     width: 33%;
@@ -206,13 +232,13 @@
     font-size: 20px;
     height: 38px;
   }
-.bottom-text {
-  font-size: 20px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-align: center;
-  width: 63%;
-  margin: auto;
-}
+  .bottom-text {
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    width: 63%;
+    margin: auto;
+  }
 }
 @media screen and (max-width: 414px) {
   body {
@@ -259,13 +285,13 @@
   .score-today {
     text-align: center;
     margin: 3% 3%;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 18px;
   }
-  .please-evaluate{
+  .please-evaluate {
     text-align: center;
     margin: 7% 5%;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 18px;
   }
   .email-print-container {
@@ -275,7 +301,7 @@
     padding-top: 0;
   }
   .email-print-texts {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
     margin: 0 5% 0 5%;
     width: 70px;
     font-size: 14px;
@@ -290,11 +316,23 @@
   .bottom-text {
     padding-top: 6%;
     font-size: 14px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
     text-align: center;
     width: 87%;
     margin: auto;
     font-style: italic;
+  }
+  .tab-text-impact {
+    border: double;
+    border-width: 4px;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    background-color: #f1f1f1;
+    border-radius: 20px;
+    padding: 3% 1% 3% 1%;
+    font-size: 18px;
+    font-family: "Poppins", sans-serif;
   }
 }
 @media screen and (max-width: 359px) {
@@ -308,7 +346,7 @@
     padding: 1% 2%;
     color: black;
     font-size: 18px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
   }
 
   .results-div {
@@ -316,7 +354,6 @@
   }
 
   .results-table {
-    border: 6px solid black;
     width: 100%;
   }
 
@@ -341,14 +378,14 @@
   .please-evaluate {
     text-align: center;
     margin: 2% 2%;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 18px;
   }
   .email-print-texts {
     margin: 3%;
   }
   .email-print-texts {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
     margin: 0 5% 0 5%;
     width: 70px;
     font-size: 14px;

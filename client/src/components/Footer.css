@@ -1,110 +1,79 @@
 .footer-container {
   background-color: #403611;
   margin-top: 5%;
-  padding-top: 5%;
+  padding-top: 3%;
   padding-bottom: 2%;
   width: 100%;
 }
-.footer-top {
-  display: flex;
-  justify-content: center;
-}
-.footer-text-div {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #f5f3f3;
-  letter-spacing: 1px;
-  width: 30%;
-  /* background-color: blue; */
-}
-.link-text {
-  cursor: pointer;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #f5f3f3;
-  letter-spacing: 1px;
-  padding: 3px;
-}
 .contact-us {
-  width: 30%;
   display: flex;
   flex-direction: column;
-  /* background-color: blue; */
+  margin-bottom: 2%;
 }
 .contact-text {
   text-align: center;
-  /* background-color: green; */
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #f5f3f3;
   letter-spacing: 1px;
-}
-.middle-text {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #f5f3f3;
-  letter-spacing: 1px;
-  width: 30%;
-  /* background-color: green; */
+  font-family: "Poppins", sans-serif;
 }
 .logos-container {
   display: flex;
   justify-content: center;
   display: flex;
-  margin-top: 2%;
+  margin-top: 7px;
 }
 .logo1 {
   color: #f5f3f3;
   height: 25px;
   width: 25px;
-  padding: 0 2% 0 2%; 
+  padding: 0 5px 0 5px;
   cursor: pointer;
 }
-.footer-bottom {
+.middle-text {
   text-align: center;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
   color: #f5f3f3;
-  letter-spacing: 1px;
+}
+.link-text {
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+}
+.terms {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: #f5f3f3;
+  margin-top: 2%;
 }
 .company {
   display: flex;
   flex-direction: column;
   text-align: center;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #f5f3f3;
   letter-spacing: 1px;
-  margin-top: 3%;
+  margin-top: 2%;
+  font-family: "Poppins", sans-serif;
 }
 @media screen and (max-width: 414px) {
-  .footer-text-div {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #f5f3f3;
-    letter-spacing: 1px;
-    width: 100%;
-    /* background-color: blue; */
-  }
   .contact-us {
-    width: 100%;
     display: flex;
     flex-direction: column;
-    /* background-color: blue; */
+    margin-top: 2%;
   }
   .middle-text {
     text-align: center;
     display: flex;
     flex-direction: column;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #f5f3f3;
     letter-spacing: 1px;
-    width: 100%;
-    /* background-color: green; */
+    margin-top: 4%;
+  }
+  .terms {
+    padding: 3%;
   }
   .company {
-    padding-bottom: 2%;
+    padding: 3%;
   }
 }

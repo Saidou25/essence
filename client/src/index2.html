@@ -1,65 +1,88 @@
 <html>
+  <head>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>esa44 Results</title>
+  </head>
 
-<head>
-  <title>esa44 Results</title>
-</head>
-
-<body>
-  <p style="font-size: 18px">Hi {{username}},</p>
-  <p style="font-size: 18px">
-    Thank you for taking the ESA44 Self-Awareness Assessment...
-  </p>
-  <div class="finish-main-container" style="background-color: #f1f1f1">
-    <div style="background-color: #f1f1f1; margin: auto; padding: 2% 0 5% 0">
-      <h2 class="finish-titles" style="
+  <body>
+    <p style="font-size: 18px">Hi {{username}},</p>
+    <p style="font-size: 18px">
+      Thank you for taking the ESA44 Self-Awareness Assessment...
+    </p>
+    <div class="finish-main-container" style="background-color: #f1f1f1">
+      <div style="background-color: #f1f1f1; margin: auto; padding: 2% 0 5% 0">
+        <h2
+          class="finish-titles"
+          style="
             letter-spacing: 1px;
             color: black;
             text-align: center;
             font-size: 38px;
-          ">
-        ESA44 Assessment Results
-      </h2>
-      <h2 class="score-today" style="text-align: center; padding: 2% 3%; color: black">
-        <span>Your</span>
-        <span class="esa44"> ESA44 </span>
-        <span>results for today: {{date}}</span>
-      </h2>
-      <div style="display: flex; justify-content: center">
-        <table class="results-table" style="border-collapse: separate; margin: auto">
-          <thead>
-            <tr class="class-top" style="background-color: #c7cec9">
-              <th class="class-th" style="
+          "
+        >
+          ESA44 Assessment Results
+        </h2>
+        <h2
+          class="score-today"
+          style="text-align: center; padding: 2% 3%; color: black"
+        >
+          <span>Your</span>
+          <span class="esa44"> ESA44 </span>
+          <span>results for today: {{date}}</span>
+        </h2>
+        <div style="display: flex; justify-content: center">
+          <table
+            class="results-table"
+            style="border-collapse: separate; margin: auto"
+          >
+            <thead>
+              <tr class="class-top" style="background-color: #c7cec9">
+                <th
+                  class="class-th"
+                  style="
                     border-color: grey;
                     color: black;
                     text-align: center;
                     padding: 2%;
                     width: 30%;
-                  ">
-                ESA44 Awakening 
-              </th>
-              <th class="class-th" style="
+                  "
+                >
+                  ESA44 Awakening
+                </th>
+                <th
+                  class="class-th"
+                  style="
                     border-color: grey;
                     color: black;
                     text-align: center;
                     padding: 2%;
                     width: 30%;
-                  ">
-                State of Awareness
-              </th>
-              <th class="class-th" style="
+                  "
+                >
+                  State of Awareness
+                </th>
+                <th
+                  class="class-th"
+                  style="
                     border-color: grey;
                     color: black;
                     text-align: center;
                     padding: 2%;
                     width: 30%;
-                  ">
-                Current Perspective
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="class-bottom">
-              <td class="class-td" style="
+                  "
+                >
+                  Current Perspective
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="class-bottom">
+                <td
+                  class="class-td"
+                  style="
                     border-right: 2px solid #c3c2c2;
                     border-bottom: 1px solid #c3c2c2;
                     border-left: 1px solid #c3c2c2;
@@ -67,74 +90,98 @@
                     width: 22%;
                     height: 42px;
                     color: black;
-                  ">
-                {{templateAssessment}}%
-              </td>
-              <td class="class-td" style="
+                  "
+                >
+                  {{templateAssessment}}%
+                </td>
+                <td
+                  class="class-td"
+                  style="
                     border-right: 2px solid #c3c2c2;
                     border-bottom: 1px solid #c3c2c2;
                     text-align: center;
                     width: 22%;
                     height: 42px;
                     color: black;
-                  ">
-                {{awakeness}}
-              </td>
-              <td class="class-td-perspective" style="
+                  "
+                >
+                  {{awakeness}}
+                </td>
+                <td
+                  class="class-td-perspective"
+                  style="
                     border-right: 2px solid #c3c2c2;
                     border-bottom: 1px solid #c3c2c2;
                     text-align: center;
                     width: 22%;
                     height: 42px;
                     color: black;
-                  ">
-                {{perspective}}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <h2 class="please-evaluate" style="text-align: center; padding: 2% 3%; color: black">
-        <span>Please compare your</span>
-        <span class="esa44"> ESA44 </span>
-        <span>results with the following table.</span>
-      </h2>
-      <div style="display: flex; justify-content: center">
-        <table class="results-table" style="border-collapse: separate; margin: auto">
-          <thead>
-            <tr class="class-top" style="background-color: #c7cec9">
-              <th class="class-th" style="
+                  "
+                >
+                  {{perspective}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h2
+          class="please-evaluate"
+          style="text-align: center; padding: 2% 3%; color: black"
+        >
+          <span>Please compare your</span>
+          <span class="esa44"> ESA44 </span>
+          <span>results with the following table.</span>
+        </h2>
+        <div style="display: flex; justify-content: center">
+          <table
+            class="results-table"
+            style="border-collapse: separate; margin: auto"
+          >
+            <thead>
+              <tr class="class-top" style="background-color: #c7cec9">
+                <th
+                  class="class-th"
+                  style="
                     border-color: grey;
                     color: black;
                     text-align: center;
                     padding: 2%;
                     width: 30%;
-                  ">
-                ESA44 Awakening
-              </th>
-              <th class="class-th" style="
+                  "
+                >
+                  ESA44 Awakening
+                </th>
+                <th
+                  class="class-th"
+                  style="
                     border-color: grey;
                     color: black;
                     text-align: center;
                     padding: 2%;
                     width: 30%;
-                  ">
-                State of Awareness
-              </th>
-              <th class="class-th" style="
+                  "
+                >
+                  State of Awareness
+                </th>
+                <th
+                  class="class-th"
+                  style="
                     border-color: grey;
                     color: black;
                     text-align: center;
                     padding: 2%;
                     width: 30%;
-                  ">
-                Current Perspective
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="class-bottom">
-              <td class="class-td" style="
+                  "
+                >
+                  Current Perspective
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td
+                  class="class-td"
+                  style="
                     border-right: 2px solid #c3c2c2;
                     border-bottom: 1px solid #c3c2c2;
                     border-left: 1px solid #c3c2c2;
@@ -142,65 +189,41 @@
                     width: 22%;
                     height: 42px;
                     color: black;
-                  ">
-                96-100%
-              </td>
-              <td class="class-td" style="
+                  "
+                >
+                  96-100%
+                </td>
+                <td
+                  class="class-td"
+                  style="
                     border-right: 2px solid #c3c2c2;
                     border-bottom: 1px solid #c3c2c2;
                     text-align: center;
                     width: 22%;
                     height: 42px;
                     color: black;
-                  ">
-                Awake
-              </td>
-              <td class="class-td-perspective" style="
+                  "
+                >
+                  Awake
+                </td>
+                <td
+                  class="class-td-perspective"
+                  style="
                     border-right: 2px solid #c3c2c2;
                     border-bottom: 1px solid #c3c2c2;
                     text-align: center;
                     width: 22%;
                     height: 42px;
                     color: black;
-                  ">
-                Awakened
-              </td>
-            </tr>
-            <tr>
-              <td class="class-td" style="
-                    border-right: 2px solid #c3c2c2;
-                    border-bottom: 1px solid #c3c2c2;
-                    border-left: 1px solid #c3c2c2;
-                    text-align: center;
-                    width: 22%;
-                    height: 42px;
-                    color: black;
-                  ">
-                81-95%
-              </td>
-              <td class="class-td" style="
-                    border-right: 2px solid #c3c2c2;
-                    border-bottom: 1px solid #c3c2c2;
-                    text-align: center;
-                    width: 22%;
-                    height: 42px;
-                    color: black;
-                  ">
-                Almost Awake
-              </td>
-              <td class="class-td-perspective" style="
-                    border-right: 2px solid #c3c2c2;
-                    border-bottom: 1px solid #c3c2c2;
-                    text-align: center;
-                    width: 22%;
-                    height: 42px;
-                    color: black;
-                  ">
-                Seeker
-              </td>
-            </tr>
-            <tr>
-              <td class="class-td" style="
+                  "
+                >
+                  Awakened
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="class-td"
+                  style="
                     border-right: 2px solid #c3c2c2;
                     border-bottom: 1px solid #c3c2c2;
                     border-left: 1px solid #c3c2c2;
@@ -208,65 +231,41 @@
                     width: 22%;
                     height: 42px;
                     color: black;
-                  ">
-                61-80%
-              </td>
-              <td class="class-td" style="
+                  "
+                >
+                  81-95%
+                </td>
+                <td
+                  class="class-td"
+                  style="
                     border-right: 2px solid #c3c2c2;
                     border-bottom: 1px solid #c3c2c2;
                     text-align: center;
                     width: 22%;
                     height: 42px;
                     color: black;
-                  ">
-                Awakening
-              </td>
-              <td class="class-td-perspective" style="
+                  "
+                >
+                  Almost Awake
+                </td>
+                <td
+                  class="class-td-perspective"
+                  style="
                     border-right: 2px solid #c3c2c2;
                     border-bottom: 1px solid #c3c2c2;
                     text-align: center;
                     width: 22%;
                     height: 42px;
                     color: black;
-                  ">
-                Seeker
-              </td>
-            </tr>
-            <tr>
-              <td class="class-td" style="
-                    border-right: 2px solid #c3c2c2;
-                    border-bottom: 1px solid #c3c2c2;
-                    border-left: 1px solid #c3c2c2;
-                    text-align: center;
-                    width: 22%;
-                    height: 42px;
-                    color: black;
-                  ">
-                41-60%
-              </td>
-              <td class="class-td" style="
-                    border-right: 2px solid #c3c2c2;
-                    border-bottom: 1px solid #c3c2c2;
-                    text-align: center;
-                    width: 22%;
-                    height: 42px;
-                    color: black;
-                  ">
-                Seeking
-              </td>
-              <td class="class-td-perspective" style="
-                    border-right: 2px solid #c3c2c2;
-                    border-bottom: 1px solid #c3c2c2;
-                    text-align: center;
-                    width: 22%;
-                    height: 42px;
-                    color: black;
-                  ">
-                Seeker
-              </td>
-            </tr>
-            <tr>
-              <td class="class-td" style="
+                  "
+                >
+                  Seeker
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="class-td"
+                  style="
                     border-right: 2px solid #c3c2c2;
                     border-bottom: 1px solid #c3c2c2;
                     border-left: 1px solid #c3c2c2;
@@ -274,32 +273,41 @@
                     width: 22%;
                     height: 42px;
                     color: black;
-                  ">
-                21-40%
-              </td>
-              <td class="class-td" style="
+                  "
+                >
+                  61-80%
+                </td>
+                <td
+                  class="class-td"
+                  style="
                     border-right: 2px solid #c3c2c2;
                     border-bottom: 1px solid #c3c2c2;
                     text-align: center;
                     width: 22%;
                     height: 42px;
                     color: black;
-                  ">
-                Waking Up
-              </td>
-              <td class="class-td-perspective" style="
+                  "
+                >
+                  Awakening
+                </td>
+                <td
+                  class="class-td-perspective"
+                  style="
                     border-right: 2px solid #c3c2c2;
                     border-bottom: 1px solid #c3c2c2;
                     text-align: center;
                     width: 22%;
                     height: 42px;
                     color: black;
-                  ">
-                Sleeping Soul
-              </td>
-            </tr>
-            <tr>
-              <td class="class-td" style="
+                  "
+                >
+                  Seeker
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="class-td"
+                  style="
                     border-right: 2px solid #c3c2c2;
                     border-bottom: 1px solid #c3c2c2;
                     border-left: 1px solid #c3c2c2;
@@ -307,34 +315,304 @@
                     width: 22%;
                     height: 42px;
                     color: black;
-                  ">
-                0-20%
-              </td>
-              <td class="class-td" style="
+                  "
+                >
+                  41-60%
+                </td>
+                <td
+                  class="class-td"
+                  style="
                     border-right: 2px solid #c3c2c2;
                     border-bottom: 1px solid #c3c2c2;
                     text-align: center;
                     width: 22%;
                     height: 42px;
                     color: black;
-                  ">
-                Asleep
-              </td>
-              <td class="class-td-perspective" style="
+                  "
+                >
+                  Seeking
+                </td>
+                <td
+                  class="class-td-perspective"
+                  style="
                     border-right: 2px solid #c3c2c2;
                     border-bottom: 1px solid #c3c2c2;
                     text-align: center;
                     width: 22%;
                     height: 42px;
                     color: black;
-                  ">
-                Sleeping Soul
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                  "
+                >
+                  Seeker
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="class-td"
+                  style="
+                    border-right: 2px solid #c3c2c2;
+                    border-bottom: 1px solid #c3c2c2;
+                    border-left: 1px solid #c3c2c2;
+                    text-align: center;
+                    width: 22%;
+                    height: 42px;
+                    color: black;
+                  "
+                >
+                  21-40%
+                </td>
+                <td
+                  class="class-td"
+                  style="
+                    border-right: 2px solid #c3c2c2;
+                    border-bottom: 1px solid #c3c2c2;
+                    text-align: center;
+                    width: 22%;
+                    height: 42px;
+                    color: black;
+                  "
+                >
+                  Wading Up
+                </td>
+                <td
+                  class="class-td-perspective"
+                  style="
+                    border-right: 2px solid #c3c2c2;
+                    border-bottom: 1px solid #c3c2c2;
+                    text-align: center;
+                    width: 22%;
+                    height: 42px;
+                    color: black;
+                  "
+                >
+                  Sleeping Soul
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="class-td"
+                  style="
+                    border-right: 2px solid #c3c2c2;
+                    border-bottom: 1px solid #c3c2c2;
+                    border-left: 1px solid #c3c2c2;
+                    text-align: center;
+                    width: 22%;
+                    height: 42px;
+                    color: black;
+                  "
+                >
+                  0-20%
+                </td>
+                <td
+                  class="class-td"
+                  style="
+                    border-right: 2px solid #c3c2c2;
+                    border-bottom: 1px solid #c3c2c2;
+                    text-align: center;
+                    width: 22%;
+                    height: 42px;
+                    color: black;
+                  "
+                >
+                  Asleep
+                </td>
+                <td
+                  class="class-td-perspective"
+                  style="
+                    border-right: 2px solid #c3c2c2;
+                    border-bottom: 1px solid #c3c2c2;
+                    text-align: center;
+                    width: 22%;
+                    height: 42px;
+                    color: black;
+                  "
+                >
+                  Sleeping Soul
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
-</body>
-
+    <div
+      class="footer-container no-print"
+      style="
+        background-color: #403611;
+        margin-top: 5%;
+        padding-top: 5%;
+        padding-bottom: 2%;
+        width: 100%;
+      "
+    >
+      <div class="footer-top" style="display: flex; justify-content: center">
+        <div
+          class="middle-text"
+          style="
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            color: #f1f1f1;
+            letter-spacing: 1px;
+            width: 30%;
+          "
+        >
+          <a
+            class="link-text"
+            href="https://princetongreen.org/insightful-books"
+            target="_blank"
+            style="
+              cursor: pointer;
+              color: #f1f1f1;
+              letter-spacing: 1px;
+              padding: 3px;
+            "
+          >
+            Our Insightful Books
+          </a>
+          <a
+            class="link-text"
+            href="https://princetongreen.org/our-visionary-authors"
+            target="_blank"
+            style="
+              cursor: pointer;
+              color: #f1f1f1;
+              letter-spacing: 1px;
+              padding: 3px;
+            "
+          >
+            Our Visionary Authors</a
+          >
+          <a
+            class="link-text"
+            href="https://princetongreen.org/free-resources"
+            target="_blank"
+            style="
+              cursor: pointer;
+              color: #f1f1f1;
+              letter-spacing: 1px;
+              padding: 3px;
+            "
+          >
+            Our Free Resources</a
+          >
+          <a
+            class="link-text"
+            href="https://builder.hostinger.com/mP47Mwo0WQhVBkl5/preview"
+            target="_blank"
+            style="
+              cursor: pointer;
+              color: #f1f1f1;
+              letter-spacing: 1px;
+              padding: 3px;
+            "
+          >
+            Our Store</a
+          >
+        </div>
+        <div
+          class="contact-us"
+          style="width: 30%; display: flex; flex-direction: column"
+        >
+          <a
+            class="contact-text"
+            href="https://princetongreen.org/contact-us"
+            target="_blank"
+            style="text-align: center; color: #f1f1f1; letter-spacing: 1px"
+          >
+            Contact Us</a
+          >
+          <div
+            class="logos-container"
+            style="
+              display: flex;
+              justify-content: center;
+              display: flex;
+              margin-top: 2%;
+            "
+          >
+            <a
+              href="https://www.linkedin.com/company/princetongreen-org/"
+              target="_blank"
+              class="logo1"
+              style="
+                color: #f1f1f1;
+                height: 25px;
+                width: 25px;
+                padding: 0 2% 0 2%;
+                cursor: pointer;
+              "
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="https://x.com/Always_Be_BOLD"
+              target="_blank"
+              class="logo1"
+              style="
+                color: #f1f1f1;
+                height: 25px;
+                width: 25px;
+                padding: 0 2% 0 2%;
+                cursor: pointer;
+              "
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="company"
+        style="
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          color: #f1f1f1;
+          letter-spacing: 1px;
+          margin-top: 3%;
+        "
+      >
+        <a
+          class="link-text"
+          href="https://princetongreen.org/terms-and-conditions"
+          target="_blank"
+          style="
+            cursor: pointer;
+            color: #f1f1f1;
+            letter-spacing: 1px;
+            padding: 3px;
+          "
+        >
+          Terms & Conditions</a
+        >
+        <a
+          class="link-text"
+          href="https://princetongreen.org/privacy-policy"
+          target="_blank"
+          style="
+            cursor: pointer;
+            color: #f1f1f1;
+            letter-spacing: 1px;
+            padding: 3px;
+          "
+        >
+          Privacy Policy</a
+        >
+      </div>
+      <span
+        class="company"
+        style="
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          color: #f1f1f1;
+          letter-spacing: 1px;
+          margin-top: 3%;
+        "
+      >
+        © 2008-2025 Princeton Green LLC
+      </span>
+    </div>
+  </body>
 </html>
