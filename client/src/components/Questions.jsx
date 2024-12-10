@@ -348,7 +348,6 @@ export default function Questions({ showSuccessFunc }) {
               style={{
                 cursor: buttonDisabled ? "not-allowed" : "pointer",
                 backgroundColor: buttonDisabled ? "#c7cec9" : "#e37d37",
-                color: buttonDisabled ? "black" : "white",
               }}
               onClick={handleSubmit}
             >
