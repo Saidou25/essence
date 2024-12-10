@@ -46,7 +46,7 @@ export default function Footer() {
         <span
           className="link-text"
           onClick={() =>
-            window.open("https://princetongreen.org/our-visionary-authors")
+            window.open("https://princetongreen.org/visionary-authors")
           }
         >
           VISIONARY AUTHORS
@@ -57,7 +57,7 @@ export default function Footer() {
             window.open("https://princetongreen.org/free-resources")
           }
         >
-          FREE RESSOURSES
+          FREE RESOURCES
         </span>
       </div>
       <div className="terms">

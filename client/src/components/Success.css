@@ -62,8 +62,9 @@
 .completion-text {
   text-align: center;
   font-size: 20px;
-  padding: 11% 15% 0 15%;
+  padding: 11% 5% 0 5%;
   color: black;
+  /* animation: movingText 2s linear 2s forwards; */
 }
 @keyframes magnify {
   0% {
@@ -76,11 +77,11 @@
 .text-container {
   padding-top: 10%;
 }
-@keyframes movingText {
+/* @keyframes movingText {
   0% {
-    margin-top: 60%;
+    margin-top: 80%;
   }
   100% {
-    margin-top: 40%;
+    margin-top: 5%;
   }
-}
+} */

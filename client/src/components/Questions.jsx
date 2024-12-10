@@ -153,6 +153,7 @@ export default function Questions({ showSuccessFunc }) {
       setSubmissionReminder("");
       setAnimationFade(true);
       setStoredUserSelfRating("");
+      setButtonDisabled(true);
       setTimeout(() => {
         setAnimationFade(false);
       }, 1000);
@@ -170,11 +171,11 @@ export default function Questions({ showSuccessFunc }) {
       setBackwordDisabled(false);
     }
 
-    if (currentQuestionIndex === questionsData.length - 1) {
-      setForwardDisabled(true);
-    } else {
-      setForwardDisabled(false);
-    }
+    // if (currentQuestionIndex === questionsData.length - 1) {
+    //   setForwardDisabled(true);
+    // } else {
+    //   setForwardDisabled(false);
+    // }
   }, [currentQuestionIndex, questionsData.length]);
 
   useEffect(() => {
@@ -186,9 +187,11 @@ export default function Questions({ showSuccessFunc }) {
     if (answeredQuestion) {
       setStoredUserSelfRating(answeredQuestion.userSelfRating);
       setIsSelected(answeredQuestion.userSelfRating - 1);
+      setForwardDisabled(false);
       setButtonDisabled(true); // Disable the submit button as the question is already answered
     } else {
       setStoredUserSelfRating("");
+      setForwardDisabled(true);
       setIsSelected("");
     }
   }, [userAnswers, currentQuestionIndex]);
@@ -216,7 +219,7 @@ export default function Questions({ showSuccessFunc }) {
         </h2>
         <div className="card-body" style={{ textAlign: "center" }}>
           <div className="container-illustration">
-            {vw <= 414 && (
+            {vw <= 830 && (
               <div className="icon-div">
                 <IoCaretBackSharp
                   style={{
@@ -235,7 +238,7 @@ export default function Questions({ showSuccessFunc }) {
                 animationFade ? "illustration-animated" : "illustration"
               }
             />
-            {vw <= 414 && (
+            {vw <= 830 && (
               <div className="icon-div">
                 <IoCaretForwardSharp
                   disabled={forwardDisabled}
@@ -259,8 +262,8 @@ export default function Questions({ showSuccessFunc }) {
             <p className="please-rate">
               Please rate how much you agree with the following statement:
             </p>
-            <h2 className={animationFade ? "assest-animated" : "assest"}>
-              <p>{currentQuestion.questionStatment}</p>
+            <h2>
+              <p className={animationFade ? "assest-animated" : "assest"}>{currentQuestion.questionStatment}</p>
             </h2>
             <br />
             {submissionReminder ? (
@@ -271,7 +274,7 @@ export default function Questions({ showSuccessFunc }) {
               </p>
             )}
             <div className="scale-line">
-              {vw > 414 && (
+              {vw > 830 && (
                 <div className="icon-div">
                   <IoCaretBackSharp
                     style={{
@@ -320,7 +323,7 @@ export default function Questions({ showSuccessFunc }) {
                   </div>
                 ))}
               </div>
-              {vw > 414 && (
+              {vw > 830 && (
                 <div className="icon-div">
                   <IoCaretForwardSharp
                     disabled={forwardDisabled}

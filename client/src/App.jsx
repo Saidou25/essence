@@ -17,6 +17,7 @@ const App = () => {
   const [allanswers, setAllAnswers] = useState("");
 
   const showSuccessComponent = (data, userAnswers) => {
+    console.log("results", userAnswers);
     if (data && userAnswers) {
       setAllAnswers(userAnswers);
       setShowQuestions(false);

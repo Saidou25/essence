@@ -11,10 +11,17 @@ export default function Success() {
             <IoMdCheckmarkCircleOutline className="check-logo" />
           </div>
           <div className="text-container">
-            <p className="completion-text">
+            {/* <p className="completion-text">
               You have completed the Self-Awareness Assessment. Now, lets head
               to your results.
-            </p>
+            </p> */}
+            <div className="completion-text">
+
+            <span>You have completed the </span>
+            <span className="esa44">ESA44</span>
+            <span>, now lets head
+            to your results. </span>
+            </div>
           </div>
         </div>
       </div>

@@ -261,25 +261,31 @@ export default function Results({ userAnswers }) {
               textDecoration: "underline",
             }}
           >
-            ESSENCE Book 1.
+            ESSENCE Book #1.
           </span>
         </p>{" "}
         <div className="split">
-          <p className="princetone-link1">princeton</p>
-          <p className="princetone-link2">green</p>
-          <p className="princetone-link3">.org</p>
+          <span span className="princetone-link1">
+            princeton
+          </span>
+          <span className="princetone-link2">green</span>
+          <span className="princetone-link3">
+            .org
+          </span>
         </div>
       </div>
+      <br />
       <div className="tab-text-impact no-print">
         <span>
           Since you were redirected to 21stcenturyparadigm.org for your{" "}
         </span>
-        <span className="esa44">ESSENCE Self-Awareness (ESA44) </span>
-        <span>assessment, please close this tab to return to</span>
+        <span className="esa44">ESA44 </span>
+        <span>assessment, to return to</span>
         <span className="princetone-link1"> princeton</span>
         <span className="princetone-link2">green</span>
         <span>.org</span>
-        {/* To return to princetongreem.org please close tab once done with your results. */}
+        <span> please close this tab.</span>
+        {/* To return to princetongreen.org please close tab once done with your results. */}
       </div>
     </>
   );

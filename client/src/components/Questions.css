@@ -27,7 +27,6 @@ body {
   text-align: center;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  padding: 1%;
 }
 
 .card-body {
@@ -47,7 +46,7 @@ body {
 .illustration-animated {
   max-width: 100%;
   height: auto;
-  animation: fadeInImage 0.5s ease-in-out ;
+  animation: fadeInImage 0.5s ease-in-out;
 }
 @keyframes fadeInImage {
   0% {
@@ -90,7 +89,6 @@ body {
   }
 }
 
-
 .assest-animated {
   color: black;
   display: flex;
@@ -132,10 +130,15 @@ body {
 .scale-line {
   display: flex;
   justify-content: center;
+  /* width: 100%; */
 }
 
 span.material-symbols-outlined.icon-style {
-  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 60;
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 60;
   font-size: 60px;
   /* Physical size */
   padding: 20px;
@@ -145,6 +148,7 @@ span.material-symbols-outlined.icon-style {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 60%;
 }
 
 .button-rating {
@@ -152,7 +156,8 @@ span.material-symbols-outlined.icon-style {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 120px;
+  width: 100%;
+  /* width: 120px; */
 }
 
 .button-wrapper {
@@ -258,7 +263,11 @@ span.material-symbols-outlined.icon-style {
   color: white;
   letter-spacing: 2px;
   margin-bottom: 7%;
-  font-family: "Poppins", sans-serif;
+}
+@media screen and (max-width: 1200px) {
+  .button-line-container {
+    width: 70%;
+  }
 }
 @media screen and (max-width: 950px) {
   .assest-animated {
@@ -270,41 +279,91 @@ span.material-symbols-outlined.icon-style {
   .please-rate {
     margin-bottom: 3%;
   }
+  .button-line-container {
+    width: 80%;
+  }
 }
 @media screen and (max-width: 840px) {
   .please-rate {
     margin-bottom: 4%;
   }
+  .illustration {
+    max-width: 90%;
+    height: auto;
+    margin: 0 15% 0 15%;
+  }
+  .button-line-container {
+    width: 90%;
+  }
 }
-@media screen and (max-width: 800px) {
+/* @media screen and (max-width: 800px) {
   .button-rating {
     width: 110px;
   }
-}
-@media screen and (max-width: 770px) {
+} */
+@media screen and (max-width: 830px) {
   .button-rating {
     width: 100px;
   }
 }
-@media screen and (max-width: 655px) {
-  .button-rating {
-    width: 90px;
-  }
+@media screen and (max-width: 700px) {
   .please-rate {
     font-size: 18px;
     margin-bottom: 5%;
   }
+  .questions-main-container {
+    width: 90%;
+  }
 }
-@media screen and (max-width: 600px) {
-  
+@media screen and (max-width: 670px) {
+  .please-rate {
+    font-size: 18px;
+    padding: 0 2% 0 2%;
+  }
   .button-rating {
     width: 80px;
   }
 }
 @media screen and (max-width: 570px) {
+  body {
+    background-color: #f1f1f1;
+    width: 100% !important;
+    margin: 0;
+    padding: 0;
+  }
+  .questions-main-container {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 520px) {
+  body {
+    background-color: #f1f1f1;
+    width: 100% !important;
+    margin: 0;
+    padding: 0;
+  }
+  .questions-main-container {
+    width: 100%;
+  }
   .please-rate {
-    font-size: 18px;
-    margin-bottom: 7%;
+    font-size: 15px;
+    margin-bottom: 10%;
+  }
+  .scale-text {
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    font-size: 12px;
+  }
+  .neutral {
+    width: 40px;
+    font-size: 12px;
+  }
+  .button {
+    padding: 15px;
+  }
+  .button-selected {
+    padding: 15px;
   }
 }
 
@@ -316,9 +375,11 @@ span.material-symbols-outlined.icon-style {
   body {
     background-color: #f1f1f1;
   }
-  .main-container {
-    background-color: #fefefe;
-    padding-top: 2%;
+  .questions-main-container {
+    background-color: #f1f1f1;
+    /* width: 100%; */
+    margin: 0;
+    padding: 0;
   }
   .card-title {
     font-size: 28px;
@@ -359,29 +420,30 @@ span.material-symbols-outlined.icon-style {
     font-size: 22px;
     height: 80px;
     padding: 0;
-    width: 100%;
+    margin: auto;
+    width: 90%;
   }
   .assest {
     height: 80px;
     font-size: 22px;
     padding: 0;
+    width: 90%;
+    margin: auto;
+  }
+  .scale-line {
+    padding: 1%;
+  }
+  .button-line-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
+    /* padding: 0 2% 0 2%; */
   }
   .be-sure {
     color: #e37d37;
     text-align: center;
     height: 20px;
-  }
-  .button-rating {
-    width: 55px;
-  }
-
-  .button-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
   }
 
   .button-selected {
@@ -394,6 +456,15 @@ span.material-symbols-outlined.icon-style {
   .icon-div {
     padding-top: 2%;
   }
+  /* .assest-animated {
+    font-size: 22px;
+    padding: 0 2% 0 2%;
+  }
+
+  .assest {
+    font-size: 22px;
+    padding: 0 2% 0 2%;
+  } */
   .button {
     padding: 15px;
   }
@@ -478,10 +549,12 @@ span.material-symbols-outlined.icon-style {
 
   .assest-animated {
     font-size: 22px;
+    padding: 0 2% 0 2%;
   }
 
   .assest {
     font-size: 22px;
+    padding: 0 2% 0 2%;
   }
 
   .button-rating {

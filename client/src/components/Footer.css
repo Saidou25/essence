@@ -1,4 +1,8 @@
 .footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: #403611;
   margin-top: 5%;
   padding-top: 3%;
@@ -6,14 +10,11 @@
   width: 100%;
 }
 .contact-us {
-  display: flex;
-  flex-direction: column;
   margin-bottom: 2%;
+  cursor: pointer;
 }
 .contact-text {
-  text-align: center;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #f5f3f3;
+ color: #f5f3f3;
   letter-spacing: 1px;
   font-family: "Poppins", sans-serif;
 }
@@ -39,18 +40,15 @@
 .link-text {
   cursor: pointer;
   font-family: "Poppins", sans-serif;
+  margin: auto;
 }
 .terms {
   display: flex;
   flex-direction: column;
-  text-align: center;
   color: #f5f3f3;
   margin-top: 2%;
 }
 .company {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
   color: #f5f3f3;
   letter-spacing: 1px;
   margin-top: 2%;
@@ -58,22 +56,30 @@
 }
 @media screen and (max-width: 414px) {
   .contact-us {
-    display: flex;
-    flex-direction: column;
     margin-top: 2%;
+    font-size: 14px;
+  }
+  .logo1 {
+    color: #f5f3f3;
+    height: 18px;
+    width: 18px;
+    padding: 0 5px 0 5px;
+    cursor: pointer;
   }
   .middle-text {
-    text-align: center;
     display: flex;
     flex-direction: column;
     color: #f5f3f3;
     letter-spacing: 1px;
     margin-top: 4%;
+    font-size: 14px;
   }
   .terms {
     padding: 3%;
+    font-size: 14px;
   }
   .company {
     padding: 3%;
+    font-size: 14px;
   }
 }
