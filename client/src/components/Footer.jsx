@@ -1,7 +1,7 @@
 import React from "react";
 // import { FaTwitter } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
-import XLogo from "../assets/images/XLogo.png";
+import xlogo from "../assets/images/xlogo.png";
 
 export default function Footer() {
   return (
@@ -27,8 +27,8 @@ export default function Footer() {
             onClick={() => window.open("https://x.com/Always_Be_BOLD")}
           /> */}
           <img
-            className="logo1"
-            src={XLogo}
+            className="logo2"
+            src={xlogo}
             alt="X"
             onClick={() => window.open("https://x.com/Always_Be_BOLD")}
           />
@@ -60,6 +60,7 @@ export default function Footer() {
           FREE RESOURCES
         </span>
       </div>
+      
       <div className="terms">
         <span
           className="link-text"
@@ -78,7 +79,9 @@ export default function Footer() {
           Privacy Policy
         </span>
       </div>
-      <span className="company">© 2008-2025 Princeton Green LLC</span>
+      <div className="company-container">
+        <span className="company">© 2008-2025 Princeton Green LLC</span>
+      </div>
     </div>
   );
 }

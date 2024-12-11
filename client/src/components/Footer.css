@@ -1,8 +1,4 @@
 .footer-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background-color: #403611;
   margin-top: 5%;
   padding-top: 3%;
@@ -12,6 +8,7 @@
 .contact-us {
   margin-bottom: 2%;
   cursor: pointer;
+  text-align: center;
 }
 .contact-text {
  color: #f5f3f3;
@@ -21,8 +18,8 @@
 .logos-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   display: flex;
-  margin-top: 7px;
 }
 .logo1 {
   color: #f5f3f3;
@@ -30,9 +27,17 @@
   width: 25px;
   padding: 0 5px 0 5px;
   cursor: pointer;
+
+}
+.logo2 {
+  color: #f5f3f3;
+  height: 40px;
+  width: 40px;
+  /* padding: 0 5px 0 5px; */
+  cursor: pointer;
 }
 .middle-text {
-  text-align: center;
+  justify-content: center;
   display: flex;
   flex-direction: column;
   color: #f5f3f3;
@@ -48,10 +53,13 @@
   color: #f5f3f3;
   margin-top: 2%;
 }
+.company-container {
+  margin-top: 2%;
+  text-align: center;
+}
 .company {
   color: #f5f3f3;
   letter-spacing: 1px;
-  margin-top: 2%;
   font-family: "Poppins", sans-serif;
 }
 @media screen and (max-width: 414px) {
