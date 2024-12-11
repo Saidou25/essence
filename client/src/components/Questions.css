@@ -500,12 +500,6 @@ span.material-symbols-outlined.icon-style {
   }
 
   .button-submit {
-    width: 30%;
-    padding: 8px;
-    letter-spacing: 2px;
-    margin-bottom: 3%;
-  }
-  .button-submit {
     border: solid;
     color: black;
     border-color: black;
