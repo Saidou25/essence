@@ -1,7 +1,7 @@
 import React from "react";
 // import { FaTwitter } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
-import xlogo from "../assets/images/xlogo.png";
+import xLogo from "../assets/images/xLogo.png";
 
 export default function Footer() {
   return (
@@ -28,7 +28,7 @@ export default function Footer() {
           /> */}
           <img
             className="logo2"
-            src={xlogo}
+            src={xLogo}
             alt="X"
             onClick={() => window.open("https://x.com/Always_Be_BOLD")}
           />
@@ -60,7 +60,7 @@ export default function Footer() {
           FREE RESOURCES
         </span>
       </div>
-      
+
       <div className="terms">
         <span
           className="link-text"
