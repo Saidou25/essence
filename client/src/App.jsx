@@ -29,14 +29,12 @@ const App = () => {
 
   const resetQuestionsComponent = (data) => {
     if (data === "resetQuestions") {
-      console.log("resetQuestions", data);
       setResetQuestionsComp(true);
     }
   };
 
   const restartAssessment = (data) => {
     if (data === "resetApp") {
-      console.log("resetApp", data);
       setShowQuestions(true);
       setShowSuccess(false);
       setShowResults(false);

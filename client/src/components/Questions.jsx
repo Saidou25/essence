@@ -224,7 +224,6 @@ export default function Questions({ showSuccessFunc, resetQuestionsComp }) {
 
   useEffect(() => {
     if (resetQuestionsComp) {
-      console.log("resetQuestionsComp", resetQuestionsComp);
       resetStates();
     }
   }, [resetQuestionsComp]);
