@@ -18,7 +18,7 @@ import EmailResultsForm from "./EmailResultsForm";
 
 import "./Results.css";
 
-export default function Results({ userAnswers }) {
+export default function Results({ userAnswers, resetApp, resetQuestions }) {
   const [showEmailForm, setShowEmailForm] = useState(false);
   // Create a ref for the content you want to convert to PDF
   const printContentRef = useRef(null);
@@ -29,6 +29,7 @@ export default function Results({ userAnswers }) {
   const month = date.getMonth();
   const year = date.getFullYear();
   const formattedDate = `${month + 1}/${day}/${year}`;
+
   for (let userAnswer of userAnswers) {
     totalRating += Number(userAnswer.userSelfRating); // Convert to number to avoid string concatenation
   }
@@ -74,7 +75,9 @@ export default function Results({ userAnswers }) {
   // };
 
   const handleRetake = () => {
-    window.location.reload();
+    setShowEmailForm(false);
+    resetApp("resetApp");
+    resetQuestions("resetQuestions")
   };
 
   const showEmail = (data) => {
@@ -265,7 +268,7 @@ export default function Results({ userAnswers }) {
           </span>
         </p>{" "}
         <div className="split">
-          <span span className="princetone-link1">
+          <span className="princetone-link1">
             princeton
           </span>
           <span className="princetone-link2">green</span>
@@ -277,7 +280,7 @@ export default function Results({ userAnswers }) {
       <br />
       <div className="tab-text-impact no-print">
         <span>
-          Since you were redirected to 21stcenturyparadigm.org for your{" "}
+          You were redirected to 21stcenturyparadigm.org for your{" "}
         </span>
         <span className="esa44">ESA44 </span>
         <span>assessment, to return to</span>
@@ -285,7 +288,6 @@ export default function Results({ userAnswers }) {
         <span className="princetone-link2">green</span>
         <span>.org</span>
         <span> please close this tab.</span>
-        {/* To return to princetongreen.org please close tab once done with your results. */}
       </div>
     </>
   );

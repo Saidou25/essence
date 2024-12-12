@@ -5,7 +5,7 @@ import useMonitorWidth from "../UsemonitorWidth";
 
 import "./Questions.css";
 
-export default function Questions({ showSuccessFunc }) {
+export default function Questions({ showSuccessFunc, resetQuestionsComp }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [backwordDisabled, setBackwordDisabled] = useState(false);
@@ -43,6 +43,24 @@ export default function Questions({ showSuccessFunc }) {
     animationTimeout = setTimeout(() => {
       setAnimationFade(false);
     }, 1000);
+  };
+
+  const resetStates = () => {
+    setCurrentQuestionIndex(0);
+    setButtonDisabled(true);
+    setBackwordDisabled(false);
+    setForwardDisabled(true);
+    setUserAnswers([]);
+    setIsSelected("");
+    setStoredUserSelfRating("");
+    setSubmissionReminder("");
+    setAnimationFade(false);
+    setFormState({
+      questionNumber: questionsData[0].questionNumber,
+      questionStatment: questionsData[0].questionStatment,
+      userSelfRating: "",
+      noResponse: "",
+    });
   };
 
   const handleRatingClick = (value) => {
@@ -199,9 +217,17 @@ export default function Questions({ showSuccessFunc }) {
   useEffect(() => {
     // Trigger success when all questions are answered
     if (userAnswers.length === questionsData.length) {
-      showSuccessFunc(true, userAnswers);
+      console.log("userAnswers", userAnswers);
+      showSuccessFunc(userAnswers);
     }
   }, [userAnswers, questionsData.length]);
+
+  useEffect(() => {
+    if (resetQuestionsComp) {
+      console.log("resetQuestionsComp", resetQuestionsComp);
+      resetStates();
+    }
+  }, [resetQuestionsComp]);
 
   return (
     <div className="questions-main-container">
@@ -263,7 +289,9 @@ export default function Questions({ showSuccessFunc }) {
               Please rate how much you agree with the following statement:
             </p>
             <h2>
-              <p className={animationFade ? "assest-animated" : "assest"}>{currentQuestion.questionStatment}</p>
+              <p className={animationFade ? "assest-animated" : "assest"}>
+                {currentQuestion.questionStatment}
+              </p>
             </h2>
             <br />
             {submissionReminder ? (
