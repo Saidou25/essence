@@ -3,9 +3,8 @@ import "./ButtonSpinner.css";
 const ButtonSpinner = () => {
   return (
     <button className="spinner-button">
-    <span className="spinner"></span>
-  </button>
-  
+      <span className="spinner"></span>
+    </button>
   );
 };
 

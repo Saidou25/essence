@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { questionsData } from "../questionsData";
 import { IoCaretBackSharp, IoCaretForwardSharp } from "react-icons/io5";
 import useMonitorWidth from "../UsemonitorWidth";
+import Button from "./Button";
 
 import "./Questions.css";
 
@@ -217,7 +218,6 @@ export default function Questions({ showSuccessFunc, resetQuestionsComp }) {
   useEffect(() => {
     // Trigger success when all questions are answered
     if (userAnswers.length === questionsData.length) {
-      console.log("userAnswers", userAnswers);
       showSuccessFunc(userAnswers);
     }
   }, [userAnswers, questionsData.length]);
@@ -368,19 +368,13 @@ export default function Questions({ showSuccessFunc, resetQuestionsComp }) {
                 </div>
               )}
             </div>
-            <button
-              className="button-submit"
-              type="button"
-              disabled={buttonDisabled}
-              style={{
-                cursor: buttonDisabled ? "not-allowed" : "pointer",
-                backgroundColor: buttonDisabled ? "#c7cec9" : "#e37d37",
-                filter: buttonDisabled ? "blurr(5px)" : "",
-              }}
-              onClick={handleSubmit}
+            <Button
+              buttonDisabled={buttonDisabled}
+              buttonType="button"
+              handleSubmit={handleSubmit}
             >
               SUBMIT
-            </button>
+            </Button>
           </div>
           <br />
         </div>

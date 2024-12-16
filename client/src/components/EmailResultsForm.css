@@ -24,6 +24,9 @@
   background-color: #1d1e20;
   border: none;
 }
+.email-form-container-left {
+  width: 60%;
+}
 .form-message-title {
   letter-spacing: 1px;
   color: white;
@@ -41,7 +44,7 @@
 }
 .email-form {
   width: 40%;
-  padding-right: 3%;
+  padding: 0 3% 0 3%;
   display: flex;
   flex-direction: column;
 }
@@ -67,19 +70,6 @@
   letter-spacing: 1px;
   font-family: "Poppins", sans-serif;
 }
-.form-button {
-  width: 60%;
-  background-color: #e37d37;
-  border: none;
-  border-radius: 50px;
-  padding: 7px;
-  color: white;
-  margin: auto;
-  font-size: 14px;
-  text-align: center;
-  letter-spacing: 2px;
-  font-family: "Poppins", sans-serif;
-}
 @media screen and (max-width: 1000px) {
   .email-form-container {
     padding-bottom: 3%;
@@ -87,13 +77,26 @@
     flex-direction: column;
     align-items: center;
   }
+  .email-form-container-left {
+    width: 90%;
+  }
   .form-input {
     font-family: "Poppins", sans-serif;
     font-size: 16px;
     border-radius: 12px;
     height: 35px;
-    width: 100%;
     letter-spacing: 1px;
+  }
+  .email-form {
+    width: 60%;
+    padding: 2% 0 0 0;
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 600px) {
+  .email-form {
+     width: 90%;
   }
 }
 @media screen and (max-width: 414px) {
@@ -106,18 +109,10 @@
   .email-form-container {
     padding-bottom: 3%;
     margin-bottom: 0;
-    flex-direction: column;
-    align-items: center;
   }
   .form-message-title {
     font-size: 30px;
     margin: 0;
-  }
-  .email-form {
-    width: 40%;
-    padding-right: 0;
-    display: flex;
-    flex-direction: column;
   }
   .form-input {
     font-family: "Poppins", sans-serif;
@@ -128,16 +123,7 @@
     letter-spacing: 1px;
   }
   .form-message {
-    padding: 3% 2% 0 2%;
+    padding-top: 3%;
     font-size: 16px;
-  }
-  .email-form {
-    width: 90%;
-    margin-top: 3%;
-    display: flex;
-    flex-direction: column;
-  }
-  .form-button {
-    width: 30%;
   }
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { resultsData } from "../questionsData";
-import ButtonSpinner from "./ButtonSpinner";
+import Button from "./Button";
 
 import "./EmailResultsForm.css";
 
@@ -23,6 +23,7 @@ export default function EmailResultsForm({
 
   const handleChange = (e) => {
     setErrorMessage("");
+    setIsSending(false);
     const { name, value } = e.target;
     // Update the form state
     setFormState((prevState) => ({
@@ -42,6 +43,8 @@ export default function EmailResultsForm({
     const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formState.email);
     if (!isValidEmail) {
       setErrorMessage("Invalid email format");
+      setSubmitButtonDisabled(true);
+      setIsSending(false);
       return;
     }
     const apiUrl =
@@ -58,8 +61,6 @@ export default function EmailResultsForm({
         body: JSON.stringify({
           to: formState.email,
           subject: "esa44",
-          // html: `<p>Hello ${formState.username},</p><p>Your ESA44 results are:</p><ul><li>Awakeness: ${templateAwakeness}</li><li>Perspective: ${templatePerspective}</li><li>Assessment: ${totalAssessment}</li></ul>`,
-          // text: `Hello ${formState.username} and thank you for taking the ESA44 self-awareness assessment.`,
           templateId: "d-36cc6833348d4da49c115d42b8033a6d",
           dynamicTemplateData: {
             username: formState.username,
@@ -70,10 +71,6 @@ export default function EmailResultsForm({
           },
         }),
       });
-      // Check if response is ok (status code between 200-299)
-      if (!response.ok) {
-        throw new Error(`Error sending email: ${response.statusText}`);
-      }
       const data = await response.json();
       if (response.ok) {
         setSuccess("Email sent successfully");
@@ -83,10 +80,12 @@ export default function EmailResultsForm({
           email: "",
           username: "",
         });
+        setTemplateAwakeness("");
+        setTemplatePerspective("");
       }
     } catch (error) {
-      console.error("Error in sending email request", error);
       setErrorMessage("Failed to send email. Please try again.");
+      setSubmitButtonDisabled(true);
     } finally {
       setIsSending(false);
     }
@@ -120,14 +119,13 @@ export default function EmailResultsForm({
         />
       </div>
       <div className="email-form-container">
-        <div>
+        <div className="email-form-container-left">
           <h2 className="form-message-title">Inbox Results</h2>
           <p className="form-message">
-            To receive your ESA44 results via email, please fill out your first
-            name and email address.
+            To receive your ESA44 results via email, please fill out the form.
           </p>
         </div>
-        <form className="email-form" onSubmit={sendEmail}>
+        <form className="email-form">
           <label htmlFor="username-input" className="form-label">
             First Name
           </label>
@@ -136,7 +134,7 @@ export default function EmailResultsForm({
             className="form-input"
             id="username-input"
             type="text"
-            placeholder="enter your username"
+            placeholder="enter your first name"
             autoComplete="on"
             name="username"
             value={formState.username || ""}
@@ -172,22 +170,14 @@ export default function EmailResultsForm({
             </p>
           )}
           <br />
-          {isSending ? (
-            <ButtonSpinner />
-          ) : (
-            <button
-              className="form-button"
-              type="submit"
-              disabled={submitButtonDisabled}
-              style={{
-                cursor: submitButtonDisabled ? "not-allowed" : "pointer",
-                backgroundColor: submitButtonDisabled ? "#c7cec9" : "#e37d37",
-                color: submitButtonDisabled ? "black" : "white",
-              }}
-            >
-              SUBMIT
-            </button>
-          )}
+          <Button
+            buttonType="submit"
+            handleSubmit={sendEmail}
+            buttonLoading={isSending}
+            buttonDisabled={submitButtonDisabled}
+          >
+            SUBMIT
+          </Button>
           <br />
         </form>
       </div>
