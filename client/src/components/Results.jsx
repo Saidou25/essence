@@ -111,9 +111,9 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
       <div className="finish-main-container" ref={printContentRef}>
         {/* <button onClick={saveUserResult}>save</button> */}
         <h1 className="finish-titles">ESA44 Assessment Results</h1>
-        <div className="score-today">
+        <div className="score-today" data-testid="score-today">
           <span>Your</span>
-          <span className="esa44"> ESA44 </span>
+          <span data-testid="esa44" className="esa44"> ESA44 </span>
           <span>results for today: {formattedDate}</span>
         </div>
         <table className="results-table">
@@ -142,7 +142,7 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
               ))}
           </tbody>
         </table>
-        <div className="please-evaluate">
+        <div className="please-evaluate" data-testid="evaluate">
           <span>Please compare your</span>
           <span className="esa44"> ESA44 </span>
           <span>results with the following table.</span>
@@ -249,7 +249,7 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
             </div>
           </div>
         )}
-        <p className="bottom-text">
+        <p className="bottom-text" data-testid="be-sure">
           <span>Be sure to record your</span>
           <span className="esa44"> ESA44 </span>
           <span>results on page 11 or page 303 of </span>
@@ -267,7 +267,7 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
             ESSENCE Book #1.
           </span>
         </p>{" "}
-        <div className="split">
+        <div className="split" data-testid="princeton-link">
           <span className="princetone-link1">
             princeton
           </span>
@@ -278,7 +278,7 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
         </div>
       </div>
       <br />
-      <div className="tab-text-impact no-print">
+      <div className="tab-text-impact no-print" data-testid="redirected">
         <span>
           You were redirected to 21stcenturyparadigm.org for your{" "}
         </span>

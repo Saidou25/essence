@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@sendgrid/mail": "^8.1.4",
+    "canvas": "^2.11.2",
     "firebase": "^11.0.2",
     "html2pdf.js": "^0.10.2",
     "icojs": "^0.19.4",
