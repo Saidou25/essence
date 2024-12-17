@@ -8,19 +8,13 @@ export default function Success() {
       <div className="card-success-container">
         <div className="card success-card">
           <div className="check">
-            <IoMdCheckmarkCircleOutline className="check-logo" />
+            <IoMdCheckmarkCircleOutline className="check-logo" data-testid="success-icon" />
           </div>
           <div className="text-container">
-            {/* <p className="completion-text">
-              You have completed the Self-Awareness Assessment. Now, lets head
-              to your results.
-            </p> */}
             <div className="completion-text">
-
-            <span>You have completed the </span>
-            <span className="esa44">ESA44</span>
-            <span>, now lets head
-            to your results. </span>
+              <span>You have completed the </span>
+              <span className="esa44">ESA44</span>
+              <span>, now lets head to your results. </span>
             </div>
           </div>
         </div>
