@@ -15,6 +15,7 @@ export default function Footer() {
         </span>
         <div className="logos-container">
           <FaLinkedinIn
+            data-testid="linkedIn-logo"
             className="logo1"
             onClick={() =>
               window.open(
@@ -27,6 +28,7 @@ export default function Footer() {
             onClick={() => window.open("https://x.com/Always_Be_BOLD")}
           /> */}
           <img
+            data-testid="X"
             className="logo2"
             src={xLogo}
             alt="X"
