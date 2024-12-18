@@ -64,7 +64,7 @@ export const resultsData = [
 export const questionsData = [
   {
     questionNumber: 1,
-    questionStatment: "I Know myself… Spirit, Heart, Body, Mind, and Soul.",
+    questionStatment: "I know myself… Spirit, Heart, Body, Mind, and Soul.",
     userSelfRating: "",
     illustration:
       "https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/esa44-awareness-YlevljgyZ8ig1rbN.jpg",
@@ -206,7 +206,7 @@ export const questionsData = [
   {
     questionNumber: 18,
     questionStatment:
-      "I AM whole, fully embracing all Aspects of my Self, including my shadows.",
+      "I am whole, fully embracing all Aspects of my Self, including my shadows.",
     userSelfRating: "",
     noResponse: "",
     illustration:

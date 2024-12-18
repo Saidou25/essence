@@ -77,7 +77,7 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
   const handleRetake = () => {
     setShowEmailForm(false);
     resetApp("resetApp");
-    resetQuestions("resetQuestions")
+    resetQuestions("resetQuestions");
   };
 
   const showEmail = (data) => {
@@ -113,15 +113,27 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
         <h1 className="finish-titles">ESA44 Assessment Results</h1>
         <div className="score-today" data-testid="score-today">
           <span>Your</span>
-          <span data-testid="esa44" className="esa44"> ESA44 </span>
+          <span data-testid="esa44" className="esa44">
+            {" "}
+            ESA44{" "}
+          </span>
           <span>results for today: {formattedDate}</span>
         </div>
         <table className="results-table">
           <thead>
             <tr className="class-top">
-              <th className="class-th">ESA44 Awakening</th>
-              <th className="class-th">State of Awareness</th>
-              <th className="class-th">Current Perspective</th>
+              <th className="class-th">
+                <span className="th-spans">ESA44 </span>
+                <span className="th-spans">Awakening</span>
+              </th>
+              <th className="class-th">
+                <span className="th-spans">State of </span>
+                <span className="th-spans">Awareness</span>
+              </th>
+              <th className="class-th">
+                <span className="th-spans">Current </span>
+                <span className="th-spans">Perspective</span>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -133,7 +145,7 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
                       <tr className="class-bottom">
                         <td className="class-td">{totalAssessment + "%"}</td>
                         <td className="class-td">{result.awakeness}</td>
-                        <td className="class-td-perspective">
+                        <td className="class-td">
                           {result.perspective}
                         </td>
                       </tr>
@@ -150,9 +162,18 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
         <table className="results-table">
           <thead>
             <tr className="class-top">
-              <th className="class-th">ESA44 Awakening</th>
-              <th className="class-th">State of Awareness</th>
-              <th className="class-th">Current Perspective</th>
+              <th className="class-th">
+                <span className="th-spans">ESA44 </span>
+                <span className="th-spans">Awakening</span>
+              </th>
+              <th className="class-th">
+                <span className="th-spans">State of </span>
+                <span className="th-spans">Awareness</span>
+              </th>
+              <th className="class-th">
+                <span className="th-spans">Current </span>
+                <span className="th-spans">Perspective</span>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -162,7 +183,7 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
                   <tr className="class-bottom">
                     <td className="class-td">{result.percentage}</td>
                     <td className="class-td">{result.awakeness}</td>
-                    <td className="class-td-perspective">
+                    <td className="class-td">
                       {result.perspective}
                     </td>
                   </tr>
@@ -249,10 +270,10 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
             </div>
           </div>
         )}
-        <p className="bottom-text" data-testid="be-sure">
-          <span>Be sure to record your</span>
+        <p className="bottom-text no-print" data-testid="be-sure">
+          <span>Please record your</span>
           <span className="esa44"> ESA44 </span>
-          <span>results on page 11 or page 303 of </span>
+          <span>results on page 11 or 303 of </span>
           <span
             className="link-text"
             onClick={() =>
@@ -268,27 +289,22 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
           </span>
         </p>{" "}
         <div className="split" data-testid="princeton-link">
-          <span className="princetone-link1">
-            princeton
-          </span>
+          <span className="princetone-link1">princeton</span>
           <span className="princetone-link2">green</span>
-          <span className="princetone-link3">
-            .org
-          </span>
+          <span className="princetone-link3">.org</span>
         </div>
       </div>
       <br />
-      <div className="tab-text-impact no-print" data-testid="redirected">
-        <span>
-          You were redirected to 21stcenturyparadigm.org for your{" "}
-        </span>
+      <p className="tab-text-impact no-print" data-testid="redirected">
+        <span className="note">Note: </span>
+        <span>You were redirected to 21stcenturyparadigm.org for your </span>
         <span className="esa44">ESA44 </span>
         <span>assessment, to return to</span>
         <span className="princetone-link1"> princeton</span>
         <span className="princetone-link2">green</span>
-        <span>.org</span>
+        <span className="princetone-link3">.org</span>
         <span> please close this tab.</span>
-      </div>
+      </p>
     </>
   );
 }

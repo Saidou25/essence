@@ -45,7 +45,7 @@ const App = () => {
   return (
     <>
       <div className="fade-in-div">
-        <Header />
+        <Header className="no-print" />
         {showQuestions && (
           <Questions
             showSuccessFunc={showSuccessComponent}
@@ -62,7 +62,7 @@ const App = () => {
             />
           </div>
         )}
-        <Footer />
+        <Footer className="no-print" />
       </div>
     </>
   );
