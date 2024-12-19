@@ -4,7 +4,7 @@ import "./Header.css";
 
 const Header = () => {
   return (
-    <header className="header-main no-print">
+    <header className="header-main no-print" role="header">
       <div className="background-image">
         <h1 className="header-text">How Self-Aware Are You?</h1>
       </div>

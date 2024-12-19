@@ -4,7 +4,7 @@ import "./Success.css";
 
 export default function Success() {
   return (
-    <div className="success-container">
+    <div className="success-container" data-testid="success">
       <div className="card-success-container">
         <div className="card success-card">
           <div className="check">

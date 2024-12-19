@@ -11,9 +11,9 @@ import "./components/Footer.css";
 import "./App.css";
 
 const App = () => {
-  const [showQuestions, setShowQuestions] = useState(true);
+  const [showQuestions, setShowQuestions] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
-  const [showResults, setShowResults] = useState(false);
+  const [showResults, setShowResults] = useState(true);
   const [allanswers, setAllAnswers] = useState("");
   const [resetQuestionsComp, setResetQuestionsComp] = useState(false);
 
@@ -44,18 +44,19 @@ const App = () => {
 
   return (
     <>
-      <div className="fade-in-div">
+      <div className="fade-in-div" role="app">
         <Header className="no-print" />
         {showQuestions && (
           <Questions
+          data-testid="questions"
             showSuccessFunc={showSuccessComponent}
             resetQuestionsComp={resetQuestionsComp}
           />
         )}
-        {showSuccess && <Success />}
+        {showSuccess && <Success data-testid="success"/>}
         {showResults && (
           <div className="fade-in-div">
-            <Results
+            <Results data-testid="results"
               userAnswers={allanswers}
               resetApp={restartAssessment}
               resetQuestions={resetQuestionsComponent}

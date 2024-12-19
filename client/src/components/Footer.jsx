@@ -5,7 +5,7 @@ import xLogo from "../assets/images/xLogo.png";
 
 export default function Footer() {
   return (
-    <div className="footer-container no-print">
+    <div className="footer-container no-print" role="footer">
       <div className="contact-us">
         <span
           className="contact-text"

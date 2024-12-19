@@ -106,7 +106,7 @@ export default function EmailResultsForm({
   }, [totalAssessment, resultsData]);
 
   return (
-    <div className="allmailform-container">
+    <div className="allmailform-container" data-testid="email-form">
       <div className="close-container">
         <RxCross2
           onClick={() => hideEmail(false)}

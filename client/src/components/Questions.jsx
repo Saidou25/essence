@@ -229,7 +229,7 @@ export default function Questions({ showSuccessFunc, resetQuestionsComp }) {
   }, [resetQuestionsComp]);
 
   return (
-    <div className="questions-main-container">
+    <div className="questions-main-container" data-testid="questions">
       <h1 className="card-title">ESSENCE Self-Awareness Assessment</h1>
       <div
         className="card"

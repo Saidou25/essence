@@ -108,7 +108,7 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
 
   return (
     <>
-      <div className="finish-main-container" ref={printContentRef}>
+      <div className="finish-main-container" ref={printContentRef} data-testid="results">
         {/* <button onClick={saveUserResult}>save</button> */}
         <h1 className="finish-titles">ESA44 Assessment Results</h1>
         <div className="score-today" data-testid="score-today">
@@ -145,9 +145,7 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
                       <tr className="class-bottom">
                         <td className="class-td">{totalAssessment + "%"}</td>
                         <td className="class-td">{result.awakeness}</td>
-                        <td className="class-td">
-                          {result.perspective}
-                        </td>
+                        <td className="class-td">{result.perspective}</td>
                       </tr>
                     )}
                 </React.Fragment>
@@ -183,9 +181,7 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
                   <tr className="class-bottom">
                     <td className="class-td">{result.percentage}</td>
                     <td className="class-td">{result.awakeness}</td>
-                    <td className="class-td">
-                      {result.perspective}
-                    </td>
+                    <td className="class-td">{result.perspective}</td>
                   </tr>
                 </React.Fragment>
               ))}
@@ -194,6 +190,7 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
         <br />
         {showEmailForm ? (
           <EmailResultsForm
+          data-testid="email-form"
             formattedDate={formattedDate}
             totalAssessment={totalAssessment}
             hideEmail={showEmail}
@@ -203,11 +200,14 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
             <div className="email-print-texts">
               <p className="button-text-title">Print Results</p>
               <button
+                role="button"
                 className="button-print"
                 type="button"
                 onClick={handlePrint}
+                aria-label="print"
               >
                 <ImPrinter
+                  data-testid="printer"
                   style={{
                     color: "white",
                     height: "25px",
@@ -220,11 +220,14 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
             <div className="email-print-texts">
               <p className="button-text-title">Download PDF</p>
               <button
+                role="button"
                 className="button-download"
                 type="button"
                 onClick={downloadAssessmentResults}
+                aria-label="download"
               >
                 <LuDownload
+                  data-testid="download"
                   style={{
                     color: "white",
                     height: "25px",
@@ -237,11 +240,14 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
             <div className="email-print-texts">
               <p className="button-text-title">E-mail Results</p>
               <button
+                role="button"
                 className="button-email"
                 type="button"
                 onClick={() => setShowEmailForm(true)}
+                aria-label="email"
               >
                 <GoMail
+                  data-testid="email"
                   style={{
                     color: "white",
                     height: "25px",
@@ -254,11 +260,14 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
             <div className="email-print-texts">
               <p className="button-text-title">Restart Assessment</p>
               <button
+                role="button"
                 className="button-retake"
                 type="button"
                 onClick={handleRetake}
+                aria-label="restart"
               >
                 <VscDebugRestart
+                  data-testid="restart"
                   style={{
                     color: "white",
                     height: "25px",
