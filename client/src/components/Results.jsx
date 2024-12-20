@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
-import { resultsData } from "../questionsData";
-import { resultsButtons } from "../ResultsButtonsData"; // Importing the buttons to be displayed
+import { resultsData } from "../data/resultsData";
 // import { app } from "../firebase.config";
 // import {
 //   arrayUnion,
@@ -14,10 +13,13 @@ import html2pdf from "html2pdf.js";
 import EmailResultsForm from "./EmailResultsForm";
 
 import "./Results.css";
+import Table from "./Table";
+import FourButtonForResults from "./FourButtonForResults";
+import PrincetonGreen from "./PrincetonGreen";
 
 export default function Results({ userAnswers, resetApp, resetQuestions }) {
   const [showEmailForm, setShowEmailForm] = useState(false);
-  // Create a ref for the content you want to convert to PDF
+  // Create a ref for the content to convert to PDF
   const printContentRef = useRef(null);
 
   let totalRating = 0;
@@ -120,74 +122,13 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
           </span>
           <span>results for today: {formattedDate}</span>
         </div>
-        <table className="results-table">
-          <thead>
-            <tr className="class-top">
-              <th className="class-th">
-                <span className="th-spans">ESA44 </span>
-                <span className="th-spans">Awakening</span>
-              </th>
-              <th className="class-th">
-                <span className="th-spans">State of </span>
-                <span className="th-spans">Awareness</span>
-              </th>
-              <th className="class-th">
-                <span className="th-spans">Current </span>
-                <span className="th-spans">Perspective</span>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {resultsData &&
-              resultsData.map((result, index) => (
-                <React.Fragment key={index}>
-                  {totalAssessment >= result.minPercentage &&
-                    totalAssessment <= result.maxPercentage && (
-                      <tr className="class-bottom">
-                        <td className="class-td">{totalAssessment + "%"}</td>
-                        <td className="class-td">{result.awakeness}</td>
-                        <td className="class-td">{result.perspective}</td>
-                      </tr>
-                    )}
-                </React.Fragment>
-              ))}
-          </tbody>
-        </table>
+        <Table resultsData={resultsData} totalAssessment={totalAssessment} />
         <div className="please-evaluate" data-testid="evaluate">
           <span>Please compare your</span>
           <span className="esa44"> ESA44 </span>
           <span>results with the following table.</span>
         </div>
-        <table className="results-table">
-          <thead>
-            <tr className="class-top">
-              <th className="class-th">
-                <span className="th-spans">ESA44 </span>
-                <span className="th-spans">Awakening</span>
-              </th>
-              <th className="class-th">
-                <span className="th-spans">State of </span>
-                <span className="th-spans">Awareness</span>
-              </th>
-              <th className="class-th">
-                <span className="th-spans">Current </span>
-                <span className="th-spans">Perspective</span>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {resultsData &&
-              resultsData.map((result, index) => (
-                <React.Fragment key={index}>
-                  <tr className="class-bottom">
-                    <td className="class-td">{result.percentage}</td>
-                    <td className="class-td">{result.awakeness}</td>
-                    <td className="class-td">{result.perspective}</td>
-                  </tr>
-                </React.Fragment>
-              ))}
-          </tbody>
-        </table>
+        <Table resultsData={resultsData} />
         <br />
         {showEmailForm ? (
           <EmailResultsForm
@@ -197,33 +138,12 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
             hideEmail={showEmail}
           />
         ) : (
-          <div className="email-print-container no-print">
-            {resultsButtons &&
-              resultsButtons.map((resultButton) => (
-                <div key={resultButton.pText} className="email-print-texts">
-                  <p className="button-text-title">{resultButton.pText}</p>
-                  <button
-                    role="button"
-                    className={resultButton.buttonClassName}
-                    type="button"
-                    onClick={() => {
-                      if (resultButton.pText === "Print Results") {
-                        handlePrint();
-                      } else if (resultButton.pText === "Download PDF") {
-                        downloadAssessmentResults();
-                      } else if (resultButton.pText === "E-mail Results") {
-                        setShowEmailForm(true);
-                      } else if (resultButton.pText === "Restart Assessment") {
-                        handleRetake();
-                      }
-                    }}
-                    aria-label={resultButton.buttonAria}
-                  >
-                    {resultButton.buttonLogo}
-                  </button>
-                </div>
-              ))}
-          </div>
+          <FourButtonForResults
+            handlePrint={handlePrint}
+            handleRetake={handleRetake}
+            downloadAssessmentResults={downloadAssessmentResults}
+            showForm={showEmail}
+          />
         )}
         <p className="bottom-text no-print" data-testid="be-sure">
           <span>Please record your</span>
@@ -243,11 +163,7 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
             ESSENCE Book #1.
           </span>
         </p>{" "}
-        <div className="split" data-testid="princeton-link">
-          <span className="princetone-link1">princeton</span>
-          <span className="princetone-link2">green</span>
-          <span className="princetone-link3">.org</span>
-        </div>
+        <PrincetonGreen />
       </div>
       <br />
       <p className="tab-text-impact no-print" data-testid="redirected">

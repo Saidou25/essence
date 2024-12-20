@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { questionsData } from "../questionsData";
+import { statmentsData } from "../data/stamentsData";
 import { IoCaretBackSharp, IoCaretForwardSharp } from "react-icons/io5";
 import useMonitorWidth from "../UsemonitorWidth";
 import Button from "./Button";
@@ -17,8 +17,8 @@ export default function Questions({ showSuccessFunc, resetQuestionsComp }) {
   const [submissionReminder, setSubmissionReminder] = useState("");
   const [animationFade, setAnimationFade] = useState(false);
   const [formState, setFormState] = useState({
-    questionNumber: questionsData[0].questionNumber,
-    questionStatment: questionsData[0].questionStatment,
+    questionNumber: statmentsData[0].questionNumber,
+    questionStatment: statmentsData[0].questionStatment,
     userSelfRating: "",
     noResponse: "",
   });
@@ -26,7 +26,7 @@ export default function Questions({ showSuccessFunc, resetQuestionsComp }) {
   const { vw } = useMonitorWidth();
 
   const buttons = [1, 2, 3, 4, 5, 6];
-  const currentQuestion = questionsData[currentQuestionIndex];
+  const currentQuestion = statmentsData[currentQuestionIndex];
   const scales = [
     "Strongly Disagree",
     "Somewhat Disagree",
@@ -57,8 +57,8 @@ export default function Questions({ showSuccessFunc, resetQuestionsComp }) {
     setSubmissionReminder("");
     setAnimationFade(false);
     setFormState({
-      questionNumber: questionsData[0].questionNumber,
-      questionStatment: questionsData[0].questionStatment,
+      questionNumber: statmentsData[0].questionNumber,
+      questionStatment: statmentsData[0].questionStatment,
       userSelfRating: "",
       noResponse: "",
     });
@@ -121,13 +121,13 @@ export default function Questions({ showSuccessFunc, resetQuestionsComp }) {
   const handleNextQuestion = () => {
     try {
       if (forwardDisabled) return; // Prevent navigation if forwardDisabled is true
-      if (currentQuestionIndex < questionsData.length - 1) {
+      if (currentQuestionIndex < statmentsData.length - 1) {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
         setFormState({
           questionNumber:
-            questionsData[currentQuestionIndex + 1].questionNumber,
+            statmentsData[currentQuestionIndex + 1].questionNumber,
           questionStatment:
-            questionsData[currentQuestionIndex + 1].questionStatment,
+            statmentsData[currentQuestionIndex + 1].questionStatment,
           userSelfRating: storedUserSelfRating ?? "",
           noResponse: "",
         });
@@ -159,12 +159,12 @@ export default function Questions({ showSuccessFunc, resetQuestionsComp }) {
       }
     });
 
-    if (currentQuestionIndex < questionsData.length - 1) {
+    if (currentQuestionIndex < statmentsData.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setFormState({
-        questionNumber: questionsData[currentQuestionIndex + 1].questionNumber,
+        questionNumber: statmentsData[currentQuestionIndex + 1].questionNumber,
         questionStatment:
-          questionsData[currentQuestionIndex + 1].questionStatment,
+          statmentsData[currentQuestionIndex + 1].questionStatment,
         userSelfRating: "",
         noResponse: "",
       });
@@ -190,12 +190,12 @@ export default function Questions({ showSuccessFunc, resetQuestionsComp }) {
       setBackwordDisabled(false);
     }
 
-    // if (currentQuestionIndex === questionsData.length - 1) {
+    // if (currentQuestionIndex === statmentsData.length - 1) {
     //   setForwardDisabled(true);
     // } else {
     //   setForwardDisabled(false);
     // }
-  }, [currentQuestionIndex, questionsData.length]);
+  }, [currentQuestionIndex, statmentsData.length]);
 
   useEffect(() => {
     // Restore previous answers when revisiting a question
@@ -217,10 +217,10 @@ export default function Questions({ showSuccessFunc, resetQuestionsComp }) {
 
   useEffect(() => {
     // Trigger success when all questions are answered
-    if (userAnswers.length === questionsData.length) {
+    if (userAnswers.length === statmentsData.length) {
       showSuccessFunc(userAnswers);
     }
-  }, [userAnswers, questionsData.length]);
+  }, [userAnswers, statmentsData.length]);
 
   useEffect(() => {
     if (resetQuestionsComp) {

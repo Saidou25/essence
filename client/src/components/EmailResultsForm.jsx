@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
-import { resultsData } from "../questionsData";
+import { resultsData } from "../data/resultsData";
 import Button from "./Button";
 
 import "./EmailResultsForm.css";

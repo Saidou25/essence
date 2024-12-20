@@ -3,7 +3,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import Results from "./Results";
 
 // Mocks the `resultsData` import
-jest.mock("../questionsData", () => ({
+jest.mock("../data/resultsData", () => ({
   resultsData: [
     {
       minPercentage: 0,
