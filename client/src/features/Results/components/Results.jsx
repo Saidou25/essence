@@ -10,10 +10,10 @@ import { resultsData } from "../data/resultsData";
 //   updateDoc,
 // } from "firebase/firestore";
 import Table from "../../../components/Table";
-import FourButtonForResults from "../../../components/FourButtonForResults";
+import FourButtonForResults from "./ResultsButtonsLine";
 import PrincetonGreen from "../../../components/PrincetonGreen";
 import html2pdf from "html2pdf.js";
-import EmailResultsForm from "../../../components/EmailResultsForm";
+import EmailResultsForm from "./ResultsEmailForm";
 
 import "./Results.css";
 
@@ -108,7 +108,7 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
   return (
     <>
       <div
-        className="finish-main-container"
+        className="results-main-container"
         ref={printContentRef}
         data-testid="results"
       >
@@ -166,7 +166,7 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
         <PrincetonGreen />
       </div>
       <br />
-      <p className="tab-text-impact no-print" data-testid="redirected">
+      <div className="tab-text-impact no-print" data-testid="note">
         <span className="note">Note: </span>
         <span>You were redirected to 21stcenturyparadigm.org for your </span>
         <span className="esa44">ESA44 </span>
@@ -175,7 +175,7 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
         <span className="princetone-link2">green</span>
         <span className="princetone-link3">.org</span>
         <span> please close this tab.</span>
-      </p>
+      </div>
     </>
   );
 }

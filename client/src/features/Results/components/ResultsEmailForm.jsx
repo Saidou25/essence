@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
-import { resultsData } from "../features/Results/data/resultsData";
-import Button from "./Button";
+import { resultsData } from "../data/resultsData";
+import Button from "../../../components/Button";
 
-import "./EmailResultsForm.css";
+import "./ResultsEmailForm.css";
 
 export default function EmailResultsForm({
   hideEmail,

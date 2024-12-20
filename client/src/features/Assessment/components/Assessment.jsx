@@ -189,12 +189,6 @@ export default function Questions({ showSuccessFunc, resetQuestionsComp }) {
     } else {
       setBackwordDisabled(false);
     }
-
-    // if (currentQuestionIndex === statmentsData.length - 1) {
-    //   setForwardDisabled(true);
-    // } else {
-    //   setForwardDisabled(false);
-    // }
   }, [currentQuestionIndex, statmentsData.length]);
 
   useEffect(() => {

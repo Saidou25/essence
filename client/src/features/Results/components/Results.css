@@ -2,7 +2,7 @@
   font-family: "ImpactUnicode";
   src: url("../../../assets/fonts/unicode.impact.ttf") format("woff2");
 }
-.finish-main-container {
+.results-main-container {
   background-color: #f1f1f1;
   padding-top: 2%;
   padding-bottom: 2%;
@@ -22,7 +22,6 @@
   font-size: 38px;
   font-family: "ImpactUnicode", sans-serif;
 }
-
 .title-results {
   letter-spacing: 1px;
   color: black;
@@ -30,7 +29,6 @@
   font-size: 38px;
   font-family: "ImpactUnicode", sans-serif;
 }
-
 .score-today {
   text-align: center;
   font-size: 18px;
@@ -44,108 +42,11 @@
   letter-spacing: 1px;
   font-style: italic;
 }
-
-.results-div {
-  padding-bottom: 5%;
-}
-
-.results-table {
-  margin: auto;
-  border-collapse: separate;
-  border-spacing: 0;
-  /* border: 9px solid black; */
-  border: 4px solid black;
-  width: 90%;
-}
-
-.class-top {
-  background-color: #c7cec9;
-}
-
-.class-bottom {
-  background-color: #fefefe;
-}
-
-.class-th {
-  border-bottom: 1px solid grey;
-  border-color: grey;
-  font-family: "ImpactUnicode", sans-serif;
-  text-rendering: optimizeLegibility;
-  font-size: 25px;
-  letter-spacing: 1px;
-  color: black;
-  text-align: center;
-  padding: 2% 0% 2% 0;
-}
-
-.class-td {
-  border-right: 2px solid #c3c2c2;
-  border-bottom: 1px solid #c3c2c2;
-  text-align: center;
-  font-family: "Poppins", sans-serif;
-  font-size: 18px;
-  height: 42px;
-  color: black;
-}
-
-.class-td-perspective {
-  border-bottom: 1px solid #c3c2c2;
-  height: 100px;
-  text-align: center;
-  font-family: "Poppins", sans-serif;
-  font-size: 18px;
-  height: 42px;
-  color: black;
-}
-
 .please-evaluate {
   text-align: center;
   margin: 3% 3%;
   font-size: 18px;
   font-family: "Poppins", sans-serif;
-}
-
-.email-print-container {
-  display: flex;
-  justify-content: center;
-}
-.email-print-texts {
-  font-family: "Poppins", sans-serif;
-  margin: 0 3% 0 3%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 60px;
-}
-.button-text-title {
-  text-align: center;
-}
-.button-download,
-.button-retake,
-.button-print,
-.button-email {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #e37d37;
-  padding: 10px;
-  border-radius: 50px;
-  border: none;
-}
-
-.button-email:hover,
-.button-retake:hover,
-.button-download:hover,
-.button-print:hover {
-  background-color: #267b7d;
-  cursor: pointer;
-}
-.button-logo-style {
-  color: white;
-  height: 25px;
-  width: 25px;
-  cursor: pointer;
 }
 .bottom-text {
   padding-top: 6%;
@@ -179,7 +80,6 @@
   font-size: 18px;
   font-family: "Poppins", sans-serif;
 }
-
 .split {
   display: flex;
   justify-content: center;
@@ -196,7 +96,7 @@
   body {
     background-color: white;
   }
-  .finish-main-container {
+  .results-main-container {
     background-color: white;
     display: block;
     visibility: visible;
@@ -212,36 +112,11 @@
     text-align: center;
     padding: 2% 3%;
     color: black;
-    /* font-family: "Poppins", sans-serif; */
     font-size: 18px;
-  }
-  .results-table {
-    margin: auto;
-    table-layout: fixed;
-    border-collapse: separate;
-    page-break-inside: avoid;
-    border-spacing: 0;
-    border: 4px solid black;
-  }
-  .class-th {
-    border-bottom: 2px solid grey;
-    font-family: "Arial Black", "Bebas Neue", "Helvetica", sans-serif;
-    text-rendering: optimizeLegibility;
-    font-size: 22px;
-    padding: 1%;
-  }
-  .class-td {
-    font-size: 18px;
-    height: 38px;
-    border-bottom: 2px solid grey !important;
-  }
-  .class-td-perspective {
-    font-size: 18px;
-    height: 38px;
   }
 }
 @media print and (max-width: 990px) {
-  .finish-main-container {
+  .results-main-container {
     width: 100%;
   }
   .no-print {
@@ -251,14 +126,8 @@
     font-size: 18px;
     width: 85%;
   }
-  .class-th {
-    font-size: 18px;
-  }
 }
 @media print and (max-width: 780px) {
-  .th-spans {
-    display: block;
-  }
   .finish-titles {
     font-size: 30px;
   }
@@ -267,13 +136,7 @@
   }
 }
 @media print and (max-width: 730px) {
-  .th-spans {
-    display: block;
-  }
   .class-td {
-    font-size: 16px;
-  }
-  .class-td-perspective {
     font-size: 16px;
   }
   .no-print {
@@ -281,18 +144,11 @@
   }
 }
 @media print and (max-width: 590px) {
-  .class-th {
-    font-size: 18px;
-  }
   .no-print {
     display: none !important;
   }
 }
-@media print and (max-width: 540px) {
-  .class-th {
-    font-size: 18px;
-  }
-}
+
 @media print and (max-width: 480px) {
   .no-print {
     display: none !important;
@@ -300,37 +156,19 @@
   .finish-titles {
     font-size: 26px;
   }
-  .class-th {
-    font-size: 14px;
-  }
-  .class-td {
-    font-size: 14px;
-  }
-  .class-td-perspective {
-    font-size: 14px;
-  }
 }
 @media screen and (max-width: 990px) {
-  .finish-main-container {
+  .results-main-container {
     width: 90%;
   }
   .tab-text-impact {
     font-size: 18px;
     width: 85%;
   }
-  .class-th {
-    font-size: 22px;
-  }
 }
 @media screen and (max-width: 715px) {
-  .finish-main-container {
+  .results-main-container {
     width: 90%;
-  }
-  .class-th {
-    font-size: 18px;
-  }
-  .class-td {
-    font-size: 16px;
   }
   .bottom-text {
     font-size: 16px;
@@ -346,21 +184,15 @@
   }
 }
 @media screen and (max-width: 595px) {
-  .finish-main-container {
+  .results-main-container {
     width: 90%;
   }
   .tab-text-impact {
     border: double;
   }
-  .class-th {
-    font-size: 18px;
-  }
-  .th-spans {
-    display: block;
-  }
 }
 @media screen and (max-width: 570px) {
-  .finish-main-container {
+  .results-main-container {
     width: 98%;
   }
 }
@@ -383,27 +215,9 @@
     font-size: 15px;
     margin-left: 3%;
   }
-  .results-div {
-    padding-bottom: 5%;
-  }
   .results-table {
     border: 4px solid black;
     width: 90%;
-  }
-  .class-th {
-    font-size: 15px;
-    padding: 1%;
-    width: 33%;
-  }
-  .class-td {
-    width: 33%;
-    font-size: 14px;
-    height: 32px;
-  }
-  .class-td-perspective {
-    width: 22%;
-    font-size: 14px;
-    height: 34px;
   }
 
   .score-today {
@@ -415,24 +229,6 @@
     text-align: center;
     margin: 7% 5%;
     font-size: 14px;
-  }
-  .email-print-container {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 0;
-    padding-top: 0;
-  }
-  .email-print-texts {
-    margin: 1%;
-    width: 70px;
-    font-size: 14px;
-  }
-  .button-retake,
-  .button-download,
-  .button-print,
-  .button-email {
-    padding: 4px;
-    margin: 0;
   }
   .bottom-text {
     padding-top: 6%;
@@ -458,7 +254,7 @@
   }
 }
 @media screen and (max-width: 375px) {
-  .finish-main-container {
+  .results-main-container {
     width: 100%;
   }
   .score-today {
@@ -467,30 +263,9 @@
     color: black;
     font-size: 18px;
   }
-
-  .results-div {
-    padding-bottom: 0;
-  }
-  .class-th {
-    font-size: 14px;
-    padding: 1% 1% 1% 1%;
-  }
-
-  .class-td {
-    font-size: 14px;
-    height: 24px;
-  }
-
-  .class-td-perspective {
-    font-size: 14px;
-    height: 42px;
-  }
   .please-evaluate {
     text-align: center;
     margin: 2% 2%;
     font-size: 18px;
-  }
-  .button-text-title {
-    text-align: center;
   }
 }

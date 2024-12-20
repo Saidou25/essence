@@ -1,5 +1,7 @@
 import React from "react";
-import { resultsButtons } from "../features/Results/data/ResultsButtonsData"; // Importing the buttons to be displayed
+import { resultsButtons } from "../data/ResultsButtonsData"; // Importing the buttons to be displayed
+
+import "./ResultsButtonsLine.css";
 
 export default function FourButtonForResults({
   handlePrint,

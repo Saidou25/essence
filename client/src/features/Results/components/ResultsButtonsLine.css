@@ -1,0 +1,62 @@
+.email-print-container {
+  display: flex;
+  justify-content: center;
+}
+.email-print-texts {
+  font-family: "Poppins", sans-serif;
+  margin: 0 3% 0 3%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 60px;
+}
+.button-text-title {
+  text-align: center;
+}
+.button-download,
+.button-retake,
+.button-print,
+.button-email {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e37d37;
+  padding: 10px;
+  border-radius: 50px;
+  border: none;
+}
+
+.button-email:hover,
+.button-retake:hover,
+.button-download:hover,
+.button-print:hover {
+  background-color: #267b7d;
+  cursor: pointer;
+}
+.button-logo-style {
+  color: white;
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+}
+@media screen and (max-width: 414px) {
+  .email-print-container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+  .email-print-texts {
+    margin: 1%;
+    width: 70px;
+    font-size: 14px;
+  }
+  .button-retake,
+  .button-download,
+  .button-print,
+  .button-email {
+    padding: 4px;
+    margin: 0;
+  }
+}
