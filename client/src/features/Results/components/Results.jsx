@@ -9,13 +9,13 @@ import { resultsData } from "../data/resultsData";
 //   setDoc,
 //   updateDoc,
 // } from "firebase/firestore";
+import Table from "../../../components/Table";
+import FourButtonForResults from "../../../components/FourButtonForResults";
+import PrincetonGreen from "../../../components/PrincetonGreen";
 import html2pdf from "html2pdf.js";
-import EmailResultsForm from "./EmailResultsForm";
+import EmailResultsForm from "../../../components/EmailResultsForm";
 
 import "./Results.css";
-import Table from "./Table";
-import FourButtonForResults from "./FourButtonForResults";
-import PrincetonGreen from "./PrincetonGreen";
 
 export default function Results({ userAnswers, resetApp, resetQuestions }) {
   const [showEmailForm, setShowEmailForm] = useState(false);

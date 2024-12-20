@@ -1,2 +1,2 @@
-@import './components/Questions.css';
-@import './components/Results.css';
+@import './features/Assessment/components/Assessment.css';
+@import './features/Results/components/Results.css';

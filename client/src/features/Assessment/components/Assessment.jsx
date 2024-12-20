@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { statmentsData } from "../data/stamentsData";
+import { statmentsData } from "../data/statmentsData";
 import { IoCaretBackSharp, IoCaretForwardSharp } from "react-icons/io5";
-import useMonitorWidth from "../UsemonitorWidth";
-import Button from "./Button";
+import useMonitorWidth from "../hooks/useWindowWidth";
+import Button from "../../../components/Button";
 
-import "./Questions.css";
+import "./Assessment.css";
 
 export default function Questions({ showSuccessFunc, resetQuestionsComp }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);

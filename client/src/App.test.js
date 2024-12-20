@@ -2,8 +2,8 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import App from "./App";
 import Success from "./components/Success";
-import Results from "./components/Results";
-import Questions from "./components/Questions";
+import Results from "./features/Results/components/Results";
+import Assessment from "./features/Assessment/components/Assessment";
 
 describe("App Component", () => {
   test("renders Header and Footer components", () => {
@@ -38,7 +38,7 @@ const TestApp = ({ showSuccess, showResults, showQuestions }) => (
       />
     )}
     {showQuestions && (
-      <Questions
+      <Assessment
         data-testid="questions"
         showSuccessFunc={() => {}}
         resetQuestionsComp={() => {}}

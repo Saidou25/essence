@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Questions from "./components/Questions";
+import Assessment from "./features/Assessment/components/Assessment";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Success from "./components/Success";
-import Results from "./components/Results";
+import Results from "./features/Results/components/Results";
 
-import "./components/Questions.css";
-import "./components/Results.css";
+import "./features/Assessment/components/Assessment.css";
+import "./features/Results/components/Results.css";
 import "./components/Footer.css";
 import "./App.css";
 
@@ -47,7 +47,7 @@ const App = () => {
       <div className="fade-in-div" role="app">
         <Header className="no-print" />
         {showQuestions && (
-          <Questions
+          <Assessment
           data-testid="questions"
             showSuccessFunc={showSuccessComponent}
             resetQuestionsComp={resetQuestionsComp}
