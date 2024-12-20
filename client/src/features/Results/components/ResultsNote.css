@@ -1,0 +1,104 @@
+@font-face {
+  font-family: "ImpactUnicode";
+  src: url("../../../assets/fonts/unicode.impact.ttf") format("woff2");
+}
+.esa44 {
+  color: black;
+  font-family: "ImpactUnicode", sans-serif;
+  letter-spacing: 1px;
+  font-style: italic;
+}
+
+.tab-text-impact {
+  width: 76%;
+  margin: auto;
+  margin-top: 5%;
+  text-align: center;
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  padding: 3% 2% 3% 2%;
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+}
+.princetone-link1 {
+  color: #e37d37;
+  font-family: "Poppins", sans-serif;
+}
+.princetone-link2 {
+  color: green;
+  font-family: "Poppins", sans-serif;
+}
+.princetone-link3 {
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+}
+.split {
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+  padding-top: 2%;
+}
+.note {
+  font-weight: bold;
+}
+
+@media print and (max-width: 990px) {
+  .results-main-container {
+    width: 100%;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .tab-text-impact {
+    font-size: 18px;
+    width: 85%;
+  }
+}
+@media screen and (max-width: 990px) {
+  .tab-text-impact {
+    font-size: 18px;
+    width: 85%;
+  }
+}
+@media screen and (max-width: 715px) {
+  .split {
+    font-size: 16px;
+  }
+  .tab-text-impact,
+  .princetone-link1,
+  .princetone-link2,
+  .princetone-link3 {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 595px) {
+  .tab-text-impact {
+    border: double;
+  }
+}
+@media screen and (max-width: 540px) {
+  .tab-text-impact {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 485px) {
+  .tab-text-impact {
+    padding: 2% 1% 2% 1%;
+  }
+}
+@media screen and (max-width: 414px) {
+  .tab-text-impact {
+    border: double;
+    border-width: 4px;
+    width: 86%;
+    margin: auto;
+    background-color: #f1f1f1;
+    border-radius: 20px;
+    font-size: 14px;
+  }
+  .princetone-link1,
+  .princetone-link2,
+  .princetone-link3 {
+    font-size: 14px;
+  }
+}

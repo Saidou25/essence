@@ -57,18 +57,8 @@
   margin: auto;
   font-style: italic;
 }
-.tab-text-impact {
-  width: 76%;
-  margin: auto;
-  margin-top: 5%;
-  text-align: center;
-  background-color: #f1f1f1;
-  border-radius: 20px;
-  padding: 3% 2% 3% 2%;
-  font-size: 18px;
-  font-family: "Poppins", sans-serif;
-}
-.princetone-link1 {
+
+/* .princetone-link1 {
   color: #e37d37;
   font-family: "Poppins", sans-serif;
 }
@@ -79,15 +69,12 @@
 .princetone-link3 {
   font-size: 18px;
   font-family: "Poppins", sans-serif;
-}
+} */
 .split {
   display: flex;
   justify-content: center;
   font-size: 18px;
   padding-top: 2%;
-}
-.note {
-  font-weight: bold;
 }
 @media print {
   .no-print {
@@ -122,10 +109,6 @@
   .no-print {
     display: none !important;
   }
-  .tab-text-impact {
-    font-size: 18px;
-    width: 85%;
-  }
 }
 @media print and (max-width: 780px) {
   .finish-titles {
@@ -135,19 +118,7 @@
     display: none !important;
   }
 }
-@media print and (max-width: 730px) {
-  .class-td {
-    font-size: 16px;
-  }
-  .no-print {
-    display: none !important;
-  }
-}
-@media print and (max-width: 590px) {
-  .no-print {
-    display: none !important;
-  }
-}
+
 
 @media print and (max-width: 480px) {
   .no-print {
@@ -161,10 +132,6 @@
   .results-main-container {
     width: 90%;
   }
-  .tab-text-impact {
-    font-size: 18px;
-    width: 85%;
-  }
 }
 @media screen and (max-width: 715px) {
   .results-main-container {
@@ -176,36 +143,20 @@
   .split {
     font-size: 16px;
   }
-  .tab-text-impact,
-  .princetone-link1,
-  .princetone-link2,
-  .princetone-link3 {
-    font-size: 16px;
-  }
+
 }
 @media screen and (max-width: 595px) {
   .results-main-container {
     width: 90%;
   }
-  .tab-text-impact {
-    border: double;
-  }
+  
 }
 @media screen and (max-width: 570px) {
   .results-main-container {
     width: 98%;
   }
 }
-@media screen and (max-width: 540px) {
-  .tab-text-impact {
-    text-align: center;
-  }
-}
-@media screen and (max-width: 485px) {
-  .tab-text-impact {
-    padding: 2% 1% 2% 1%;
-  }
-}
+
 @media screen and (max-width: 414px) {
   .finish-titles {
     font-size: 28px;
@@ -219,7 +170,6 @@
     border: 4px solid black;
     width: 90%;
   }
-
   .score-today {
     text-align: center;
     margin: 3% 3%;
@@ -237,20 +187,6 @@
     width: 87%;
     margin: auto;
     font-style: italic;
-  }
-  .tab-text-impact {
-    border: double;
-    border-width: 4px;
-    width: 86%;
-    margin: auto;
-    background-color: #f1f1f1;
-    border-radius: 20px;
-    font-size: 14px;
-  }
-  .princetone-link1,
-  .princetone-link2,
-  .princetone-link3 {
-    font-size: 14px;
   }
 }
 @media screen and (max-width: 375px) {

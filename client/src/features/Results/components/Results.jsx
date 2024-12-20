@@ -11,9 +11,10 @@ import { resultsData } from "../data/resultsData";
 // } from "firebase/firestore";
 import Table from "../../../components/Table";
 import FourButtonForResults from "./ResultsButtonsLine";
-import PrincetonGreen from "../../../components/PrincetonGreen";
+import PrincetonGreenLogo from "../../../components/PrincetonGreenLogo";
 import html2pdf from "html2pdf.js";
 import EmailResultsForm from "./ResultsEmailForm";
+import ResultsNote from "./ResultsNote";
 
 import "./Results.css";
 
@@ -163,19 +164,10 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
             ESSENCE Book #1.
           </span>
         </p>{" "}
-        <PrincetonGreen />
+        <PrincetonGreenLogo />
       </div>
       <br />
-      <div className="tab-text-impact no-print" data-testid="note">
-        <span className="note">Note: </span>
-        <span>You were redirected to 21stcenturyparadigm.org for your </span>
-        <span className="esa44">ESA44 </span>
-        <span>assessment, to return to</span>
-        <span className="princetone-link1"> princeton</span>
-        <span className="princetone-link2">green</span>
-        <span className="princetone-link3">.org</span>
-        <span> please close this tab.</span>
-      </div>
+      <ResultsNote />
     </>
   );
 }

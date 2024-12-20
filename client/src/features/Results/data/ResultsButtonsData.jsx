@@ -4,6 +4,7 @@ import { VscDebugRestart } from "react-icons/vsc";
 import { ImPrinter } from "react-icons/im";
 import { GoMail } from "react-icons/go";
 
+// This is a jsx file used as data file so react-icons can be included in the objects.
 // This is to lighten the code and avoid redundencies in the Results component.
 // We are using this data file to map over and display four buttons.
 export const resultsButtons = [
