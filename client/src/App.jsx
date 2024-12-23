@@ -48,15 +48,16 @@ const App = () => {
         <Header className="no-print" />
         {showQuestions && (
           <Assessment
-          data-testid="questions"
+            data-testid="questions"
             showSuccessFunc={showSuccessComponent}
             resetQuestionsComp={resetQuestionsComp}
           />
         )}
-        {showSuccess && <Success data-testid="success"/>}
+        {showSuccess && <Success data-testid="success" />}
         {showResults && (
           <div className="fade-in-div">
-            <Results data-testid="results"
+            <Results
+              data-testid="results"
               userAnswers={allanswers}
               resetApp={restartAssessment}
               resetQuestions={resetQuestionsComponent}

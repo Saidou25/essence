@@ -6,7 +6,7 @@ import Button from "../../../components/Button";
 
 import "./Assessment.css";
 
-export default function Questions({ showSuccessFunc, resetQuestionsComp }) {
+export default function Assessment({ showSuccessFunc, resetQuestionsComp }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [backwordDisabled, setBackwordDisabled] = useState(false);
@@ -282,7 +282,10 @@ export default function Questions({ showSuccessFunc, resetQuestionsComp }) {
               Please rate how much you agree with the following statement:
             </p>
             <h2>
-              <p className={animationFade ? "assest-animated" : "assest"}>
+              <p
+                className={animationFade ? "assest-animated" : "assest"}
+                data-testid="assetst"
+              >
                 {currentQuestion.questionStatment}
               </p>
             </h2>
@@ -363,6 +366,7 @@ export default function Questions({ showSuccessFunc, resetQuestionsComp }) {
               )}
             </div>
             <Button
+              role="button"
               buttonDisabled={buttonDisabled}
               buttonType="button"
               handleSubmit={handleSubmit}
