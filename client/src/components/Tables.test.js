@@ -16,7 +16,7 @@ const resultsData = [
   {
     tile: "",
     minPercentage: 81,
-    maxPercentage: 95.999999999999999999999,
+    maxPercentage: 95.9999,
     percentage: "81-95%",
     awakeness: "Almost Awake",
     perspective: "Seeker",
@@ -33,7 +33,7 @@ test("renders the table", () => {
 });
 
 // Checks if props are rendered in the table
-test("renders the table", () => {
+test("renders props in the table", () => {
     const totalAssessment = 85;
   render(<Table totalAssessment={totalAssessment} resultsData={resultsData} />);
   const totalAssessmentCell = screen.getByTestId("total-assessment");

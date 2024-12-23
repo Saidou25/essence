@@ -9,6 +9,7 @@ import { resultsData } from "../data/resultsData";
 //   setDoc,
 //   updateDoc,
 // } from "firebase/firestore";
+import PropTypes from "prop-types";
 import Table from "../../../components/Table";
 import FourButtonForResults from "./ResultsButtonsLine";
 import PrincetonGreenLogo from "../../../components/PrincetonGreenLogo";
@@ -171,3 +172,9 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
     </>
   );
 }
+
+Results.propTypes = {
+  userAnswers: PropTypes.func.isRequired,
+  resetApp: PropTypes.number.isRequired,
+  resetQuestions: PropTypes.string.isRequired,
+};

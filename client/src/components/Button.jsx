@@ -1,5 +1,6 @@
 import React from "react";
 import ButtonSpinner from "./ButtonSpinner";
+import PropTypes from "prop-types";
 
 import "./Button.css";
 
@@ -34,3 +35,12 @@ export default function Button({
     </div>
   );
 }
+
+Button.propTypes = {
+  children: PropTypes.node.isRequired,
+  buttonDisabled: PropTypes.bool.isRequired,
+  buttonLoading: PropTypes.bool.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  buttonType: PropTypes.string.isRequired,
+  role: PropTypes.string.isRequired,
+};

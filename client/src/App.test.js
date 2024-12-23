@@ -1,9 +1,10 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import App from "./App";
 import Success from "./components/Success";
 import Results from "./features/Results/components/Results";
 import Assessment from "./features/Assessment/components/Assessment";
+import PropTypes from "prop-types";
 
 describe("App Component", () => {
   test("renders Header and Footer components", () => {
@@ -106,3 +107,9 @@ test("does not render Questions component when showQuestions is false", () => {
   // Verify the Success component is rendered
   expect(questionsComp).not.toBeInTheDocument();
 });
+
+TestApp.propTypes = {
+  showSuccess: PropTypes.bool.isRequired,
+  showResults: PropTypes.bool.isRequired,
+  showQuestions: PropTypes.bool.isRequired,
+};

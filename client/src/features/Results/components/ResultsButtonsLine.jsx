@@ -1,5 +1,6 @@
 import React from "react";
 import { resultsButtons } from "../data/ResultsButtonsData"; // Importing the buttons to be displayed
+import PropTypes from "prop-types";
 
 import "./ResultsButtonsLine.css";
 
@@ -39,3 +40,10 @@ export default function FourButtonForResults({
     </div>
   );
 }
+
+FourButtonForResults.propTypes = {
+  handlePrint: PropTypes.func.isRequired,
+  handleRetake: PropTypes.number.isRequired,
+  downloadAssessmentResults: PropTypes.string.isRequired,
+  showForm: PropTypes.string.isRequired,
+};

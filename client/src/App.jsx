@@ -10,7 +10,7 @@ import "./features/Results/components/Results.css";
 import "./components/Footer.css";
 import "./App.css";
 
-const App = () => {
+export default function App() {
   const [showQuestions, setShowQuestions] = useState(true);
   const [showSuccess, setShowSuccess] = useState(false);
   const [showResults, setShowResults] = useState(false);
@@ -69,5 +69,3 @@ const App = () => {
     </>
   );
 };
-
-export default App;

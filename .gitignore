@@ -12,3 +12,4 @@ firebase-debug.log
 # Ignore other sensitive files (you can list more files here if needed)
 .env
 node_modules
+dist/

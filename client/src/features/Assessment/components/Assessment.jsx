@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { statmentsData } from "../data/statmentsData";
 import { IoCaretBackSharp, IoCaretForwardSharp } from "react-icons/io5";
+import PropTypes from "prop-types";
 import useMonitorWidth from "../hooks/useWindowWidth";
 import Button from "../../../components/Button";
 
@@ -380,3 +381,8 @@ export default function Assessment({ showSuccessFunc, resetQuestionsComp }) {
     </div>
   );
 }
+
+Assessment.propTypes = {
+  showSuccessFunc: PropTypes.func.isRequired,
+  resetQuestionsComp: PropTypes.func.isRequired,
+};

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { resultsData } from "../data/resultsData";
+import PropTypes from 'prop-types';
 import Button from "../../../components/Button";
 
 import "./ResultsEmailForm.css";
@@ -48,10 +49,15 @@ export default function EmailResultsForm({
       return;
     }
     const apiUrl =
-      process.env.NODE_ENV === "development"
-        ? "http://127.0.0.1:5001/essence-9f702/us-central1/sendEmail"
-        : "https://sendemail-yo7s25d5wq-uc.a.run.app"; // Deployed URL
-
+    import.meta.env.MODE === "development"
+      ? "http://127.0.0.1:5001/essence-9f702/us-central1/sendEmail"
+      : "https://sendemail-yo7s25d5wq-uc.a.run.app"; // Deployed URL
+  
+    // const apiUrl =
+    //   process.env.NODE_ENV === "development"
+    //     ? "http://127.0.0.1:5001/essence-9f702/us-central1/sendEmail"
+    //     : "https://sendemail-yo7s25d5wq-uc.a.run.app"; // Deployed URL
+    console.log(import.meta.env.MODE);
     try {
       const response = await fetch(apiUrl, {
         method: "POST",
@@ -71,7 +77,7 @@ export default function EmailResultsForm({
           },
         }),
       });
-      const data = await response.json();
+       await response.json();
       if (response.ok) {
         setErrorMessage("");
         setSuccess("Email sent successfully");
@@ -83,7 +89,7 @@ export default function EmailResultsForm({
         setTemplateAwakeness("");
         setTemplatePerspective("");
       }
-    } catch (error) {
+    } catch {  
       setErrorMessage("Failed to send email. Please try again.");
       setSubmitButtonDisabled(true);
     } finally {
@@ -93,7 +99,7 @@ export default function EmailResultsForm({
 
   useEffect(() => {
     if (resultsData) {
-      resultsData.forEach((result, index) => {
+      resultsData.forEach((result) => {
         if (
           totalAssessment >= result.minPercentage &&
           totalAssessment <= result.maxPercentage
@@ -185,3 +191,9 @@ export default function EmailResultsForm({
     </div>
   );
 }
+
+EmailResultsForm.propTypes = {
+  hideEmail: PropTypes.func.isRequired,
+  totalAssessment: PropTypes.number.isRequired,
+  formattedDate: PropTypes.string.isRequired,
+};

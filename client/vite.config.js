@@ -6,5 +6,6 @@ export default defineConfig({
   base: "./",
   build: {
     assetsInlineLimit: 0, // Ensures assets like images are not inlined
+    sourcemap: true,
   },
 });

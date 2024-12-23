@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from 'prop-types';
+
 import "./Table.css";
 
 export default function Table({ resultsData, totalAssessment }) {
@@ -52,4 +54,17 @@ export default function Table({ resultsData, totalAssessment }) {
       )}
     </table>
   );
-}
+};
+
+Table.propTypes = {
+  resultsData: PropTypes.arrayOf(
+    PropTypes.shape({
+      minPercentage: PropTypes.number.isRequired,
+      maxPercentage: PropTypes.number.isRequired,
+      percentage: PropTypes.number.isRequired,
+      awakeness: PropTypes.string.isRequired,
+      perspective: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  totalAssessment: PropTypes.number.isRequired,
+};
