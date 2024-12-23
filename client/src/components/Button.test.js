@@ -14,6 +14,11 @@ describe("Button component", () => {
         SUBMIT
       </Button>
     );
+
+    // Checks if the button is rendered correctly
+    const submitButton = screen.getByRole("button");
+    expect(submitButton).toBeInTheDocument();
+
     // Check if the button text is rendered correctly
     const button = screen.getByText(/SUBMIT/i);
     expect(button).toBeInTheDocument();
@@ -39,11 +44,19 @@ describe("Button component", () => {
     expect(handleSubmit).toHaveBeenCalledTimes(1);
   });
 
-    test('Shows ButtonSpinner when buttonLoading is true', () => {
-      const handleSubmit = jest.fn();
-      render(<Button buttonLoading={true} handleSubmit={handleSubmit} buttonDisabled={false}>SUBMIT</Button>);
+  test("Shows ButtonSpinner when buttonLoading is true", () => {
+    const handleSubmit = jest.fn();
+    render(
+      <Button
+        buttonLoading={true}
+        handleSubmit={handleSubmit}
+        buttonDisabled={false}
+      >
+        SUBMIT
+      </Button>
+    );
 
-      // Check if the ButtonSpinner is rendered when buttonLoading is true
-      expect(screen.getByTestId("button-spinner")).toBeInTheDocument();
-    });
+    // Check if the ButtonSpinner is rendered when buttonLoading is true
+    expect(screen.getByTestId("button-spinner")).toBeInTheDocument();
+  });
 });

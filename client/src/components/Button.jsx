@@ -9,11 +9,13 @@ export default function Button({
   buttonLoading,
   handleSubmit,
   buttonType,
+  role,
 }) {
   return (
     <div className="reusable-button-container">
       {!buttonLoading ? (
         <button
+          role={role}
           className="button-submit"
           type={buttonType}
           disabled={buttonDisabled}

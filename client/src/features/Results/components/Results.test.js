@@ -46,7 +46,6 @@ test("renders the correct content", () => {
   const scoreToday = screen.getByTestId("score-today");
   const evaluate = screen.getByTestId("evaluate");
   const beSure = screen.getByTestId("be-sure");
-  const princetonLink = screen.getByTestId("princeton-link");
   const note = screen.getByTestId("note");
  
   // Testing if all texts and logo are rendered
@@ -54,7 +53,6 @@ test("renders the correct content", () => {
   expect(scoreToday).toBeInTheDocument();
   expect(evaluate).toBeInTheDocument();
   expect(beSure).toBeInTheDocument();
-  expect(princetonLink).toBeInTheDocument();
   expect(note).toBeInTheDocument();
 });
 

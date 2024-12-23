@@ -3,7 +3,7 @@ import "./Table.css";
 
 export default function Table({ resultsData, totalAssessment }) {
   return (
-    <table className="results-table">
+    <table className="results-table" data-testid="table">
       <thead>
         <tr className="class-top">
           <th className="class-th">
@@ -21,23 +21,23 @@ export default function Table({ resultsData, totalAssessment }) {
         </tr>
       </thead>
       {totalAssessment || totalAssessment === 0 ? (
-        <tbody>
+        <tbody data-testid="tbody1">
           {resultsData &&
             resultsData.map((result, index) => (
               <React.Fragment key={index}>
                 {totalAssessment >= result.minPercentage &&
                   totalAssessment <= result.maxPercentage && (
                     <tr className="class-bottom">
-                      <td className="class-td">{totalAssessment + "%"}</td>
-                      <td className="class-td">{result.awakeness}</td>
-                      <td className="class-td">{result.perspective}</td>
+                      <td className="class-td" data-testid="total-assessment">{totalAssessment + "%"}</td>
+                      <td className="class-td" data-testid="result-awakeness">{result.awakeness}</td>
+                      <td className="class-td" data-testid="result-perspective">{result.perspective}</td>
                     </tr>
                   )}
               </React.Fragment>
             ))}
         </tbody>
       ) : (
-        <tbody>
+        <tbody data-testid="tbody2">
           {resultsData &&
             resultsData.map((result, index) => (
               <React.Fragment key={index}>

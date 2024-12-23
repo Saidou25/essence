@@ -73,9 +73,9 @@ export default function EmailResultsForm({
       });
       const data = await response.json();
       if (response.ok) {
+        setErrorMessage("");
         setSuccess("Email sent successfully");
         setSubmitButtonDisabled(true);
-        setErrorMessage("");
         setFormState({
           email: "",
           username: "",
@@ -171,6 +171,7 @@ export default function EmailResultsForm({
           )}
           <br />
           <Button
+            role="button"
             buttonType="submit"
             handleSubmit={sendEmail}
             buttonLoading={isSending}
