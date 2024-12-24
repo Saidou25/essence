@@ -43,7 +43,7 @@ export default function FourButtonForResults({
 
 FourButtonForResults.propTypes = {
   handlePrint: PropTypes.func.isRequired,
-  handleRetake: PropTypes.number.isRequired,
-  downloadAssessmentResults: PropTypes.string.isRequired,
-  showForm: PropTypes.string.isRequired,
+  handleRetake: PropTypes.func.isRequired,
+  downloadAssessmentResults: PropTypes.func.isRequired,
+  showForm: PropTypes.func.isRequired,
 };

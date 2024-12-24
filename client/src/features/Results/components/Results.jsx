@@ -174,7 +174,7 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
 }
 
 Results.propTypes = {
-  userAnswers: PropTypes.func.isRequired,
-  resetApp: PropTypes.number.isRequired,
-  resetQuestions: PropTypes.string.isRequired,
+  userAnswers: PropTypes.array.isRequired,
+  resetApp: PropTypes.func.isRequired,
+  resetQuestions: PropTypes.func.isRequired,
 };
