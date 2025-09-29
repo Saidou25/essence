@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Success from "./components/Success";
 import Results from "./features/Results/components/Results";
 
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./features/Assessment/components/Assessment.css";
 import "./features/Results/components/Results.css";
 import "./components/Footer.css";

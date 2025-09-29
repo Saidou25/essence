@@ -1,18 +1,24 @@
 import React from "react";
 // import { FaTwitter } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
-import xLogo from "../assets/images/xLogo.png";
+
+import "./Footer.css";
 
 export default function Footer() {
   return (
     <div className="footer-container no-print" role="footer">
       <div className="contact-us">
-        <span
+        <span className="contact-text"
+         onClick={() => window.open("https://princetongreen.org")}>
+          Proudly powered by princetongreen.org
+        </span>
+        {/* <span
           className="contact-text"
           onClick={() => window.open("https://princetongreen.org/contact-us")}
         >
           Contact Us
-        </span>
+        </span> */}
+
         <div className="logos-container">
           <FaLinkedinIn
             data-testid="linkedIn-logo"
@@ -27,51 +33,43 @@ export default function Footer() {
             className="logo1"
             onClick={() => window.open("https://x.com/Always_Be_BOLD")}
           /> */}
-          <img
+          {/* <img
             data-testid="X"
             className="logo2"
             src={xLogo}
             alt="X"
             onClick={() => window.open("https://x.com/Always_Be_BOLD")}
-          />
+          /> */}
         </div>
       </div>
       <div className="middle-text">
         <span
           className="link-text"
           onClick={() =>
-            window.open("https://princetongreen.org/new-earth-books")
+            window.open("https://newearthcivilization.com/about-us")
           }
         >
-          NEW EARTH BOOKS
+          About Us
         </span>
         <span
           className="link-text"
           onClick={() =>
-            window.open("https://princetongreen.org/visionary-authors")
+            window.open("https://newearthcivilization.com/contact-us")
           }
         >
-          VISIONARY AUTHORS
+          Contact Us
         </span>
-        <span
+        {/* <span
           className="link-text"
           onClick={() =>
             window.open("https://princetongreen.org/free-resources")
           }
         >
           FREE RESOURCES
-        </span>
+        </span> */}
       </div>
 
       <div className="terms">
-        <span
-          className="link-text"
-          onClick={() =>
-            window.open("https://princetongreen.org/terms-and-conditions")
-          }
-        >
-          Terms & Conditions
-        </span>
         <span
           className="link-text"
           onClick={() =>
@@ -80,9 +78,21 @@ export default function Footer() {
         >
           Privacy Policy
         </span>
+        <span
+          className="link-text"
+          onClick={() =>
+            window.open("https://princetongreen.org/terms-and-conditions")
+          }
+        >
+          Terms & Conditions
+        </span>
       </div>
       <div className="company-container">
-        <span className="company">© 2008-2025 Princeton Green LLC</span>
+        <span className="company-logo">©</span>
+        <span className="company"
+        onClick={() =>
+            window.open("https://princetongreen.org")
+          }>2025 Princeton Green LLC</span>
       </div>
     </div>
   );

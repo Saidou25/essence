@@ -29,7 +29,9 @@
     "lint": "eslint . --ignore-pattern 'client/dist/*'"
   },
   "dependencies": {
+    "@fontsource-variable/open-sans": "^5.2.7",
     "@sendgrid/mail": "^8.1.4",
+    "bootstrap": "^5.3.8",
     "canvas": "^2.11.2",
     "firebase": "^11.1.0",
     "html2pdf.js": "^0.10.2",

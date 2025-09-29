@@ -3,11 +3,12 @@
     src: url("../assets/fonts/unicode.impact.ttf") format("truetype");
   }
   .header-main {
-    margin: 0 0 5% 0;
+    margin: 0;
     padding: 0;
+    color: black;
   }
   .background-image {
-    background-image: url("https://images.pexels.com/videos/1307329/free-video-1307329.jpg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200");
+    /* background-image: url("https://images.pexels.com/videos/1307329/free-video-1307329.jpg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200"); */
     /* background-image: url("https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/mandala-4282571_1920-mnl9qvzJEZf1DePR.jpg"); */
     background-size: cover; 
     background-position: center; 

@@ -1,8 +1,8 @@
 body {
   /* background-color: #267b7d; */
-  background-color: #0a2903;
+  background-color: #201263 !important;
   width: 100% !important;
-  margin: 0;
+  margin: 0 !important;
   padding: 0;
 }
 @font-face {
@@ -11,112 +11,59 @@ body {
 }
 .questions-main-container {
   background-color: #f1f1f1;
-  width: 80%;
+  width: 80% !important;
   margin: auto;
 }
-.card-title {
+.title {
   letter-spacing: 1px;
-  color: black;
+  color: rgb(35, 34, 34);
   text-align: center;
   font-size: 38px;
   font-family: "ImpactUnicode", sans-serif;
-  padding-top: 5%;
+  padding: 5% 5% 0 5%;
 }
 
 .question-number {
-  color: black;
+  color: rgb(95, 92, 92);
   text-align: center;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
+  font-size: 24px;
+  margin: 0;
 }
-
-.card-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.container-illustration {
-  max-width: 60%;
-  margin: auto;
-  display: flex;
-  justify-content: center;
+.button-and-io {
   align-items: center;
+  justify-content: center;
+}
+.img-row {
+  align-items: center;
+  justify-content: center !important;
 }
 
-.illustration {
-  max-width: 100%;
-  height: auto;
-}
 .illustration-animated {
-  max-width: 100%;
-  height: auto;
-  animation: fadeInImage 0.5s ease-in-out;
+  animation: fadeInImage 0.5s ease-in-out forwards;
 }
+
 @keyframes fadeInImage {
   0% {
-    color: transparent;
-    /* Start with a transparent color */
     opacity: 0;
-    /* Start invisible */
   }
 
   100% {
     opacity: 1;
-    /* End fully visible */
   }
 }
 
 .please-rate {
-  color: black;
+   color: rgb(95, 92, 92);
   text-align: center;
   font-size: 20px;
   font-family: "Poppins", sans-serif;
-  margin: 
 }
-
-@keyframes fadeInColor {
-  0% {
-    color: transparent;
-    /* Start with a transparent color */
-    opacity: 0;
-    /* Start invisible */
-  }
-
-  100% {
-    color: black;
-    /* Target color (e.g., blue) */
-    opacity: 1;
-    /* End fully visible */
-  }
-}
-
-.assest-animated {
-  color: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 30px;
-  font-family: "Poppins", sans-serif;
-  animation: fadeInColor 0.5s ease-in-out forwards;
-  padding: 0 3% 0 3%;
-  height: 70px;
-  margin: 0 0;
-}
-
-.assest {
-  color: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 30px;
-  /* font-family: Anton, sans-serif; */
-  font-family: "Poppins", sans-serif;
-  padding: 0 3% 0 3%;
-  height: 70px;
-  margin: 0 0;
-}
-
+ .assest-animated {
+  font-size: 26px;
+   animation: fadeInImage 0.5s ease-in-out forwards;
+ }
 .be-sure {
   color: #e37d37;
   font-family: "Poppins", sans-serif;
@@ -128,17 +75,9 @@ body {
   visibility: hidden;
 }
 
-.scale-line {
-  display: flex;
-  justify-content: center;
-}
 
 span.material-symbols-outlined.icon-style {
-  font-variation-settings:
-    "FILL" 0,
-    "wght" 400,
-    "GRAD" 0,
-    "opsz" 60;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 60;
   font-size: 60px;
   /* Physical size */
   padding: 20px;
@@ -146,9 +85,8 @@ span.material-symbols-outlined.icon-style {
 
 .button-line-container {
   display: flex;
-  align-items: center;
+  align-items: center !important;
   justify-content: center;
-  width: 60%;
 }
 
 .button-rating {
@@ -167,6 +105,15 @@ span.material-symbols-outlined.icon-style {
   width: 100%;
 }
 
+.button-line {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  background-color: #c7cec9;
+  height: 3px;
+}
 .button-selected {
   background-color: #e37d37;
   position: relative;
@@ -176,8 +123,12 @@ span.material-symbols-outlined.icon-style {
   border-radius: 50%;
   z-index: 1;
 }
-.icon-div {
-  padding-top: 2%;
+
+.scale-text {
+  width: 90px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+color: rgb(95, 92, 92);
 }
 .button {
   position: relative;
@@ -189,15 +140,7 @@ span.material-symbols-outlined.icon-style {
   background-color: #c7cec9;
 }
 
-.button-line {
-  position: absolute;
-  top: 45%;
-  left: 0;
-  right: 0;
-  z-index: 0;
-  background-color: #c7cec9;
-  height: 3px;
-}
+
 
 /* Line for the first button: starts at the button center and extends to the right */
 .button-line-start {
@@ -223,12 +166,7 @@ span.material-symbols-outlined.icon-style {
   /* Stop at the button center */
 }
 
-.scale-text {
-  width: 90px;
-  text-align: center;
-  font-family: "Poppins", sans-serif;
-  color: black;
-}
+
 
 .button:hover,
 .no-response:hover {
@@ -254,65 +192,47 @@ span.material-symbols-outlined.icon-style {
   z-index: 1;
   background-color: #c7cec9;
 }
-@media screen and (max-width: 1200px) {
-  .button-line-container {
-    width: 70%;
-  }
+
+.icon-div-left {
+  text-align: right;
 }
-@media screen and (max-width: 1050px) {
-  .button-line-container {
-    width: 80%;
-  }
+.icon-div-right {
+  text-align: left;
 }
+
 @media screen and (max-width: 950px) {
   .assest-animated {
     font-size: 26px;
   }
-  .assest {
-    font-size: 26px;
-  }
+
   .please-rate {
     margin-bottom: 3%;
   }
 }
 @media screen and (max-width: 880px) {
-  .button-line-container {
-    width: 90%;
-  }
   .please-rate {
     margin: 0 2% 4% 2%;
   }
 }
-@media screen and (max-width: 840px) {
-  .illustration {
-    max-width: 90%;
-    height: auto;
-    margin: 0 15% 0 15%;
-  }
-  .illustration-animated {
-    max-width: 90%;
-    height: auto;
-    margin: 0 15% 0 15%;
-    animation: fadeInImage 0.5s ease-in-out;
-  }
-  .button-line-container {
-    width: 90%;
-  }
-}
+
 @media screen and (max-width: 830px) {
   .button-rating {
     width: 100px;
   }
 }
-@media screen and (max-width: 780px) {
-  .button-line-container {
-    width: 90%;
-  }
-}
+
+
 @media screen and (max-width: 780px) {
   .please-rate {
     font-size: 18px;
   }
+  .scale-text {
+    font-size: 14px;
+  }
+.question-number {
+  font-size: 20px;
+}
+ 
 }
 @media screen and (max-width: 700px) {
   .please-rate {
@@ -321,12 +241,17 @@ span.material-symbols-outlined.icon-style {
   }
 }
 @media screen and (max-width: 670px) {
+  .questions-main-container {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
   .please-rate {
     font-size: 18px;
     padding: 0 2% 0 2%;
   }
   .button-rating {
-    width: 80px;
+    width: 100px !important;
   }
   .scale-text {
     width: 90px;
@@ -334,6 +259,15 @@ span.material-symbols-outlined.icon-style {
   }
 }
 @media screen and (max-width: 590px) {
+  .title {
+    font-size: 26px;
+  }
+  .question-number {
+    font-size: 20px;
+  }
+  .assest-animated {
+    padding: 0 2% 0 2%;
+  }
   .button-rating {
     width: 75px;
   }
@@ -354,9 +288,9 @@ span.material-symbols-outlined.icon-style {
   .questions-main-container {
     width: 100%;
   }
-  .button-rating {
+  /* .button-rating {
     width: 85px;
-  }
+  } */
 }
 @media screen and (max-width: 520px) {
   body {
@@ -365,9 +299,9 @@ span.material-symbols-outlined.icon-style {
     margin: 0;
     padding: 0;
   }
-  .questions-main-container {
+  /* .questions-main-container {
     width: 100%;
-  }
+  } */
   .please-rate {
     font-size: 15px;
     margin-bottom: 10%;
@@ -401,10 +335,10 @@ span.material-symbols-outlined.icon-style {
   .questions-main-container {
     background-color: #f1f1f1;
     margin: 0;
-    padding: 0;
+    padding: 0 5px 0 5px;
   }
-  .card-title {
-    font-size: 28px;
+  .title {
+    font-size: 24px;
   }
 
   .question-number {
@@ -489,6 +423,7 @@ span.material-symbols-outlined.icon-style {
     border-radius: 50%;
   }
 }
+
 @media screen and (max-width: 359px) {
   @font-face {
     font-family: "ImpactUnicode";
@@ -514,12 +449,6 @@ span.material-symbols-outlined.icon-style {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  .illustration-animated {
-    max-width: 100%;
-    height: auto;
-    animation: fadeInImage 0.5s ease-in-out forwards;
   }
 
   .illustration {
@@ -589,4 +518,8 @@ span.material-symbols-outlined.icon-style {
     padding: 15px;
     border-radius: 50%;
   }
+}
+.ratio {
+  display: flex;
+  justify-content: center;
 }
