@@ -42,6 +42,7 @@ export default function EmailResultsForm({
     e.preventDefault();
     setIsSending(true);
     const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formState.email);
+    console.log("is valid: ", isValidEmail)
     if (!isValidEmail) {
       setErrorMessage("Invalid email format");
       setSubmitButtonDisabled(true);
@@ -57,7 +58,7 @@ export default function EmailResultsForm({
     //   process.env.NODE_ENV === "development"
     //     ? "http://127.0.0.1:5001/essence-9f702/us-central1/sendEmail"
     //     : "https://sendemail-yo7s25d5wq-uc.a.run.app"; // Deployed URL
-    console.log(import.meta.env.MODE);
+    // console.log(import.meta.env.MODE);
     try {
       const response = await fetch(apiUrl, {
         method: "POST",
@@ -67,7 +68,7 @@ export default function EmailResultsForm({
         body: JSON.stringify({
           to: formState.email,
           subject: "esa44",
-          templateId: "d-36cc6833348d4da49c115d42b8033a6d",
+          templateId: "d-d135af506f904cb791170030ea4c5f26",
           dynamicTemplateData: {
             username: formState.username,
             date: formattedDate,

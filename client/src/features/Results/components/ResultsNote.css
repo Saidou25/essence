@@ -51,13 +51,13 @@
   }
   .tab-text-impact {
     font-size: 18px;
-    width: 85%;
+    width: 90%;
   }
 }
 @media screen and (max-width: 990px) {
   .tab-text-impact {
     font-size: 18px;
-    width: 85%;
+    width: 90%;
   }
 }
 @media screen and (max-width: 715px) {
@@ -70,10 +70,18 @@
   .princetone-link3 {
     font-size: 16px;
   }
+  .tab-text-impact {
+    margin-bottom: 10%;
+  }
 }
 @media screen and (max-width: 595px) {
   .tab-text-impact {
     border: double;
+  }
+}
+@media screen and (max-width: 570px) {
+  .tab-text-impact {
+    width: 100%;
   }
 }
 @media screen and (max-width: 540px) {
@@ -83,18 +91,21 @@
 }
 @media screen and (max-width: 485px) {
   .tab-text-impact {
-    padding: 2% 1% 2% 1%;
+      padding: 3% 0 3% 0;
+       margin-bottom: 10%;
   }
 }
 @media screen and (max-width: 414px) {
   .tab-text-impact {
     border: double;
     border-width: 4px;
-    width: 86%;
+    width: 100%;
     margin: auto;
     background-color: #f1f1f1;
     border-radius: 20px;
     font-size: 14px;
+    padding: 3% 0 3% 0;
+    margin-bottom: 10%;
   }
   .princetone-link1,
   .princetone-link2,
