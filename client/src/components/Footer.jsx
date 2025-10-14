@@ -7,9 +7,53 @@ import "./Footer.css";
 export default function Footer() {
   return (
     <div className="footer-container no-print" role="footer">
+      <div className="row top-row-footer g-0">
+        <span
+          className="col-sm-12 col-md-2 col-xl-2 link-text-top"
+          onClick={() =>
+            window.open("https://princetongreen.org/")
+          }
+        >
+          Welcome Home
+        </span>
+        <span
+          className="col-sm-12 col-md-3 col-xl-2 link-text-top"
+          onClick={() =>
+            window.open("https://newearthcivilization.com/new-earth-community")
+          }
+        >
+          New Earth Community
+        </span>
+        <span
+          className="col-sm-12 col-md-2 col-xl-2 link-text-top"
+          onClick={() =>
+            window.open("https://newearthcivilization.com/our-cosmic-cluster")
+          }
+        >
+          Cosmic Cluster
+        </span>
+        <span
+          className="col-sm-12 col-md-2 col-xl-2 link-text-top"
+          onClick={() =>
+            window.open("https://newearthcivilization.com/free-resources")
+          }
+        >
+          Free Resources
+        </span>
+        <span
+          className="col-sm-12 col-md-2 col-xl-2 link-text-top"
+          onClick={() =>
+            window.open("https://princetongreen.org/terms-and-conditions")
+          }
+        >
+          New Earth Store
+        </span>
+      </div>
       <div className="contact-us">
-        <span className="contact-text"
-         onClick={() => window.open("https://princetongreen.org")}>
+        <span
+          className="contact-text"
+          onClick={() => window.open("https://princetongreen.org")}
+        >
           Proudly powered by princetongreen.org
         </span>
         {/* <span
@@ -89,10 +133,12 @@ export default function Footer() {
       </div>
       <div className="company-container">
         <span className="company-logo">©</span>
-        <span className="company"
-        onClick={() =>
-            window.open("https://princetongreen.org")
-          }>2025 Princeton Green LLC</span>
+        <span
+          className="company"
+          onClick={() => window.open("https://princetongreen.org")}
+        >
+          2025 Princeton Green LLC
+        </span>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 @font-face {
   font-family: "Open Sans";
-  src: url("/assets/fonts/OpenSans-VariableFont_wdth,wght.woff2") format("woff2-variations");
+  src: url("/assets/fonts/OpenSans-VariableFont_wdth,wght.woff2")
+    format("woff2-variations");
   font-weight: 200;
   /* font-stretch: 75% 100%; */
   font-style: normal;
@@ -9,7 +10,8 @@
 
 @font-face {
   font-family: "Open Sans";
-  src: url("/assets/fonts/OpenSans-Italic-VariableFont_wdth,wght.woff2") format("woff2-variations");
+  src: url("/assets/fonts/OpenSans-Italic-VariableFont_wdth,wght.woff2")
+    format("woff2-variations");
   font-weight: 200;
   /* font-stretch: 75% 100%; */
   font-style: italic;
@@ -24,22 +26,29 @@
   padding-top: 3%;
   padding-bottom: 2%;
   width: 100%;
-  font-family: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+.top-row-footer {
+  /* margin-bottom: 2%; */
+  width: 70%;
+  margin: auto !important;
+  padding-bottom: 2%;
 }
 .contact-us {
   margin-bottom: 1%;
   cursor: pointer;
   text-align: center;
-   font-size: 18px !important;
-  font-family: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
-
+  font-size: 18px !important;
+  font-family: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto,
+    "Helvetica Neue", Arial, sans-serif;
 }
 .contact-text {
   color: #08ffb9;
   letter-spacing: 1px;
   /* font-family: "Poppins", sans-serif; */
   margin-top: 2%;
-/* font-family: "Open Sans", sans-serif !important; */
+  /* font-family: "Open Sans", sans-serif !important; */
   font-size: 18px;
 }
 .logos-container {
@@ -78,12 +87,21 @@
   font-size: 18px;
   color: #08ffb9;
 }
+.link-text-top {
+  cursor: pointer;
+  /* font-family: "Poppins", sans-serif; */
+  font-family: "Open Sans", sans-serif !important;
+  text-align: center;
+  margin: auto;
+  font-size: 18px;
+  color: #08ffb9;
+}
 .terms {
   display: flex;
   flex-direction: column;
   color: #08ffb9;
   margin-top: 2%;
-    font-family: "Open Sans", sans-serif !important;
+  font-family: "Open Sans", sans-serif !important;
 }
 .company-container {
   margin-top: 2%;
@@ -93,10 +111,10 @@
   color: #08ffb9;
   letter-spacing: 1px;
   font-family: "Poppins", sans-serif;
-    /* font-family: "Open Sans", sans-serif !important; */
+  /* font-family: "Open Sans", sans-serif !important; */
   font-size: 18px;
   font-weight: 200 !important;
-   font-optical-sizing: auto;
+  font-optical-sizing: auto;
 }
 .company-logo {
   color: #08ffb9;
@@ -105,14 +123,35 @@
   width: 40px !important;
   height: 40px !important;
   margin-right: 5px;
-    font-size: 20px;   /* controls size of © */
-  line-height: 1;    /* keeps it snug */
+  font-size: 20px; /* controls size of © */
+  line-height: 1; /* keeps it snug */
+}
+@media screen and (max-width: 1540px) {
+  .top-row-footer {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 1450px) {
+  .top-row-footer {
+    width: 85%;
+  }
+}
+@media screen and (max-width: 1270px) {
+  .top-row-footer {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 920px) {
+  .top-row-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 }
 @media screen and (max-width: 670px) {
   .footer-container {
-  margin-top: 0;
-
-}
+    margin-top: 0;
+  }
 }
 @media screen and (max-width: 414px) {
   .contact-us {
