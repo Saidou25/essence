@@ -10,7 +10,7 @@
 }
 
 .tab-text-impact {
-  width: 76%;
+  width: 80%;
   margin: auto;
   margin-top: 5%;
   text-align: center;
@@ -81,7 +81,7 @@
 }
 @media screen and (max-width: 570px) {
   .tab-text-impact {
-    width: 100%;
+    width: 98%;
   }
 }
 @media screen and (max-width: 540px) {

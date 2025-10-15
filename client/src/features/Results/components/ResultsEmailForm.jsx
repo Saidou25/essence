@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
+import { AiOutlineMail } from "react-icons/ai";
+import { VscSend } from "react-icons/vsc";
 import { resultsData } from "../data/resultsData";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import Button from "../../../components/Button";
 
 import "./ResultsEmailForm.css";
@@ -42,7 +44,7 @@ export default function EmailResultsForm({
     e.preventDefault();
     setIsSending(true);
     const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formState.email);
-    console.log("is valid: ", isValidEmail)
+    console.log("is valid: ", isValidEmail);
     if (!isValidEmail) {
       setErrorMessage("Invalid email format");
       setSubmitButtonDisabled(true);
@@ -50,10 +52,10 @@ export default function EmailResultsForm({
       return;
     }
     const apiUrl =
-    import.meta.env.MODE === "development"
-      ? "http://127.0.0.1:5001/essence-9f702/us-central1/sendEmail"
-      : "https://sendemail-yo7s25d5wq-uc.a.run.app"; // Deployed URL
-  
+      import.meta.env.MODE === "development"
+        ? "http://127.0.0.1:5001/essence-9f702/us-central1/sendEmail"
+        : "https://sendemail-yo7s25d5wq-uc.a.run.app"; // Deployed URL
+
     // const apiUrl =
     //   process.env.NODE_ENV === "development"
     //     ? "http://127.0.0.1:5001/essence-9f702/us-central1/sendEmail"
@@ -78,7 +80,7 @@ export default function EmailResultsForm({
           },
         }),
       });
-       await response.json();
+      await response.json();
       if (response.ok) {
         setErrorMessage("");
         setSuccess("Email sent successfully");
@@ -90,7 +92,7 @@ export default function EmailResultsForm({
         setTemplateAwakeness("");
         setTemplatePerspective("");
       }
-    } catch {  
+    } catch {
       setErrorMessage("Failed to send email. Please try again.");
       setSubmitButtonDisabled(true);
     } finally {
@@ -113,81 +115,94 @@ export default function EmailResultsForm({
   }, [totalAssessment, resultsData]);
 
   return (
-    <div className="allmailform-container" data-testid="email-form">
-      <div className="close-container">
-        <RxCross2
-          onClick={() => hideEmail(false)}
-          style={{
-            color: "white",
-            width: "25px",
-            height: "25px",
-            cursor: "pointer",
-          }}
-        />
-      </div>
-      <div className="email-form-container">
-        <div className="email-form-container-left">
-          <h2 className="form-message-title">Inbox Results</h2>
-          <p className="form-message">
-            To receive your ESA44 results via email, please fill out the form.
-          </p>
+    <div
+      className="allmailform-container fade-in-form"
+      data-testid="email-form"
+    >
+      <div className="slide-inner">
+        <div className="close-container">
+          <RxCross2
+            onClick={() => hideEmail(false)}
+            style={{
+              color: "white",
+              width: "25px",
+              height: "25px",
+              cursor: "pointer",
+            }}
+          />
         </div>
-        <form className="email-form">
-          <label htmlFor="username-input" className="form-label">
-            First Name
-          </label>
-          <br />
-          <input
-            className="form-input"
-            id="username-input"
-            type="text"
-            placeholder="enter your first name"
-            autoComplete="on"
-            name="username"
-            value={formState.username || ""}
-            onChange={handleChange}
-            aria-invalid={!!errorMessage}
-          />
-          <br />
-          <label htmlFor="email-input" className="form-label">
-            Email Address
-          </label>
-          <br />
-          <input
-            className="form-input"
-            id="email-input"
-            type="email"
-            placeholder="enter your email address"
-            autoComplete="on"
-            name="email"
-            value={formState.email || ""}
-            onChange={handleChange}
-            aria-invalid={!!errorMessage}
-          />
-          <br />
-          <br />
-          {errorMessage && (
-            <p aria-live="polite" className="error-message">
-              {errorMessage}
+        <div className="email-form-container">
+          <div className="email-form-container-left">
+            <div className="go-mail-div">
+              <AiOutlineMail className="go-mail" alt="email logo" />
+            </div>
+            <h2 className="form-message-title">Inbox Results</h2>
+            <p className="form-message">
+              To receive your ESA44 results via email, please fill out the form.
             </p>
-          )}
-          {success && (
-            <p aria-live="polite" className="success">
-              {success}
-            </p>
-          )}
-          <br />
-          <Button
-            role="button"
-            buttonType="submit"
-            handleSubmit={sendEmail}
-            buttonLoading={isSending}
-            buttonDisabled={submitButtonDisabled}
-          >
-            SUBMIT
-          </Button>
-          <br />
-        </form>
+          </div>
+          <form className="email-form">
+            <label htmlFor="username-input" className="form-label">
+              First Name
+            </label>
+            <br />
+            <input
+              className="form-input"
+              id="username-input"
+              type="text"
+              placeholder="enter your first name"
+              autoComplete="on"
+              name="username"
+              value={formState.username || ""}
+              onChange={handleChange}
+              aria-invalid={!!errorMessage}
+            />
+            <br />
+            <label htmlFor="email-input" className="form-label">
+              Email Address
+            </label>
+            <br />
+            <input
+              className="form-input"
+              id="email-input"
+              type="email"
+              placeholder="enter your email address"
+              autoComplete="on"
+              name="email"
+              value={formState.email || ""}
+              onChange={handleChange}
+              aria-invalid={!!errorMessage}
+            />
+            <br />
+            {errorMessage && (
+              <p aria-live="polite" className="error-message">
+                {errorMessage}
+              </p>
+            )}
+            {success && (
+              <p aria-live="polite" className="success">
+                {success}
+              </p>
+            )}
+            <br />
+            {isSending ? (
+              <div className="sending-email" aria-label="Send email">
+                <VscSend className="send-icon" />
+              </div>
+            ) : (
+              <Button
+                role="button"
+                buttonType="submit"
+                handleSubmit={sendEmail}
+                // handleSubmit={() => setIsSending(true)} for testing
+                buttonLoading={isSending}
+                buttonDisabled={submitButtonDisabled}
+              >
+                SUBMIT
+              </Button>
+            )}
+          </form>
+        </div>
       </div>
     </div>
   );

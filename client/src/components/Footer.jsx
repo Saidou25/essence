@@ -11,7 +11,7 @@ export default function Footer() {
         <span
           className="col-sm-12 col-md-2 col-xl-2 link-text-top"
           onClick={() =>
-            window.open("https://princetongreen.org/")
+            window.open("https://newearthcivilization.com/")
           }
         >
           Welcome Home

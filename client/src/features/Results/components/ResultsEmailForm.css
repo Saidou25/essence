@@ -4,6 +4,39 @@
 }
 .allmailform-container {
   margin-top: 5%;
+  margin-bottom: 0;
+}
+
+.fade-in-form {
+  /* overflow: hidden;  */
+  /* transition: 2s; */
+  /* animation: fadeSlideIn 0.5s ease-out both; */
+  display: grid;
+  grid-template-rows: 0fr;        /* start collapsed */
+  animation: slideOpen 1s ease forwards,
+  fadeSlideIn 2s ease forwards;
+
+}
+/* Hide overflow during the slide */
+.slide-inner {
+  overflow: hidden;
+}
+/* Tweak these to taste */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+/* Keyframes: behaves like animating to 'auto' without hard-coding a height */
+@keyframes slideOpen {
+  to { grid-template-rows: 1fr; }
+}
+.fade-in-div {
+  animation: fadeIn 0.3s linear;
 }
 .email-form-container {
   display: flex;
@@ -11,7 +44,7 @@
   justify-content: space-around;
   border: none;
   border-color: black;
-  padding-bottom: 3%;
+  /* padding-bottom: 3%; */
   color: white;
   margin-bottom: 5%;
   position: relative;
@@ -26,6 +59,21 @@
 }
 .email-form-container-left {
   width: 60%;
+}
+.go-mail-div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.go-mail {
+  padding: 10px;
+  height: auto;
+  width: 4rem;
+  font-size: 3rem;
+  border: solid 2px;
+  border-radius: 50%;
+  
 }
 .form-message-title {
   letter-spacing: 1px;
@@ -58,6 +106,41 @@
   height: 40px;
   padding-left: 2%;
   letter-spacing: 1px;
+}
+/* .reusable-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.sending-email {
+  position: relative;
+  display: flex;
+  width: 70%;
+  height: 32px;
+  overflow: hidden;
+  margin: auto;
+  justify-content: center;
+  margin-bottom: 7%;
+}
+
+.send-icon {
+  position: absolute;
+  top: 50%;
+  left: 0; /* start at left edge */
+  transform: translateY(-50%);
+  font-size: 30px; /* ≈ 1em icon width */
+  animation: mail-slide 3s linear infinite; /* no 'alternate' */
+  font-weight: 400 !important;
+}
+
+@keyframes mail-slide {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: calc(100% - 1em);
+  } /* stop at right edge, then reset to 0 */
 }
 
 .error-message {
@@ -96,7 +179,7 @@
 }
 @media screen and (max-width: 600px) {
   .email-form {
-     width: 90%;
+    width: 90%;
   }
 }
 @media screen and (max-width: 414px) {

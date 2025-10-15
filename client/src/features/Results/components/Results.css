@@ -49,7 +49,7 @@
   font-family: "Poppins", sans-serif;
 }
 .bottom-text {
-  padding-top: 6%;
+  /* padding-top: 6%; */
   font-size: 18px;
   font-family: "Poppins", sans-serif;
   text-align: center;
@@ -181,7 +181,7 @@
     font-size: 14px;
   }
   .bottom-text {
-    padding-top: 6%;
+    /* padding-top: 6%; */
     font-size: 14px;
     text-align: center;
     width: 87%;

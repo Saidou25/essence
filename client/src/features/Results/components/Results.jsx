@@ -147,7 +147,7 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
             showForm={showEmail}
           />
         )}
-        <p className="bottom-text no-print" data-testid="be-sure">
+        <p className="bottom-text no-print" data-testid="be-sure"><br />
           <span>Please record your</span>
           <span className="esa44"> ESA44 </span>
           <span>results on page 11 or 303 of </span>
