@@ -16,6 +16,7 @@ import PrincetonGreenLogo from "../../../components/PrincetonGreenLogo";
 import html2pdf from "html2pdf.js";
 import EmailResultsForm from "./ResultsEmailForm";
 import ResultsNote from "./ResultsNote";
+import Button from "../../../components/Button";
 
 import "./Results.css";
 
@@ -147,7 +148,8 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
             showForm={showEmail}
           />
         )}
-        <p className="bottom-text no-print" data-testid="be-sure"><br />
+        <p className="bottom-text no-print" data-testid="be-sure">
+          <br />
           <span>Please record your</span>
           <span className="esa44"> ESA44 </span>
           <span>results on page 11 or 303 of </span>
@@ -169,6 +171,31 @@ export default function Results({ userAnswers, resetApp, resetQuestions }) {
       </div>
       <br />
       <ResultsNote />
+      <div className="row book-container g-0">
+        <div className="col-12 col-sm-5 col-md-5 col-lg-4 col-xl-3 ratio-book ratio-16x9">
+          <img
+            alt="essence book's cover"
+            src="https://assets.zyrosite.com/mP47Mwo0WQhVBkl5/essence-front-cover-our-2024-Y4LV0PgGvWUr8aeV.jpg"
+            className="img-fluid object-fit-contain object-position-center illustration-animated"
+          />
+        </div>
+        <div className="col-12 col-sm-6 col-md-5 col-lg-7 col-xl-5 book-text">
+          <p className="">
+            ESSENCE (Book #1) Ann Emerson & Bo Lockwood Hardback, Paperback,
+            Kindle, Audible
+          </p>
+          <p className="">$20.24 Paperback</p>
+          <br />
+          <a
+            className="button-book"
+            href="https://www.amazon.com/dp/0985583878/?tag=NewEarth09A-20"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            BUY ON AMAZON
+          </a>
+        </div>
+      </div>
     </>
   );
 }
