@@ -12,9 +12,9 @@ import "./components/Footer.css";
 import "./App.css";
 
 export default function App() {
-  const [showQuestions, setShowQuestions] = useState(true);
+  const [showQuestions, setShowQuestions] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
-  const [showResults, setShowResults] = useState(false);
+  const [showResults, setShowResults] = useState(true);
   const [allanswers, setAllAnswers] = useState("");
   const [resetQuestionsComp, setResetQuestionsComp] = useState(false);
 

@@ -123,6 +123,11 @@
   color: white;
   transition: 0.5s;
 }
+.button-book.is-disabled {
+  pointer-events: none; /* block more clicks */
+  cursor: not-allowed; /* 🚫 cursor */
+  opacity: 0.6; /* optional visual */
+}
 @media print {
   .no-print {
     display: none !important;
@@ -161,8 +166,8 @@
   .no-print {
     display: none !important;
   }
-   .ratio-book {
-   max-height: 300px !important;
+  .ratio-book {
+    max-height: 300px !important;
   }
   .book-text {
     padding-left: 2%;
@@ -198,7 +203,7 @@
   .split {
     font-size: 16px;
   }
-   .book-container {
+  .book-container {
     padding-top: 0;
     padding-bottom: 5%;
   }
@@ -207,12 +212,12 @@
   .results-main-container {
     width: 90%;
   }
-   .book-container {
+  .book-container {
     padding-top: 0;
     padding-bottom: 10%;
   }
   .ratio-book {
-   max-height: 300px;
+    max-height: 300px;
   }
 }
 @media screen and (max-width: 595px) {
@@ -222,20 +227,20 @@
 }
 @media screen and (max-width: 575px) {
   .ratio-book {
-   max-height: 300px;
+    max-height: 300px;
   }
   .book-text {
-  color: white;
-  text-align: center;
-  font-size: 14px;
-  margin-top: 5% !important;
-}
-.button-book {
-  padding: 2% 2%;
-  font-size: 16px;
-  /* letter-spacing: 2px; */
-  font-weight: 600;
-}
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 5% !important;
+  }
+  .button-book {
+    padding: 2% 2%;
+    font-size: 16px;
+    /* letter-spacing: 2px; */
+    font-weight: 600;
+  }
 }
 @media screen and (max-width: 570px) {
   .results-main-container {
@@ -282,7 +287,7 @@
     font-style: italic;
   }
 
-   .button-book {
+  .button-book {
     border-width: 3px;
     font-size: 16px;
   }
